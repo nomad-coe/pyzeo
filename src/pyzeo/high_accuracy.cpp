@@ -4,45 +4,26 @@
 {
     "distutils": {
         "depends": [
-            "src/area_and_volume.h",
-            "src/cycle.h",
-            "src/geometry.h",
-            "src/graphstorage.h",
-            "src/network.h",
-            "src/networkio.h",
-            "src/networkstorage.h",
-            "src/voronoicell.h"
+            "src/sphere_approx.h"
         ],
         "extra_compile_args": [
-            "-fPIC",
             "-Wall",
             "-ansi",
             "-pedantic",
             "-O3"
         ],
         "include_dirs": [
-            "src/zeoplusplus",
-            "src/voro++/src"
+            "src/pyzeo"
         ],
         "language": "c++",
-        "name": "zeoplusplus.cycle",
+        "name": "pyzeo.high_accuracy",
         "sources": [
-            "src/zeoplusplus/cycle.pyx",
-            "src/cycle.cc",
+            "src/pyzeo/high_accuracy.pyx",
+            "src/networkio.cc",
+            "src/grid.cc",
+            "src/symbcalc.cc",
             "src/sphere_approx.cc",
-            "src/voro++/src/cell.cc",
-            "src/voro++/src/c_loops.cc",
-            "src/voro++/src/cmd_line.cc",
-            "src/voro++/src/common.cc",
-            "src/voro++/src/container.cc",
-            "src/voro++/src/container_prd.cc",
-            "src/voro++/src/pre_container.cc",
-            "src/voro++/src/unitcell.cc",
-            "src/voro++/src/v_base.cc",
-            "src/voro++/src/v_base_wl.cc",
-            "src/voro++/src/v_compute.cc",
             "src/voro++/src/voro++.cc",
-            "src/voro++/src/wall.cc",
             "src/networkanalysis.cc",
             "src/networkstorage.cc",
             "src/networkinfo.cc",
@@ -65,7 +46,7 @@
             "src/string_additions.cc"
         ]
     },
-    "module_name": "zeoplusplus.cycle"
+    "module_name": "pyzeo.high_accuracy"
 }
 END: Cython Metadata */
 
@@ -821,9 +802,11 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__zeoplusplus__cycle
-#define __PYX_HAVE_API__zeoplusplus__cycle
+#define __PYX_HAVE__pyzeo__high_accuracy
+#define __PYX_HAVE_API__pyzeo__high_accuracy
 /* Early includes */
+#include <string.h>
+#include <string>
 #include "ios"
 #include "new"
 #include "stdexcept"
@@ -850,8 +833,7 @@ static CYTHON_INLINE float __PYX_NAN() {
 #include "../networkio.h"
 #include "../network.h"
 #include "../area_and_volume.h"
-#include "../graphstorage.h"
-#include "../cycle.h"
+#include "../sphere_approx.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -1061,167 +1043,138 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "src/zeoplusplus/cycle.pyx",
-  "src/zeoplusplus/cycle.pxd",
-  "src/zeoplusplus/geometry.pxd",
-  "src/zeoplusplus/voronoicell.pxd",
-  "src/zeoplusplus/netstorage.pxd",
-  "src/zeoplusplus/graphstorage.pxd",
+  "src/pyzeo/high_accuracy.pyx",
+  "stringsource",
+  "src/pyzeo/geometry.pxd",
+  "src/pyzeo/voronoicell.pxd",
+  "src/pyzeo/netstorage.pxd",
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_11zeoplusplus_8geometry_Xyz;
-struct __pyx_obj_11zeoplusplus_8geometry_Point;
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace;
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell;
-struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell;
-struct __pyx_obj_11zeoplusplus_10netstorage_Atom;
-struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork;
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode;
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork;
-struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork;
-struct __pyx_obj_11zeoplusplus_5cycle_Cycle;
+struct __pyx_obj_5pyzeo_8geometry_Xyz;
+struct __pyx_obj_5pyzeo_8geometry_Point;
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace;
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell;
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell;
+struct __pyx_obj_5pyzeo_10netstorage_Atom;
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork;
 
-/* "zeoplusplus/geometry.pxd":24
+/* "pyzeo/geometry.pxd":24
  * 
  * 
  * cdef class Xyz:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper declaration for Zeo++ XYZ class defined in geometry.h
  */
-struct __pyx_obj_11zeoplusplus_8geometry_Xyz {
+struct __pyx_obj_5pyzeo_8geometry_Xyz {
   PyObject_HEAD
   XYZ *thisptr;
 };
 
 
-/* "zeoplusplus/geometry.pxd":32
+/* "pyzeo/geometry.pxd":32
  * 
  * 
  * cdef class Point:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper declaration for Zeo++ Point class defined in geometry.h
  */
-struct __pyx_obj_11zeoplusplus_8geometry_Point {
+struct __pyx_obj_5pyzeo_8geometry_Point {
   PyObject_HEAD
   Point *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":39
+/* "pyzeo/voronoicell.pxd":39
  * 
  * 
  * cdef class VorFace:             # <<<<<<<<<<<<<<
  *     cdef  VOR_FACE* thisptr
  * 
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace {
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace {
   PyObject_HEAD
   VOR_FACE *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":42
+/* "pyzeo/voronoicell.pxd":42
  *     cdef  VOR_FACE* thisptr
  * 
  * cdef class VorCell:             # <<<<<<<<<<<<<<
  *     cdef VOR_CELL* thisptr
  * 
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell {
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell {
   PyObject_HEAD
   VOR_CELL *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":45
+/* "pyzeo/voronoicell.pxd":45
  *     cdef VOR_CELL* thisptr
  * 
  * cdef class BasicVCell:             # <<<<<<<<<<<<<<
  *     cdef BASIC_VCELL* thisptr
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell {
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell {
   PyObject_HEAD
   BASIC_VCELL *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":120
+/* "pyzeo/netstorage.pxd":120
  *             VORONOI_NETWORK* vornet, ATOM_NETWORK* atmnet)
  * 
  * cdef class Atom:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ ATOM class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_Atom {
+struct __pyx_obj_5pyzeo_10netstorage_Atom {
   PyObject_HEAD
   ATOM *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":126
+/* "pyzeo/netstorage.pxd":126
  *     cdef ATOM* thisptr
  * 
  * cdef class AtomNetwork:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ ATOM_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork {
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork {
   PyObject_HEAD
   ATOM_NETWORK *thisptr;
   int rad_flag;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":135
+/* "pyzeo/netstorage.pxd":135
  *     cdef bint rad_flag
  * 
  * cdef class VoronoiNode:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ VOR_NODE class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode {
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode {
   PyObject_HEAD
   VOR_NODE *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":141
+/* "pyzeo/netstorage.pxd":141
  *     cdef VOR_NODE* thisptr
  * 
  * cdef class VoronoiNetwork:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ VORONOI_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork {
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork {
   PyObject_HEAD
   VORONOI_NETWORK *thisptr;
-};
-
-
-/* "zeoplusplus/graphstorage.pxd":34
- * 
- * 
- * cdef class DijkstraNetwork:             # <<<<<<<<<<<<<<
- *     """
- *     Cython wrapper class for Zeo++ DIJKSTRA_NETWORK class.
- */
-struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork {
-  PyObject_HEAD
-  DIJKSTRA_NETWORK *thisptr;
-};
-
-
-/* "zeoplusplus/cycle.pxd":29
- * 
- * 
- * cdef class Cycle:             # <<<<<<<<<<<<<<
- *     """
- *     Cython wrapper class for Zeo++ CYCLE class.
- */
-struct __pyx_obj_11zeoplusplus_5cycle_Cycle {
-  PyObject_HEAD
-  CYCLE *thisptr;
 };
 
 
@@ -1299,8 +1252,77 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject
 /* GetBuiltinName.proto */
 static PyObject *__Pyx_GetBuiltinName(PyObject *name);
 
-/* ExtTypeTest.proto */
-static CYTHON_INLINE int __Pyx_TypeTest(PyObject *obj, PyTypeObject *type);
+/* RaiseDoubleKeywords.proto */
+static void __Pyx_RaiseDoubleKeywordsError(const char* func_name, PyObject* kw_name);
+
+/* ParseKeywords.proto */
+static int __Pyx_ParseOptionalKeywords(PyObject *kwds, PyObject **argnames[],\
+    PyObject *kwds2, PyObject *values[], Py_ssize_t num_pos_args,\
+    const char* function_name);
+
+/* RaiseArgTupleInvalid.proto */
+static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
+    Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
+
+/* PyDictVersioning.proto */
+#if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
+#define __PYX_DICT_VERSION_INIT  ((PY_UINT64_T) -1)
+#define __PYX_GET_DICT_VERSION(dict)  (((PyDictObject*)(dict))->ma_version_tag)
+#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)\
+    (version_var) = __PYX_GET_DICT_VERSION(dict);\
+    (cache_var) = (value);
+#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP) {\
+    static PY_UINT64_T __pyx_dict_version = 0;\
+    static PyObject *__pyx_dict_cached_value = NULL;\
+    if (likely(__PYX_GET_DICT_VERSION(DICT) == __pyx_dict_version)) {\
+        (VAR) = __pyx_dict_cached_value;\
+    } else {\
+        (VAR) = __pyx_dict_cached_value = (LOOKUP);\
+        __pyx_dict_version = __PYX_GET_DICT_VERSION(DICT);\
+    }\
+}
+static CYTHON_INLINE PY_UINT64_T __Pyx_get_tp_dict_version(PyObject *obj);
+static CYTHON_INLINE PY_UINT64_T __Pyx_get_object_dict_version(PyObject *obj);
+static CYTHON_INLINE int __Pyx_object_dict_version_matches(PyObject* obj, PY_UINT64_T tp_dict_version, PY_UINT64_T obj_dict_version);
+#else
+#define __PYX_GET_DICT_VERSION(dict)  (0)
+#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)
+#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP)  (VAR) = (LOOKUP);
+#endif
+
+/* GetModuleGlobalName.proto */
+#if CYTHON_USE_DICT_VERSIONS
+#define __Pyx_GetModuleGlobalName(var, name)  do {\
+    static PY_UINT64_T __pyx_dict_version = 0;\
+    static PyObject *__pyx_dict_cached_value = NULL;\
+    (var) = (likely(__pyx_dict_version == __PYX_GET_DICT_VERSION(__pyx_d))) ?\
+        (likely(__pyx_dict_cached_value) ? __Pyx_NewRef(__pyx_dict_cached_value) : __Pyx_GetBuiltinName(name)) :\
+        __Pyx__GetModuleGlobalName(name, &__pyx_dict_version, &__pyx_dict_cached_value);\
+} while(0)
+#define __Pyx_GetModuleGlobalNameUncached(var, name)  do {\
+    PY_UINT64_T __pyx_dict_version;\
+    PyObject *__pyx_dict_cached_value;\
+    (var) = __Pyx__GetModuleGlobalName(name, &__pyx_dict_version, &__pyx_dict_cached_value);\
+} while(0)
+static PyObject *__Pyx__GetModuleGlobalName(PyObject *name, PY_UINT64_T *dict_version, PyObject **dict_cached_value);
+#else
+#define __Pyx_GetModuleGlobalName(var, name)  (var) = __Pyx__GetModuleGlobalName(name)
+#define __Pyx_GetModuleGlobalNameUncached(var, name)  (var) = __Pyx__GetModuleGlobalName(name)
+static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name);
+#endif
+
+/* PySequenceContains.proto */
+static CYTHON_INLINE int __Pyx_PySequence_ContainsTF(PyObject* item, PyObject* seq, int eq) {
+    int result = PySequence_Contains(seq, item);
+    return unlikely(result < 0) ? result : (result == (eq == Py_EQ));
+}
+
+/* PyObjectCall.proto */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw);
+#else
+#define __Pyx_PyObject_Call(func, arg, kw) PyObject_Call(func, arg, kw)
+#endif
 
 /* PyThreadStateGet.proto */
 #if CYTHON_FAST_THREAD_STATE
@@ -1341,86 +1363,8 @@ static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject 
 /* RaiseException.proto */
 static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause);
 
-/* PyFunctionFastCall.proto */
-#if CYTHON_FAST_PYCALL
-#define __Pyx_PyFunction_FastCall(func, args, nargs)\
-    __Pyx_PyFunction_FastCallDict((func), (args), (nargs), NULL)
-#if 1 || PY_VERSION_HEX < 0x030600B1
-static PyObject *__Pyx_PyFunction_FastCallDict(PyObject *func, PyObject **args, Py_ssize_t nargs, PyObject *kwargs);
-#else
-#define __Pyx_PyFunction_FastCallDict(func, args, nargs, kwargs) _PyFunction_FastCallDict(func, args, nargs, kwargs)
-#endif
-#define __Pyx_BUILD_ASSERT_EXPR(cond)\
-    (sizeof(char [1 - 2*!(cond)]) - 1)
-#ifndef Py_MEMBER_SIZE
-#define Py_MEMBER_SIZE(type, member) sizeof(((type *)0)->member)
-#endif
-#if CYTHON_FAST_PYCALL
-  static size_t __pyx_pyframe_localsplus_offset = 0;
-  #include "frameobject.h"
-#if PY_VERSION_HEX >= 0x030b00a6
-  #ifndef Py_BUILD_CORE
-    #define Py_BUILD_CORE 1
-  #endif
-  #include "internal/pycore_frame.h"
-#endif
-  #define __Pxy_PyFrame_Initialize_Offsets()\
-    ((void)__Pyx_BUILD_ASSERT_EXPR(sizeof(PyFrameObject) == offsetof(PyFrameObject, f_localsplus) + Py_MEMBER_SIZE(PyFrameObject, f_localsplus)),\
-     (void)(__pyx_pyframe_localsplus_offset = ((size_t)PyFrame_Type.tp_basicsize) - Py_MEMBER_SIZE(PyFrameObject, f_localsplus)))
-  #define __Pyx_PyFrame_GetLocalsplus(frame)\
-    (assert(__pyx_pyframe_localsplus_offset), (PyObject **)(((char *)(frame)) + __pyx_pyframe_localsplus_offset))
-#endif // CYTHON_FAST_PYCALL
-#endif
-
-/* PyObjectCall.proto */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw);
-#else
-#define __Pyx_PyObject_Call(func, arg, kw) PyObject_Call(func, arg, kw)
-#endif
-
-/* PyObjectCallMethO.proto */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject *arg);
-#endif
-
-/* PyObjectCallNoArg.proto */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func);
-#else
-#define __Pyx_PyObject_CallNoArg(func) __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL)
-#endif
-
-/* ListAppend.proto */
-#if CYTHON_USE_PYLIST_INTERNALS && CYTHON_ASSUME_SAFE_MACROS
-static CYTHON_INLINE int __Pyx_PyList_Append(PyObject* list, PyObject* x) {
-    PyListObject* L = (PyListObject*) list;
-    Py_ssize_t len = Py_SIZE(list);
-    if (likely(L->allocated > len) & likely(len > (L->allocated >> 1))) {
-        Py_INCREF(x);
-        PyList_SET_ITEM(list, len, x);
-        __Pyx_SET_SIZE(list, len + 1);
-        return 0;
-    }
-    return PyList_Append(list, x);
-}
-#else
-#define __Pyx_PyList_Append(L,x) PyList_Append(L,x)
-#endif
-
-/* PyObject_GenericGetAttrNoDict.proto */
-#if CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP && PY_VERSION_HEX < 0x03070000
-static CYTHON_INLINE PyObject* __Pyx_PyObject_GenericGetAttrNoDict(PyObject* obj, PyObject* attr_name);
-#else
-#define __Pyx_PyObject_GenericGetAttrNoDict PyObject_GenericGetAttr
-#endif
-
-/* PyObject_GenericGetAttr.proto */
-#if CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP && PY_VERSION_HEX < 0x03070000
-static PyObject* __Pyx_PyObject_GenericGetAttr(PyObject* obj, PyObject* attr_name);
-#else
-#define __Pyx_PyObject_GenericGetAttr PyObject_GenericGetAttr
-#endif
+/* ExtTypeTest.proto */
+static CYTHON_INLINE int __Pyx_TypeTest(PyObject *obj, PyTypeObject *type);
 
 /* TypeImport.proto */
 #ifndef __PYX_HAVE_RT_ImportType_proto
@@ -1431,32 +1375,6 @@ enum __Pyx_ImportType_CheckSize {
    __Pyx_ImportType_CheckSize_Ignore = 2
 };
 static PyTypeObject *__Pyx_ImportType(PyObject* module, const char *module_name, const char *class_name, size_t size, enum __Pyx_ImportType_CheckSize check_size);
-#endif
-
-/* PyDictVersioning.proto */
-#if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
-#define __PYX_DICT_VERSION_INIT  ((PY_UINT64_T) -1)
-#define __PYX_GET_DICT_VERSION(dict)  (((PyDictObject*)(dict))->ma_version_tag)
-#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)\
-    (version_var) = __PYX_GET_DICT_VERSION(dict);\
-    (cache_var) = (value);
-#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP) {\
-    static PY_UINT64_T __pyx_dict_version = 0;\
-    static PyObject *__pyx_dict_cached_value = NULL;\
-    if (likely(__PYX_GET_DICT_VERSION(DICT) == __pyx_dict_version)) {\
-        (VAR) = __pyx_dict_cached_value;\
-    } else {\
-        (VAR) = __pyx_dict_cached_value = (LOOKUP);\
-        __pyx_dict_version = __PYX_GET_DICT_VERSION(DICT);\
-    }\
-}
-static CYTHON_INLINE PY_UINT64_T __Pyx_get_tp_dict_version(PyObject *obj);
-static CYTHON_INLINE PY_UINT64_T __Pyx_get_object_dict_version(PyObject *obj);
-static CYTHON_INLINE int __Pyx_object_dict_version_matches(PyObject* obj, PY_UINT64_T tp_dict_version, PY_UINT64_T obj_dict_version);
-#else
-#define __PYX_GET_DICT_VERSION(dict)  (0)
-#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)
-#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP)  (VAR) = (LOOKUP);
 #endif
 
 /* CLineInTraceback.proto */
@@ -1491,9 +1409,6 @@ static void __Pyx_AddTraceback(const char *funcname, int c_line,
 #endif
 
 /* CIntToPy.proto */
-static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
-
-/* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 
 /* CIntFromPy.proto */
@@ -1522,11 +1437,15 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
+/* Module declarations from 'libc.string' */
+
+/* Module declarations from 'libcpp.string' */
+
 /* Module declarations from 'libcpp.vector' */
 
-/* Module declarations from 'zeoplusplus.geometry' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Xyz = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Point = 0;
+/* Module declarations from 'pyzeo.geometry' */
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Xyz = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Point = 0;
 
 /* Module declarations from 'libcpp.utility' */
 
@@ -1534,497 +1453,387 @@ static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Point = 0;
 
 /* Module declarations from 'libcpp.set' */
 
-/* Module declarations from 'zeoplusplus.voronoicell' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_VorFace = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_VorCell = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell = 0;
+/* Module declarations from 'pyzeo.voronoicell' */
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorFace = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorCell = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_BasicVCell = 0;
 
-/* Module declarations from 'zeoplusplus.netstorage' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_Atom = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork = 0;
+/* Module declarations from 'pyzeo.netstorage' */
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_Atom = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_AtomNetwork = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNode = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = 0;
 
-/* Module declarations from 'zeoplusplus.graphstorage' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_12graphstorage_DijkstraNetwork = 0;
+/* Module declarations from 'pyzeo.high_accuracy' */
+static std::string __pyx_convert_string_from_py_std__in_string(PyObject *); /*proto*/
+#define __Pyx_MODULE_NAME "pyzeo.high_accuracy"
+extern int __pyx_module_is_main_pyzeo__high_accuracy;
+int __pyx_module_is_main_pyzeo__high_accuracy = 0;
 
-/* Module declarations from 'zeoplusplus.cycle' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_5cycle_Cycle = 0;
-#define __Pyx_MODULE_NAME "zeoplusplus.cycle"
-extern int __pyx_module_is_main_zeoplusplus__cycle;
-int __pyx_module_is_main_zeoplusplus__cycle = 0;
-
-/* Implementation of 'zeoplusplus.cycle' */
+/* Implementation of 'pyzeo.high_accuracy' */
 static PyObject *__pyx_builtin_ValueError;
-static const char __pyx_k_it[] = "it";
-static const char __pyx_k_ids[] = "ids";
-static const char __pyx_k_iit[] = "iit";
+static const char __pyx_k_HI[] = "HI";
+static const char __pyx_k_S4[] = "S4";
+static const char __pyx_k_ACC[] = "ACC";
+static const char __pyx_k_AQC[] = "AQC";
+static const char __pyx_k_DDH[] = "DDH";
+static const char __pyx_k_DEF[] = "DEF";
+static const char __pyx_k_FCC[] = "FCC";
+static const char __pyx_k_ICC[] = "ICC";
+static const char __pyx_k_ICH[] = "ICH";
+static const char __pyx_k_LOW[] = "LOW";
+static const char __pyx_k_MED[] = "MED";
+static const char __pyx_k_OCC[] = "OCC";
+static const char __pyx_k_RIH[] = "RIH";
+static const char __pyx_k_S10[] = "S10";
+static const char __pyx_k_S20[] = "S20";
+static const char __pyx_k_S30[] = "S30";
+static const char __pyx_k_S40[] = "S40";
+static const char __pyx_k_S50[] = "S50";
+static const char __pyx_k_TIH[] = "TIH";
+static const char __pyx_k_S100[] = "S100";
+static const char __pyx_k_S500[] = "S500";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
-static const char __pyx_k_Cycle[] = "Cycle";
+static const char __pyx_k_S1000[] = "S1000";
+static const char __pyx_k_S10000[] = "S10000";
 static const char __pyx_k_atmnet[] = "atmnet";
-static const char __pyx_k_coords[] = "coords";
-static const char __pyx_k_cycles[] = "cycles";
-static const char __pyx_k_id_set[] = "id_set";
-static const char __pyx_k_points[] = "points";
-static const char __pyx_k_vornet[] = "vornet";
-static const char __pyx_k_new_xyz[] = "new_xyz";
+static const char __pyx_k_acc_set[] = "acc_set";
 static const char __pyx_k_ValueError[] = "ValueError";
-static const char __pyx_k_c_atmnet_ptr[] = "c_atmnet_ptr";
-static const char __pyx_k_c_vornet_ptr[] = "c_vornet_ptr";
-static const char __pyx_k_centroid_list[] = "centroid_list";
-static const char __pyx_k_zeoplusplus_cycle[] = "zeoplusplus.cycle";
+static const char __pyx_k_accuracy_kw[] = "_accuracy_kw";
+static const char __pyx_k_c_atmnetptr[] = "c_atmnetptr";
+static const char __pyx_k_accuracy_setting[] = "accuracy_setting";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_compute_face_centers[] = "compute_face_centers";
-static const char __pyx_k_compute_centroid_4cycles[] = "compute_centroid_4cycles";
-static const char __pyx_k_src_zeoplusplus_cycle_pyx[] = "src/zeoplusplus/cycle.pyx";
-static const char __pyx_k_Cython_file_defining_methods_fo[] = "\nCython file defining methods for computing the centroids of cycles\n";
-static PyObject *__pyx_n_s_Cycle;
+static const char __pyx_k_pyzeo_high_accuracy[] = "pyzeo.high_accuracy";
+static const char __pyx_k_high_accuracy_atmnet[] = "high_accuracy_atmnet";
+static const char __pyx_k_src_pyzeo_high_accuracy_pyx[] = "src/pyzeo/high_accuracy.pyx";
+static const char __pyx_k_Accuracy_setting_not_understood[] = "Accuracy setting not understood";
+static PyObject *__pyx_n_s_ACC;
+static PyObject *__pyx_n_s_AQC;
+static PyObject *__pyx_kp_s_Accuracy_setting_not_understood;
+static PyObject *__pyx_n_s_DDH;
+static PyObject *__pyx_n_s_DEF;
+static PyObject *__pyx_n_s_FCC;
+static PyObject *__pyx_n_s_HI;
+static PyObject *__pyx_n_s_ICC;
+static PyObject *__pyx_n_s_ICH;
+static PyObject *__pyx_n_s_LOW;
+static PyObject *__pyx_n_s_MED;
+static PyObject *__pyx_n_s_OCC;
+static PyObject *__pyx_n_s_RIH;
+static PyObject *__pyx_n_s_S10;
+static PyObject *__pyx_n_s_S100;
+static PyObject *__pyx_n_s_S1000;
+static PyObject *__pyx_n_s_S10000;
+static PyObject *__pyx_n_s_S20;
+static PyObject *__pyx_n_s_S30;
+static PyObject *__pyx_n_s_S4;
+static PyObject *__pyx_n_s_S40;
+static PyObject *__pyx_n_s_S50;
+static PyObject *__pyx_n_s_S500;
+static PyObject *__pyx_n_s_TIH;
 static PyObject *__pyx_n_s_ValueError;
+static PyObject *__pyx_n_s_acc_set;
+static PyObject *__pyx_n_s_accuracy_kw;
+static PyObject *__pyx_n_s_accuracy_setting;
 static PyObject *__pyx_n_s_atmnet;
-static PyObject *__pyx_n_s_c_atmnet_ptr;
-static PyObject *__pyx_n_s_c_vornet_ptr;
-static PyObject *__pyx_n_s_centroid_list;
+static PyObject *__pyx_n_s_c_atmnetptr;
 static PyObject *__pyx_n_s_cline_in_traceback;
-static PyObject *__pyx_n_s_compute_centroid_4cycles;
-static PyObject *__pyx_n_s_compute_face_centers;
-static PyObject *__pyx_n_s_coords;
-static PyObject *__pyx_n_s_cycles;
-static PyObject *__pyx_n_s_id_set;
-static PyObject *__pyx_n_s_ids;
-static PyObject *__pyx_n_s_iit;
-static PyObject *__pyx_n_s_it;
+static PyObject *__pyx_n_s_high_accuracy_atmnet;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_name;
-static PyObject *__pyx_n_s_new_xyz;
-static PyObject *__pyx_n_s_points;
-static PyObject *__pyx_kp_s_src_zeoplusplus_cycle_pyx;
+static PyObject *__pyx_n_s_pyzeo_high_accuracy;
+static PyObject *__pyx_kp_s_src_pyzeo_high_accuracy_pyx;
 static PyObject *__pyx_n_s_test;
-static PyObject *__pyx_n_s_vornet;
-static PyObject *__pyx_n_s_zeoplusplus_cycle;
-static PyObject *__pyx_pf_11zeoplusplus_5cycle_compute_centroid_4cycles(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_vornet); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_5cycle_2compute_face_centers(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet); /* proto */
-static PyObject *__pyx_tp_new_11zeoplusplus_5cycle_Cycle(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_pf_5pyzeo_13high_accuracy_high_accuracy_atmnet(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_accuracy_setting); /* proto */
 static PyObject *__pyx_tuple_;
-static PyObject *__pyx_tuple__3;
-static PyObject *__pyx_codeobj__2;
-static PyObject *__pyx_codeobj__4;
+static PyObject *__pyx_tuple__2;
+static PyObject *__pyx_codeobj__3;
 /* Late includes */
 
-/* "zeoplusplus/cycle.pyx":12
- * 
- * 
- * def compute_centroid_4cycles(vornet):             # <<<<<<<<<<<<<<
+/* "pyzeo/high_accuracy.pyx":7
+ *         "S30","S40","S50","S100","S500","S1000","S10000","DEF","HI","MED","LOW"
+ *         }
+ * def high_accuracy_atmnet(atmnet, accuracy_setting="LOW"):             # <<<<<<<<<<<<<<
  *     """
- *     Computes the centroid of the 4 corners of quadrilateral voronoi face
+ *     Increases the accuracy of voronoi decomposition by replacing big
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_5cycle_1compute_centroid_4cycles(PyObject *__pyx_self, PyObject *__pyx_v_vornet); /*proto*/
-static char __pyx_doc_11zeoplusplus_5cycle_compute_centroid_4cycles[] = "\n    Computes the centroid of the 4 corners of quadrilateral voronoi face\n    Args:\n        vornet:\n            zeoplusplus.storage.VoronoiNetwork\n    Returns:\n        List of centroids in [(x1,y1,z1),(x2,y2,z2),...] format\n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_5cycle_1compute_centroid_4cycles = {"compute_centroid_4cycles", (PyCFunction)__pyx_pw_11zeoplusplus_5cycle_1compute_centroid_4cycles, METH_O, __pyx_doc_11zeoplusplus_5cycle_compute_centroid_4cycles};
-static PyObject *__pyx_pw_11zeoplusplus_5cycle_1compute_centroid_4cycles(PyObject *__pyx_self, PyObject *__pyx_v_vornet) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("compute_centroid_4cycles (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_5cycle_compute_centroid_4cycles(__pyx_self, ((PyObject *)__pyx_v_vornet));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_11zeoplusplus_5cycle_compute_centroid_4cycles(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_vornet) {
-  VORONOI_NETWORK *__pyx_v_c_vornet_ptr;
-  std::vector<CYCLE>  __pyx_v_cycles;
-  std::vector<int>  __pyx_v_ids;
-  PyObject *__pyx_v_centroid_list = NULL;
-  std::vector<CYCLE> ::iterator __pyx_v_it;
-  std::vector<int> ::iterator __pyx_v_iit;
-  struct __pyx_obj_11zeoplusplus_8geometry_Xyz *__pyx_v_new_xyz = NULL;
-  PyObject *__pyx_v_id_set = NULL;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  VORONOI_NETWORK *__pyx_t_1;
-  int __pyx_t_2;
-  PyObject *__pyx_t_3 = NULL;
-  int __pyx_t_4;
+static PyObject *__pyx_pw_5pyzeo_13high_accuracy_1high_accuracy_atmnet(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_13high_accuracy_high_accuracy_atmnet[] = "\n    Increases the accuracy of voronoi decomposition by replacing big\n    atoms (spheres) with a number of small spheres.\n    *** Modifies atmnet argument in place ***\n    Args:\n        atmnet:\n            pyzeo.netstorage.AtomNetwork\n            Is modified in place.\n        accuracy_setting: \n            String specifying the accuracy settings.\n            Possible choices are \"OCC\",\"FCC\",\"ACC\",\"AQC\",\"DDH\",\n            \"TIH\",\"ICH\",\"ICC\",\"RIH\",\"S4\",\"S10\",\"S20\",\"S30\",\"S40\",\"S50\",\n            \"S100\",\"S500\",\"S1000\",\"S10000\",\"DEF\",\"HI\",\"MED\",\"LOW\".\n            Default is \"DEF\".\n    ";
+static PyMethodDef __pyx_mdef_5pyzeo_13high_accuracy_1high_accuracy_atmnet = {"high_accuracy_atmnet", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_13high_accuracy_1high_accuracy_atmnet, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_13high_accuracy_high_accuracy_atmnet};
+static PyObject *__pyx_pw_5pyzeo_13high_accuracy_1high_accuracy_atmnet(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_atmnet = 0;
+  PyObject *__pyx_v_accuracy_setting = 0;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("compute_centroid_4cycles", 0);
-
-  /* "zeoplusplus/cycle.pyx":22
- *     """
- * 
- *     cdef VORONOI_NETWORK* c_vornet_ptr = (<VoronoiNetwork?>vornet).thisptr             # <<<<<<<<<<<<<<
- *     cdef vector[CYCLE] cycles
- *     cdef vector[int] ids
- */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_vornet, __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork)))) __PYX_ERR(0, 22, __pyx_L1_error)
-  __pyx_t_1 = ((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_vornet)->thisptr;
-  __pyx_v_c_vornet_ptr = __pyx_t_1;
-
-  /* "zeoplusplus/cycle.pyx":26
- *     cdef vector[int] ids
- * 
- *     if not compute_4cycle(c_vornet_ptr, &cycles, False, 1):             # <<<<<<<<<<<<<<
- *         raise ValueError
- * 
- */
-  __pyx_t_2 = ((!(compute_4cycle(__pyx_v_c_vornet_ptr, (&__pyx_v_cycles), 0, 1) != 0)) != 0);
-  if (unlikely(__pyx_t_2)) {
-
-    /* "zeoplusplus/cycle.pyx":27
- * 
- *     if not compute_4cycle(c_vornet_ptr, &cycles, False, 1):
- *         raise ValueError             # <<<<<<<<<<<<<<
- * 
- *     centroid_list = []
- */
-    __Pyx_Raise(__pyx_builtin_ValueError, 0, 0, 0);
-    __PYX_ERR(0, 27, __pyx_L1_error)
-
-    /* "zeoplusplus/cycle.pyx":26
- *     cdef vector[int] ids
- * 
- *     if not compute_4cycle(c_vornet_ptr, &cycles, False, 1):             # <<<<<<<<<<<<<<
- *         raise ValueError
- * 
- */
-  }
-
-  /* "zeoplusplus/cycle.pyx":29
- *         raise ValueError
- * 
- *     centroid_list = []             # <<<<<<<<<<<<<<
- *     cdef vector[CYCLE].iterator it = cycles.begin()
- *     cdef vector[int].iterator iit
- */
-  __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_v_centroid_list = ((PyObject*)__pyx_t_3);
-  __pyx_t_3 = 0;
-
-  /* "zeoplusplus/cycle.pyx":30
- * 
- *     centroid_list = []
- *     cdef vector[CYCLE].iterator it = cycles.begin()             # <<<<<<<<<<<<<<
- *     cdef vector[int].iterator iit
- *     while it != cycles.end():
- */
-  __pyx_v_it = __pyx_v_cycles.begin();
-
-  /* "zeoplusplus/cycle.pyx":32
- *     cdef vector[CYCLE].iterator it = cycles.begin()
- *     cdef vector[int].iterator iit
- *     while it != cycles.end():             # <<<<<<<<<<<<<<
- *         new_xyz = Xyz()
- *         centroid(&(deref(it)), new_xyz.thisptr, &ids)
- */
-  while (1) {
-    __pyx_t_2 = ((__pyx_v_it != __pyx_v_cycles.end()) != 0);
-    if (!__pyx_t_2) break;
-
-    /* "zeoplusplus/cycle.pyx":33
- *     cdef vector[int].iterator iit
- *     while it != cycles.end():
- *         new_xyz = Xyz()             # <<<<<<<<<<<<<<
- *         centroid(&(deref(it)), new_xyz.thisptr, &ids)
- *         iit = ids.begin()
- */
-    __pyx_t_3 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_11zeoplusplus_8geometry_Xyz)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 33, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_XDECREF_SET(__pyx_v_new_xyz, ((struct __pyx_obj_11zeoplusplus_8geometry_Xyz *)__pyx_t_3));
-    __pyx_t_3 = 0;
-
-    /* "zeoplusplus/cycle.pyx":34
- *     while it != cycles.end():
- *         new_xyz = Xyz()
- *         centroid(&(deref(it)), new_xyz.thisptr, &ids)             # <<<<<<<<<<<<<<
- *         iit = ids.begin()
- *         #print ids.size()
- */
-    centroid((&(*__pyx_v_it)), __pyx_v_new_xyz->thisptr, (&__pyx_v_ids));
-
-    /* "zeoplusplus/cycle.pyx":35
- *         new_xyz = Xyz()
- *         centroid(&(deref(it)), new_xyz.thisptr, &ids)
- *         iit = ids.begin()             # <<<<<<<<<<<<<<
- *         #print ids.size()
- *         id_set = set()
- */
-    __pyx_v_iit = __pyx_v_ids.begin();
-
-    /* "zeoplusplus/cycle.pyx":37
- *         iit = ids.begin()
- *         #print ids.size()
- *         id_set = set()             # <<<<<<<<<<<<<<
- *         while iit != ids.end():
- *             id_set.add(deref(iit))
- */
-    __pyx_t_3 = PySet_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_XDECREF_SET(__pyx_v_id_set, ((PyObject*)__pyx_t_3));
-    __pyx_t_3 = 0;
-
-    /* "zeoplusplus/cycle.pyx":38
- *         #print ids.size()
- *         id_set = set()
- *         while iit != ids.end():             # <<<<<<<<<<<<<<
- *             id_set.add(deref(iit))
- *             inc(iit)
- */
-    while (1) {
-      __pyx_t_2 = ((__pyx_v_iit != __pyx_v_ids.end()) != 0);
-      if (!__pyx_t_2) break;
-
-      /* "zeoplusplus/cycle.pyx":39
- *         id_set = set()
- *         while iit != ids.end():
- *             id_set.add(deref(iit))             # <<<<<<<<<<<<<<
- *             inc(iit)
- * 
- */
-      __pyx_t_3 = __Pyx_PyInt_From_int((*__pyx_v_iit)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_4 = PySet_Add(__pyx_v_id_set, __pyx_t_3); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 39, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-      /* "zeoplusplus/cycle.pyx":40
- *         while iit != ids.end():
- *             id_set.add(deref(iit))
- *             inc(iit)             # <<<<<<<<<<<<<<
- * 
- *         centroid_list.append({'ids':id_set, 'coords':new_xyz})
- */
-      (void)((++__pyx_v_iit));
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("high_accuracy_atmnet (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_atmnet,&__pyx_n_s_accuracy_setting,0};
+    PyObject* values[2] = {0,0};
+    values[1] = ((PyObject *)__pyx_n_s_LOW);
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_atmnet)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_accuracy_setting);
+          if (value) { values[1] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "high_accuracy_atmnet") < 0)) __PYX_ERR(0, 7, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
     }
-
-    /* "zeoplusplus/cycle.pyx":42
- *             inc(iit)
- * 
- *         centroid_list.append({'ids':id_set, 'coords':new_xyz})             # <<<<<<<<<<<<<<
- *         inc(it)
- * 
- */
-    __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 42, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_ids, __pyx_v_id_set) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_coords, ((PyObject *)__pyx_v_new_xyz)) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-    __pyx_t_4 = __Pyx_PyList_Append(__pyx_v_centroid_list, __pyx_t_3); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 42, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-    /* "zeoplusplus/cycle.pyx":43
- * 
- *         centroid_list.append({'ids':id_set, 'coords':new_xyz})
- *         inc(it)             # <<<<<<<<<<<<<<
- * 
- *     return centroid_list
- */
-    (void)((++__pyx_v_it));
+    __pyx_v_atmnet = values[0];
+    __pyx_v_accuracy_setting = values[1];
   }
-
-  /* "zeoplusplus/cycle.pyx":45
- *         inc(it)
- * 
- *     return centroid_list             # <<<<<<<<<<<<<<
- * 
- * def compute_face_centers(atmnet):
- */
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_v_centroid_list);
-  __pyx_r = __pyx_v_centroid_list;
-  goto __pyx_L0;
-
-  /* "zeoplusplus/cycle.pyx":12
- * 
- * 
- * def compute_centroid_4cycles(vornet):             # <<<<<<<<<<<<<<
- *     """
- *     Computes the centroid of the 4 corners of quadrilateral voronoi face
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("zeoplusplus.cycle.compute_centroid_4cycles", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_centroid_list);
-  __Pyx_XDECREF((PyObject *)__pyx_v_new_xyz);
-  __Pyx_XDECREF(__pyx_v_id_set);
-  __Pyx_XGIVEREF(__pyx_r);
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("high_accuracy_atmnet", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 7, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("pyzeo.high_accuracy.high_accuracy_atmnet", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "zeoplusplus/cycle.pyx":47
- *     return centroid_list
- * 
- * def compute_face_centers(atmnet):             # <<<<<<<<<<<<<<
- *     """
- *     Compute the face centers of the voronoi network
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_5cycle_3compute_face_centers(PyObject *__pyx_self, PyObject *__pyx_v_atmnet); /*proto*/
-static char __pyx_doc_11zeoplusplus_5cycle_2compute_face_centers[] = "\n    Compute the face centers of the voronoi network \n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_5cycle_3compute_face_centers = {"compute_face_centers", (PyCFunction)__pyx_pw_11zeoplusplus_5cycle_3compute_face_centers, METH_O, __pyx_doc_11zeoplusplus_5cycle_2compute_face_centers};
-static PyObject *__pyx_pw_11zeoplusplus_5cycle_3compute_face_centers(PyObject *__pyx_self, PyObject *__pyx_v_atmnet) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("compute_face_centers (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_5cycle_2compute_face_centers(__pyx_self, ((PyObject *)__pyx_v_atmnet));
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_5pyzeo_13high_accuracy_high_accuracy_atmnet(__pyx_self, __pyx_v_atmnet, __pyx_v_accuracy_setting);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_5cycle_2compute_face_centers(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet) {
-  ATOM_NETWORK *__pyx_v_c_atmnet_ptr;
-  std::vector<XYZ>  __pyx_v_points;
+static PyObject *__pyx_pf_5pyzeo_13high_accuracy_high_accuracy_atmnet(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_accuracy_setting) {
+  ATOM_NETWORK *__pyx_v_c_atmnetptr;
+  std::string __pyx_v_acc_set;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  ATOM_NETWORK *__pyx_t_1;
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_t_2;
+  int __pyx_t_3;
+  ATOM_NETWORK *__pyx_t_4;
+  std::string __pyx_t_5;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("compute_face_centers", 0);
+  __Pyx_RefNannySetupContext("high_accuracy_atmnet", 0);
+  __Pyx_INCREF(__pyx_v_accuracy_setting);
 
-  /* "zeoplusplus/cycle.pyx":51
- *     Compute the face centers of the voronoi network
+  /* "pyzeo/high_accuracy.pyx":23
+ *             Default is "DEF".
  *     """
- *     cdef ATOM_NETWORK* c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr             # <<<<<<<<<<<<<<
- *     cdef vector[XYZ] points
- *     face_center(c_atmnet_ptr, &points)
+ *     if not accuracy_setting in _accuracy_kw:             # <<<<<<<<<<<<<<
+ *         raise ValueError("Accuracy setting not understood")
+ *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)))) __PYX_ERR(0, 51, __pyx_L1_error)
-  __pyx_t_1 = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
-  __pyx_v_c_atmnet_ptr = __pyx_t_1;
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_accuracy_kw); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_accuracy_setting, __pyx_t_1, Py_NE)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_3 = (__pyx_t_2 != 0);
+  if (unlikely(__pyx_t_3)) {
 
-  /* "zeoplusplus/cycle.pyx":53
- *     cdef ATOM_NETWORK* c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
- *     cdef vector[XYZ] points
- *     face_center(c_atmnet_ptr, &points)             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  face_center(__pyx_v_c_atmnet_ptr, (&__pyx_v_points));
-
-  /* "zeoplusplus/cycle.pyx":47
- *     return centroid_list
- * 
- * def compute_face_centers(atmnet):             # <<<<<<<<<<<<<<
+    /* "pyzeo/high_accuracy.pyx":24
  *     """
- *     Compute the face centers of the voronoi network
+ *     if not accuracy_setting in _accuracy_kw:
+ *         raise ValueError("Accuracy setting not understood")             # <<<<<<<<<<<<<<
+ *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
+ *     if isinstance(accuracy_setting, unicode):
+ */
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_Raise(__pyx_t_1, 0, 0, 0);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __PYX_ERR(0, 24, __pyx_L1_error)
+
+    /* "pyzeo/high_accuracy.pyx":23
+ *             Default is "DEF".
+ *     """
+ *     if not accuracy_setting in _accuracy_kw:             # <<<<<<<<<<<<<<
+ *         raise ValueError("Accuracy setting not understood")
+ *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
+ */
+  }
+
+  /* "pyzeo/high_accuracy.pyx":25
+ *     if not accuracy_setting in _accuracy_kw:
+ *         raise ValueError("Accuracy setting not understood")
+ *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr             # <<<<<<<<<<<<<<
+ *     if isinstance(accuracy_setting, unicode):
+ *         accuracy_setting = (<unicode>accuracy_setting).encode('utf8')
+ */
+  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_4 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
+  __pyx_v_c_atmnetptr = __pyx_t_4;
+
+  /* "pyzeo/high_accuracy.pyx":26
+ *         raise ValueError("Accuracy setting not understood")
+ *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
+ *     if isinstance(accuracy_setting, unicode):             # <<<<<<<<<<<<<<
+ *         accuracy_setting = (<unicode>accuracy_setting).encode('utf8')
+ *     cdef string acc_set = accuracy_setting
+ */
+  __pyx_t_3 = PyUnicode_Check(__pyx_v_accuracy_setting); 
+  __pyx_t_2 = (__pyx_t_3 != 0);
+  if (__pyx_t_2) {
+
+    /* "pyzeo/high_accuracy.pyx":27
+ *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
+ *     if isinstance(accuracy_setting, unicode):
+ *         accuracy_setting = (<unicode>accuracy_setting).encode('utf8')             # <<<<<<<<<<<<<<
+ *     cdef string acc_set = accuracy_setting
+ *     setupHighAccuracyAtomNetwork(c_atmnetptr, acc_set)
+ */
+    if (unlikely(__pyx_v_accuracy_setting == Py_None)) {
+      PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "encode");
+      __PYX_ERR(0, 27, __pyx_L1_error)
+    }
+    __pyx_t_1 = PyUnicode_AsUTF8String(((PyObject*)__pyx_v_accuracy_setting)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF_SET(__pyx_v_accuracy_setting, __pyx_t_1);
+    __pyx_t_1 = 0;
+
+    /* "pyzeo/high_accuracy.pyx":26
+ *         raise ValueError("Accuracy setting not understood")
+ *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
+ *     if isinstance(accuracy_setting, unicode):             # <<<<<<<<<<<<<<
+ *         accuracy_setting = (<unicode>accuracy_setting).encode('utf8')
+ *     cdef string acc_set = accuracy_setting
+ */
+  }
+
+  /* "pyzeo/high_accuracy.pyx":28
+ *     if isinstance(accuracy_setting, unicode):
+ *         accuracy_setting = (<unicode>accuracy_setting).encode('utf8')
+ *     cdef string acc_set = accuracy_setting             # <<<<<<<<<<<<<<
+ *     setupHighAccuracyAtomNetwork(c_atmnetptr, acc_set)
+ * 
+ */
+  __pyx_t_5 = __pyx_convert_string_from_py_std__in_string(__pyx_v_accuracy_setting); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_v_acc_set = __pyx_t_5;
+
+  /* "pyzeo/high_accuracy.pyx":29
+ *         accuracy_setting = (<unicode>accuracy_setting).encode('utf8')
+ *     cdef string acc_set = accuracy_setting
+ *     setupHighAccuracyAtomNetwork(c_atmnetptr, acc_set)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  setupHighAccuracyAtomNetwork(__pyx_v_c_atmnetptr, __pyx_v_acc_set);
+
+  /* "pyzeo/high_accuracy.pyx":7
+ *         "S30","S40","S50","S100","S500","S1000","S10000","DEF","HI","MED","LOW"
+ *         }
+ * def high_accuracy_atmnet(atmnet, accuracy_setting="LOW"):             # <<<<<<<<<<<<<<
+ *     """
+ *     Increases the accuracy of voronoi decomposition by replacing big
  */
 
   /* function exit code */
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("zeoplusplus.cycle.compute_face_centers", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("pyzeo.high_accuracy.high_accuracy_atmnet", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_accuracy_setting);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_tp_new_11zeoplusplus_5cycle_Cycle(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
-    o = (*t->tp_alloc)(t, 0);
-  } else {
-    o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
-  }
-  if (unlikely(!o)) return 0;
-  return o;
-}
+/* "string.from_py":13
+ * 
+ * @cname("__pyx_convert_string_from_py_std__in_string")
+ * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:             # <<<<<<<<<<<<<<
+ *     cdef Py_ssize_t length = 0
+ *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
+ */
 
-static void __pyx_tp_dealloc_11zeoplusplus_5cycle_Cycle(PyObject *o) {
-  #if CYTHON_USE_TP_FINALIZE
-  if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
-    if (PyObject_CallFinalizerFromDealloc(o)) return;
-  }
-  #endif
-  (*Py_TYPE(o)->tp_free)(o);
-}
+static std::string __pyx_convert_string_from_py_std__in_string(PyObject *__pyx_v_o) {
+  Py_ssize_t __pyx_v_length;
+  char const *__pyx_v_data;
+  std::string __pyx_r;
+  __Pyx_RefNannyDeclarations
+  char const *__pyx_t_1;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__pyx_convert_string_from_py_std__in_string", 0);
 
-static PyTypeObject __pyx_type_11zeoplusplus_5cycle_Cycle = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "zeoplusplus.cycle.Cycle", /*tp_name*/
-  sizeof(struct __pyx_obj_11zeoplusplus_5cycle_Cycle), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_11zeoplusplus_5cycle_Cycle, /*tp_dealloc*/
-  #if PY_VERSION_HEX < 0x030800b4
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b4
-  0, /*tp_vectorcall_offset*/
-  #endif
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  #if PY_MAJOR_VERSION < 3
-  0, /*tp_compare*/
-  #endif
-  #if PY_MAJOR_VERSION >= 3
-  0, /*tp_as_async*/
-  #endif
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE, /*tp_flags*/
-  "\n    Cython wrapper class for Zeo++ CYCLE class.\n    Contains a pointer to CYCLE\n    ", /*tp_doc*/
-  0, /*tp_traverse*/
-  0, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  0, /*tp_dictoffset*/
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_11zeoplusplus_5cycle_Cycle, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if PY_VERSION_HEX >= 0x030400a1
-  0, /*tp_finalize*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
-  0, /*tp_vectorcall*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b4 && PY_VERSION_HEX < 0x03090000
-  0, /*tp_print*/
-  #endif
-  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000
-  0, /*tp_pypy_flags*/
-  #endif
-};
+  /* "string.from_py":14
+ * @cname("__pyx_convert_string_from_py_std__in_string")
+ * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:
+ *     cdef Py_ssize_t length = 0             # <<<<<<<<<<<<<<
+ *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
+ *     return string(data, length)
+ */
+  __pyx_v_length = 0;
+
+  /* "string.from_py":15
+ * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:
+ *     cdef Py_ssize_t length = 0
+ *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)             # <<<<<<<<<<<<<<
+ *     return string(data, length)
+ * 
+ */
+  __pyx_t_1 = __Pyx_PyObject_AsStringAndSize(__pyx_v_o, (&__pyx_v_length)); if (unlikely(__pyx_t_1 == ((char const *)NULL))) __PYX_ERR(1, 15, __pyx_L1_error)
+  __pyx_v_data = __pyx_t_1;
+
+  /* "string.from_py":16
+ *     cdef Py_ssize_t length = 0
+ *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
+ *     return string(data, length)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_r = std::string(__pyx_v_data, __pyx_v_length);
+  goto __pyx_L0;
+
+  /* "string.from_py":13
+ * 
+ * @cname("__pyx_convert_string_from_py_std__in_string")
+ * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:             # <<<<<<<<<<<<<<
+ *     cdef Py_ssize_t length = 0
+ *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("string.from_py.__pyx_convert_string_from_py_std__in_string", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_pretend_to_initialize(&__pyx_r);
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
 
 static PyMethodDef __pyx_methods[] = {
   {0, 0, 0, 0}
@@ -2033,18 +1842,18 @@ static PyMethodDef __pyx_methods[] = {
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_cycle(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_high_accuracy(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_cycle},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_high_accuracy},
   {0, NULL}
 };
 #endif
 
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
-    "cycle",
-    __pyx_k_Cython_file_defining_methods_fo, /* m_doc */
+    "high_accuracy",
+    0, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
   #else
@@ -2072,33 +1881,47 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
-  {&__pyx_n_s_Cycle, __pyx_k_Cycle, sizeof(__pyx_k_Cycle), 0, 0, 1, 1},
+  {&__pyx_n_s_ACC, __pyx_k_ACC, sizeof(__pyx_k_ACC), 0, 0, 1, 1},
+  {&__pyx_n_s_AQC, __pyx_k_AQC, sizeof(__pyx_k_AQC), 0, 0, 1, 1},
+  {&__pyx_kp_s_Accuracy_setting_not_understood, __pyx_k_Accuracy_setting_not_understood, sizeof(__pyx_k_Accuracy_setting_not_understood), 0, 0, 1, 0},
+  {&__pyx_n_s_DDH, __pyx_k_DDH, sizeof(__pyx_k_DDH), 0, 0, 1, 1},
+  {&__pyx_n_s_DEF, __pyx_k_DEF, sizeof(__pyx_k_DEF), 0, 0, 1, 1},
+  {&__pyx_n_s_FCC, __pyx_k_FCC, sizeof(__pyx_k_FCC), 0, 0, 1, 1},
+  {&__pyx_n_s_HI, __pyx_k_HI, sizeof(__pyx_k_HI), 0, 0, 1, 1},
+  {&__pyx_n_s_ICC, __pyx_k_ICC, sizeof(__pyx_k_ICC), 0, 0, 1, 1},
+  {&__pyx_n_s_ICH, __pyx_k_ICH, sizeof(__pyx_k_ICH), 0, 0, 1, 1},
+  {&__pyx_n_s_LOW, __pyx_k_LOW, sizeof(__pyx_k_LOW), 0, 0, 1, 1},
+  {&__pyx_n_s_MED, __pyx_k_MED, sizeof(__pyx_k_MED), 0, 0, 1, 1},
+  {&__pyx_n_s_OCC, __pyx_k_OCC, sizeof(__pyx_k_OCC), 0, 0, 1, 1},
+  {&__pyx_n_s_RIH, __pyx_k_RIH, sizeof(__pyx_k_RIH), 0, 0, 1, 1},
+  {&__pyx_n_s_S10, __pyx_k_S10, sizeof(__pyx_k_S10), 0, 0, 1, 1},
+  {&__pyx_n_s_S100, __pyx_k_S100, sizeof(__pyx_k_S100), 0, 0, 1, 1},
+  {&__pyx_n_s_S1000, __pyx_k_S1000, sizeof(__pyx_k_S1000), 0, 0, 1, 1},
+  {&__pyx_n_s_S10000, __pyx_k_S10000, sizeof(__pyx_k_S10000), 0, 0, 1, 1},
+  {&__pyx_n_s_S20, __pyx_k_S20, sizeof(__pyx_k_S20), 0, 0, 1, 1},
+  {&__pyx_n_s_S30, __pyx_k_S30, sizeof(__pyx_k_S30), 0, 0, 1, 1},
+  {&__pyx_n_s_S4, __pyx_k_S4, sizeof(__pyx_k_S4), 0, 0, 1, 1},
+  {&__pyx_n_s_S40, __pyx_k_S40, sizeof(__pyx_k_S40), 0, 0, 1, 1},
+  {&__pyx_n_s_S50, __pyx_k_S50, sizeof(__pyx_k_S50), 0, 0, 1, 1},
+  {&__pyx_n_s_S500, __pyx_k_S500, sizeof(__pyx_k_S500), 0, 0, 1, 1},
+  {&__pyx_n_s_TIH, __pyx_k_TIH, sizeof(__pyx_k_TIH), 0, 0, 1, 1},
   {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
+  {&__pyx_n_s_acc_set, __pyx_k_acc_set, sizeof(__pyx_k_acc_set), 0, 0, 1, 1},
+  {&__pyx_n_s_accuracy_kw, __pyx_k_accuracy_kw, sizeof(__pyx_k_accuracy_kw), 0, 0, 1, 1},
+  {&__pyx_n_s_accuracy_setting, __pyx_k_accuracy_setting, sizeof(__pyx_k_accuracy_setting), 0, 0, 1, 1},
   {&__pyx_n_s_atmnet, __pyx_k_atmnet, sizeof(__pyx_k_atmnet), 0, 0, 1, 1},
-  {&__pyx_n_s_c_atmnet_ptr, __pyx_k_c_atmnet_ptr, sizeof(__pyx_k_c_atmnet_ptr), 0, 0, 1, 1},
-  {&__pyx_n_s_c_vornet_ptr, __pyx_k_c_vornet_ptr, sizeof(__pyx_k_c_vornet_ptr), 0, 0, 1, 1},
-  {&__pyx_n_s_centroid_list, __pyx_k_centroid_list, sizeof(__pyx_k_centroid_list), 0, 0, 1, 1},
+  {&__pyx_n_s_c_atmnetptr, __pyx_k_c_atmnetptr, sizeof(__pyx_k_c_atmnetptr), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
-  {&__pyx_n_s_compute_centroid_4cycles, __pyx_k_compute_centroid_4cycles, sizeof(__pyx_k_compute_centroid_4cycles), 0, 0, 1, 1},
-  {&__pyx_n_s_compute_face_centers, __pyx_k_compute_face_centers, sizeof(__pyx_k_compute_face_centers), 0, 0, 1, 1},
-  {&__pyx_n_s_coords, __pyx_k_coords, sizeof(__pyx_k_coords), 0, 0, 1, 1},
-  {&__pyx_n_s_cycles, __pyx_k_cycles, sizeof(__pyx_k_cycles), 0, 0, 1, 1},
-  {&__pyx_n_s_id_set, __pyx_k_id_set, sizeof(__pyx_k_id_set), 0, 0, 1, 1},
-  {&__pyx_n_s_ids, __pyx_k_ids, sizeof(__pyx_k_ids), 0, 0, 1, 1},
-  {&__pyx_n_s_iit, __pyx_k_iit, sizeof(__pyx_k_iit), 0, 0, 1, 1},
-  {&__pyx_n_s_it, __pyx_k_it, sizeof(__pyx_k_it), 0, 0, 1, 1},
+  {&__pyx_n_s_high_accuracy_atmnet, __pyx_k_high_accuracy_atmnet, sizeof(__pyx_k_high_accuracy_atmnet), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
-  {&__pyx_n_s_new_xyz, __pyx_k_new_xyz, sizeof(__pyx_k_new_xyz), 0, 0, 1, 1},
-  {&__pyx_n_s_points, __pyx_k_points, sizeof(__pyx_k_points), 0, 0, 1, 1},
-  {&__pyx_kp_s_src_zeoplusplus_cycle_pyx, __pyx_k_src_zeoplusplus_cycle_pyx, sizeof(__pyx_k_src_zeoplusplus_cycle_pyx), 0, 0, 1, 0},
+  {&__pyx_n_s_pyzeo_high_accuracy, __pyx_k_pyzeo_high_accuracy, sizeof(__pyx_k_pyzeo_high_accuracy), 0, 0, 1, 1},
+  {&__pyx_kp_s_src_pyzeo_high_accuracy_pyx, __pyx_k_src_pyzeo_high_accuracy_pyx, sizeof(__pyx_k_src_pyzeo_high_accuracy_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
-  {&__pyx_n_s_vornet, __pyx_k_vornet, sizeof(__pyx_k_vornet), 0, 0, 1, 1},
-  {&__pyx_n_s_zeoplusplus_cycle, __pyx_k_zeoplusplus_cycle, sizeof(__pyx_k_zeoplusplus_cycle), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 24, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -2108,29 +1931,28 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "zeoplusplus/cycle.pyx":12
- * 
- * 
- * def compute_centroid_4cycles(vornet):             # <<<<<<<<<<<<<<
+  /* "pyzeo/high_accuracy.pyx":24
  *     """
- *     Computes the centroid of the 4 corners of quadrilateral voronoi face
+ *     if not accuracy_setting in _accuracy_kw:
+ *         raise ValueError("Accuracy setting not understood")             # <<<<<<<<<<<<<<
+ *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
+ *     if isinstance(accuracy_setting, unicode):
  */
-  __pyx_tuple_ = PyTuple_Pack(9, __pyx_n_s_vornet, __pyx_n_s_c_vornet_ptr, __pyx_n_s_cycles, __pyx_n_s_ids, __pyx_n_s_centroid_list, __pyx_n_s_it, __pyx_n_s_iit, __pyx_n_s_new_xyz, __pyx_n_s_id_set); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_Accuracy_setting_not_understood); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(1, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_cycle_pyx, __pyx_n_s_compute_centroid_4cycles, 12, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 12, __pyx_L1_error)
 
-  /* "zeoplusplus/cycle.pyx":47
- *     return centroid_list
- * 
- * def compute_face_centers(atmnet):             # <<<<<<<<<<<<<<
+  /* "pyzeo/high_accuracy.pyx":7
+ *         "S30","S40","S50","S100","S500","S1000","S10000","DEF","HI","MED","LOW"
+ *         }
+ * def high_accuracy_atmnet(atmnet, accuracy_setting="LOW"):             # <<<<<<<<<<<<<<
  *     """
- *     Compute the face centers of the voronoi network
+ *     Increases the accuracy of voronoi decomposition by replacing big
  */
-  __pyx_tuple__3 = PyTuple_Pack(3, __pyx_n_s_atmnet, __pyx_n_s_c_atmnet_ptr, __pyx_n_s_points); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 47, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__3);
-  __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_cycle_pyx, __pyx_n_s_compute_face_centers, 47, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(4, __pyx_n_s_atmnet, __pyx_n_s_accuracy_setting, __pyx_n_s_c_atmnetptr, __pyx_n_s_acc_set); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__2);
+  __Pyx_GIVEREF(__pyx_tuple__2);
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_pyzeo_high_accuracy_pyx, __pyx_n_s_high_accuracy_atmnet, 7, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2179,25 +2001,10 @@ static int __Pyx_modinit_function_export_code(void) {
 
 static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannyDeclarations
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_11zeoplusplus_5cycle_Cycle) < 0) __PYX_ERR(1, 29, __pyx_L1_error)
-  #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_11zeoplusplus_5cycle_Cycle.tp_print = 0;
-  #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_11zeoplusplus_5cycle_Cycle.tp_dictoffset && __pyx_type_11zeoplusplus_5cycle_Cycle.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_11zeoplusplus_5cycle_Cycle.tp_getattro = __Pyx_PyObject_GenericGetAttr;
-  }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Cycle, (PyObject *)&__pyx_type_11zeoplusplus_5cycle_Cycle) < 0) __PYX_ERR(1, 29, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_5cycle_Cycle = &__pyx_type_11zeoplusplus_5cycle_Cycle;
   __Pyx_RefNannyFinishContext();
   return 0;
-  __pyx_L1_error:;
-  __Pyx_RefNannyFinishContext();
-  return -1;
 }
 
 static int __Pyx_modinit_type_import_code(void) {
@@ -2208,37 +2015,32 @@ static int __Pyx_modinit_type_import_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.geometry"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 24, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.geometry"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_8geometry_Xyz = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.geometry", "Xyz", sizeof(struct __pyx_obj_11zeoplusplus_8geometry_Xyz), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_8geometry_Xyz) __PYX_ERR(2, 24, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_8geometry_Point = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.geometry", "Point", sizeof(struct __pyx_obj_11zeoplusplus_8geometry_Point), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_8geometry_Point) __PYX_ERR(2, 32, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_8geometry_Xyz = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Xyz", sizeof(struct __pyx_obj_5pyzeo_8geometry_Xyz), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Xyz) __PYX_ERR(2, 24, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_8geometry_Point = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Point", sizeof(struct __pyx_obj_5pyzeo_8geometry_Point), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Point) __PYX_ERR(2, 32, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.voronoicell"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 39, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.voronoicell"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_11voronoicell_VorFace = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "VorFace", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_VorFace) __PYX_ERR(3, 39, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_11voronoicell_VorCell = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "VorCell", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_VorCell) __PYX_ERR(3, 42, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "BasicVCell", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell) __PYX_ERR(3, 45, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_VorFace = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "VorFace", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorFace), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_VorFace) __PYX_ERR(3, 39, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_VorCell = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "VorCell", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorCell), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_VorCell) __PYX_ERR(3, 42, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_BasicVCell = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "BasicVCell", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_BasicVCell) __PYX_ERR(3, 45, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.netstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 120, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.netstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_10netstorage_Atom = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "Atom", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_Atom), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_Atom) __PYX_ERR(4, 120, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "AtomNetwork", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork) __PYX_ERR(4, 126, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "VoronoiNode", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode) __PYX_ERR(4, 135, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "VoronoiNetwork", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork) __PYX_ERR(4, 141, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.graphstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 34, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_12graphstorage_DijkstraNetwork = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.graphstorage", "DijkstraNetwork", sizeof(struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_12graphstorage_DijkstraNetwork) __PYX_ERR(5, 34, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_Atom = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "Atom", sizeof(struct __pyx_obj_5pyzeo_10netstorage_Atom), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_Atom) __PYX_ERR(4, 120, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_AtomNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "AtomNetwork", sizeof(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_AtomNetwork) __PYX_ERR(4, 126, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNode = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "VoronoiNode", sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_VoronoiNode) __PYX_ERR(4, 135, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "VoronoiNetwork", sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork) __PYX_ERR(4, 141, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -2283,11 +2085,11 @@ static int __Pyx_modinit_function_import_code(void) {
 
 
 #if PY_MAJOR_VERSION < 3
-__Pyx_PyMODINIT_FUNC initcycle(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC initcycle(void)
+__Pyx_PyMODINIT_FUNC inithigh_accuracy(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC inithigh_accuracy(void)
 #else
-__Pyx_PyMODINIT_FUNC PyInit_cycle(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC PyInit_cycle(void)
+__Pyx_PyMODINIT_FUNC PyInit_high_accuracy(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC PyInit_high_accuracy(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -2354,7 +2156,7 @@ bad:
 }
 
 
-static CYTHON_SMALL_CODE int __pyx_pymod_exec_cycle(PyObject *__pyx_pyinit_module)
+static CYTHON_SMALL_CODE int __pyx_pymod_exec_high_accuracy(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
@@ -2366,7 +2168,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_cycle(PyObject *__pyx_pyinit_modul
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   if (__pyx_m) {
     if (__pyx_m == __pyx_pyinit_module) return 0;
-    PyErr_SetString(PyExc_RuntimeError, "Module 'cycle' has already been imported. Re-initialisation is not supported.");
+    PyErr_SetString(PyExc_RuntimeError, "Module 'high_accuracy' has already been imported. Re-initialisation is not supported.");
     return -1;
   }
   #elif PY_MAJOR_VERSION >= 3
@@ -2381,7 +2183,7 @@ if (!__Pyx_RefNanny) {
       Py_FatalError("failed to import 'refnanny' module");
 }
 #endif
-  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_cycle(void)", 0);
+  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_high_accuracy(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #ifdef __Pxy_PyFrame_Initialize_Offsets
   __Pxy_PyFrame_Initialize_Offsets();
@@ -2418,7 +2220,7 @@ if (!__Pyx_RefNanny) {
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("cycle", __pyx_methods, __pyx_k_Cython_file_defining_methods_fo, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("high_accuracy", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -2436,14 +2238,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_zeoplusplus__cycle) {
+  if (__pyx_module_is_main_pyzeo__high_accuracy) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "zeoplusplus.cycle")) {
-      if (unlikely(PyDict_SetItemString(modules, "zeoplusplus.cycle", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "pyzeo.high_accuracy")) {
+      if (unlikely(PyDict_SetItemString(modules, "pyzeo.high_accuracy", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -2455,7 +2257,7 @@ if (!__Pyx_RefNanny) {
   (void)__Pyx_modinit_global_init_code();
   (void)__Pyx_modinit_variable_export_code();
   (void)__Pyx_modinit_function_export_code();
-  if (unlikely(__Pyx_modinit_type_init_code() < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+  (void)__Pyx_modinit_type_init_code();
   if (unlikely(__Pyx_modinit_type_import_code() < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
   (void)__Pyx_modinit_variable_import_code();
   (void)__Pyx_modinit_function_import_code();
@@ -2464,39 +2266,70 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "zeoplusplus/cycle.pyx":12
+  /* "pyzeo/high_accuracy.pyx":4
  * 
- * 
- * def compute_centroid_4cycles(vornet):             # <<<<<<<<<<<<<<
- *     """
- *     Computes the centroid of the 4 corners of quadrilateral voronoi face
+ * _accuracy_kw = {
+ *         "OCC","FCC","ACC","AQC","DDH","TIH","ICH","ICC","RIH","S4","S10","S20",             # <<<<<<<<<<<<<<
+ *         "S30","S40","S50","S100","S500","S1000","S10000","DEF","HI","MED","LOW"
+ *         }
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_5cycle_1compute_centroid_4cycles, NULL, __pyx_n_s_zeoplusplus_cycle); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_1 = PySet_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_compute_centroid_4cycles, __pyx_t_1) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_OCC) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_FCC) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_ACC) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_AQC) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_DDH) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_TIH) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_ICH) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_ICC) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_RIH) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_S4) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_S10) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_S20) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_S30) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_S40) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_S50) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_S100) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_S500) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_S1000) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_S10000) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_DEF) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_HI) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_MED) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_1, __pyx_n_s_LOW) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_accuracy_kw, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cycle.pyx":47
- *     return centroid_list
- * 
- * def compute_face_centers(atmnet):             # <<<<<<<<<<<<<<
+  /* "pyzeo/high_accuracy.pyx":7
+ *         "S30","S40","S50","S100","S500","S1000","S10000","DEF","HI","MED","LOW"
+ *         }
+ * def high_accuracy_atmnet(atmnet, accuracy_setting="LOW"):             # <<<<<<<<<<<<<<
  *     """
- *     Compute the face centers of the voronoi network
+ *     Increases the accuracy of voronoi decomposition by replacing big
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_5cycle_3compute_face_centers, NULL, __pyx_n_s_zeoplusplus_cycle); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5pyzeo_13high_accuracy_1high_accuracy_atmnet, NULL, __pyx_n_s_pyzeo_high_accuracy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_compute_face_centers, __pyx_t_1) < 0) __PYX_ERR(0, 47, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_high_accuracy_atmnet, __pyx_t_1) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cycle.pyx":1
- * """             # <<<<<<<<<<<<<<
- * Cython file defining methods for computing the centroids of cycles
- * """
+  /* "pyzeo/high_accuracy.pyx":1
+ * from pyzeo.netstorage cimport AtomNetwork, ATOM_NETWORK             # <<<<<<<<<<<<<<
+ * 
+ * _accuracy_kw = {
  */
   __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "string.from_py":13
+ * 
+ * @cname("__pyx_convert_string_from_py_std__in_string")
+ * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:             # <<<<<<<<<<<<<<
+ *     cdef Py_ssize_t length = 0
+ *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
+ */
 
   /*--- Wrapped vars code ---*/
 
@@ -2505,11 +2338,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init zeoplusplus.cycle", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init pyzeo.high_accuracy", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init zeoplusplus.cycle");
+    PyErr_SetString(PyExc_ImportError, "init pyzeo.high_accuracy");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -2568,18 +2401,228 @@ static PyObject *__Pyx_GetBuiltinName(PyObject *name) {
     return result;
 }
 
-/* ExtTypeTest */
-static CYTHON_INLINE int __Pyx_TypeTest(PyObject *obj, PyTypeObject *type) {
-    if (unlikely(!type)) {
-        PyErr_SetString(PyExc_SystemError, "Missing type object");
-        return 0;
-    }
-    if (likely(__Pyx_TypeCheck(obj, type)))
-        return 1;
-    PyErr_Format(PyExc_TypeError, "Cannot convert %.200s to %.200s",
-                 Py_TYPE(obj)->tp_name, type->tp_name);
-    return 0;
+/* RaiseDoubleKeywords */
+static void __Pyx_RaiseDoubleKeywordsError(
+    const char* func_name,
+    PyObject* kw_name)
+{
+    PyErr_Format(PyExc_TypeError,
+        #if PY_MAJOR_VERSION >= 3
+        "%s() got multiple values for keyword argument '%U'", func_name, kw_name);
+        #else
+        "%s() got multiple values for keyword argument '%s'", func_name,
+        PyString_AsString(kw_name));
+        #endif
 }
+
+/* ParseKeywords */
+static int __Pyx_ParseOptionalKeywords(
+    PyObject *kwds,
+    PyObject **argnames[],
+    PyObject *kwds2,
+    PyObject *values[],
+    Py_ssize_t num_pos_args,
+    const char* function_name)
+{
+    PyObject *key = 0, *value = 0;
+    Py_ssize_t pos = 0;
+    PyObject*** name;
+    PyObject*** first_kw_arg = argnames + num_pos_args;
+    while (PyDict_Next(kwds, &pos, &key, &value)) {
+        name = first_kw_arg;
+        while (*name && (**name != key)) name++;
+        if (*name) {
+            values[name-argnames] = value;
+            continue;
+        }
+        name = first_kw_arg;
+        #if PY_MAJOR_VERSION < 3
+        if (likely(PyString_Check(key))) {
+            while (*name) {
+                if ((CYTHON_COMPILING_IN_PYPY || PyString_GET_SIZE(**name) == PyString_GET_SIZE(key))
+                        && _PyString_Eq(**name, key)) {
+                    values[name-argnames] = value;
+                    break;
+                }
+                name++;
+            }
+            if (*name) continue;
+            else {
+                PyObject*** argname = argnames;
+                while (argname != first_kw_arg) {
+                    if ((**argname == key) || (
+                            (CYTHON_COMPILING_IN_PYPY || PyString_GET_SIZE(**argname) == PyString_GET_SIZE(key))
+                             && _PyString_Eq(**argname, key))) {
+                        goto arg_passed_twice;
+                    }
+                    argname++;
+                }
+            }
+        } else
+        #endif
+        if (likely(PyUnicode_Check(key))) {
+            while (*name) {
+                int cmp = (**name == key) ? 0 :
+                #if !CYTHON_COMPILING_IN_PYPY && PY_MAJOR_VERSION >= 3
+                    (__Pyx_PyUnicode_GET_LENGTH(**name) != __Pyx_PyUnicode_GET_LENGTH(key)) ? 1 :
+                #endif
+                    PyUnicode_Compare(**name, key);
+                if (cmp < 0 && unlikely(PyErr_Occurred())) goto bad;
+                if (cmp == 0) {
+                    values[name-argnames] = value;
+                    break;
+                }
+                name++;
+            }
+            if (*name) continue;
+            else {
+                PyObject*** argname = argnames;
+                while (argname != first_kw_arg) {
+                    int cmp = (**argname == key) ? 0 :
+                    #if !CYTHON_COMPILING_IN_PYPY && PY_MAJOR_VERSION >= 3
+                        (__Pyx_PyUnicode_GET_LENGTH(**argname) != __Pyx_PyUnicode_GET_LENGTH(key)) ? 1 :
+                    #endif
+                        PyUnicode_Compare(**argname, key);
+                    if (cmp < 0 && unlikely(PyErr_Occurred())) goto bad;
+                    if (cmp == 0) goto arg_passed_twice;
+                    argname++;
+                }
+            }
+        } else
+            goto invalid_keyword_type;
+        if (kwds2) {
+            if (unlikely(PyDict_SetItem(kwds2, key, value))) goto bad;
+        } else {
+            goto invalid_keyword;
+        }
+    }
+    return 0;
+arg_passed_twice:
+    __Pyx_RaiseDoubleKeywordsError(function_name, key);
+    goto bad;
+invalid_keyword_type:
+    PyErr_Format(PyExc_TypeError,
+        "%.200s() keywords must be strings", function_name);
+    goto bad;
+invalid_keyword:
+    PyErr_Format(PyExc_TypeError,
+    #if PY_MAJOR_VERSION < 3
+        "%.200s() got an unexpected keyword argument '%.200s'",
+        function_name, PyString_AsString(key));
+    #else
+        "%s() got an unexpected keyword argument '%U'",
+        function_name, key);
+    #endif
+bad:
+    return -1;
+}
+
+/* RaiseArgTupleInvalid */
+static void __Pyx_RaiseArgtupleInvalid(
+    const char* func_name,
+    int exact,
+    Py_ssize_t num_min,
+    Py_ssize_t num_max,
+    Py_ssize_t num_found)
+{
+    Py_ssize_t num_expected;
+    const char *more_or_less;
+    if (num_found < num_min) {
+        num_expected = num_min;
+        more_or_less = "at least";
+    } else {
+        num_expected = num_max;
+        more_or_less = "at most";
+    }
+    if (exact) {
+        more_or_less = "exactly";
+    }
+    PyErr_Format(PyExc_TypeError,
+                 "%.200s() takes %.8s %" CYTHON_FORMAT_SSIZE_T "d positional argument%.1s (%" CYTHON_FORMAT_SSIZE_T "d given)",
+                 func_name, more_or_less, num_expected,
+                 (num_expected == 1) ? "" : "s", num_found);
+}
+
+/* PyDictVersioning */
+#if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
+static CYTHON_INLINE PY_UINT64_T __Pyx_get_tp_dict_version(PyObject *obj) {
+    PyObject *dict = Py_TYPE(obj)->tp_dict;
+    return likely(dict) ? __PYX_GET_DICT_VERSION(dict) : 0;
+}
+static CYTHON_INLINE PY_UINT64_T __Pyx_get_object_dict_version(PyObject *obj) {
+    PyObject **dictptr = NULL;
+    Py_ssize_t offset = Py_TYPE(obj)->tp_dictoffset;
+    if (offset) {
+#if CYTHON_COMPILING_IN_CPYTHON
+        dictptr = (likely(offset > 0)) ? (PyObject **) ((char *)obj + offset) : _PyObject_GetDictPtr(obj);
+#else
+        dictptr = _PyObject_GetDictPtr(obj);
+#endif
+    }
+    return (dictptr && *dictptr) ? __PYX_GET_DICT_VERSION(*dictptr) : 0;
+}
+static CYTHON_INLINE int __Pyx_object_dict_version_matches(PyObject* obj, PY_UINT64_T tp_dict_version, PY_UINT64_T obj_dict_version) {
+    PyObject *dict = Py_TYPE(obj)->tp_dict;
+    if (unlikely(!dict) || unlikely(tp_dict_version != __PYX_GET_DICT_VERSION(dict)))
+        return 0;
+    return obj_dict_version == __Pyx_get_object_dict_version(obj);
+}
+#endif
+
+/* GetModuleGlobalName */
+#if CYTHON_USE_DICT_VERSIONS
+static PyObject *__Pyx__GetModuleGlobalName(PyObject *name, PY_UINT64_T *dict_version, PyObject **dict_cached_value)
+#else
+static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name)
+#endif
+{
+    PyObject *result;
+#if !CYTHON_AVOID_BORROWED_REFS
+#if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030500A1
+    result = _PyDict_GetItem_KnownHash(__pyx_d, name, ((PyASCIIObject *) name)->hash);
+    __PYX_UPDATE_DICT_CACHE(__pyx_d, result, *dict_cached_value, *dict_version)
+    if (likely(result)) {
+        return __Pyx_NewRef(result);
+    } else if (unlikely(PyErr_Occurred())) {
+        return NULL;
+    }
+#else
+    result = PyDict_GetItem(__pyx_d, name);
+    __PYX_UPDATE_DICT_CACHE(__pyx_d, result, *dict_cached_value, *dict_version)
+    if (likely(result)) {
+        return __Pyx_NewRef(result);
+    }
+#endif
+#else
+    result = PyObject_GetItem(__pyx_d, name);
+    __PYX_UPDATE_DICT_CACHE(__pyx_d, result, *dict_cached_value, *dict_version)
+    if (likely(result)) {
+        return __Pyx_NewRef(result);
+    }
+    PyErr_Clear();
+#endif
+    return __Pyx_GetBuiltinName(name);
+}
+
+/* PyObjectCall */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw) {
+    PyObject *result;
+    ternaryfunc call = Py_TYPE(func)->tp_call;
+    if (unlikely(!call))
+        return PyObject_Call(func, arg, kw);
+    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
+        return NULL;
+    result = (*call)(func, arg, kw);
+    Py_LeaveRecursiveCall();
+    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
+        PyErr_SetString(
+            PyExc_SystemError,
+            "NULL result without error in PyObject_Call");
+    }
+    return result;
+}
+#endif
 
 /* PyErrFetchRestore */
 #if CYTHON_FAST_THREAD_STATE
@@ -2764,236 +2807,18 @@ bad:
 }
 #endif
 
-/* PyFunctionFastCall */
-#if CYTHON_FAST_PYCALL
-static PyObject* __Pyx_PyFunction_FastCallNoKw(PyCodeObject *co, PyObject **args, Py_ssize_t na,
-                                               PyObject *globals) {
-    PyFrameObject *f;
-    PyThreadState *tstate = __Pyx_PyThreadState_Current;
-    PyObject **fastlocals;
-    Py_ssize_t i;
-    PyObject *result;
-    assert(globals != NULL);
-    /* XXX Perhaps we should create a specialized
-       PyFrame_New() that doesn't take locals, but does
-       take builtins without sanity checking them.
-       */
-    assert(tstate != NULL);
-    f = PyFrame_New(tstate, co, globals, NULL);
-    if (f == NULL) {
-        return NULL;
+/* ExtTypeTest */
+static CYTHON_INLINE int __Pyx_TypeTest(PyObject *obj, PyTypeObject *type) {
+    if (unlikely(!type)) {
+        PyErr_SetString(PyExc_SystemError, "Missing type object");
+        return 0;
     }
-    fastlocals = __Pyx_PyFrame_GetLocalsplus(f);
-    for (i = 0; i < na; i++) {
-        Py_INCREF(*args);
-        fastlocals[i] = *args++;
-    }
-    result = PyEval_EvalFrameEx(f,0);
-    ++tstate->recursion_depth;
-    Py_DECREF(f);
-    --tstate->recursion_depth;
-    return result;
+    if (likely(__Pyx_TypeCheck(obj, type)))
+        return 1;
+    PyErr_Format(PyExc_TypeError, "Cannot convert %.200s to %.200s",
+                 Py_TYPE(obj)->tp_name, type->tp_name);
+    return 0;
 }
-#if 1 || PY_VERSION_HEX < 0x030600B1
-static PyObject *__Pyx_PyFunction_FastCallDict(PyObject *func, PyObject **args, Py_ssize_t nargs, PyObject *kwargs) {
-    PyCodeObject *co = (PyCodeObject *)PyFunction_GET_CODE(func);
-    PyObject *globals = PyFunction_GET_GLOBALS(func);
-    PyObject *argdefs = PyFunction_GET_DEFAULTS(func);
-    PyObject *closure;
-#if PY_MAJOR_VERSION >= 3
-    PyObject *kwdefs;
-#endif
-    PyObject *kwtuple, **k;
-    PyObject **d;
-    Py_ssize_t nd;
-    Py_ssize_t nk;
-    PyObject *result;
-    assert(kwargs == NULL || PyDict_Check(kwargs));
-    nk = kwargs ? PyDict_Size(kwargs) : 0;
-    if (Py_EnterRecursiveCall((char*)" while calling a Python object")) {
-        return NULL;
-    }
-    if (
-#if PY_MAJOR_VERSION >= 3
-            co->co_kwonlyargcount == 0 &&
-#endif
-            likely(kwargs == NULL || nk == 0) &&
-            co->co_flags == (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)) {
-        if (argdefs == NULL && co->co_argcount == nargs) {
-            result = __Pyx_PyFunction_FastCallNoKw(co, args, nargs, globals);
-            goto done;
-        }
-        else if (nargs == 0 && argdefs != NULL
-                 && co->co_argcount == Py_SIZE(argdefs)) {
-            /* function called with no arguments, but all parameters have
-               a default value: use default values as arguments .*/
-            args = &PyTuple_GET_ITEM(argdefs, 0);
-            result =__Pyx_PyFunction_FastCallNoKw(co, args, Py_SIZE(argdefs), globals);
-            goto done;
-        }
-    }
-    if (kwargs != NULL) {
-        Py_ssize_t pos, i;
-        kwtuple = PyTuple_New(2 * nk);
-        if (kwtuple == NULL) {
-            result = NULL;
-            goto done;
-        }
-        k = &PyTuple_GET_ITEM(kwtuple, 0);
-        pos = i = 0;
-        while (PyDict_Next(kwargs, &pos, &k[i], &k[i+1])) {
-            Py_INCREF(k[i]);
-            Py_INCREF(k[i+1]);
-            i += 2;
-        }
-        nk = i / 2;
-    }
-    else {
-        kwtuple = NULL;
-        k = NULL;
-    }
-    closure = PyFunction_GET_CLOSURE(func);
-#if PY_MAJOR_VERSION >= 3
-    kwdefs = PyFunction_GET_KW_DEFAULTS(func);
-#endif
-    if (argdefs != NULL) {
-        d = &PyTuple_GET_ITEM(argdefs, 0);
-        nd = Py_SIZE(argdefs);
-    }
-    else {
-        d = NULL;
-        nd = 0;
-    }
-#if PY_MAJOR_VERSION >= 3
-    result = PyEval_EvalCodeEx((PyObject*)co, globals, (PyObject *)NULL,
-                               args, (int)nargs,
-                               k, (int)nk,
-                               d, (int)nd, kwdefs, closure);
-#else
-    result = PyEval_EvalCodeEx(co, globals, (PyObject *)NULL,
-                               args, (int)nargs,
-                               k, (int)nk,
-                               d, (int)nd, closure);
-#endif
-    Py_XDECREF(kwtuple);
-done:
-    Py_LeaveRecursiveCall();
-    return result;
-}
-#endif
-#endif
-
-/* PyObjectCall */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw) {
-    PyObject *result;
-    ternaryfunc call = Py_TYPE(func)->tp_call;
-    if (unlikely(!call))
-        return PyObject_Call(func, arg, kw);
-    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
-        return NULL;
-    result = (*call)(func, arg, kw);
-    Py_LeaveRecursiveCall();
-    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
-        PyErr_SetString(
-            PyExc_SystemError,
-            "NULL result without error in PyObject_Call");
-    }
-    return result;
-}
-#endif
-
-/* PyObjectCallMethO */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject *arg) {
-    PyObject *self, *result;
-    PyCFunction cfunc;
-    cfunc = PyCFunction_GET_FUNCTION(func);
-    self = PyCFunction_GET_SELF(func);
-    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
-        return NULL;
-    result = cfunc(self, arg);
-    Py_LeaveRecursiveCall();
-    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
-        PyErr_SetString(
-            PyExc_SystemError,
-            "NULL result without error in PyObject_Call");
-    }
-    return result;
-}
-#endif
-
-/* PyObjectCallNoArg */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func) {
-#if CYTHON_FAST_PYCALL
-    if (PyFunction_Check(func)) {
-        return __Pyx_PyFunction_FastCall(func, NULL, 0);
-    }
-#endif
-#if defined(__Pyx_CyFunction_USED) && defined(NDEBUG)
-    if (likely(PyCFunction_Check(func) || __Pyx_CyFunction_Check(func)))
-#else
-    if (likely(PyCFunction_Check(func)))
-#endif
-    {
-        if (likely(PyCFunction_GET_FLAGS(func) & METH_NOARGS)) {
-            return __Pyx_PyObject_CallMethO(func, NULL);
-        }
-    }
-    return __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL);
-}
-#endif
-
-/* PyObject_GenericGetAttrNoDict */
-#if CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP && PY_VERSION_HEX < 0x03070000
-static PyObject *__Pyx_RaiseGenericGetAttributeError(PyTypeObject *tp, PyObject *attr_name) {
-    PyErr_Format(PyExc_AttributeError,
-#if PY_MAJOR_VERSION >= 3
-                 "'%.50s' object has no attribute '%U'",
-                 tp->tp_name, attr_name);
-#else
-                 "'%.50s' object has no attribute '%.400s'",
-                 tp->tp_name, PyString_AS_STRING(attr_name));
-#endif
-    return NULL;
-}
-static CYTHON_INLINE PyObject* __Pyx_PyObject_GenericGetAttrNoDict(PyObject* obj, PyObject* attr_name) {
-    PyObject *descr;
-    PyTypeObject *tp = Py_TYPE(obj);
-    if (unlikely(!PyString_Check(attr_name))) {
-        return PyObject_GenericGetAttr(obj, attr_name);
-    }
-    assert(!tp->tp_dictoffset);
-    descr = _PyType_Lookup(tp, attr_name);
-    if (unlikely(!descr)) {
-        return __Pyx_RaiseGenericGetAttributeError(tp, attr_name);
-    }
-    Py_INCREF(descr);
-    #if PY_MAJOR_VERSION < 3
-    if (likely(PyType_HasFeature(Py_TYPE(descr), Py_TPFLAGS_HAVE_CLASS)))
-    #endif
-    {
-        descrgetfunc f = Py_TYPE(descr)->tp_descr_get;
-        if (unlikely(f)) {
-            PyObject *res = f(descr, obj, (PyObject *)tp);
-            Py_DECREF(descr);
-            return res;
-        }
-    }
-    return descr;
-}
-#endif
-
-/* PyObject_GenericGetAttr */
-#if CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP && PY_VERSION_HEX < 0x03070000
-static PyObject* __Pyx_PyObject_GenericGetAttr(PyObject* obj, PyObject* attr_name) {
-    if (unlikely(Py_TYPE(obj)->tp_dictoffset)) {
-        return PyObject_GenericGetAttr(obj, attr_name);
-    }
-    return __Pyx_PyObject_GenericGetAttrNoDict(obj, attr_name);
-}
-#endif
 
 /* TypeImport */
 #ifndef __PYX_HAVE_RT_ImportType
@@ -3053,32 +2878,6 @@ static PyTypeObject *__Pyx_ImportType(PyObject *module, const char *module_name,
 bad:
     Py_XDECREF(result);
     return NULL;
-}
-#endif
-
-/* PyDictVersioning */
-#if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
-static CYTHON_INLINE PY_UINT64_T __Pyx_get_tp_dict_version(PyObject *obj) {
-    PyObject *dict = Py_TYPE(obj)->tp_dict;
-    return likely(dict) ? __PYX_GET_DICT_VERSION(dict) : 0;
-}
-static CYTHON_INLINE PY_UINT64_T __Pyx_get_object_dict_version(PyObject *obj) {
-    PyObject **dictptr = NULL;
-    Py_ssize_t offset = Py_TYPE(obj)->tp_dictoffset;
-    if (offset) {
-#if CYTHON_COMPILING_IN_CPYTHON
-        dictptr = (likely(offset > 0)) ? (PyObject **) ((char *)obj + offset) : _PyObject_GetDictPtr(obj);
-#else
-        dictptr = _PyObject_GetDictPtr(obj);
-#endif
-    }
-    return (dictptr && *dictptr) ? __PYX_GET_DICT_VERSION(*dictptr) : 0;
-}
-static CYTHON_INLINE int __Pyx_object_dict_version_matches(PyObject* obj, PY_UINT64_T tp_dict_version, PY_UINT64_T obj_dict_version) {
-    PyObject *dict = Py_TYPE(obj)->tp_dict;
-    if (unlikely(!dict) || unlikely(tp_dict_version != __PYX_GET_DICT_VERSION(dict)))
-        return 0;
-    return obj_dict_version == __Pyx_get_object_dict_version(obj);
 }
 #endif
 
@@ -3309,44 +3108,6 @@ static void __Pyx_AddTraceback(const char *funcname, int c_line,
 bad:
     Py_XDECREF(py_code);
     Py_XDECREF(py_frame);
-}
-
-/* CIntToPy */
-static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value) {
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wconversion"
-#endif
-    const int neg_one = (int) -1, const_zero = (int) 0;
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic pop
-#endif
-    const int is_unsigned = neg_one > const_zero;
-    if (is_unsigned) {
-        if (sizeof(int) < sizeof(long)) {
-            return PyInt_FromLong((long) value);
-        } else if (sizeof(int) <= sizeof(unsigned long)) {
-            return PyLong_FromUnsignedLong((unsigned long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(int) <= sizeof(unsigned PY_LONG_LONG)) {
-            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
-#endif
-        }
-    } else {
-        if (sizeof(int) <= sizeof(long)) {
-            return PyInt_FromLong((long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(int) <= sizeof(PY_LONG_LONG)) {
-            return PyLong_FromLongLong((PY_LONG_LONG) value);
-#endif
-        }
-    }
-    {
-        int one = 1; int little = (int)*(unsigned char *)&one;
-        unsigned char *bytes = (unsigned char *)&value;
-        return _PyLong_FromByteArray(bytes, sizeof(int),
-                                     little, !is_unsigned);
-    }
 }
 
 /* CIntToPy */

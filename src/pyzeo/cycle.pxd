@@ -9,9 +9,9 @@ __date__ = "Jan 6, 2014"
 
 from libcpp.vector cimport vector
 
-from zeoplusplus.netstorage cimport VORONOI_NETWORK, ATOM_NETWORK
-from zeoplusplus.geometry cimport XYZ
-from zeoplusplus.graphstorage cimport DIJKSTRA_NODE
+from pyzeo.netstorage cimport VORONOI_NETWORK, ATOM_NETWORK
+from pyzeo.geometry cimport XYZ
+from pyzeo.graphstorage cimport DIJKSTRA_NODE
 
 cdef extern from "../cycle.h":
     cdef cppclass CYCLE:

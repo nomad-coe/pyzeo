@@ -1,7 +1,7 @@
 from libcpp.vector cimport vector 
 
-from zeoplusplus.netstorage cimport ATOM_NETWORK, VORONOI_NETWORK
-from zeoplusplus.geometry cimport XYZ
+from pyzeo.netstorage cimport ATOM_NETWORK, VORONOI_NETWORK
+from pyzeo.geometry cimport XYZ
 
 """
 cutoff default value is 0.25

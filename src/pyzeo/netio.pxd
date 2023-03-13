@@ -1,7 +1,7 @@
 # distutils: language = c++
 # distutils: sources = src/networkio.cc
 
-from zeoplusplus.netstorage cimport ATOM_NETWORK, VORONOI_NETWORK
+from pyzeo.netstorage cimport ATOM_NETWORK, VORONOI_NETWORK
 
 cdef extern from '../networkio.h':
     cdef void parseFilename(const char* filename, char* name, char* extension)

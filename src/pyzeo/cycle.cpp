@@ -4,26 +4,47 @@
 {
     "distutils": {
         "depends": [
-            "src/networkinfo.h"
+            "src/cycle.h"
         ],
         "extra_compile_args": [
-            "-fPIC",
             "-Wall",
             "-ansi",
             "-pedantic",
             "-O3"
         ],
         "include_dirs": [
-            "src/zeoplusplus"
+            "src/pyzeo"
         ],
         "language": "c++",
-        "name": "zeoplusplus.netinfo",
+        "name": "pyzeo.cycle",
         "sources": [
-            "src/zeoplusplus/netinfo.pyx",
-            "src/networkinfo.cc"
+            "src/pyzeo/cycle.pyx",
+            "src/cycle.cc",
+            "src/sphere_approx.cc",
+            "src/voro++/src/voro++.cc",
+            "src/networkanalysis.cc",
+            "src/networkstorage.cc",
+            "src/networkinfo.cc",
+            "src/network.cc",
+            "src/net.cc",
+            "src/mindist.cc",
+            "src/geometry.cc",
+            "src/OMS.cc",
+            "src/voronoicell.cc",
+            "src/v_network.cc",
+            "src/graphstorage.cc",
+            "src/channel.cc",
+            "src/symmetry.cc",
+            "src/ray.cc",
+            "src/rmsd.cc",
+            "src/material.cc",
+            "src/psd.cc",
+            "src/area_and_volume.cc",
+            "src/networkaccessibility.cc",
+            "src/string_additions.cc"
         ]
     },
-    "module_name": "zeoplusplus.netinfo"
+    "module_name": "pyzeo.cycle"
 }
 END: Cython Metadata */
 
@@ -779,13 +800,15 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__zeoplusplus__netinfo
-#define __PYX_HAVE_API__zeoplusplus__netinfo
+#define __PYX_HAVE__pyzeo__cycle
+#define __PYX_HAVE_API__pyzeo__cycle
 /* Early includes */
 #include "ios"
 #include "new"
 #include "stdexcept"
 #include "typeinfo"
+#include <vector>
+#include "../geometry.h"
 #include <utility>
 
     #if __cplusplus >= 201103L || (defined(_MSC_VER) && _MSC_VER >= 1600)
@@ -800,9 +823,14 @@ static CYTHON_INLINE float __PYX_NAN() {
     #endif
     
 #include <map>
-#include <string.h>
-#include <string>
-#include "../networkinfo.h"
+#include <set>
+#include "../voronoicell.h"
+#include "../networkstorage.h"
+#include "../networkio.h"
+#include "../network.h"
+#include "../area_and_volume.h"
+#include "../graphstorage.h"
+#include "../cycle.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -1012,11 +1040,169 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "src/zeoplusplus/netinfo.pyx",
-  "stringsource",
+  "src/pyzeo/cycle.pyx",
+  "src/pyzeo/cycle.pxd",
+  "src/pyzeo/geometry.pxd",
+  "src/pyzeo/voronoicell.pxd",
+  "src/pyzeo/netstorage.pxd",
+  "src/pyzeo/graphstorage.pxd",
 };
 
 /*--- Type declarations ---*/
+struct __pyx_obj_5pyzeo_8geometry_Xyz;
+struct __pyx_obj_5pyzeo_8geometry_Point;
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace;
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell;
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell;
+struct __pyx_obj_5pyzeo_10netstorage_Atom;
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork;
+struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork;
+struct __pyx_obj_5pyzeo_5cycle_Cycle;
+
+/* "pyzeo/geometry.pxd":24
+ * 
+ * 
+ * cdef class Xyz:             # <<<<<<<<<<<<<<
+ *     """
+ *     Cython wrapper declaration for Zeo++ XYZ class defined in geometry.h
+ */
+struct __pyx_obj_5pyzeo_8geometry_Xyz {
+  PyObject_HEAD
+  XYZ *thisptr;
+};
+
+
+/* "pyzeo/geometry.pxd":32
+ * 
+ * 
+ * cdef class Point:             # <<<<<<<<<<<<<<
+ *     """
+ *     Cython wrapper declaration for Zeo++ Point class defined in geometry.h
+ */
+struct __pyx_obj_5pyzeo_8geometry_Point {
+  PyObject_HEAD
+  Point *thisptr;
+};
+
+
+/* "pyzeo/voronoicell.pxd":39
+ * 
+ * 
+ * cdef class VorFace:             # <<<<<<<<<<<<<<
+ *     cdef  VOR_FACE* thisptr
+ * 
+ */
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace {
+  PyObject_HEAD
+  VOR_FACE *thisptr;
+};
+
+
+/* "pyzeo/voronoicell.pxd":42
+ *     cdef  VOR_FACE* thisptr
+ * 
+ * cdef class VorCell:             # <<<<<<<<<<<<<<
+ *     cdef VOR_CELL* thisptr
+ * 
+ */
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell {
+  PyObject_HEAD
+  VOR_CELL *thisptr;
+};
+
+
+/* "pyzeo/voronoicell.pxd":45
+ *     cdef VOR_CELL* thisptr
+ * 
+ * cdef class BasicVCell:             # <<<<<<<<<<<<<<
+ *     cdef BASIC_VCELL* thisptr
+ */
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell {
+  PyObject_HEAD
+  BASIC_VCELL *thisptr;
+};
+
+
+/* "pyzeo/netstorage.pxd":120
+ *             VORONOI_NETWORK* vornet, ATOM_NETWORK* atmnet)
+ * 
+ * cdef class Atom:             # <<<<<<<<<<<<<<
+ *     """
+ *     Cython wrapper class for Zeo++ ATOM class.
+ */
+struct __pyx_obj_5pyzeo_10netstorage_Atom {
+  PyObject_HEAD
+  ATOM *thisptr;
+};
+
+
+/* "pyzeo/netstorage.pxd":126
+ *     cdef ATOM* thisptr
+ * 
+ * cdef class AtomNetwork:             # <<<<<<<<<<<<<<
+ *     """
+ *     Cython wrapper class for Zeo++ ATOM_NETWORK class.
+ */
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork {
+  PyObject_HEAD
+  ATOM_NETWORK *thisptr;
+  int rad_flag;
+};
+
+
+/* "pyzeo/netstorage.pxd":135
+ *     cdef bint rad_flag
+ * 
+ * cdef class VoronoiNode:             # <<<<<<<<<<<<<<
+ *     """
+ *     Cython wrapper class for Zeo++ VOR_NODE class.
+ */
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode {
+  PyObject_HEAD
+  VOR_NODE *thisptr;
+};
+
+
+/* "pyzeo/netstorage.pxd":141
+ *     cdef VOR_NODE* thisptr
+ * 
+ * cdef class VoronoiNetwork:             # <<<<<<<<<<<<<<
+ *     """
+ *     Cython wrapper class for Zeo++ VORONOI_NETWORK class.
+ */
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork {
+  PyObject_HEAD
+  VORONOI_NETWORK *thisptr;
+};
+
+
+/* "pyzeo/graphstorage.pxd":34
+ * 
+ * 
+ * cdef class DijkstraNetwork:             # <<<<<<<<<<<<<<
+ *     """
+ *     Cython wrapper class for Zeo++ DIJKSTRA_NETWORK class.
+ */
+struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork {
+  PyObject_HEAD
+  DIJKSTRA_NETWORK *thisptr;
+};
+
+
+/* "pyzeo/cycle.pxd":29
+ * 
+ * 
+ * cdef class Cycle:             # <<<<<<<<<<<<<<
+ *     """
+ *     Cython wrapper class for Zeo++ CYCLE class.
+ */
+struct __pyx_obj_5pyzeo_5cycle_Cycle {
+  PyObject_HEAD
+  CYCLE *thisptr;
+};
+
 
 /* --- Runtime support code (head) --- */
 /* Refnanny.proto */
@@ -1082,38 +1268,18 @@ static const char *__pyx_f[] = {
 #define __Pyx_CLEAR(r)    do { PyObject* tmp = ((PyObject*)(r)); r = NULL; __Pyx_DECREF(tmp);} while(0)
 #define __Pyx_XCLEAR(r)   do { if((r) != NULL) {PyObject* tmp = ((PyObject*)(r)); r = NULL; __Pyx_DECREF(tmp);}} while(0)
 
-/* PyDictVersioning.proto */
-#if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
-#define __PYX_DICT_VERSION_INIT  ((PY_UINT64_T) -1)
-#define __PYX_GET_DICT_VERSION(dict)  (((PyDictObject*)(dict))->ma_version_tag)
-#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)\
-    (version_var) = __PYX_GET_DICT_VERSION(dict);\
-    (cache_var) = (value);
-#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP) {\
-    static PY_UINT64_T __pyx_dict_version = 0;\
-    static PyObject *__pyx_dict_cached_value = NULL;\
-    if (likely(__PYX_GET_DICT_VERSION(DICT) == __pyx_dict_version)) {\
-        (VAR) = __pyx_dict_cached_value;\
-    } else {\
-        (VAR) = __pyx_dict_cached_value = (LOOKUP);\
-        __pyx_dict_version = __PYX_GET_DICT_VERSION(DICT);\
-    }\
-}
-static CYTHON_INLINE PY_UINT64_T __Pyx_get_tp_dict_version(PyObject *obj);
-static CYTHON_INLINE PY_UINT64_T __Pyx_get_object_dict_version(PyObject *obj);
-static CYTHON_INLINE int __Pyx_object_dict_version_matches(PyObject* obj, PY_UINT64_T tp_dict_version, PY_UINT64_T obj_dict_version);
-#else
-#define __PYX_GET_DICT_VERSION(dict)  (0)
-#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)
-#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP)  (VAR) = (LOOKUP);
-#endif
-
 /* PyObjectGetAttrStr.proto */
 #if CYTHON_USE_TYPE_SLOTS
 static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject* attr_name);
 #else
 #define __Pyx_PyObject_GetAttrStr(o,n) PyObject_GetAttr(o,n)
 #endif
+
+/* GetBuiltinName.proto */
+static PyObject *__Pyx_GetBuiltinName(PyObject *name);
+
+/* ExtTypeTest.proto */
+static CYTHON_INLINE int __Pyx_TypeTest(PyObject *obj, PyTypeObject *type);
 
 /* PyThreadStateGet.proto */
 #if CYTHON_FAST_THREAD_STATE
@@ -1149,6 +1315,127 @@ static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject 
 #define __Pyx_ErrFetchInState(tstate, type, value, tb)  PyErr_Fetch(type, value, tb)
 #define __Pyx_ErrRestore(type, value, tb)  PyErr_Restore(type, value, tb)
 #define __Pyx_ErrFetch(type, value, tb)  PyErr_Fetch(type, value, tb)
+#endif
+
+/* RaiseException.proto */
+static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause);
+
+/* PyFunctionFastCall.proto */
+#if CYTHON_FAST_PYCALL
+#define __Pyx_PyFunction_FastCall(func, args, nargs)\
+    __Pyx_PyFunction_FastCallDict((func), (args), (nargs), NULL)
+#if 1 || PY_VERSION_HEX < 0x030600B1
+static PyObject *__Pyx_PyFunction_FastCallDict(PyObject *func, PyObject **args, Py_ssize_t nargs, PyObject *kwargs);
+#else
+#define __Pyx_PyFunction_FastCallDict(func, args, nargs, kwargs) _PyFunction_FastCallDict(func, args, nargs, kwargs)
+#endif
+#define __Pyx_BUILD_ASSERT_EXPR(cond)\
+    (sizeof(char [1 - 2*!(cond)]) - 1)
+#ifndef Py_MEMBER_SIZE
+#define Py_MEMBER_SIZE(type, member) sizeof(((type *)0)->member)
+#endif
+#if CYTHON_FAST_PYCALL
+  static size_t __pyx_pyframe_localsplus_offset = 0;
+  #include "frameobject.h"
+#if PY_VERSION_HEX >= 0x030b00a6
+  #ifndef Py_BUILD_CORE
+    #define Py_BUILD_CORE 1
+  #endif
+  #include "internal/pycore_frame.h"
+#endif
+  #define __Pxy_PyFrame_Initialize_Offsets()\
+    ((void)__Pyx_BUILD_ASSERT_EXPR(sizeof(PyFrameObject) == offsetof(PyFrameObject, f_localsplus) + Py_MEMBER_SIZE(PyFrameObject, f_localsplus)),\
+     (void)(__pyx_pyframe_localsplus_offset = ((size_t)PyFrame_Type.tp_basicsize) - Py_MEMBER_SIZE(PyFrameObject, f_localsplus)))
+  #define __Pyx_PyFrame_GetLocalsplus(frame)\
+    (assert(__pyx_pyframe_localsplus_offset), (PyObject **)(((char *)(frame)) + __pyx_pyframe_localsplus_offset))
+#endif // CYTHON_FAST_PYCALL
+#endif
+
+/* PyObjectCall.proto */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw);
+#else
+#define __Pyx_PyObject_Call(func, arg, kw) PyObject_Call(func, arg, kw)
+#endif
+
+/* PyObjectCallMethO.proto */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject *arg);
+#endif
+
+/* PyObjectCallNoArg.proto */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func);
+#else
+#define __Pyx_PyObject_CallNoArg(func) __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL)
+#endif
+
+/* ListAppend.proto */
+#if CYTHON_USE_PYLIST_INTERNALS && CYTHON_ASSUME_SAFE_MACROS
+static CYTHON_INLINE int __Pyx_PyList_Append(PyObject* list, PyObject* x) {
+    PyListObject* L = (PyListObject*) list;
+    Py_ssize_t len = Py_SIZE(list);
+    if (likely(L->allocated > len) & likely(len > (L->allocated >> 1))) {
+        Py_INCREF(x);
+        PyList_SET_ITEM(list, len, x);
+        __Pyx_SET_SIZE(list, len + 1);
+        return 0;
+    }
+    return PyList_Append(list, x);
+}
+#else
+#define __Pyx_PyList_Append(L,x) PyList_Append(L,x)
+#endif
+
+/* PyObject_GenericGetAttrNoDict.proto */
+#if CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP && PY_VERSION_HEX < 0x03070000
+static CYTHON_INLINE PyObject* __Pyx_PyObject_GenericGetAttrNoDict(PyObject* obj, PyObject* attr_name);
+#else
+#define __Pyx_PyObject_GenericGetAttrNoDict PyObject_GenericGetAttr
+#endif
+
+/* PyObject_GenericGetAttr.proto */
+#if CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP && PY_VERSION_HEX < 0x03070000
+static PyObject* __Pyx_PyObject_GenericGetAttr(PyObject* obj, PyObject* attr_name);
+#else
+#define __Pyx_PyObject_GenericGetAttr PyObject_GenericGetAttr
+#endif
+
+/* TypeImport.proto */
+#ifndef __PYX_HAVE_RT_ImportType_proto
+#define __PYX_HAVE_RT_ImportType_proto
+enum __Pyx_ImportType_CheckSize {
+   __Pyx_ImportType_CheckSize_Error = 0,
+   __Pyx_ImportType_CheckSize_Warn = 1,
+   __Pyx_ImportType_CheckSize_Ignore = 2
+};
+static PyTypeObject *__Pyx_ImportType(PyObject* module, const char *module_name, const char *class_name, size_t size, enum __Pyx_ImportType_CheckSize check_size);
+#endif
+
+/* PyDictVersioning.proto */
+#if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
+#define __PYX_DICT_VERSION_INIT  ((PY_UINT64_T) -1)
+#define __PYX_GET_DICT_VERSION(dict)  (((PyDictObject*)(dict))->ma_version_tag)
+#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)\
+    (version_var) = __PYX_GET_DICT_VERSION(dict);\
+    (cache_var) = (value);
+#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP) {\
+    static PY_UINT64_T __pyx_dict_version = 0;\
+    static PyObject *__pyx_dict_cached_value = NULL;\
+    if (likely(__PYX_GET_DICT_VERSION(DICT) == __pyx_dict_version)) {\
+        (VAR) = __pyx_dict_cached_value;\
+    } else {\
+        (VAR) = __pyx_dict_cached_value = (LOOKUP);\
+        __pyx_dict_version = __PYX_GET_DICT_VERSION(DICT);\
+    }\
+}
+static CYTHON_INLINE PY_UINT64_T __Pyx_get_tp_dict_version(PyObject *obj);
+static CYTHON_INLINE PY_UINT64_T __Pyx_get_object_dict_version(PyObject *obj);
+static CYTHON_INLINE int __Pyx_object_dict_version_matches(PyObject* obj, PY_UINT64_T tp_dict_version, PY_UINT64_T obj_dict_version);
+#else
+#define __PYX_GET_DICT_VERSION(dict)  (0)
+#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)
+#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP)  (VAR) = (LOOKUP);
 #endif
 
 /* CLineInTraceback.proto */
@@ -1214,657 +1501,411 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
+/* Module declarations from 'libcpp.vector' */
+
+/* Module declarations from 'pyzeo.geometry' */
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Xyz = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Point = 0;
+
 /* Module declarations from 'libcpp.utility' */
 
 /* Module declarations from 'libcpp.map' */
 
-/* Module declarations from 'libc.string' */
+/* Module declarations from 'libcpp.set' */
 
-/* Module declarations from 'libcpp.string' */
+/* Module declarations from 'pyzeo.voronoicell' */
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorFace = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorCell = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_BasicVCell = 0;
 
-/* Module declarations from 'zeoplusplus.netinfo' */
-static std::string __pyx_convert_string_from_py_std__in_string(PyObject *); /*proto*/
-#define __Pyx_MODULE_NAME "zeoplusplus.netinfo"
-extern int __pyx_module_is_main_zeoplusplus__netinfo;
-int __pyx_module_is_main_zeoplusplus__netinfo = 0;
+/* Module declarations from 'pyzeo.netstorage' */
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_Atom = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_AtomNetwork = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNode = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = 0;
 
-/* Implementation of 'zeoplusplus.netinfo' */
+/* Module declarations from 'pyzeo.graphstorage' */
+static PyTypeObject *__pyx_ptype_5pyzeo_12graphstorage_DijkstraNetwork = 0;
+
+/* Module declarations from 'pyzeo.cycle' */
+static PyTypeObject *__pyx_ptype_5pyzeo_5cycle_Cycle = 0;
+#define __Pyx_MODULE_NAME "pyzeo.cycle"
+extern int __pyx_module_is_main_pyzeo__cycle;
+int __pyx_module_is_main_pyzeo__cycle = 0;
+
+/* Implementation of 'pyzeo.cycle' */
+static PyObject *__pyx_builtin_ValueError;
+static const char __pyx_k_it[] = "it";
+static const char __pyx_k_ids[] = "ids";
+static const char __pyx_k_iit[] = "iit";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
-static const char __pyx_k_radius[] = "radius";
-static const char __pyx_k_element[] = "element";
-static const char __pyx_k_isMetal[] = "isMetal";
-static const char __pyx_k_filename[] = "filename";
-static const char __pyx_k_c_filename[] = "c_filename";
-static const char __pyx_k_lookupMass[] = "lookupMass";
-static const char __pyx_k_lookupRadius[] = "lookupRadius";
-static const char __pyx_k_readRadTable[] = "readRadTable";
-static const char __pyx_k_readMassTable[] = "readMassTable";
-static const char __pyx_k_lookupCovRadius[] = "lookupCovRadius";
+static const char __pyx_k_Cycle[] = "Cycle";
+static const char __pyx_k_atmnet[] = "atmnet";
+static const char __pyx_k_coords[] = "coords";
+static const char __pyx_k_cycles[] = "cycles";
+static const char __pyx_k_id_set[] = "id_set";
+static const char __pyx_k_points[] = "points";
+static const char __pyx_k_vornet[] = "vornet";
+static const char __pyx_k_new_xyz[] = "new_xyz";
+static const char __pyx_k_ValueError[] = "ValueError";
+static const char __pyx_k_pyzeo_cycle[] = "pyzeo.cycle";
+static const char __pyx_k_c_atmnet_ptr[] = "c_atmnet_ptr";
+static const char __pyx_k_c_vornet_ptr[] = "c_vornet_ptr";
+static const char __pyx_k_centroid_list[] = "centroid_list";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_initializeRadTable[] = "initializeRadTable";
-static const char __pyx_k_lookupAtomicNumber[] = "lookupAtomicNumber";
-static const char __pyx_k_initializeMassTable[] = "initializeMassTable";
-static const char __pyx_k_zeoplusplus_netinfo[] = "zeoplusplus.netinfo";
-static const char __pyx_k_initializeCovRadTable[] = "initializeCovRadTable";
-static const char __pyx_k_initializeAtomicNumberTable[] = "initializeAtomicNumberTable";
-static const char __pyx_k_src_zeoplusplus_netinfo_pyx[] = "src/zeoplusplus/netinfo.pyx";
-static const char __pyx_k_initializeAtomCharacterTable[] = "initializeAtomCharacterTable";
-static const char __pyx_k_Wrapper_functions_to_Zeo_atomic[] = "\nWrapper functions to Zeo++ atomic definitons and related functions\n";
-static PyObject *__pyx_n_s_c_filename;
+static const char __pyx_k_src_pyzeo_cycle_pyx[] = "src/pyzeo/cycle.pyx";
+static const char __pyx_k_compute_face_centers[] = "compute_face_centers";
+static const char __pyx_k_compute_centroid_4cycles[] = "compute_centroid_4cycles";
+static const char __pyx_k_Cython_file_defining_methods_fo[] = "\nCython file defining methods for computing the centroids of cycles\n";
+static PyObject *__pyx_n_s_Cycle;
+static PyObject *__pyx_n_s_ValueError;
+static PyObject *__pyx_n_s_atmnet;
+static PyObject *__pyx_n_s_c_atmnet_ptr;
+static PyObject *__pyx_n_s_c_vornet_ptr;
+static PyObject *__pyx_n_s_centroid_list;
 static PyObject *__pyx_n_s_cline_in_traceback;
-static PyObject *__pyx_n_s_element;
-static PyObject *__pyx_n_s_filename;
-static PyObject *__pyx_n_s_initializeAtomCharacterTable;
-static PyObject *__pyx_n_s_initializeAtomicNumberTable;
-static PyObject *__pyx_n_s_initializeCovRadTable;
-static PyObject *__pyx_n_s_initializeMassTable;
-static PyObject *__pyx_n_s_initializeRadTable;
-static PyObject *__pyx_n_s_isMetal;
-static PyObject *__pyx_n_s_lookupAtomicNumber;
-static PyObject *__pyx_n_s_lookupCovRadius;
-static PyObject *__pyx_n_s_lookupMass;
-static PyObject *__pyx_n_s_lookupRadius;
+static PyObject *__pyx_n_s_compute_centroid_4cycles;
+static PyObject *__pyx_n_s_compute_face_centers;
+static PyObject *__pyx_n_s_coords;
+static PyObject *__pyx_n_s_cycles;
+static PyObject *__pyx_n_s_id_set;
+static PyObject *__pyx_n_s_ids;
+static PyObject *__pyx_n_s_iit;
+static PyObject *__pyx_n_s_it;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_name;
-static PyObject *__pyx_n_s_radius;
-static PyObject *__pyx_n_s_readMassTable;
-static PyObject *__pyx_n_s_readRadTable;
-static PyObject *__pyx_kp_s_src_zeoplusplus_netinfo_pyx;
+static PyObject *__pyx_n_s_new_xyz;
+static PyObject *__pyx_n_s_points;
+static PyObject *__pyx_n_s_pyzeo_cycle;
+static PyObject *__pyx_kp_s_src_pyzeo_cycle_pyx;
 static PyObject *__pyx_n_s_test;
-static PyObject *__pyx_n_s_zeoplusplus_netinfo;
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_initializeRadTable(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_2initializeCovRadTable(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_4initializeMassTable(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_6initializeAtomCharacterTable(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_8initializeAtomicNumberTable(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_10readRadTable(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_filename); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_12readMassTable(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_filename); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_14lookupRadius(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_element); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_16lookupCovRadius(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_element); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_18lookupMass(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_element); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_20lookupAtomicNumber(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_element); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_22isMetal(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_element); /* proto */
-static PyObject *__pyx_codeobj_;
-static PyObject *__pyx_tuple__6;
-static PyObject *__pyx_tuple__8;
-static PyObject *__pyx_tuple__10;
-static PyObject *__pyx_tuple__12;
-static PyObject *__pyx_tuple__14;
-static PyObject *__pyx_tuple__16;
-static PyObject *__pyx_tuple__18;
+static PyObject *__pyx_n_s_vornet;
+static PyObject *__pyx_pf_5pyzeo_5cycle_compute_centroid_4cycles(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_vornet); /* proto */
+static PyObject *__pyx_pf_5pyzeo_5cycle_2compute_face_centers(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet); /* proto */
+static PyObject *__pyx_tp_new_5pyzeo_5cycle_Cycle(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tuple_;
+static PyObject *__pyx_tuple__3;
 static PyObject *__pyx_codeobj__2;
-static PyObject *__pyx_codeobj__3;
 static PyObject *__pyx_codeobj__4;
-static PyObject *__pyx_codeobj__5;
-static PyObject *__pyx_codeobj__7;
-static PyObject *__pyx_codeobj__9;
-static PyObject *__pyx_codeobj__11;
-static PyObject *__pyx_codeobj__13;
-static PyObject *__pyx_codeobj__15;
-static PyObject *__pyx_codeobj__17;
-static PyObject *__pyx_codeobj__19;
 /* Late includes */
 
-/* "zeoplusplus/netinfo.pyx":8
+/* "pyzeo/cycle.pyx":12
  * 
- * #Python definitions for the cdefinitions in .pxd file
- * def initializeRadTable():             # <<<<<<<<<<<<<<
+ * 
+ * def compute_centroid_4cycles(vornet):             # <<<<<<<<<<<<<<
  *     """
- *     Populate the atomic radius table with Zeo++ default values
+ *     Computes the centroid of the 4 corners of quadrilateral voronoi face
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_1initializeRadTable(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_11zeoplusplus_7netinfo_initializeRadTable[] = "\n    Populate the atomic radius table with Zeo++ default values\n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_7netinfo_1initializeRadTable = {"initializeRadTable", (PyCFunction)__pyx_pw_11zeoplusplus_7netinfo_1initializeRadTable, METH_NOARGS, __pyx_doc_11zeoplusplus_7netinfo_initializeRadTable};
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_1initializeRadTable(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_5pyzeo_5cycle_1compute_centroid_4cycles(PyObject *__pyx_self, PyObject *__pyx_v_vornet); /*proto*/
+static char __pyx_doc_5pyzeo_5cycle_compute_centroid_4cycles[] = "\n    Computes the centroid of the 4 corners of quadrilateral voronoi face\n    Args:\n        vornet:\n            pyzeo.storage.VoronoiNetwork\n    Returns:\n        List of centroids in [(x1,y1,z1),(x2,y2,z2),...] format\n    ";
+static PyMethodDef __pyx_mdef_5pyzeo_5cycle_1compute_centroid_4cycles = {"compute_centroid_4cycles", (PyCFunction)__pyx_pw_5pyzeo_5cycle_1compute_centroid_4cycles, METH_O, __pyx_doc_5pyzeo_5cycle_compute_centroid_4cycles};
+static PyObject *__pyx_pw_5pyzeo_5cycle_1compute_centroid_4cycles(PyObject *__pyx_self, PyObject *__pyx_v_vornet) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("initializeRadTable (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7netinfo_initializeRadTable(__pyx_self);
+  __Pyx_RefNannySetupContext("compute_centroid_4cycles (wrapper)", 0);
+  __pyx_r = __pyx_pf_5pyzeo_5cycle_compute_centroid_4cycles(__pyx_self, ((PyObject *)__pyx_v_vornet));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_initializeRadTable(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_5pyzeo_5cycle_compute_centroid_4cycles(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_vornet) {
+  VORONOI_NETWORK *__pyx_v_c_vornet_ptr;
+  std::vector<CYCLE>  __pyx_v_cycles;
+  std::vector<int>  __pyx_v_ids;
+  PyObject *__pyx_v_centroid_list = NULL;
+  std::vector<CYCLE> ::iterator __pyx_v_it;
+  std::vector<int> ::iterator __pyx_v_iit;
+  struct __pyx_obj_5pyzeo_8geometry_Xyz *__pyx_v_new_xyz = NULL;
+  PyObject *__pyx_v_id_set = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("initializeRadTable", 0);
-
-  /* "zeoplusplus/netinfo.pyx":12
- *     Populate the atomic radius table with Zeo++ default values
- *     """
- *     zeo_initializeRadTable()             # <<<<<<<<<<<<<<
- * 
- * def initializeCovRadTable():
- */
-  initializeRadTable();
-
-  /* "zeoplusplus/netinfo.pyx":8
- * 
- * #Python definitions for the cdefinitions in .pxd file
- * def initializeRadTable():             # <<<<<<<<<<<<<<
- *     """
- *     Populate the atomic radius table with Zeo++ default values
- */
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "zeoplusplus/netinfo.pyx":14
- *     zeo_initializeRadTable()
- * 
- * def initializeCovRadTable():             # <<<<<<<<<<<<<<
- *     """
- *     Populate the covalent tradius table with Zeo++ default values
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_3initializeCovRadTable(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_11zeoplusplus_7netinfo_2initializeCovRadTable[] = "\n    Populate the covalent tradius table with Zeo++ default values\n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_7netinfo_3initializeCovRadTable = {"initializeCovRadTable", (PyCFunction)__pyx_pw_11zeoplusplus_7netinfo_3initializeCovRadTable, METH_NOARGS, __pyx_doc_11zeoplusplus_7netinfo_2initializeCovRadTable};
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_3initializeCovRadTable(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("initializeCovRadTable (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7netinfo_2initializeCovRadTable(__pyx_self);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_2initializeCovRadTable(CYTHON_UNUSED PyObject *__pyx_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("initializeCovRadTable", 0);
-
-  /* "zeoplusplus/netinfo.pyx":18
- *     Populate the covalent tradius table with Zeo++ default values
- *     """
- *     zeo_initializeCovRadTable()             # <<<<<<<<<<<<<<
- * 
- * def initializeMassTable():
- */
-  initializeCovRadTable();
-
-  /* "zeoplusplus/netinfo.pyx":14
- *     zeo_initializeRadTable()
- * 
- * def initializeCovRadTable():             # <<<<<<<<<<<<<<
- *     """
- *     Populate the covalent tradius table with Zeo++ default values
- */
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "zeoplusplus/netinfo.pyx":20
- *     zeo_initializeCovRadTable()
- * 
- * def initializeMassTable():             # <<<<<<<<<<<<<<
- *     """
- *     Populate the atomic mass table with Zeo++ default values
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_5initializeMassTable(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_11zeoplusplus_7netinfo_4initializeMassTable[] = "\n    Populate the atomic mass table with Zeo++ default values\n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_7netinfo_5initializeMassTable = {"initializeMassTable", (PyCFunction)__pyx_pw_11zeoplusplus_7netinfo_5initializeMassTable, METH_NOARGS, __pyx_doc_11zeoplusplus_7netinfo_4initializeMassTable};
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_5initializeMassTable(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("initializeMassTable (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7netinfo_4initializeMassTable(__pyx_self);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_4initializeMassTable(CYTHON_UNUSED PyObject *__pyx_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("initializeMassTable", 0);
-
-  /* "zeoplusplus/netinfo.pyx":24
- *     Populate the atomic mass table with Zeo++ default values
- *     """
- *     zeo_initializeMassTable()             # <<<<<<<<<<<<<<
- * 
- * def initializeAtomCharacterTable():
- */
-  initializeMassTable();
-
-  /* "zeoplusplus/netinfo.pyx":20
- *     zeo_initializeCovRadTable()
- * 
- * def initializeMassTable():             # <<<<<<<<<<<<<<
- *     """
- *     Populate the atomic mass table with Zeo++ default values
- */
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "zeoplusplus/netinfo.pyx":26
- *     zeo_initializeMassTable()
- * 
- * def initializeAtomCharacterTable():             # <<<<<<<<<<<<<<
- *     """
- *     Populate the Atom symbol table with Zeo++ default values
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_7initializeAtomCharacterTable(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_11zeoplusplus_7netinfo_6initializeAtomCharacterTable[] = "\n    Populate the Atom symbol table with Zeo++ default values\n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_7netinfo_7initializeAtomCharacterTable = {"initializeAtomCharacterTable", (PyCFunction)__pyx_pw_11zeoplusplus_7netinfo_7initializeAtomCharacterTable, METH_NOARGS, __pyx_doc_11zeoplusplus_7netinfo_6initializeAtomCharacterTable};
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_7initializeAtomCharacterTable(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("initializeAtomCharacterTable (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7netinfo_6initializeAtomCharacterTable(__pyx_self);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_6initializeAtomCharacterTable(CYTHON_UNUSED PyObject *__pyx_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("initializeAtomCharacterTable", 0);
-
-  /* "zeoplusplus/netinfo.pyx":30
- *     Populate the Atom symbol table with Zeo++ default values
- *     """
- *     zeo_initializeAtomCharacterTable()             # <<<<<<<<<<<<<<
- * 
- * def initializeAtomicNumberTable():
- */
-  initializeAtomCharacterTable();
-
-  /* "zeoplusplus/netinfo.pyx":26
- *     zeo_initializeMassTable()
- * 
- * def initializeAtomCharacterTable():             # <<<<<<<<<<<<<<
- *     """
- *     Populate the Atom symbol table with Zeo++ default values
- */
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "zeoplusplus/netinfo.pyx":32
- *     zeo_initializeAtomCharacterTable()
- * 
- * def initializeAtomicNumberTable():             # <<<<<<<<<<<<<<
- *     """
- *     Populate the atomic number table with Zeo++ default values
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_9initializeAtomicNumberTable(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_11zeoplusplus_7netinfo_8initializeAtomicNumberTable[] = "\n    Populate the atomic number table with Zeo++ default values\n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_7netinfo_9initializeAtomicNumberTable = {"initializeAtomicNumberTable", (PyCFunction)__pyx_pw_11zeoplusplus_7netinfo_9initializeAtomicNumberTable, METH_NOARGS, __pyx_doc_11zeoplusplus_7netinfo_8initializeAtomicNumberTable};
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_9initializeAtomicNumberTable(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("initializeAtomicNumberTable (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7netinfo_8initializeAtomicNumberTable(__pyx_self);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_8initializeAtomicNumberTable(CYTHON_UNUSED PyObject *__pyx_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("initializeAtomicNumberTable", 0);
-
-  /* "zeoplusplus/netinfo.pyx":36
- *     Populate the atomic number table with Zeo++ default values
- *     """
- *     zeo_initializeAtomicNumberTable()             # <<<<<<<<<<<<<<
- * 
- * def readRadTable(filename):
- */
-  initializeAtomicNumberTable();
-
-  /* "zeoplusplus/netinfo.pyx":32
- *     zeo_initializeAtomCharacterTable()
- * 
- * def initializeAtomicNumberTable():             # <<<<<<<<<<<<<<
- *     """
- *     Populate the atomic number table with Zeo++ default values
- */
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "zeoplusplus/netinfo.pyx":38
- *     zeo_initializeAtomicNumberTable()
- * 
- * def readRadTable(filename):             # <<<<<<<<<<<<<<
- *     """
- *     Read atomic radii values from input file and replace the default values
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_11readRadTable(PyObject *__pyx_self, PyObject *__pyx_v_filename); /*proto*/
-static char __pyx_doc_11zeoplusplus_7netinfo_10readRadTable[] = "\n    Read atomic radii values from input file and replace the default values\n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_7netinfo_11readRadTable = {"readRadTable", (PyCFunction)__pyx_pw_11zeoplusplus_7netinfo_11readRadTable, METH_O, __pyx_doc_11zeoplusplus_7netinfo_10readRadTable};
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_11readRadTable(PyObject *__pyx_self, PyObject *__pyx_v_filename) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("readRadTable (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7netinfo_10readRadTable(__pyx_self, ((PyObject *)__pyx_v_filename));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_10readRadTable(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_filename) {
-  char *__pyx_v_c_filename;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  int __pyx_t_1;
+  VORONOI_NETWORK *__pyx_t_1;
   int __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
-  char *__pyx_t_4;
+  int __pyx_t_4;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("readRadTable", 0);
-  __Pyx_INCREF(__pyx_v_filename);
+  __Pyx_RefNannySetupContext("compute_centroid_4cycles", 0);
 
-  /* "zeoplusplus/netinfo.pyx":42
- *     Read atomic radii values from input file and replace the default values
+  /* "pyzeo/cycle.pyx":22
  *     """
- *     if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
- *         filename = (<unicode>filename).encode('utf8')
- *     cdef char* c_filename = filename
+ * 
+ *     cdef VORONOI_NETWORK* c_vornet_ptr = (<VoronoiNetwork?>vornet).thisptr             # <<<<<<<<<<<<<<
+ *     cdef vector[CYCLE] cycles
+ *     cdef vector[int] ids
  */
-  __pyx_t_1 = PyUnicode_Check(__pyx_v_filename); 
-  __pyx_t_2 = (__pyx_t_1 != 0);
-  if (__pyx_t_2) {
+  if (!(likely(__Pyx_TypeTest(__pyx_v_vornet, __pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork)))) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_vornet)->thisptr;
+  __pyx_v_c_vornet_ptr = __pyx_t_1;
 
-    /* "zeoplusplus/netinfo.pyx":43
- *     """
- *     if isinstance(filename, unicode):
- *         filename = (<unicode>filename).encode('utf8')             # <<<<<<<<<<<<<<
- *     cdef char* c_filename = filename
- *     zeo_readRadTable(c_filename)
+  /* "pyzeo/cycle.pyx":26
+ *     cdef vector[int] ids
+ * 
+ *     if not compute_4cycle(c_vornet_ptr, &cycles, False, 1):             # <<<<<<<<<<<<<<
+ *         raise ValueError
+ * 
  */
-    if (unlikely(__pyx_v_filename == Py_None)) {
-      PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "encode");
-      __PYX_ERR(0, 43, __pyx_L1_error)
-    }
-    __pyx_t_3 = PyUnicode_AsUTF8String(((PyObject*)__pyx_v_filename)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 43, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF_SET(__pyx_v_filename, __pyx_t_3);
-    __pyx_t_3 = 0;
+  __pyx_t_2 = ((!(compute_4cycle(__pyx_v_c_vornet_ptr, (&__pyx_v_cycles), 0, 1) != 0)) != 0);
+  if (unlikely(__pyx_t_2)) {
 
-    /* "zeoplusplus/netinfo.pyx":42
- *     Read atomic radii values from input file and replace the default values
- *     """
- *     if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
- *         filename = (<unicode>filename).encode('utf8')
- *     cdef char* c_filename = filename
+    /* "pyzeo/cycle.pyx":27
+ * 
+ *     if not compute_4cycle(c_vornet_ptr, &cycles, False, 1):
+ *         raise ValueError             # <<<<<<<<<<<<<<
+ * 
+ *     centroid_list = []
+ */
+    __Pyx_Raise(__pyx_builtin_ValueError, 0, 0, 0);
+    __PYX_ERR(0, 27, __pyx_L1_error)
+
+    /* "pyzeo/cycle.pyx":26
+ *     cdef vector[int] ids
+ * 
+ *     if not compute_4cycle(c_vornet_ptr, &cycles, False, 1):             # <<<<<<<<<<<<<<
+ *         raise ValueError
+ * 
  */
   }
 
-  /* "zeoplusplus/netinfo.pyx":44
- *     if isinstance(filename, unicode):
- *         filename = (<unicode>filename).encode('utf8')
- *     cdef char* c_filename = filename             # <<<<<<<<<<<<<<
- *     zeo_readRadTable(c_filename)
+  /* "pyzeo/cycle.pyx":29
+ *         raise ValueError
  * 
+ *     centroid_list = []             # <<<<<<<<<<<<<<
+ *     cdef vector[CYCLE].iterator it = cycles.begin()
+ *     cdef vector[int].iterator iit
  */
-  __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(0, 44, __pyx_L1_error)
-  __pyx_v_c_filename = __pyx_t_4;
+  __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_v_centroid_list = ((PyObject*)__pyx_t_3);
+  __pyx_t_3 = 0;
 
-  /* "zeoplusplus/netinfo.pyx":45
- *         filename = (<unicode>filename).encode('utf8')
- *     cdef char* c_filename = filename
- *     zeo_readRadTable(c_filename)             # <<<<<<<<<<<<<<
+  /* "pyzeo/cycle.pyx":30
  * 
- * def readMassTable(filename):
+ *     centroid_list = []
+ *     cdef vector[CYCLE].iterator it = cycles.begin()             # <<<<<<<<<<<<<<
+ *     cdef vector[int].iterator iit
+ *     while it != cycles.end():
  */
-  readRadTable(__pyx_v_c_filename);
+  __pyx_v_it = __pyx_v_cycles.begin();
 
-  /* "zeoplusplus/netinfo.pyx":38
- *     zeo_initializeAtomicNumberTable()
- * 
- * def readRadTable(filename):             # <<<<<<<<<<<<<<
- *     """
- *     Read atomic radii values from input file and replace the default values
+  /* "pyzeo/cycle.pyx":32
+ *     cdef vector[CYCLE].iterator it = cycles.begin()
+ *     cdef vector[int].iterator iit
+ *     while it != cycles.end():             # <<<<<<<<<<<<<<
+ *         new_xyz = Xyz()
+ *         centroid(&(deref(it)), new_xyz.thisptr, &ids)
  */
+  while (1) {
+    __pyx_t_2 = ((__pyx_v_it != __pyx_v_cycles.end()) != 0);
+    if (!__pyx_t_2) break;
 
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("zeoplusplus.netinfo.readRadTable", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_filename);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "zeoplusplus/netinfo.pyx":47
- *     zeo_readRadTable(c_filename)
- * 
- * def readMassTable(filename):             # <<<<<<<<<<<<<<
- *     """
- *     Read atomic mass values from input file and replace the default values
+    /* "pyzeo/cycle.pyx":33
+ *     cdef vector[int].iterator iit
+ *     while it != cycles.end():
+ *         new_xyz = Xyz()             # <<<<<<<<<<<<<<
+ *         centroid(&(deref(it)), new_xyz.thisptr, &ids)
+ *         iit = ids.begin()
  */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_13readMassTable(PyObject *__pyx_self, PyObject *__pyx_v_filename); /*proto*/
-static char __pyx_doc_11zeoplusplus_7netinfo_12readMassTable[] = "\n    Read atomic mass values from input file and replace the default values\n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_7netinfo_13readMassTable = {"readMassTable", (PyCFunction)__pyx_pw_11zeoplusplus_7netinfo_13readMassTable, METH_O, __pyx_doc_11zeoplusplus_7netinfo_12readMassTable};
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_13readMassTable(PyObject *__pyx_self, PyObject *__pyx_v_filename) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("readMassTable (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7netinfo_12readMassTable(__pyx_self, ((PyObject *)__pyx_v_filename));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_12readMassTable(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_filename) {
-  char *__pyx_v_c_filename;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  int __pyx_t_1;
-  int __pyx_t_2;
-  PyObject *__pyx_t_3 = NULL;
-  char *__pyx_t_4;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("readMassTable", 0);
-  __Pyx_INCREF(__pyx_v_filename);
-
-  /* "zeoplusplus/netinfo.pyx":51
- *     Read atomic mass values from input file and replace the default values
- *     """
- *     if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
- *         filename = (<unicode>filename).encode('utf8')
- *     cdef char* c_filename = filename
- */
-  __pyx_t_1 = PyUnicode_Check(__pyx_v_filename); 
-  __pyx_t_2 = (__pyx_t_1 != 0);
-  if (__pyx_t_2) {
-
-    /* "zeoplusplus/netinfo.pyx":52
- *     """
- *     if isinstance(filename, unicode):
- *         filename = (<unicode>filename).encode('utf8')             # <<<<<<<<<<<<<<
- *     cdef char* c_filename = filename
- *     zeo_readMassTable(c_filename)
- */
-    if (unlikely(__pyx_v_filename == Py_None)) {
-      PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "encode");
-      __PYX_ERR(0, 52, __pyx_L1_error)
-    }
-    __pyx_t_3 = PyUnicode_AsUTF8String(((PyObject*)__pyx_v_filename)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5pyzeo_8geometry_Xyz)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 33, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF_SET(__pyx_v_filename, __pyx_t_3);
+    __Pyx_XDECREF_SET(__pyx_v_new_xyz, ((struct __pyx_obj_5pyzeo_8geometry_Xyz *)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netinfo.pyx":51
- *     Read atomic mass values from input file and replace the default values
- *     """
- *     if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
- *         filename = (<unicode>filename).encode('utf8')
- *     cdef char* c_filename = filename
+    /* "pyzeo/cycle.pyx":34
+ *     while it != cycles.end():
+ *         new_xyz = Xyz()
+ *         centroid(&(deref(it)), new_xyz.thisptr, &ids)             # <<<<<<<<<<<<<<
+ *         iit = ids.begin()
+ *         #print ids.size()
  */
+    centroid((&(*__pyx_v_it)), __pyx_v_new_xyz->thisptr, (&__pyx_v_ids));
+
+    /* "pyzeo/cycle.pyx":35
+ *         new_xyz = Xyz()
+ *         centroid(&(deref(it)), new_xyz.thisptr, &ids)
+ *         iit = ids.begin()             # <<<<<<<<<<<<<<
+ *         #print ids.size()
+ *         id_set = set()
+ */
+    __pyx_v_iit = __pyx_v_ids.begin();
+
+    /* "pyzeo/cycle.pyx":37
+ *         iit = ids.begin()
+ *         #print ids.size()
+ *         id_set = set()             # <<<<<<<<<<<<<<
+ *         while iit != ids.end():
+ *             id_set.add(deref(iit))
+ */
+    __pyx_t_3 = PySet_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_XDECREF_SET(__pyx_v_id_set, ((PyObject*)__pyx_t_3));
+    __pyx_t_3 = 0;
+
+    /* "pyzeo/cycle.pyx":38
+ *         #print ids.size()
+ *         id_set = set()
+ *         while iit != ids.end():             # <<<<<<<<<<<<<<
+ *             id_set.add(deref(iit))
+ *             inc(iit)
+ */
+    while (1) {
+      __pyx_t_2 = ((__pyx_v_iit != __pyx_v_ids.end()) != 0);
+      if (!__pyx_t_2) break;
+
+      /* "pyzeo/cycle.pyx":39
+ *         id_set = set()
+ *         while iit != ids.end():
+ *             id_set.add(deref(iit))             # <<<<<<<<<<<<<<
+ *             inc(iit)
+ * 
+ */
+      __pyx_t_3 = __Pyx_PyInt_From_int((*__pyx_v_iit)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      __pyx_t_4 = PySet_Add(__pyx_v_id_set, __pyx_t_3); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 39, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+      /* "pyzeo/cycle.pyx":40
+ *         while iit != ids.end():
+ *             id_set.add(deref(iit))
+ *             inc(iit)             # <<<<<<<<<<<<<<
+ * 
+ *         centroid_list.append({'ids':id_set, 'coords':new_xyz})
+ */
+      (void)((++__pyx_v_iit));
+    }
+
+    /* "pyzeo/cycle.pyx":42
+ *             inc(iit)
+ * 
+ *         centroid_list.append({'ids':id_set, 'coords':new_xyz})             # <<<<<<<<<<<<<<
+ *         inc(it)
+ * 
+ */
+    __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 42, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_ids, __pyx_v_id_set) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_coords, ((PyObject *)__pyx_v_new_xyz)) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyList_Append(__pyx_v_centroid_list, __pyx_t_3); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 42, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+    /* "pyzeo/cycle.pyx":43
+ * 
+ *         centroid_list.append({'ids':id_set, 'coords':new_xyz})
+ *         inc(it)             # <<<<<<<<<<<<<<
+ * 
+ *     return centroid_list
+ */
+    (void)((++__pyx_v_it));
   }
 
-  /* "zeoplusplus/netinfo.pyx":53
- *     if isinstance(filename, unicode):
- *         filename = (<unicode>filename).encode('utf8')
- *     cdef char* c_filename = filename             # <<<<<<<<<<<<<<
- *     zeo_readMassTable(c_filename)
+  /* "pyzeo/cycle.pyx":45
+ *         inc(it)
  * 
+ *     return centroid_list             # <<<<<<<<<<<<<<
+ * 
+ * def compute_face_centers(atmnet):
  */
-  __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(0, 53, __pyx_L1_error)
-  __pyx_v_c_filename = __pyx_t_4;
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(__pyx_v_centroid_list);
+  __pyx_r = __pyx_v_centroid_list;
+  goto __pyx_L0;
 
-  /* "zeoplusplus/netinfo.pyx":54
- *         filename = (<unicode>filename).encode('utf8')
- *     cdef char* c_filename = filename
- *     zeo_readMassTable(c_filename)             # <<<<<<<<<<<<<<
+  /* "pyzeo/cycle.pyx":12
  * 
- * def lookupRadius(element):
- */
-  readMassTable(__pyx_v_c_filename);
-
-  /* "zeoplusplus/netinfo.pyx":47
- *     zeo_readRadTable(c_filename)
  * 
- * def readMassTable(filename):             # <<<<<<<<<<<<<<
+ * def compute_centroid_4cycles(vornet):             # <<<<<<<<<<<<<<
  *     """
- *     Read atomic mass values from input file and replace the default values
+ *     Computes the centroid of the 4 corners of quadrilateral voronoi face
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("pyzeo.cycle.compute_centroid_4cycles", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_centroid_list);
+  __Pyx_XDECREF((PyObject *)__pyx_v_new_xyz);
+  __Pyx_XDECREF(__pyx_v_id_set);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "pyzeo/cycle.pyx":47
+ *     return centroid_list
+ * 
+ * def compute_face_centers(atmnet):             # <<<<<<<<<<<<<<
+ *     """
+ *     Compute the face centers of the voronoi network
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_5pyzeo_5cycle_3compute_face_centers(PyObject *__pyx_self, PyObject *__pyx_v_atmnet); /*proto*/
+static char __pyx_doc_5pyzeo_5cycle_2compute_face_centers[] = "\n    Compute the face centers of the voronoi network \n    ";
+static PyMethodDef __pyx_mdef_5pyzeo_5cycle_3compute_face_centers = {"compute_face_centers", (PyCFunction)__pyx_pw_5pyzeo_5cycle_3compute_face_centers, METH_O, __pyx_doc_5pyzeo_5cycle_2compute_face_centers};
+static PyObject *__pyx_pw_5pyzeo_5cycle_3compute_face_centers(PyObject *__pyx_self, PyObject *__pyx_v_atmnet) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("compute_face_centers (wrapper)", 0);
+  __pyx_r = __pyx_pf_5pyzeo_5cycle_2compute_face_centers(__pyx_self, ((PyObject *)__pyx_v_atmnet));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_5pyzeo_5cycle_2compute_face_centers(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet) {
+  ATOM_NETWORK *__pyx_v_c_atmnet_ptr;
+  std::vector<XYZ>  __pyx_v_points;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  ATOM_NETWORK *__pyx_t_1;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("compute_face_centers", 0);
+
+  /* "pyzeo/cycle.pyx":51
+ *     Compute the face centers of the voronoi network
+ *     """
+ *     cdef ATOM_NETWORK* c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr             # <<<<<<<<<<<<<<
+ *     cdef vector[XYZ] points
+ *     face_center(c_atmnet_ptr, &points)
+ */
+  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
+  __pyx_v_c_atmnet_ptr = __pyx_t_1;
+
+  /* "pyzeo/cycle.pyx":53
+ *     cdef ATOM_NETWORK* c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
+ *     cdef vector[XYZ] points
+ *     face_center(c_atmnet_ptr, &points)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  face_center(__pyx_v_c_atmnet_ptr, (&__pyx_v_points));
+
+  /* "pyzeo/cycle.pyx":47
+ *     return centroid_list
+ * 
+ * def compute_face_centers(atmnet):             # <<<<<<<<<<<<<<
+ *     """
+ *     Compute the face centers of the voronoi network
  */
 
   /* function exit code */
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("zeoplusplus.netinfo.readMassTable", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_filename);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "zeoplusplus/netinfo.pyx":56
- *     zeo_readMassTable(c_filename)
- * 
- * def lookupRadius(element):             # <<<<<<<<<<<<<<
- *     """"
- *     Args:
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_15lookupRadius(PyObject *__pyx_self, PyObject *__pyx_v_element); /*proto*/
-static char __pyx_doc_11zeoplusplus_7netinfo_14lookupRadius[] = "\"\n    Args:\n        element:\n            Element name in conventional shorthand \n            Ex: Al for aluminum \n                Si for silicon \n    Returns:\n        radius of the input element\n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_7netinfo_15lookupRadius = {"lookupRadius", (PyCFunction)__pyx_pw_11zeoplusplus_7netinfo_15lookupRadius, METH_O, __pyx_doc_11zeoplusplus_7netinfo_14lookupRadius};
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_15lookupRadius(PyObject *__pyx_self, PyObject *__pyx_v_element) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("lookupRadius (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7netinfo_14lookupRadius(__pyx_self, ((PyObject *)__pyx_v_element));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_14lookupRadius(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_element) {
-  double __pyx_v_radius;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  std::string __pyx_t_1;
-  PyObject *__pyx_t_2 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("lookupRadius", 0);
-
-  /* "zeoplusplus/netinfo.pyx":66
- *         radius of the input element
- *     """
- *     radius = zeo_lookupRadius(element, True)             # <<<<<<<<<<<<<<
- *     return radius
- * 
- */
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_element); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 66, __pyx_L1_error)
-  __pyx_v_radius = lookupRadius(__pyx_t_1, 1);
-
-  /* "zeoplusplus/netinfo.pyx":67
- *     """
- *     radius = zeo_lookupRadius(element, True)
- *     return radius             # <<<<<<<<<<<<<<
- * 
- * def lookupCovRadius(element):
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_radius); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 67, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_r = __pyx_t_2;
-  __pyx_t_2 = 0;
-  goto __pyx_L0;
-
-  /* "zeoplusplus/netinfo.pyx":56
- *     zeo_readMassTable(c_filename)
- * 
- * def lookupRadius(element):             # <<<<<<<<<<<<<<
- *     """"
- *     Args:
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("zeoplusplus.netinfo.lookupRadius", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.cycle.compute_face_centers", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1872,330 +1913,97 @@ static PyObject *__pyx_pf_11zeoplusplus_7netinfo_14lookupRadius(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "zeoplusplus/netinfo.pyx":69
- *     return radius
- * 
- * def lookupCovRadius(element):             # <<<<<<<<<<<<<<
- *     return zeo_lookupCovRadius(element)
- * 
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_17lookupCovRadius(PyObject *__pyx_self, PyObject *__pyx_v_element); /*proto*/
-static PyMethodDef __pyx_mdef_11zeoplusplus_7netinfo_17lookupCovRadius = {"lookupCovRadius", (PyCFunction)__pyx_pw_11zeoplusplus_7netinfo_17lookupCovRadius, METH_O, 0};
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_17lookupCovRadius(PyObject *__pyx_self, PyObject *__pyx_v_element) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("lookupCovRadius (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7netinfo_16lookupCovRadius(__pyx_self, ((PyObject *)__pyx_v_element));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
+static PyObject *__pyx_tp_new_5pyzeo_5cycle_Cycle(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
+    o = (*t->tp_alloc)(t, 0);
+  } else {
+    o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
+  }
+  if (unlikely(!o)) return 0;
+  return o;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_16lookupCovRadius(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_element) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  std::string __pyx_t_1;
-  PyObject *__pyx_t_2 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("lookupCovRadius", 0);
-
-  /* "zeoplusplus/netinfo.pyx":70
- * 
- * def lookupCovRadius(element):
- *     return zeo_lookupCovRadius(element)             # <<<<<<<<<<<<<<
- * 
- * def lookupMass(element):
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_element); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 70, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(lookupCovRadius(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_r = __pyx_t_2;
-  __pyx_t_2 = 0;
-  goto __pyx_L0;
-
-  /* "zeoplusplus/netinfo.pyx":69
- *     return radius
- * 
- * def lookupCovRadius(element):             # <<<<<<<<<<<<<<
- *     return zeo_lookupCovRadius(element)
- * 
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("zeoplusplus.netinfo.lookupCovRadius", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
+static void __pyx_tp_dealloc_5pyzeo_5cycle_Cycle(PyObject *o) {
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
+    if (PyObject_CallFinalizerFromDealloc(o)) return;
+  }
+  #endif
+  (*Py_TYPE(o)->tp_free)(o);
 }
 
-/* "zeoplusplus/netinfo.pyx":72
- *     return zeo_lookupCovRadius(element)
- * 
- * def lookupMass(element):             # <<<<<<<<<<<<<<
- *     return zeo_lookupMass(element)
- * 
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_19lookupMass(PyObject *__pyx_self, PyObject *__pyx_v_element); /*proto*/
-static PyMethodDef __pyx_mdef_11zeoplusplus_7netinfo_19lookupMass = {"lookupMass", (PyCFunction)__pyx_pw_11zeoplusplus_7netinfo_19lookupMass, METH_O, 0};
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_19lookupMass(PyObject *__pyx_self, PyObject *__pyx_v_element) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("lookupMass (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7netinfo_18lookupMass(__pyx_self, ((PyObject *)__pyx_v_element));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_18lookupMass(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_element) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  std::string __pyx_t_1;
-  PyObject *__pyx_t_2 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("lookupMass", 0);
-
-  /* "zeoplusplus/netinfo.pyx":73
- * 
- * def lookupMass(element):
- *     return zeo_lookupMass(element)             # <<<<<<<<<<<<<<
- * 
- * def lookupAtomicNumber(element):
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_element); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 73, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(lookupMass(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_r = __pyx_t_2;
-  __pyx_t_2 = 0;
-  goto __pyx_L0;
-
-  /* "zeoplusplus/netinfo.pyx":72
- *     return zeo_lookupCovRadius(element)
- * 
- * def lookupMass(element):             # <<<<<<<<<<<<<<
- *     return zeo_lookupMass(element)
- * 
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("zeoplusplus.netinfo.lookupMass", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "zeoplusplus/netinfo.pyx":75
- *     return zeo_lookupMass(element)
- * 
- * def lookupAtomicNumber(element):             # <<<<<<<<<<<<<<
- *     return zeo_lookupAtomicNumber(element)
- * 
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_21lookupAtomicNumber(PyObject *__pyx_self, PyObject *__pyx_v_element); /*proto*/
-static PyMethodDef __pyx_mdef_11zeoplusplus_7netinfo_21lookupAtomicNumber = {"lookupAtomicNumber", (PyCFunction)__pyx_pw_11zeoplusplus_7netinfo_21lookupAtomicNumber, METH_O, 0};
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_21lookupAtomicNumber(PyObject *__pyx_self, PyObject *__pyx_v_element) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("lookupAtomicNumber (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7netinfo_20lookupAtomicNumber(__pyx_self, ((PyObject *)__pyx_v_element));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_20lookupAtomicNumber(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_element) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  std::string __pyx_t_1;
-  PyObject *__pyx_t_2 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("lookupAtomicNumber", 0);
-
-  /* "zeoplusplus/netinfo.pyx":76
- * 
- * def lookupAtomicNumber(element):
- *     return zeo_lookupAtomicNumber(element)             # <<<<<<<<<<<<<<
- * 
- * def isMetal(element):
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_element); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 76, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_From_int(lookupAtomicNumber(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_r = __pyx_t_2;
-  __pyx_t_2 = 0;
-  goto __pyx_L0;
-
-  /* "zeoplusplus/netinfo.pyx":75
- *     return zeo_lookupMass(element)
- * 
- * def lookupAtomicNumber(element):             # <<<<<<<<<<<<<<
- *     return zeo_lookupAtomicNumber(element)
- * 
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("zeoplusplus.netinfo.lookupAtomicNumber", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "zeoplusplus/netinfo.pyx":78
- *     return zeo_lookupAtomicNumber(element)
- * 
- * def isMetal(element):             # <<<<<<<<<<<<<<
- *     return zeo_isMetal(element)
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_23isMetal(PyObject *__pyx_self, PyObject *__pyx_v_element); /*proto*/
-static PyMethodDef __pyx_mdef_11zeoplusplus_7netinfo_23isMetal = {"isMetal", (PyCFunction)__pyx_pw_11zeoplusplus_7netinfo_23isMetal, METH_O, 0};
-static PyObject *__pyx_pw_11zeoplusplus_7netinfo_23isMetal(PyObject *__pyx_self, PyObject *__pyx_v_element) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("isMetal (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7netinfo_22isMetal(__pyx_self, ((PyObject *)__pyx_v_element));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_11zeoplusplus_7netinfo_22isMetal(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_element) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  std::string __pyx_t_1;
-  PyObject *__pyx_t_2 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("isMetal", 0);
-
-  /* "zeoplusplus/netinfo.pyx":79
- * 
- * def isMetal(element):
- *     return zeo_isMetal(element)             # <<<<<<<<<<<<<<
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_element); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 79, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyBool_FromLong(isMetal(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_r = __pyx_t_2;
-  __pyx_t_2 = 0;
-  goto __pyx_L0;
-
-  /* "zeoplusplus/netinfo.pyx":78
- *     return zeo_lookupAtomicNumber(element)
- * 
- * def isMetal(element):             # <<<<<<<<<<<<<<
- *     return zeo_isMetal(element)
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("zeoplusplus.netinfo.isMetal", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "string.from_py":13
- * 
- * @cname("__pyx_convert_string_from_py_std__in_string")
- * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:             # <<<<<<<<<<<<<<
- *     cdef Py_ssize_t length = 0
- *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
- */
-
-static std::string __pyx_convert_string_from_py_std__in_string(PyObject *__pyx_v_o) {
-  Py_ssize_t __pyx_v_length;
-  char const *__pyx_v_data;
-  std::string __pyx_r;
-  __Pyx_RefNannyDeclarations
-  char const *__pyx_t_1;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__pyx_convert_string_from_py_std__in_string", 0);
-
-  /* "string.from_py":14
- * @cname("__pyx_convert_string_from_py_std__in_string")
- * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:
- *     cdef Py_ssize_t length = 0             # <<<<<<<<<<<<<<
- *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
- *     return string(data, length)
- */
-  __pyx_v_length = 0;
-
-  /* "string.from_py":15
- * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:
- *     cdef Py_ssize_t length = 0
- *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)             # <<<<<<<<<<<<<<
- *     return string(data, length)
- * 
- */
-  __pyx_t_1 = __Pyx_PyObject_AsStringAndSize(__pyx_v_o, (&__pyx_v_length)); if (unlikely(__pyx_t_1 == ((char const *)NULL))) __PYX_ERR(1, 15, __pyx_L1_error)
-  __pyx_v_data = __pyx_t_1;
-
-  /* "string.from_py":16
- *     cdef Py_ssize_t length = 0
- *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
- *     return string(data, length)             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  __pyx_r = std::string(__pyx_v_data, __pyx_v_length);
-  goto __pyx_L0;
-
-  /* "string.from_py":13
- * 
- * @cname("__pyx_convert_string_from_py_std__in_string")
- * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:             # <<<<<<<<<<<<<<
- *     cdef Py_ssize_t length = 0
- *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_AddTraceback("string.from_py.__pyx_convert_string_from_py_std__in_string", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_pretend_to_initialize(&__pyx_r);
-  __pyx_L0:;
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
+static PyTypeObject __pyx_type_5pyzeo_5cycle_Cycle = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "pyzeo.cycle.Cycle", /*tp_name*/
+  sizeof(struct __pyx_obj_5pyzeo_5cycle_Cycle), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_5pyzeo_5cycle_Cycle, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  #if PY_MAJOR_VERSION < 3
+  0, /*tp_compare*/
+  #endif
+  #if PY_MAJOR_VERSION >= 3
+  0, /*tp_as_async*/
+  #endif
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE, /*tp_flags*/
+  "\n    Cython wrapper class for Zeo++ CYCLE class.\n    Contains a pointer to CYCLE\n    ", /*tp_doc*/
+  0, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  0, /*tp_dictoffset*/
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_5pyzeo_5cycle_Cycle, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if PY_VERSION_HEX >= 0x030400a1
+  0, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4 && PY_VERSION_HEX < 0x03090000
+  0, /*tp_print*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000
+  0, /*tp_pypy_flags*/
+  #endif
+};
 
 static PyMethodDef __pyx_methods[] = {
   {0, 0, 0, 0}
@@ -2204,18 +2012,18 @@ static PyMethodDef __pyx_methods[] = {
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_netinfo(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_cycle(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_netinfo},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_cycle},
   {0, NULL}
 };
 #endif
 
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
-    "netinfo",
-    __pyx_k_Wrapper_functions_to_Zeo_atomic, /* m_doc */
+    "cycle",
+    __pyx_k_Cython_file_defining_methods_fo, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
   #else
@@ -2243,165 +2051,65 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
-  {&__pyx_n_s_c_filename, __pyx_k_c_filename, sizeof(__pyx_k_c_filename), 0, 0, 1, 1},
+  {&__pyx_n_s_Cycle, __pyx_k_Cycle, sizeof(__pyx_k_Cycle), 0, 0, 1, 1},
+  {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
+  {&__pyx_n_s_atmnet, __pyx_k_atmnet, sizeof(__pyx_k_atmnet), 0, 0, 1, 1},
+  {&__pyx_n_s_c_atmnet_ptr, __pyx_k_c_atmnet_ptr, sizeof(__pyx_k_c_atmnet_ptr), 0, 0, 1, 1},
+  {&__pyx_n_s_c_vornet_ptr, __pyx_k_c_vornet_ptr, sizeof(__pyx_k_c_vornet_ptr), 0, 0, 1, 1},
+  {&__pyx_n_s_centroid_list, __pyx_k_centroid_list, sizeof(__pyx_k_centroid_list), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
-  {&__pyx_n_s_element, __pyx_k_element, sizeof(__pyx_k_element), 0, 0, 1, 1},
-  {&__pyx_n_s_filename, __pyx_k_filename, sizeof(__pyx_k_filename), 0, 0, 1, 1},
-  {&__pyx_n_s_initializeAtomCharacterTable, __pyx_k_initializeAtomCharacterTable, sizeof(__pyx_k_initializeAtomCharacterTable), 0, 0, 1, 1},
-  {&__pyx_n_s_initializeAtomicNumberTable, __pyx_k_initializeAtomicNumberTable, sizeof(__pyx_k_initializeAtomicNumberTable), 0, 0, 1, 1},
-  {&__pyx_n_s_initializeCovRadTable, __pyx_k_initializeCovRadTable, sizeof(__pyx_k_initializeCovRadTable), 0, 0, 1, 1},
-  {&__pyx_n_s_initializeMassTable, __pyx_k_initializeMassTable, sizeof(__pyx_k_initializeMassTable), 0, 0, 1, 1},
-  {&__pyx_n_s_initializeRadTable, __pyx_k_initializeRadTable, sizeof(__pyx_k_initializeRadTable), 0, 0, 1, 1},
-  {&__pyx_n_s_isMetal, __pyx_k_isMetal, sizeof(__pyx_k_isMetal), 0, 0, 1, 1},
-  {&__pyx_n_s_lookupAtomicNumber, __pyx_k_lookupAtomicNumber, sizeof(__pyx_k_lookupAtomicNumber), 0, 0, 1, 1},
-  {&__pyx_n_s_lookupCovRadius, __pyx_k_lookupCovRadius, sizeof(__pyx_k_lookupCovRadius), 0, 0, 1, 1},
-  {&__pyx_n_s_lookupMass, __pyx_k_lookupMass, sizeof(__pyx_k_lookupMass), 0, 0, 1, 1},
-  {&__pyx_n_s_lookupRadius, __pyx_k_lookupRadius, sizeof(__pyx_k_lookupRadius), 0, 0, 1, 1},
+  {&__pyx_n_s_compute_centroid_4cycles, __pyx_k_compute_centroid_4cycles, sizeof(__pyx_k_compute_centroid_4cycles), 0, 0, 1, 1},
+  {&__pyx_n_s_compute_face_centers, __pyx_k_compute_face_centers, sizeof(__pyx_k_compute_face_centers), 0, 0, 1, 1},
+  {&__pyx_n_s_coords, __pyx_k_coords, sizeof(__pyx_k_coords), 0, 0, 1, 1},
+  {&__pyx_n_s_cycles, __pyx_k_cycles, sizeof(__pyx_k_cycles), 0, 0, 1, 1},
+  {&__pyx_n_s_id_set, __pyx_k_id_set, sizeof(__pyx_k_id_set), 0, 0, 1, 1},
+  {&__pyx_n_s_ids, __pyx_k_ids, sizeof(__pyx_k_ids), 0, 0, 1, 1},
+  {&__pyx_n_s_iit, __pyx_k_iit, sizeof(__pyx_k_iit), 0, 0, 1, 1},
+  {&__pyx_n_s_it, __pyx_k_it, sizeof(__pyx_k_it), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
-  {&__pyx_n_s_radius, __pyx_k_radius, sizeof(__pyx_k_radius), 0, 0, 1, 1},
-  {&__pyx_n_s_readMassTable, __pyx_k_readMassTable, sizeof(__pyx_k_readMassTable), 0, 0, 1, 1},
-  {&__pyx_n_s_readRadTable, __pyx_k_readRadTable, sizeof(__pyx_k_readRadTable), 0, 0, 1, 1},
-  {&__pyx_kp_s_src_zeoplusplus_netinfo_pyx, __pyx_k_src_zeoplusplus_netinfo_pyx, sizeof(__pyx_k_src_zeoplusplus_netinfo_pyx), 0, 0, 1, 0},
+  {&__pyx_n_s_new_xyz, __pyx_k_new_xyz, sizeof(__pyx_k_new_xyz), 0, 0, 1, 1},
+  {&__pyx_n_s_points, __pyx_k_points, sizeof(__pyx_k_points), 0, 0, 1, 1},
+  {&__pyx_n_s_pyzeo_cycle, __pyx_k_pyzeo_cycle, sizeof(__pyx_k_pyzeo_cycle), 0, 0, 1, 1},
+  {&__pyx_kp_s_src_pyzeo_cycle_pyx, __pyx_k_src_pyzeo_cycle_pyx, sizeof(__pyx_k_src_pyzeo_cycle_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
-  {&__pyx_n_s_zeoplusplus_netinfo, __pyx_k_zeoplusplus_netinfo, sizeof(__pyx_k_zeoplusplus_netinfo), 0, 0, 1, 1},
+  {&__pyx_n_s_vornet, __pyx_k_vornet, sizeof(__pyx_k_vornet), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 27, __pyx_L1_error)
   return 0;
+  __pyx_L1_error:;
+  return -1;
 }
 
 static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "zeoplusplus/netinfo.pyx":8
+  /* "pyzeo/cycle.pyx":12
  * 
- * #Python definitions for the cdefinitions in .pxd file
- * def initializeRadTable():             # <<<<<<<<<<<<<<
+ * 
+ * def compute_centroid_4cycles(vornet):             # <<<<<<<<<<<<<<
  *     """
- *     Populate the atomic radius table with Zeo++ default values
+ *     Computes the centroid of the 4 corners of quadrilateral voronoi face
  */
-  __pyx_codeobj_ = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_netinfo_pyx, __pyx_n_s_initializeRadTable, 8, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj_)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(9, __pyx_n_s_vornet, __pyx_n_s_c_vornet_ptr, __pyx_n_s_cycles, __pyx_n_s_ids, __pyx_n_s_centroid_list, __pyx_n_s_it, __pyx_n_s_iit, __pyx_n_s_new_xyz, __pyx_n_s_id_set); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple_);
+  __Pyx_GIVEREF(__pyx_tuple_);
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(1, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_pyzeo_cycle_pyx, __pyx_n_s_compute_centroid_4cycles, 12, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 12, __pyx_L1_error)
 
-  /* "zeoplusplus/netinfo.pyx":14
- *     zeo_initializeRadTable()
+  /* "pyzeo/cycle.pyx":47
+ *     return centroid_list
  * 
- * def initializeCovRadTable():             # <<<<<<<<<<<<<<
+ * def compute_face_centers(atmnet):             # <<<<<<<<<<<<<<
  *     """
- *     Populate the covalent tradius table with Zeo++ default values
+ *     Compute the face centers of the voronoi network
  */
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_netinfo_pyx, __pyx_n_s_initializeCovRadTable, 14, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 14, __pyx_L1_error)
-
-  /* "zeoplusplus/netinfo.pyx":20
- *     zeo_initializeCovRadTable()
- * 
- * def initializeMassTable():             # <<<<<<<<<<<<<<
- *     """
- *     Populate the atomic mass table with Zeo++ default values
- */
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_netinfo_pyx, __pyx_n_s_initializeMassTable, 20, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 20, __pyx_L1_error)
-
-  /* "zeoplusplus/netinfo.pyx":26
- *     zeo_initializeMassTable()
- * 
- * def initializeAtomCharacterTable():             # <<<<<<<<<<<<<<
- *     """
- *     Populate the Atom symbol table with Zeo++ default values
- */
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_netinfo_pyx, __pyx_n_s_initializeAtomCharacterTable, 26, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 26, __pyx_L1_error)
-
-  /* "zeoplusplus/netinfo.pyx":32
- *     zeo_initializeAtomCharacterTable()
- * 
- * def initializeAtomicNumberTable():             # <<<<<<<<<<<<<<
- *     """
- *     Populate the atomic number table with Zeo++ default values
- */
-  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_netinfo_pyx, __pyx_n_s_initializeAtomicNumberTable, 32, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 32, __pyx_L1_error)
-
-  /* "zeoplusplus/netinfo.pyx":38
- *     zeo_initializeAtomicNumberTable()
- * 
- * def readRadTable(filename):             # <<<<<<<<<<<<<<
- *     """
- *     Read atomic radii values from input file and replace the default values
- */
-  __pyx_tuple__6 = PyTuple_Pack(2, __pyx_n_s_filename, __pyx_n_s_c_filename); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 38, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__6);
-  __Pyx_GIVEREF(__pyx_tuple__6);
-  __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_netinfo_pyx, __pyx_n_s_readRadTable, 38, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(0, 38, __pyx_L1_error)
-
-  /* "zeoplusplus/netinfo.pyx":47
- *     zeo_readRadTable(c_filename)
- * 
- * def readMassTable(filename):             # <<<<<<<<<<<<<<
- *     """
- *     Read atomic mass values from input file and replace the default values
- */
-  __pyx_tuple__8 = PyTuple_Pack(2, __pyx_n_s_filename, __pyx_n_s_c_filename); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 47, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__8);
-  __Pyx_GIVEREF(__pyx_tuple__8);
-  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_netinfo_pyx, __pyx_n_s_readMassTable, 47, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 47, __pyx_L1_error)
-
-  /* "zeoplusplus/netinfo.pyx":56
- *     zeo_readMassTable(c_filename)
- * 
- * def lookupRadius(element):             # <<<<<<<<<<<<<<
- *     """"
- *     Args:
- */
-  __pyx_tuple__10 = PyTuple_Pack(2, __pyx_n_s_element, __pyx_n_s_radius); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 56, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__10);
-  __Pyx_GIVEREF(__pyx_tuple__10);
-  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_netinfo_pyx, __pyx_n_s_lookupRadius, 56, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 56, __pyx_L1_error)
-
-  /* "zeoplusplus/netinfo.pyx":69
- *     return radius
- * 
- * def lookupCovRadius(element):             # <<<<<<<<<<<<<<
- *     return zeo_lookupCovRadius(element)
- * 
- */
-  __pyx_tuple__12 = PyTuple_Pack(1, __pyx_n_s_element); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 69, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__12);
-  __Pyx_GIVEREF(__pyx_tuple__12);
-  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_netinfo_pyx, __pyx_n_s_lookupCovRadius, 69, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 69, __pyx_L1_error)
-
-  /* "zeoplusplus/netinfo.pyx":72
- *     return zeo_lookupCovRadius(element)
- * 
- * def lookupMass(element):             # <<<<<<<<<<<<<<
- *     return zeo_lookupMass(element)
- * 
- */
-  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_n_s_element); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 72, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__14);
-  __Pyx_GIVEREF(__pyx_tuple__14);
-  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_netinfo_pyx, __pyx_n_s_lookupMass, 72, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 72, __pyx_L1_error)
-
-  /* "zeoplusplus/netinfo.pyx":75
- *     return zeo_lookupMass(element)
- * 
- * def lookupAtomicNumber(element):             # <<<<<<<<<<<<<<
- *     return zeo_lookupAtomicNumber(element)
- * 
- */
-  __pyx_tuple__16 = PyTuple_Pack(1, __pyx_n_s_element); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 75, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__16);
-  __Pyx_GIVEREF(__pyx_tuple__16);
-  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_netinfo_pyx, __pyx_n_s_lookupAtomicNumber, 75, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 75, __pyx_L1_error)
-
-  /* "zeoplusplus/netinfo.pyx":78
- *     return zeo_lookupAtomicNumber(element)
- * 
- * def isMetal(element):             # <<<<<<<<<<<<<<
- *     return zeo_isMetal(element)
- */
-  __pyx_tuple__18 = PyTuple_Pack(1, __pyx_n_s_element); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 78, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__18);
-  __Pyx_GIVEREF(__pyx_tuple__18);
-  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_netinfo_pyx, __pyx_n_s_isMetal, 78, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(3, __pyx_n_s_atmnet, __pyx_n_s_c_atmnet_ptr, __pyx_n_s_points); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__3);
+  __Pyx_GIVEREF(__pyx_tuple__3);
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_pyzeo_cycle_pyx, __pyx_n_s_compute_face_centers, 47, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2450,18 +2158,73 @@ static int __Pyx_modinit_function_export_code(void) {
 
 static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannyDeclarations
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
+  if (PyType_Ready(&__pyx_type_5pyzeo_5cycle_Cycle) < 0) __PYX_ERR(1, 29, __pyx_L1_error)
+  #if PY_VERSION_HEX < 0x030800B1
+  __pyx_type_5pyzeo_5cycle_Cycle.tp_print = 0;
+  #endif
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5pyzeo_5cycle_Cycle.tp_dictoffset && __pyx_type_5pyzeo_5cycle_Cycle.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5pyzeo_5cycle_Cycle.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  }
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Cycle, (PyObject *)&__pyx_type_5pyzeo_5cycle_Cycle) < 0) __PYX_ERR(1, 29, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_5cycle_Cycle = &__pyx_type_5pyzeo_5cycle_Cycle;
   __Pyx_RefNannyFinishContext();
   return 0;
+  __pyx_L1_error:;
+  __Pyx_RefNannyFinishContext();
+  return -1;
 }
 
 static int __Pyx_modinit_type_import_code(void) {
   __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.geometry"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 24, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_ptype_5pyzeo_8geometry_Xyz = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Xyz", sizeof(struct __pyx_obj_5pyzeo_8geometry_Xyz), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Xyz) __PYX_ERR(2, 24, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_8geometry_Point = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Point", sizeof(struct __pyx_obj_5pyzeo_8geometry_Point), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Point) __PYX_ERR(2, 32, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.voronoicell"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 39, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_ptype_5pyzeo_11voronoicell_VorFace = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "VorFace", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorFace), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_VorFace) __PYX_ERR(3, 39, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_VorCell = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "VorCell", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorCell), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_VorCell) __PYX_ERR(3, 42, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_BasicVCell = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "BasicVCell", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_BasicVCell) __PYX_ERR(3, 45, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.netstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 120, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_ptype_5pyzeo_10netstorage_Atom = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "Atom", sizeof(struct __pyx_obj_5pyzeo_10netstorage_Atom), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_Atom) __PYX_ERR(4, 120, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_AtomNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "AtomNetwork", sizeof(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_AtomNetwork) __PYX_ERR(4, 126, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNode = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "VoronoiNode", sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_VoronoiNode) __PYX_ERR(4, 135, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "VoronoiNetwork", sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork) __PYX_ERR(4, 141, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.graphstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 34, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_ptype_5pyzeo_12graphstorage_DijkstraNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.graphstorage", "DijkstraNetwork", sizeof(struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_12graphstorage_DijkstraNetwork) __PYX_ERR(5, 34, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_RefNannyFinishContext();
+  return -1;
 }
 
 static int __Pyx_modinit_variable_import_code(void) {
@@ -2499,11 +2262,11 @@ static int __Pyx_modinit_function_import_code(void) {
 
 
 #if PY_MAJOR_VERSION < 3
-__Pyx_PyMODINIT_FUNC initnetinfo(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC initnetinfo(void)
+__Pyx_PyMODINIT_FUNC initcycle(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC initcycle(void)
 #else
-__Pyx_PyMODINIT_FUNC PyInit_netinfo(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC PyInit_netinfo(void)
+__Pyx_PyMODINIT_FUNC PyInit_cycle(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC PyInit_cycle(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -2570,7 +2333,7 @@ bad:
 }
 
 
-static CYTHON_SMALL_CODE int __pyx_pymod_exec_netinfo(PyObject *__pyx_pyinit_module)
+static CYTHON_SMALL_CODE int __pyx_pymod_exec_cycle(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
@@ -2582,7 +2345,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_netinfo(PyObject *__pyx_pyinit_mod
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   if (__pyx_m) {
     if (__pyx_m == __pyx_pyinit_module) return 0;
-    PyErr_SetString(PyExc_RuntimeError, "Module 'netinfo' has already been imported. Re-initialisation is not supported.");
+    PyErr_SetString(PyExc_RuntimeError, "Module 'cycle' has already been imported. Re-initialisation is not supported.");
     return -1;
   }
   #elif PY_MAJOR_VERSION >= 3
@@ -2597,7 +2360,7 @@ if (!__Pyx_RefNanny) {
       Py_FatalError("failed to import 'refnanny' module");
 }
 #endif
-  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_netinfo(void)", 0);
+  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_cycle(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #ifdef __Pxy_PyFrame_Initialize_Offsets
   __Pxy_PyFrame_Initialize_Offsets();
@@ -2634,7 +2397,7 @@ if (!__Pyx_RefNanny) {
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("netinfo", __pyx_methods, __pyx_k_Wrapper_functions_to_Zeo_atomic, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("cycle", __pyx_methods, __pyx_k_Cython_file_defining_methods_fo, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -2652,14 +2415,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_zeoplusplus__netinfo) {
+  if (__pyx_module_is_main_pyzeo__cycle) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "zeoplusplus.netinfo")) {
-      if (unlikely(PyDict_SetItemString(modules, "zeoplusplus.netinfo", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "pyzeo.cycle")) {
+      if (unlikely(PyDict_SetItemString(modules, "pyzeo.cycle", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -2671,8 +2434,8 @@ if (!__Pyx_RefNanny) {
   (void)__Pyx_modinit_global_init_code();
   (void)__Pyx_modinit_variable_export_code();
   (void)__Pyx_modinit_function_export_code();
-  (void)__Pyx_modinit_type_init_code();
-  (void)__Pyx_modinit_type_import_code();
+  if (unlikely(__Pyx_modinit_type_init_code() < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (unlikely(__Pyx_modinit_type_import_code() < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
   (void)__Pyx_modinit_variable_import_code();
   (void)__Pyx_modinit_function_import_code();
   /*--- Execution code ---*/
@@ -2680,166 +2443,39 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "zeoplusplus/netinfo.pyx":8
+  /* "pyzeo/cycle.pyx":12
  * 
- * #Python definitions for the cdefinitions in .pxd file
- * def initializeRadTable():             # <<<<<<<<<<<<<<
+ * 
+ * def compute_centroid_4cycles(vornet):             # <<<<<<<<<<<<<<
  *     """
- *     Populate the atomic radius table with Zeo++ default values
+ *     Computes the centroid of the 4 corners of quadrilateral voronoi face
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7netinfo_1initializeRadTable, NULL, __pyx_n_s_zeoplusplus_netinfo); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5pyzeo_5cycle_1compute_centroid_4cycles, NULL, __pyx_n_s_pyzeo_cycle); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_initializeRadTable, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_compute_centroid_4cycles, __pyx_t_1) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/netinfo.pyx":14
- *     zeo_initializeRadTable()
+  /* "pyzeo/cycle.pyx":47
+ *     return centroid_list
  * 
- * def initializeCovRadTable():             # <<<<<<<<<<<<<<
+ * def compute_face_centers(atmnet):             # <<<<<<<<<<<<<<
  *     """
- *     Populate the covalent tradius table with Zeo++ default values
+ *     Compute the face centers of the voronoi network
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7netinfo_3initializeCovRadTable, NULL, __pyx_n_s_zeoplusplus_netinfo); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5pyzeo_5cycle_3compute_face_centers, NULL, __pyx_n_s_pyzeo_cycle); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_initializeCovRadTable, __pyx_t_1) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_compute_face_centers, __pyx_t_1) < 0) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/netinfo.pyx":20
- *     zeo_initializeCovRadTable()
- * 
- * def initializeMassTable():             # <<<<<<<<<<<<<<
- *     """
- *     Populate the atomic mass table with Zeo++ default values
- */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7netinfo_5initializeMassTable, NULL, __pyx_n_s_zeoplusplus_netinfo); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_initializeMassTable, __pyx_t_1) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "zeoplusplus/netinfo.pyx":26
- *     zeo_initializeMassTable()
- * 
- * def initializeAtomCharacterTable():             # <<<<<<<<<<<<<<
- *     """
- *     Populate the Atom symbol table with Zeo++ default values
- */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7netinfo_7initializeAtomCharacterTable, NULL, __pyx_n_s_zeoplusplus_netinfo); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_initializeAtomCharacterTable, __pyx_t_1) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "zeoplusplus/netinfo.pyx":32
- *     zeo_initializeAtomCharacterTable()
- * 
- * def initializeAtomicNumberTable():             # <<<<<<<<<<<<<<
- *     """
- *     Populate the atomic number table with Zeo++ default values
- */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7netinfo_9initializeAtomicNumberTable, NULL, __pyx_n_s_zeoplusplus_netinfo); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 32, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_initializeAtomicNumberTable, __pyx_t_1) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "zeoplusplus/netinfo.pyx":38
- *     zeo_initializeAtomicNumberTable()
- * 
- * def readRadTable(filename):             # <<<<<<<<<<<<<<
- *     """
- *     Read atomic radii values from input file and replace the default values
- */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7netinfo_11readRadTable, NULL, __pyx_n_s_zeoplusplus_netinfo); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_readRadTable, __pyx_t_1) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "zeoplusplus/netinfo.pyx":47
- *     zeo_readRadTable(c_filename)
- * 
- * def readMassTable(filename):             # <<<<<<<<<<<<<<
- *     """
- *     Read atomic mass values from input file and replace the default values
- */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7netinfo_13readMassTable, NULL, __pyx_n_s_zeoplusplus_netinfo); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_readMassTable, __pyx_t_1) < 0) __PYX_ERR(0, 47, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "zeoplusplus/netinfo.pyx":56
- *     zeo_readMassTable(c_filename)
- * 
- * def lookupRadius(element):             # <<<<<<<<<<<<<<
- *     """"
- *     Args:
- */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7netinfo_15lookupRadius, NULL, __pyx_n_s_zeoplusplus_netinfo); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lookupRadius, __pyx_t_1) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "zeoplusplus/netinfo.pyx":69
- *     return radius
- * 
- * def lookupCovRadius(element):             # <<<<<<<<<<<<<<
- *     return zeo_lookupCovRadius(element)
- * 
- */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7netinfo_17lookupCovRadius, NULL, __pyx_n_s_zeoplusplus_netinfo); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lookupCovRadius, __pyx_t_1) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "zeoplusplus/netinfo.pyx":72
- *     return zeo_lookupCovRadius(element)
- * 
- * def lookupMass(element):             # <<<<<<<<<<<<<<
- *     return zeo_lookupMass(element)
- * 
- */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7netinfo_19lookupMass, NULL, __pyx_n_s_zeoplusplus_netinfo); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lookupMass, __pyx_t_1) < 0) __PYX_ERR(0, 72, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "zeoplusplus/netinfo.pyx":75
- *     return zeo_lookupMass(element)
- * 
- * def lookupAtomicNumber(element):             # <<<<<<<<<<<<<<
- *     return zeo_lookupAtomicNumber(element)
- * 
- */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7netinfo_21lookupAtomicNumber, NULL, __pyx_n_s_zeoplusplus_netinfo); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lookupAtomicNumber, __pyx_t_1) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "zeoplusplus/netinfo.pyx":78
- *     return zeo_lookupAtomicNumber(element)
- * 
- * def isMetal(element):             # <<<<<<<<<<<<<<
- *     return zeo_isMetal(element)
- */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7netinfo_23isMetal, NULL, __pyx_n_s_zeoplusplus_netinfo); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_isMetal, __pyx_t_1) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "zeoplusplus/netinfo.pyx":1
- * # distutils: language = c++             # <<<<<<<<<<<<<<
- * # distutils: sources = src/networkinfo.cc
+  /* "pyzeo/cycle.pyx":1
+ * """             # <<<<<<<<<<<<<<
+ * Cython file defining methods for computing the centroids of cycles
  * """
  */
   __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "string.from_py":13
- * 
- * @cname("__pyx_convert_string_from_py_std__in_string")
- * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:             # <<<<<<<<<<<<<<
- *     cdef Py_ssize_t length = 0
- *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
- */
 
   /*--- Wrapped vars code ---*/
 
@@ -2848,11 +2484,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init zeoplusplus.netinfo", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init pyzeo.cycle", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init zeoplusplus.netinfo");
+    PyErr_SetString(PyExc_ImportError, "init pyzeo.cycle");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -2883,6 +2519,522 @@ end:
 }
 #endif
 
+/* PyObjectGetAttrStr */
+#if CYTHON_USE_TYPE_SLOTS
+static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject* attr_name) {
+    PyTypeObject* tp = Py_TYPE(obj);
+    if (likely(tp->tp_getattro))
+        return tp->tp_getattro(obj, attr_name);
+#if PY_MAJOR_VERSION < 3
+    if (likely(tp->tp_getattr))
+        return tp->tp_getattr(obj, PyString_AS_STRING(attr_name));
+#endif
+    return PyObject_GetAttr(obj, attr_name);
+}
+#endif
+
+/* GetBuiltinName */
+static PyObject *__Pyx_GetBuiltinName(PyObject *name) {
+    PyObject* result = __Pyx_PyObject_GetAttrStr(__pyx_b, name);
+    if (unlikely(!result)) {
+        PyErr_Format(PyExc_NameError,
+#if PY_MAJOR_VERSION >= 3
+            "name '%U' is not defined", name);
+#else
+            "name '%.200s' is not defined", PyString_AS_STRING(name));
+#endif
+    }
+    return result;
+}
+
+/* ExtTypeTest */
+static CYTHON_INLINE int __Pyx_TypeTest(PyObject *obj, PyTypeObject *type) {
+    if (unlikely(!type)) {
+        PyErr_SetString(PyExc_SystemError, "Missing type object");
+        return 0;
+    }
+    if (likely(__Pyx_TypeCheck(obj, type)))
+        return 1;
+    PyErr_Format(PyExc_TypeError, "Cannot convert %.200s to %.200s",
+                 Py_TYPE(obj)->tp_name, type->tp_name);
+    return 0;
+}
+
+/* PyErrFetchRestore */
+#if CYTHON_FAST_THREAD_STATE
+static CYTHON_INLINE void __Pyx_ErrRestoreInState(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb) {
+    PyObject *tmp_type, *tmp_value, *tmp_tb;
+    tmp_type = tstate->curexc_type;
+    tmp_value = tstate->curexc_value;
+    tmp_tb = tstate->curexc_traceback;
+    tstate->curexc_type = type;
+    tstate->curexc_value = value;
+    tstate->curexc_traceback = tb;
+    Py_XDECREF(tmp_type);
+    Py_XDECREF(tmp_value);
+    Py_XDECREF(tmp_tb);
+}
+static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb) {
+    *type = tstate->curexc_type;
+    *value = tstate->curexc_value;
+    *tb = tstate->curexc_traceback;
+    tstate->curexc_type = 0;
+    tstate->curexc_value = 0;
+    tstate->curexc_traceback = 0;
+}
+#endif
+
+/* RaiseException */
+#if PY_MAJOR_VERSION < 3
+static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb,
+                        CYTHON_UNUSED PyObject *cause) {
+    __Pyx_PyThreadState_declare
+    Py_XINCREF(type);
+    if (!value || value == Py_None)
+        value = NULL;
+    else
+        Py_INCREF(value);
+    if (!tb || tb == Py_None)
+        tb = NULL;
+    else {
+        Py_INCREF(tb);
+        if (!PyTraceBack_Check(tb)) {
+            PyErr_SetString(PyExc_TypeError,
+                "raise: arg 3 must be a traceback or None");
+            goto raise_error;
+        }
+    }
+    if (PyType_Check(type)) {
+#if CYTHON_COMPILING_IN_PYPY
+        if (!value) {
+            Py_INCREF(Py_None);
+            value = Py_None;
+        }
+#endif
+        PyErr_NormalizeException(&type, &value, &tb);
+    } else {
+        if (value) {
+            PyErr_SetString(PyExc_TypeError,
+                "instance exception may not have a separate value");
+            goto raise_error;
+        }
+        value = type;
+        type = (PyObject*) Py_TYPE(type);
+        Py_INCREF(type);
+        if (!PyType_IsSubtype((PyTypeObject *)type, (PyTypeObject *)PyExc_BaseException)) {
+            PyErr_SetString(PyExc_TypeError,
+                "raise: exception class must be a subclass of BaseException");
+            goto raise_error;
+        }
+    }
+    __Pyx_PyThreadState_assign
+    __Pyx_ErrRestore(type, value, tb);
+    return;
+raise_error:
+    Py_XDECREF(value);
+    Py_XDECREF(type);
+    Py_XDECREF(tb);
+    return;
+}
+#else
+static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause) {
+    PyObject* owned_instance = NULL;
+    if (tb == Py_None) {
+        tb = 0;
+    } else if (tb && !PyTraceBack_Check(tb)) {
+        PyErr_SetString(PyExc_TypeError,
+            "raise: arg 3 must be a traceback or None");
+        goto bad;
+    }
+    if (value == Py_None)
+        value = 0;
+    if (PyExceptionInstance_Check(type)) {
+        if (value) {
+            PyErr_SetString(PyExc_TypeError,
+                "instance exception may not have a separate value");
+            goto bad;
+        }
+        value = type;
+        type = (PyObject*) Py_TYPE(value);
+    } else if (PyExceptionClass_Check(type)) {
+        PyObject *instance_class = NULL;
+        if (value && PyExceptionInstance_Check(value)) {
+            instance_class = (PyObject*) Py_TYPE(value);
+            if (instance_class != type) {
+                int is_subclass = PyObject_IsSubclass(instance_class, type);
+                if (!is_subclass) {
+                    instance_class = NULL;
+                } else if (unlikely(is_subclass == -1)) {
+                    goto bad;
+                } else {
+                    type = instance_class;
+                }
+            }
+        }
+        if (!instance_class) {
+            PyObject *args;
+            if (!value)
+                args = PyTuple_New(0);
+            else if (PyTuple_Check(value)) {
+                Py_INCREF(value);
+                args = value;
+            } else
+                args = PyTuple_Pack(1, value);
+            if (!args)
+                goto bad;
+            owned_instance = PyObject_Call(type, args, NULL);
+            Py_DECREF(args);
+            if (!owned_instance)
+                goto bad;
+            value = owned_instance;
+            if (!PyExceptionInstance_Check(value)) {
+                PyErr_Format(PyExc_TypeError,
+                             "calling %R should have returned an instance of "
+                             "BaseException, not %R",
+                             type, Py_TYPE(value));
+                goto bad;
+            }
+        }
+    } else {
+        PyErr_SetString(PyExc_TypeError,
+            "raise: exception class must be a subclass of BaseException");
+        goto bad;
+    }
+    if (cause) {
+        PyObject *fixed_cause;
+        if (cause == Py_None) {
+            fixed_cause = NULL;
+        } else if (PyExceptionClass_Check(cause)) {
+            fixed_cause = PyObject_CallObject(cause, NULL);
+            if (fixed_cause == NULL)
+                goto bad;
+        } else if (PyExceptionInstance_Check(cause)) {
+            fixed_cause = cause;
+            Py_INCREF(fixed_cause);
+        } else {
+            PyErr_SetString(PyExc_TypeError,
+                            "exception causes must derive from "
+                            "BaseException");
+            goto bad;
+        }
+        PyException_SetCause(value, fixed_cause);
+    }
+    PyErr_SetObject(type, value);
+    if (tb) {
+#if CYTHON_COMPILING_IN_PYPY
+        PyObject *tmp_type, *tmp_value, *tmp_tb;
+        PyErr_Fetch(&tmp_type, &tmp_value, &tmp_tb);
+        Py_INCREF(tb);
+        PyErr_Restore(tmp_type, tmp_value, tb);
+        Py_XDECREF(tmp_tb);
+#else
+        PyThreadState *tstate = __Pyx_PyThreadState_Current;
+        PyObject* tmp_tb = tstate->curexc_traceback;
+        if (tb != tmp_tb) {
+            Py_INCREF(tb);
+            tstate->curexc_traceback = tb;
+            Py_XDECREF(tmp_tb);
+        }
+#endif
+    }
+bad:
+    Py_XDECREF(owned_instance);
+    return;
+}
+#endif
+
+/* PyFunctionFastCall */
+#if CYTHON_FAST_PYCALL
+static PyObject* __Pyx_PyFunction_FastCallNoKw(PyCodeObject *co, PyObject **args, Py_ssize_t na,
+                                               PyObject *globals) {
+    PyFrameObject *f;
+    PyThreadState *tstate = __Pyx_PyThreadState_Current;
+    PyObject **fastlocals;
+    Py_ssize_t i;
+    PyObject *result;
+    assert(globals != NULL);
+    /* XXX Perhaps we should create a specialized
+       PyFrame_New() that doesn't take locals, but does
+       take builtins without sanity checking them.
+       */
+    assert(tstate != NULL);
+    f = PyFrame_New(tstate, co, globals, NULL);
+    if (f == NULL) {
+        return NULL;
+    }
+    fastlocals = __Pyx_PyFrame_GetLocalsplus(f);
+    for (i = 0; i < na; i++) {
+        Py_INCREF(*args);
+        fastlocals[i] = *args++;
+    }
+    result = PyEval_EvalFrameEx(f,0);
+    ++tstate->recursion_depth;
+    Py_DECREF(f);
+    --tstate->recursion_depth;
+    return result;
+}
+#if 1 || PY_VERSION_HEX < 0x030600B1
+static PyObject *__Pyx_PyFunction_FastCallDict(PyObject *func, PyObject **args, Py_ssize_t nargs, PyObject *kwargs) {
+    PyCodeObject *co = (PyCodeObject *)PyFunction_GET_CODE(func);
+    PyObject *globals = PyFunction_GET_GLOBALS(func);
+    PyObject *argdefs = PyFunction_GET_DEFAULTS(func);
+    PyObject *closure;
+#if PY_MAJOR_VERSION >= 3
+    PyObject *kwdefs;
+#endif
+    PyObject *kwtuple, **k;
+    PyObject **d;
+    Py_ssize_t nd;
+    Py_ssize_t nk;
+    PyObject *result;
+    assert(kwargs == NULL || PyDict_Check(kwargs));
+    nk = kwargs ? PyDict_Size(kwargs) : 0;
+    if (Py_EnterRecursiveCall((char*)" while calling a Python object")) {
+        return NULL;
+    }
+    if (
+#if PY_MAJOR_VERSION >= 3
+            co->co_kwonlyargcount == 0 &&
+#endif
+            likely(kwargs == NULL || nk == 0) &&
+            co->co_flags == (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)) {
+        if (argdefs == NULL && co->co_argcount == nargs) {
+            result = __Pyx_PyFunction_FastCallNoKw(co, args, nargs, globals);
+            goto done;
+        }
+        else if (nargs == 0 && argdefs != NULL
+                 && co->co_argcount == Py_SIZE(argdefs)) {
+            /* function called with no arguments, but all parameters have
+               a default value: use default values as arguments .*/
+            args = &PyTuple_GET_ITEM(argdefs, 0);
+            result =__Pyx_PyFunction_FastCallNoKw(co, args, Py_SIZE(argdefs), globals);
+            goto done;
+        }
+    }
+    if (kwargs != NULL) {
+        Py_ssize_t pos, i;
+        kwtuple = PyTuple_New(2 * nk);
+        if (kwtuple == NULL) {
+            result = NULL;
+            goto done;
+        }
+        k = &PyTuple_GET_ITEM(kwtuple, 0);
+        pos = i = 0;
+        while (PyDict_Next(kwargs, &pos, &k[i], &k[i+1])) {
+            Py_INCREF(k[i]);
+            Py_INCREF(k[i+1]);
+            i += 2;
+        }
+        nk = i / 2;
+    }
+    else {
+        kwtuple = NULL;
+        k = NULL;
+    }
+    closure = PyFunction_GET_CLOSURE(func);
+#if PY_MAJOR_VERSION >= 3
+    kwdefs = PyFunction_GET_KW_DEFAULTS(func);
+#endif
+    if (argdefs != NULL) {
+        d = &PyTuple_GET_ITEM(argdefs, 0);
+        nd = Py_SIZE(argdefs);
+    }
+    else {
+        d = NULL;
+        nd = 0;
+    }
+#if PY_MAJOR_VERSION >= 3
+    result = PyEval_EvalCodeEx((PyObject*)co, globals, (PyObject *)NULL,
+                               args, (int)nargs,
+                               k, (int)nk,
+                               d, (int)nd, kwdefs, closure);
+#else
+    result = PyEval_EvalCodeEx(co, globals, (PyObject *)NULL,
+                               args, (int)nargs,
+                               k, (int)nk,
+                               d, (int)nd, closure);
+#endif
+    Py_XDECREF(kwtuple);
+done:
+    Py_LeaveRecursiveCall();
+    return result;
+}
+#endif
+#endif
+
+/* PyObjectCall */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw) {
+    PyObject *result;
+    ternaryfunc call = Py_TYPE(func)->tp_call;
+    if (unlikely(!call))
+        return PyObject_Call(func, arg, kw);
+    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
+        return NULL;
+    result = (*call)(func, arg, kw);
+    Py_LeaveRecursiveCall();
+    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
+        PyErr_SetString(
+            PyExc_SystemError,
+            "NULL result without error in PyObject_Call");
+    }
+    return result;
+}
+#endif
+
+/* PyObjectCallMethO */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject *arg) {
+    PyObject *self, *result;
+    PyCFunction cfunc;
+    cfunc = PyCFunction_GET_FUNCTION(func);
+    self = PyCFunction_GET_SELF(func);
+    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
+        return NULL;
+    result = cfunc(self, arg);
+    Py_LeaveRecursiveCall();
+    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
+        PyErr_SetString(
+            PyExc_SystemError,
+            "NULL result without error in PyObject_Call");
+    }
+    return result;
+}
+#endif
+
+/* PyObjectCallNoArg */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func) {
+#if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(func)) {
+        return __Pyx_PyFunction_FastCall(func, NULL, 0);
+    }
+#endif
+#if defined(__Pyx_CyFunction_USED) && defined(NDEBUG)
+    if (likely(PyCFunction_Check(func) || __Pyx_CyFunction_Check(func)))
+#else
+    if (likely(PyCFunction_Check(func)))
+#endif
+    {
+        if (likely(PyCFunction_GET_FLAGS(func) & METH_NOARGS)) {
+            return __Pyx_PyObject_CallMethO(func, NULL);
+        }
+    }
+    return __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL);
+}
+#endif
+
+/* PyObject_GenericGetAttrNoDict */
+#if CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP && PY_VERSION_HEX < 0x03070000
+static PyObject *__Pyx_RaiseGenericGetAttributeError(PyTypeObject *tp, PyObject *attr_name) {
+    PyErr_Format(PyExc_AttributeError,
+#if PY_MAJOR_VERSION >= 3
+                 "'%.50s' object has no attribute '%U'",
+                 tp->tp_name, attr_name);
+#else
+                 "'%.50s' object has no attribute '%.400s'",
+                 tp->tp_name, PyString_AS_STRING(attr_name));
+#endif
+    return NULL;
+}
+static CYTHON_INLINE PyObject* __Pyx_PyObject_GenericGetAttrNoDict(PyObject* obj, PyObject* attr_name) {
+    PyObject *descr;
+    PyTypeObject *tp = Py_TYPE(obj);
+    if (unlikely(!PyString_Check(attr_name))) {
+        return PyObject_GenericGetAttr(obj, attr_name);
+    }
+    assert(!tp->tp_dictoffset);
+    descr = _PyType_Lookup(tp, attr_name);
+    if (unlikely(!descr)) {
+        return __Pyx_RaiseGenericGetAttributeError(tp, attr_name);
+    }
+    Py_INCREF(descr);
+    #if PY_MAJOR_VERSION < 3
+    if (likely(PyType_HasFeature(Py_TYPE(descr), Py_TPFLAGS_HAVE_CLASS)))
+    #endif
+    {
+        descrgetfunc f = Py_TYPE(descr)->tp_descr_get;
+        if (unlikely(f)) {
+            PyObject *res = f(descr, obj, (PyObject *)tp);
+            Py_DECREF(descr);
+            return res;
+        }
+    }
+    return descr;
+}
+#endif
+
+/* PyObject_GenericGetAttr */
+#if CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP && PY_VERSION_HEX < 0x03070000
+static PyObject* __Pyx_PyObject_GenericGetAttr(PyObject* obj, PyObject* attr_name) {
+    if (unlikely(Py_TYPE(obj)->tp_dictoffset)) {
+        return PyObject_GenericGetAttr(obj, attr_name);
+    }
+    return __Pyx_PyObject_GenericGetAttrNoDict(obj, attr_name);
+}
+#endif
+
+/* TypeImport */
+#ifndef __PYX_HAVE_RT_ImportType
+#define __PYX_HAVE_RT_ImportType
+static PyTypeObject *__Pyx_ImportType(PyObject *module, const char *module_name, const char *class_name,
+    size_t size, enum __Pyx_ImportType_CheckSize check_size)
+{
+    PyObject *result = 0;
+    char warning[200];
+    Py_ssize_t basicsize;
+#ifdef Py_LIMITED_API
+    PyObject *py_basicsize;
+#endif
+    result = PyObject_GetAttrString(module, class_name);
+    if (!result)
+        goto bad;
+    if (!PyType_Check(result)) {
+        PyErr_Format(PyExc_TypeError,
+            "%.200s.%.200s is not a type object",
+            module_name, class_name);
+        goto bad;
+    }
+#ifndef Py_LIMITED_API
+    basicsize = ((PyTypeObject *)result)->tp_basicsize;
+#else
+    py_basicsize = PyObject_GetAttrString(result, "__basicsize__");
+    if (!py_basicsize)
+        goto bad;
+    basicsize = PyLong_AsSsize_t(py_basicsize);
+    Py_DECREF(py_basicsize);
+    py_basicsize = 0;
+    if (basicsize == (Py_ssize_t)-1 && PyErr_Occurred())
+        goto bad;
+#endif
+    if ((size_t)basicsize < size) {
+        PyErr_Format(PyExc_ValueError,
+            "%.200s.%.200s size changed, may indicate binary incompatibility. "
+            "Expected %zd from C header, got %zd from PyObject",
+            module_name, class_name, size, basicsize);
+        goto bad;
+    }
+    if (check_size == __Pyx_ImportType_CheckSize_Error && (size_t)basicsize != size) {
+        PyErr_Format(PyExc_ValueError,
+            "%.200s.%.200s size changed, may indicate binary incompatibility. "
+            "Expected %zd from C header, got %zd from PyObject",
+            module_name, class_name, size, basicsize);
+        goto bad;
+    }
+    else if (check_size == __Pyx_ImportType_CheckSize_Warn && (size_t)basicsize > size) {
+        PyOS_snprintf(warning, sizeof(warning),
+            "%s.%s size changed, may indicate binary incompatibility. "
+            "Expected %zd from C header, got %zd from PyObject",
+            module_name, class_name, size, basicsize);
+        if (PyErr_WarnEx(NULL, warning, 0) < 0) goto bad;
+    }
+    return (PyTypeObject *)result;
+bad:
+    Py_XDECREF(result);
+    return NULL;
+}
+#endif
+
 /* PyDictVersioning */
 #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
 static CYTHON_INLINE PY_UINT64_T __Pyx_get_tp_dict_version(PyObject *obj) {
@@ -2906,44 +3058,6 @@ static CYTHON_INLINE int __Pyx_object_dict_version_matches(PyObject* obj, PY_UIN
     if (unlikely(!dict) || unlikely(tp_dict_version != __PYX_GET_DICT_VERSION(dict)))
         return 0;
     return obj_dict_version == __Pyx_get_object_dict_version(obj);
-}
-#endif
-
-/* PyObjectGetAttrStr */
-#if CYTHON_USE_TYPE_SLOTS
-static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject* attr_name) {
-    PyTypeObject* tp = Py_TYPE(obj);
-    if (likely(tp->tp_getattro))
-        return tp->tp_getattro(obj, attr_name);
-#if PY_MAJOR_VERSION < 3
-    if (likely(tp->tp_getattr))
-        return tp->tp_getattr(obj, PyString_AS_STRING(attr_name));
-#endif
-    return PyObject_GetAttr(obj, attr_name);
-}
-#endif
-
-/* PyErrFetchRestore */
-#if CYTHON_FAST_THREAD_STATE
-static CYTHON_INLINE void __Pyx_ErrRestoreInState(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb) {
-    PyObject *tmp_type, *tmp_value, *tmp_tb;
-    tmp_type = tstate->curexc_type;
-    tmp_value = tstate->curexc_value;
-    tmp_tb = tstate->curexc_traceback;
-    tstate->curexc_type = type;
-    tstate->curexc_value = value;
-    tstate->curexc_traceback = tb;
-    Py_XDECREF(tmp_type);
-    Py_XDECREF(tmp_value);
-    Py_XDECREF(tmp_tb);
-}
-static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb) {
-    *type = tstate->curexc_type;
-    *value = tstate->curexc_value;
-    *tb = tstate->curexc_traceback;
-    tstate->curexc_type = 0;
-    tstate->curexc_value = 0;
-    tstate->curexc_traceback = 0;
 }
 #endif
 

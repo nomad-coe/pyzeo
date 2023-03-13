@@ -1,7 +1,7 @@
 from libcpp.string cimport string
 
-from zeoplusplus.netstorage cimport AtomNetwork, ATOM_NETWORK
-import zeoplusplus.high_accuracy  
+from pyzeo.netstorage cimport AtomNetwork, ATOM_NETWORK
+import pyzeo.high_accuracy  
 
 def volume(atmnet, channel_radius, probe_radius, 
         mc_sampling_no, high_accuracy=False, high_accuracy_atmnet=None, 
@@ -20,7 +20,7 @@ def volume(atmnet, channel_radius, probe_radius,
         high_accuracy (Default=False):
             Optional flag to use high accuracy.
         high_accuracy_atmnet (Default=None):
-            zeoplusplus.netstorage.AtomNetwork
+            pyzeo.netstorage.AtomNetwork
             Optional high accuracy AtomNetwork. If not given and high_accuracy
             flag is set to True, then it is computed and returned.
         exclude_pockets (Default=True):
@@ -36,7 +36,7 @@ def volume(atmnet, channel_radius, probe_radius,
     """
     if high_accuracy and not high_accuracy_atmnet:
         high_accuracy_atmnet = atmnet.copy()
-        zeoplusplus.high_accuracy.high_accuracy_atmnet(high_accuracy_atmnet)
+        pyzeo.high_accuracy.high_accuracy_atmnet(high_accuracy_atmnet)
         ret_high_acc_atmnet = True
     else:
         ret_high_acc_atmnet = False
@@ -85,7 +85,7 @@ def surface_area(atmnet, channel_radius, probe_radius,
         high_accuracy (Default=False):
             Optional flag to use high accuracy.
         high_accuracy_atmnet (Default=None):
-            zeoplusplus.netstorage.AtomNetwork
+            pyzeo.netstorage.AtomNetwork
             Optional high accuracy AtomNetwork. If not given and high_accuracy
             flag is set to True, then it is computed and returned.
         exclude_pockets (Default=True):
@@ -101,7 +101,7 @@ def surface_area(atmnet, channel_radius, probe_radius,
     """
     if high_accuracy and not high_accuracy_atmnet:
         high_accuracy_atmnet = atmnet.copy()
-        zeoplusplus.high_accuracy.high_accuracy_atmnet(high_accuracy_atmnet)
+        pyzeo.high_accuracy.high_accuracy_atmnet(high_accuracy_atmnet)
         ret_high_acc_atmnet = True
     else:
         ret_high_acc_atmnet = False

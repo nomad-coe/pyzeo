@@ -15,11 +15,11 @@ import sys
 from libcpp.vector cimport vector
 from cython.operator cimport dereference as deref, preincrement as inc
 
-from zeoplusplus.netstorage cimport ATOM_NETWORK, VORONOI_NETWORK, VOR_NODE
-from zeoplusplus.netstorage cimport AtomNetwork, VoronoiNetwork
-from zeoplusplus.high_accuracy import high_accuracy_atmnet
-from zeoplusplus.geometry cimport XYZ
-from zeoplusplus.geometry import Xyz
+from pyzeo.netstorage cimport ATOM_NETWORK, VORONOI_NETWORK, VOR_NODE
+from pyzeo.netstorage cimport AtomNetwork, VoronoiNetwork
+from pyzeo.high_accuracy import high_accuracy_atmnet
+from pyzeo.geometry cimport XYZ
+from pyzeo.geometry import Xyz
 
 def warning(*objs):
     print ("WARNING", *objs, files=sys.stderr)

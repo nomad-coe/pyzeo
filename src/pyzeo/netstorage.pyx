@@ -11,10 +11,10 @@ __date__ = "Dec 12, 2013"
 from libcpp.vector cimport vector
 from cython.operator cimport dereference as deref, preincrement as inc
 
-#from zeoplusplus.voronoicell cimport VorCell, BasicVCell, VOR_CELL, BASIC_VCELL
-cimport zeoplusplus.netinfo
-from zeoplusplus.voronoicell cimport  VOR_CELL, BASIC_VCELL, VOR_FACE
-from zeoplusplus.geometry cimport CPoint, Point
+#from pyzeo.voronoicell cimport VorCell, BasicVCell, VOR_CELL, BASIC_VCELL
+cimport pyzeo.netinfo
+from pyzeo.voronoicell cimport  VOR_CELL, BASIC_VCELL, VOR_FACE
+from pyzeo.geometry cimport CPoint, Point
 
 #STUFF='Hi'
 
@@ -118,10 +118,10 @@ cdef class AtomNetwork:
         cdef char* c_rad_file = rad_file
         if rad_flag:
             if not rad_file:
-                zeoplusplus.netinfo.zeo_initializeRadTable()
+                pyzeo.netinfo.zeo_initializeRadTable()
             else:       # rad_file is defined
                 c_rad_file = rad_file
-                zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)
+                pyzeo.netinfo.zeo_readRadTable(c_rad_file)
 
         atmnet = AtomNetwork()
         cdef char* c_filename = filename
@@ -157,10 +157,10 @@ cdef class AtomNetwork:
         cdef char* c_rad_file = rad_file
         if rad_flag:
             if not rad_file:
-                zeoplusplus.netinfo.zeo_initializeRadTable()
+                pyzeo.netinfo.zeo_initializeRadTable()
             else:       # rad_file is defined
                 c_rad_file = rad_file
-                zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)
+                pyzeo.netinfo.zeo_readRadTable(c_rad_file)
 
         atmnet = AtomNetwork()
         cdef char* c_filename = filename
@@ -197,10 +197,10 @@ cdef class AtomNetwork:
         print (rad_flag, rad_file)
         if rad_flag:
             #if not rad_file:
-            zeoplusplus.netinfo.zeo_initializeRadTable()
+            pyzeo.netinfo.zeo_initializeRadTable()
             if rad_file:       # rad_file is defined
                 c_rad_file = rad_file
-                zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)
+                pyzeo.netinfo.zeo_readRadTable(c_rad_file)
 
         atmnet = AtomNetwork()
         cdef char* c_filename = filename
@@ -236,9 +236,9 @@ cdef class AtomNetwork:
         cdef char* c_rad_file = rad_file
         if rad_flag:
             if not rad_file:
-                zeoplusplus.netinfo.zeo_initializeRadTable()
+                pyzeo.netinfo.zeo_initializeRadTable()
             else:       # rad_file is defined
-                zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)
+                pyzeo.netinfo.zeo_readRadTable(c_rad_file)
 
         atmnet = AtomNetwork()
         cdef char* c_filename = filename
@@ -526,7 +526,7 @@ cdef class VoronoiNetwork:
             probeRad:
                 Radius of the probe.
             atmnet:
-                zeoplusplus.netstorage.AtomNetwork
+                pyzeo.netstorage.AtomNetwork
             shift_x (default=0):
                 Shift the accessible Voronoi network along x-axis
             shift_y (default=0):
@@ -607,7 +607,7 @@ def substitute_atoms(atmnet, substituteSeed, radialFlag):
     is not successful. 
     Args:
         atmnet:
-            zeoplusplus.netstorage.AtomNetwork
+            pyzeo.netstorage.AtomNetwork
         substiuteSeed:
             Boolean flag to specify whether the seeded Si atom is 
             substituted or not. Since only 2 configurations are possible 

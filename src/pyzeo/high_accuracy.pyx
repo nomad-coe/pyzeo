@@ -1,4 +1,4 @@
-from zeoplusplus.netstorage cimport AtomNetwork, ATOM_NETWORK
+from pyzeo.netstorage cimport AtomNetwork, ATOM_NETWORK
 
 _accuracy_kw = {
         "OCC","FCC","ACC","AQC","DDH","TIH","ICH","ICC","RIH","S4","S10","S20",
@@ -11,7 +11,7 @@ def high_accuracy_atmnet(atmnet, accuracy_setting="LOW"):
     *** Modifies atmnet argument in place ***
     Args:
         atmnet:
-            zeoplusplus.netstorage.AtomNetwork
+            pyzeo.netstorage.AtomNetwork
             Is modified in place.
         accuracy_setting: 
             String specifying the accuracy settings.

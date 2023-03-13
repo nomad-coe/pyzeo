@@ -4,44 +4,24 @@
 {
     "distutils": {
         "depends": [
-            "src/area_and_volume.h",
-            "src/cluster.h",
-            "src/geometry.h",
-            "src/network.h",
-            "src/networkio.h",
-            "src/networkstorage.h",
-            "src/voronoicell.h"
+            "src/cluster.h"
         ],
         "extra_compile_args": [
-            "-fPIC",
             "-Wall",
             "-ansi",
             "-pedantic",
             "-O3"
         ],
         "include_dirs": [
-            "src/zeoplusplus",
-            "src/voro++/src"
+            "src/pyzeo"
         ],
         "language": "c++",
-        "name": "zeoplusplus.cluster",
+        "name": "pyzeo.cluster",
         "sources": [
-            "src/zeoplusplus/cluster.pyx",
+            "src/pyzeo/cluster.pyx",
             "src/cluster.cc",
             "src/sphere_approx.cc",
-            "src/voro++/src/cell.cc",
-            "src/voro++/src/c_loops.cc",
-            "src/voro++/src/cmd_line.cc",
-            "src/voro++/src/common.cc",
-            "src/voro++/src/container.cc",
-            "src/voro++/src/container_prd.cc",
-            "src/voro++/src/pre_container.cc",
-            "src/voro++/src/unitcell.cc",
-            "src/voro++/src/v_base.cc",
-            "src/voro++/src/v_base_wl.cc",
-            "src/voro++/src/v_compute.cc",
             "src/voro++/src/voro++.cc",
-            "src/voro++/src/wall.cc",
             "src/networkanalysis.cc",
             "src/networkstorage.cc",
             "src/networkinfo.cc",
@@ -64,7 +44,7 @@
             "src/string_additions.cc"
         ]
     },
-    "module_name": "zeoplusplus.cluster"
+    "module_name": "pyzeo.cluster"
 }
 END: Cython Metadata */
 
@@ -820,8 +800,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__zeoplusplus__cluster
-#define __PYX_HAVE_API__zeoplusplus__cluster
+#define __PYX_HAVE__pyzeo__cluster
+#define __PYX_HAVE_API__pyzeo__cluster
 /* Early includes */
 #include "ios"
 #include "new"
@@ -1059,135 +1039,135 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "src/zeoplusplus/cluster.pyx",
-  "src/zeoplusplus/geometry.pxd",
-  "src/zeoplusplus/voronoicell.pxd",
-  "src/zeoplusplus/netstorage.pxd",
+  "src/pyzeo/cluster.pyx",
+  "src/pyzeo/geometry.pxd",
+  "src/pyzeo/voronoicell.pxd",
+  "src/pyzeo/netstorage.pxd",
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_11zeoplusplus_8geometry_Xyz;
-struct __pyx_obj_11zeoplusplus_8geometry_Point;
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace;
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell;
-struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell;
-struct __pyx_obj_11zeoplusplus_10netstorage_Atom;
-struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork;
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode;
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork;
+struct __pyx_obj_5pyzeo_8geometry_Xyz;
+struct __pyx_obj_5pyzeo_8geometry_Point;
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace;
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell;
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell;
+struct __pyx_obj_5pyzeo_10netstorage_Atom;
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork;
 
-/* "zeoplusplus/geometry.pxd":24
+/* "pyzeo/geometry.pxd":24
  * 
  * 
  * cdef class Xyz:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper declaration for Zeo++ XYZ class defined in geometry.h
  */
-struct __pyx_obj_11zeoplusplus_8geometry_Xyz {
+struct __pyx_obj_5pyzeo_8geometry_Xyz {
   PyObject_HEAD
   XYZ *thisptr;
 };
 
 
-/* "zeoplusplus/geometry.pxd":32
+/* "pyzeo/geometry.pxd":32
  * 
  * 
  * cdef class Point:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper declaration for Zeo++ Point class defined in geometry.h
  */
-struct __pyx_obj_11zeoplusplus_8geometry_Point {
+struct __pyx_obj_5pyzeo_8geometry_Point {
   PyObject_HEAD
   Point *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":39
+/* "pyzeo/voronoicell.pxd":39
  * 
  * 
  * cdef class VorFace:             # <<<<<<<<<<<<<<
  *     cdef  VOR_FACE* thisptr
  * 
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace {
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace {
   PyObject_HEAD
   VOR_FACE *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":42
+/* "pyzeo/voronoicell.pxd":42
  *     cdef  VOR_FACE* thisptr
  * 
  * cdef class VorCell:             # <<<<<<<<<<<<<<
  *     cdef VOR_CELL* thisptr
  * 
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell {
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell {
   PyObject_HEAD
   VOR_CELL *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":45
+/* "pyzeo/voronoicell.pxd":45
  *     cdef VOR_CELL* thisptr
  * 
  * cdef class BasicVCell:             # <<<<<<<<<<<<<<
  *     cdef BASIC_VCELL* thisptr
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell {
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell {
   PyObject_HEAD
   BASIC_VCELL *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":120
+/* "pyzeo/netstorage.pxd":120
  *             VORONOI_NETWORK* vornet, ATOM_NETWORK* atmnet)
  * 
  * cdef class Atom:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ ATOM class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_Atom {
+struct __pyx_obj_5pyzeo_10netstorage_Atom {
   PyObject_HEAD
   ATOM *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":126
+/* "pyzeo/netstorage.pxd":126
  *     cdef ATOM* thisptr
  * 
  * cdef class AtomNetwork:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ ATOM_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork {
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork {
   PyObject_HEAD
   ATOM_NETWORK *thisptr;
   int rad_flag;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":135
+/* "pyzeo/netstorage.pxd":135
  *     cdef bint rad_flag
  * 
  * cdef class VoronoiNode:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ VOR_NODE class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode {
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode {
   PyObject_HEAD
   VOR_NODE *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":141
+/* "pyzeo/netstorage.pxd":141
  *     cdef VOR_NODE* thisptr
  * 
  * cdef class VoronoiNetwork:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ VORONOI_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork {
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork {
   PyObject_HEAD
   VORONOI_NETWORK *thisptr;
 };
@@ -1539,9 +1519,9 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* Module declarations from 'libcpp.vector' */
 
-/* Module declarations from 'zeoplusplus.geometry' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Xyz = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Point = 0;
+/* Module declarations from 'pyzeo.geometry' */
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Xyz = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Point = 0;
 
 /* Module declarations from 'libcpp.utility' */
 
@@ -1549,23 +1529,23 @@ static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Point = 0;
 
 /* Module declarations from 'libcpp.set' */
 
-/* Module declarations from 'zeoplusplus.voronoicell' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_VorFace = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_VorCell = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell = 0;
+/* Module declarations from 'pyzeo.voronoicell' */
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorFace = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorCell = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_BasicVCell = 0;
 
-/* Module declarations from 'zeoplusplus.netstorage' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_Atom = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork = 0;
+/* Module declarations from 'pyzeo.netstorage' */
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_Atom = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_AtomNetwork = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNode = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = 0;
 
-/* Module declarations from 'zeoplusplus.cluster' */
-#define __Pyx_MODULE_NAME "zeoplusplus.cluster"
-extern int __pyx_module_is_main_zeoplusplus__cluster;
-int __pyx_module_is_main_zeoplusplus__cluster = 0;
+/* Module declarations from 'pyzeo.cluster' */
+#define __Pyx_MODULE_NAME "pyzeo.cluster"
+extern int __pyx_module_is_main_pyzeo__cluster;
+int __pyx_module_is_main_pyzeo__cluster = 0;
 
-/* Implementation of 'zeoplusplus.cluster' */
+/* Implementation of 'pyzeo.cluster' */
 static PyObject *__pyx_builtin_print;
 static const char __pyx_k__2[] = "";
 static const char __pyx_k_it[] = "it";
@@ -1613,17 +1593,17 @@ static const char __pyx_k_c_atmnet_ptr[] = "c_atmnet_ptr";
 static const char __pyx_k_c_vornet_ptr[] = "c_vornet_ptr";
 static const char __pyx_k_ha_node_size[] = "ha_node_size";
 static const char __pyx_k_pruned_vornet[] = "pruned_vornet";
+static const char __pyx_k_pyzeo_cluster[] = "pyzeo.cluster";
 static const char __pyx_k_c_ha_atmnetptr[] = "c_ha_atmnetptr";
+static const char __pyx_k_pyzeo_geometry[] = "pyzeo.geometry";
 static const char __pyx_k_Bharat_Medasani[] = "Bharat Medasani";
 static const char __pyx_k_c_ha_vornet_ptr[] = "c_ha_vornet_ptr";
 static const char __pyx_k_No_high_accuracy[] = "No high accuracy";
 static const char __pyx_k_mbkumar_gmail_com[] = "mbkumar@gmail.com";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_zeoplusplus_cluster[] = "zeoplusplus.cluster";
+static const char __pyx_k_pyzeo_high_accuracy[] = "pyzeo.high_accuracy";
 static const char __pyx_k_high_accuracy_atmnet[] = "high_accuracy_atmnet";
-static const char __pyx_k_zeoplusplus_geometry[] = "zeoplusplus.geometry";
-static const char __pyx_k_zeoplusplus_high_accuracy[] = "zeoplusplus.high_accuracy";
-static const char __pyx_k_src_zeoplusplus_cluster_pyx[] = "src/zeoplusplus/cluster.pyx";
+static const char __pyx_k_src_pyzeo_cluster_pyx[] = "src/pyzeo/cluster.pyx";
 static const char __pyx_k_simplify_highaccuracy_vornet[] = "simplify_highaccuracy_vornet";
 static const char __pyx_k_perform_voronoi_decomposition[] = "perform_voronoi_decomposition";
 static const char __pyx_k_reduced_highaccuracy_vornodes[] = "reduced_highaccuracy_vornodes";
@@ -1679,11 +1659,14 @@ static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_prune_voronoi_network_close_node;
 static PyObject *__pyx_n_s_pruned_highaccuracy_voronoi_netw;
 static PyObject *__pyx_n_s_pruned_vornet;
+static PyObject *__pyx_n_s_pyzeo_cluster;
+static PyObject *__pyx_n_s_pyzeo_geometry;
+static PyObject *__pyx_n_s_pyzeo_high_accuracy;
 static PyObject *__pyx_n_s_red_vornet;
 static PyObject *__pyx_n_s_reduced_highaccuracy_vornodes;
 static PyObject *__pyx_n_s_simplify_highaccuracy_vornet;
 static PyObject *__pyx_n_s_size;
-static PyObject *__pyx_kp_s_src_zeoplusplus_cluster_pyx;
+static PyObject *__pyx_kp_s_src_pyzeo_cluster_pyx;
 static PyObject *__pyx_n_s_status;
 static PyObject *__pyx_n_s_stderr;
 static PyObject *__pyx_n_s_sys;
@@ -1693,16 +1676,13 @@ static PyObject *__pyx_n_s_vornet;
 static PyObject *__pyx_n_s_warning;
 static PyObject *__pyx_n_s_xyz_list;
 static PyObject *__pyx_n_s_xyz_vect;
-static PyObject *__pyx_n_s_zeoplusplus_cluster;
-static PyObject *__pyx_n_s_zeoplusplus_geometry;
-static PyObject *__pyx_n_s_zeoplusplus_high_accuracy;
-static PyObject *__pyx_pf_11zeoplusplus_7cluster_warning(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_objs); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7cluster_2simplify_highaccuracy_vornet(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7cluster_6pruned_highaccuracy_voronoi_network(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_delta); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7cluster_8get_nearest_largest_diameter_highaccuracy_vornode(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_delta); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccuracy_voronoi_network(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, CYTHON_UNUSED PyObject *__pyx_v_delta); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_node(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_delta); /* proto */
+static PyObject *__pyx_pf_5pyzeo_7cluster_warning(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_objs); /* proto */
+static PyObject *__pyx_pf_5pyzeo_7cluster_2simplify_highaccuracy_vornet(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet); /* proto */
+static PyObject *__pyx_pf_5pyzeo_7cluster_4reduced_highaccuracy_vornodes(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet); /* proto */
+static PyObject *__pyx_pf_5pyzeo_7cluster_6pruned_highaccuracy_voronoi_network(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_delta); /* proto */
+static PyObject *__pyx_pf_5pyzeo_7cluster_8get_nearest_largest_diameter_highaccuracy_vornode(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_delta); /* proto */
+static PyObject *__pyx_pf_5pyzeo_7cluster_10generate_simplified_highaccuracy_voronoi_network(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, CYTHON_UNUSED PyObject *__pyx_v_delta); /* proto */
+static PyObject *__pyx_pf_5pyzeo_7cluster_12prune_voronoi_network_close_node(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_delta); /* proto */
 static PyObject *__pyx_float_0_1;
 static PyObject *__pyx_float_0_5;
 static PyObject *__pyx_float_0_6;
@@ -1725,8 +1705,8 @@ static PyObject *__pyx_codeobj__14;
 static PyObject *__pyx_codeobj__16;
 /* Late includes */
 
-/* "zeoplusplus/cluster.pyx":24
- * from zeoplusplus.geometry import Xyz
+/* "pyzeo/cluster.pyx":24
+ * from pyzeo.geometry import Xyz
  * 
  * def warning(*objs):             # <<<<<<<<<<<<<<
  *     print ("WARNING", *objs, files=sys.stderr)
@@ -1734,9 +1714,9 @@ static PyObject *__pyx_codeobj__16;
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7cluster_1warning(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_11zeoplusplus_7cluster_1warning = {"warning", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_7cluster_1warning, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11zeoplusplus_7cluster_1warning(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_7cluster_1warning(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5pyzeo_7cluster_1warning = {"warning", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_7cluster_1warning, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5pyzeo_7cluster_1warning(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_objs = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -1744,7 +1724,7 @@ static PyObject *__pyx_pw_11zeoplusplus_7cluster_1warning(PyObject *__pyx_self, 
   if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "warning", 0))) return NULL;
   __Pyx_INCREF(__pyx_args);
   __pyx_v_objs = __pyx_args;
-  __pyx_r = __pyx_pf_11zeoplusplus_7cluster_warning(__pyx_self, __pyx_v_objs);
+  __pyx_r = __pyx_pf_5pyzeo_7cluster_warning(__pyx_self, __pyx_v_objs);
 
   /* function exit code */
   __Pyx_XDECREF(__pyx_v_objs);
@@ -1752,7 +1732,7 @@ static PyObject *__pyx_pw_11zeoplusplus_7cluster_1warning(PyObject *__pyx_self, 
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_7cluster_warning(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_objs) {
+static PyObject *__pyx_pf_5pyzeo_7cluster_warning(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_objs) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1764,7 +1744,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_warning(CYTHON_UNUSED PyObject 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("warning", 0);
 
-  /* "zeoplusplus/cluster.pyx":25
+  /* "pyzeo/cluster.pyx":25
  * 
  * def warning(*objs):
  *     print ("WARNING", *objs, files=sys.stderr)             # <<<<<<<<<<<<<<
@@ -1788,8 +1768,8 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_warning(CYTHON_UNUSED PyObject 
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "zeoplusplus/cluster.pyx":24
- * from zeoplusplus.geometry import Xyz
+  /* "pyzeo/cluster.pyx":24
+ * from pyzeo.geometry import Xyz
  * 
  * def warning(*objs):             # <<<<<<<<<<<<<<
  *     print ("WARNING", *objs, files=sys.stderr)
@@ -1804,7 +1784,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_warning(CYTHON_UNUSED PyObject 
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("zeoplusplus.cluster.warning", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.cluster.warning", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1812,7 +1792,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_warning(CYTHON_UNUSED PyObject 
   return __pyx_r;
 }
 
-/* "zeoplusplus/cluster.pyx":27
+/* "pyzeo/cluster.pyx":27
  *     print ("WARNING", *objs, files=sys.stderr)
  * 
  * def simplify_highaccuracy_vornet(atmnet):             # <<<<<<<<<<<<<<
@@ -1821,21 +1801,21 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_warning(CYTHON_UNUSED PyObject 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7cluster_3simplify_highaccuracy_vornet(PyObject *__pyx_self, PyObject *__pyx_v_atmnet); /*proto*/
-static char __pyx_doc_11zeoplusplus_7cluster_2simplify_highaccuracy_vornet[] = "\n    Generates and simplifies high accuracy voronoi network \n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_7cluster_3simplify_highaccuracy_vornet = {"simplify_highaccuracy_vornet", (PyCFunction)__pyx_pw_11zeoplusplus_7cluster_3simplify_highaccuracy_vornet, METH_O, __pyx_doc_11zeoplusplus_7cluster_2simplify_highaccuracy_vornet};
-static PyObject *__pyx_pw_11zeoplusplus_7cluster_3simplify_highaccuracy_vornet(PyObject *__pyx_self, PyObject *__pyx_v_atmnet) {
+static PyObject *__pyx_pw_5pyzeo_7cluster_3simplify_highaccuracy_vornet(PyObject *__pyx_self, PyObject *__pyx_v_atmnet); /*proto*/
+static char __pyx_doc_5pyzeo_7cluster_2simplify_highaccuracy_vornet[] = "\n    Generates and simplifies high accuracy voronoi network \n    ";
+static PyMethodDef __pyx_mdef_5pyzeo_7cluster_3simplify_highaccuracy_vornet = {"simplify_highaccuracy_vornet", (PyCFunction)__pyx_pw_5pyzeo_7cluster_3simplify_highaccuracy_vornet, METH_O, __pyx_doc_5pyzeo_7cluster_2simplify_highaccuracy_vornet};
+static PyObject *__pyx_pw_5pyzeo_7cluster_3simplify_highaccuracy_vornet(PyObject *__pyx_self, PyObject *__pyx_v_atmnet) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("simplify_highaccuracy_vornet (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7cluster_2simplify_highaccuracy_vornet(__pyx_self, ((PyObject *)__pyx_v_atmnet));
+  __pyx_r = __pyx_pf_5pyzeo_7cluster_2simplify_highaccuracy_vornet(__pyx_self, ((PyObject *)__pyx_v_atmnet));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_7cluster_2simplify_highaccuracy_vornet(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet) {
+static PyObject *__pyx_pf_5pyzeo_7cluster_2simplify_highaccuracy_vornet(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet) {
   ATOM_NETWORK *__pyx_v_c_atmnetptr;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -1845,18 +1825,18 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_2simplify_highaccuracy_vornet(C
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("simplify_highaccuracy_vornet", 0);
 
-  /* "zeoplusplus/cluster.pyx":31
+  /* "pyzeo/cluster.pyx":31
  *     Generates and simplifies high accuracy voronoi network
  *     """
  *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr             # <<<<<<<<<<<<<<
  *     simplify_ha_vornet(c_atmnetptr)
  * 
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)))) __PYX_ERR(0, 31, __pyx_L1_error)
-  __pyx_t_1 = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
+  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
   __pyx_v_c_atmnetptr = __pyx_t_1;
 
-  /* "zeoplusplus/cluster.pyx":32
+  /* "pyzeo/cluster.pyx":32
  *     """
  *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
  *     simplify_ha_vornet(c_atmnetptr)             # <<<<<<<<<<<<<<
@@ -1865,7 +1845,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_2simplify_highaccuracy_vornet(C
  */
   simplify_ha_vornet(__pyx_v_c_atmnetptr);
 
-  /* "zeoplusplus/cluster.pyx":27
+  /* "pyzeo/cluster.pyx":27
  *     print ("WARNING", *objs, files=sys.stderr)
  * 
  * def simplify_highaccuracy_vornet(atmnet):             # <<<<<<<<<<<<<<
@@ -1877,7 +1857,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_2simplify_highaccuracy_vornet(C
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("zeoplusplus.cluster.simplify_highaccuracy_vornet", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.cluster.simplify_highaccuracy_vornet", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1885,7 +1865,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_2simplify_highaccuracy_vornet(C
   return __pyx_r;
 }
 
-/* "zeoplusplus/cluster.pyx":35
+/* "pyzeo/cluster.pyx":35
  * 
  * 
  * def reduced_highaccuracy_vornodes(atmnet):             # <<<<<<<<<<<<<<
@@ -1894,21 +1874,21 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_2simplify_highaccuracy_vornet(C
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7cluster_5reduced_highaccuracy_vornodes(PyObject *__pyx_self, PyObject *__pyx_v_atmnet); /*proto*/
-static char __pyx_doc_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes[] = "\n    Generates simplified hgh accuracy voronoi network\n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_7cluster_5reduced_highaccuracy_vornodes = {"reduced_highaccuracy_vornodes", (PyCFunction)__pyx_pw_11zeoplusplus_7cluster_5reduced_highaccuracy_vornodes, METH_O, __pyx_doc_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes};
-static PyObject *__pyx_pw_11zeoplusplus_7cluster_5reduced_highaccuracy_vornodes(PyObject *__pyx_self, PyObject *__pyx_v_atmnet) {
+static PyObject *__pyx_pw_5pyzeo_7cluster_5reduced_highaccuracy_vornodes(PyObject *__pyx_self, PyObject *__pyx_v_atmnet); /*proto*/
+static char __pyx_doc_5pyzeo_7cluster_4reduced_highaccuracy_vornodes[] = "\n    Generates simplified hgh accuracy voronoi network\n    ";
+static PyMethodDef __pyx_mdef_5pyzeo_7cluster_5reduced_highaccuracy_vornodes = {"reduced_highaccuracy_vornodes", (PyCFunction)__pyx_pw_5pyzeo_7cluster_5reduced_highaccuracy_vornodes, METH_O, __pyx_doc_5pyzeo_7cluster_4reduced_highaccuracy_vornodes};
+static PyObject *__pyx_pw_5pyzeo_7cluster_5reduced_highaccuracy_vornodes(PyObject *__pyx_self, PyObject *__pyx_v_atmnet) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("reduced_highaccuracy_vornodes (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes(__pyx_self, ((PyObject *)__pyx_v_atmnet));
+  __pyx_r = __pyx_pf_5pyzeo_7cluster_4reduced_highaccuracy_vornodes(__pyx_self, ((PyObject *)__pyx_v_atmnet));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet) {
+static PyObject *__pyx_pf_5pyzeo_7cluster_4reduced_highaccuracy_vornodes(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet) {
   ATOM_NETWORK *__pyx_v_c_atmnetptr;
   std::vector<XYZ>  __pyx_v_xyz_vect;
   PyObject *__pyx_v_xyz_list = NULL;
@@ -1932,18 +1912,18 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes(
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reduced_highaccuracy_vornodes", 0);
 
-  /* "zeoplusplus/cluster.pyx":39
+  /* "pyzeo/cluster.pyx":39
  *     Generates simplified hgh accuracy voronoi network
  *     """
  *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr             # <<<<<<<<<<<<<<
  *     cdef vector[XYZ] xyz_vect
  *     high_accuracy_vornodes_reduction(c_atmnetptr, &xyz_vect)
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)))) __PYX_ERR(0, 39, __pyx_L1_error)
-  __pyx_t_1 = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
+  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(0, 39, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
   __pyx_v_c_atmnetptr = __pyx_t_1;
 
-  /* "zeoplusplus/cluster.pyx":41
+  /* "pyzeo/cluster.pyx":41
  *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
  *     cdef vector[XYZ] xyz_vect
  *     high_accuracy_vornodes_reduction(c_atmnetptr, &xyz_vect)             # <<<<<<<<<<<<<<
@@ -1952,7 +1932,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes(
  */
   high_accuracy_vornodes_reduction(__pyx_v_c_atmnetptr, (&__pyx_v_xyz_vect));
 
-  /* "zeoplusplus/cluster.pyx":43
+  /* "pyzeo/cluster.pyx":43
  *     high_accuracy_vornodes_reduction(c_atmnetptr, &xyz_vect)
  *     # Conver to list of Xyz
  *     xyz_list = []             # <<<<<<<<<<<<<<
@@ -1964,7 +1944,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes(
   __pyx_v_xyz_list = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "zeoplusplus/cluster.pyx":45
+  /* "pyzeo/cluster.pyx":45
  *     xyz_list = []
  * 
  *     cdef vector[XYZ].iterator it = xyz_vect.begin()             # <<<<<<<<<<<<<<
@@ -1973,7 +1953,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes(
  */
   __pyx_v_it = __pyx_v_xyz_vect.begin();
 
-  /* "zeoplusplus/cluster.pyx":46
+  /* "pyzeo/cluster.pyx":46
  * 
  *     cdef vector[XYZ].iterator it = xyz_vect.begin()
  *     while it != xyz_vect.end():             # <<<<<<<<<<<<<<
@@ -1984,7 +1964,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes(
     __pyx_t_3 = ((__pyx_v_it != __pyx_v_xyz_vect.end()) != 0);
     if (!__pyx_t_3) break;
 
-    /* "zeoplusplus/cluster.pyx":47
+    /* "pyzeo/cluster.pyx":47
  *     cdef vector[XYZ].iterator it = xyz_vect.begin()
  *     while it != xyz_vect.end():
  *         new_xyz = Xyz((deref(it)).x, (deref(it)).y, (deref(it)).z) #Infefficient             # <<<<<<<<<<<<<<
@@ -2056,7 +2036,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes(
     __Pyx_XDECREF_SET(__pyx_v_new_xyz, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "zeoplusplus/cluster.pyx":48
+    /* "pyzeo/cluster.pyx":48
  *     while it != xyz_vect.end():
  *         new_xyz = Xyz((deref(it)).x, (deref(it)).y, (deref(it)).z) #Infefficient
  *         xyz_list.append(new_xyz)             # <<<<<<<<<<<<<<
@@ -2065,7 +2045,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes(
  */
     __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_xyz_list, __pyx_v_new_xyz); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 48, __pyx_L1_error)
 
-    /* "zeoplusplus/cluster.pyx":49
+    /* "pyzeo/cluster.pyx":49
  *         new_xyz = Xyz((deref(it)).x, (deref(it)).y, (deref(it)).z) #Infefficient
  *         xyz_list.append(new_xyz)
  *         inc(it)             # <<<<<<<<<<<<<<
@@ -2075,7 +2055,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes(
     (void)((++__pyx_v_it));
   }
 
-  /* "zeoplusplus/cluster.pyx":51
+  /* "pyzeo/cluster.pyx":51
  *         inc(it)
  * 
  *     return xyz_list             # <<<<<<<<<<<<<<
@@ -2087,7 +2067,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes(
   __pyx_r = __pyx_v_xyz_list;
   goto __pyx_L0;
 
-  /* "zeoplusplus/cluster.pyx":35
+  /* "pyzeo/cluster.pyx":35
  * 
  * 
  * def reduced_highaccuracy_vornodes(atmnet):             # <<<<<<<<<<<<<<
@@ -2104,7 +2084,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes(
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_AddTraceback("zeoplusplus.cluster.reduced_highaccuracy_vornodes", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.cluster.reduced_highaccuracy_vornodes", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_xyz_list);
@@ -2114,7 +2094,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes(
   return __pyx_r;
 }
 
-/* "zeoplusplus/cluster.pyx":54
+/* "pyzeo/cluster.pyx":54
  * 
  * 
  * def pruned_highaccuracy_voronoi_network(atmnet, delta=0.5):             # <<<<<<<<<<<<<<
@@ -2123,10 +2103,10 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_4reduced_highaccuracy_vornodes(
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7cluster_7pruned_highaccuracy_voronoi_network(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_7cluster_6pruned_highaccuracy_voronoi_network[] = "\n    Prunes hgh accuracy voronoi network by removing voronoi\n    nodes close to the center of the bigger atoms.\n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_7cluster_7pruned_highaccuracy_voronoi_network = {"pruned_highaccuracy_voronoi_network", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_7cluster_7pruned_highaccuracy_voronoi_network, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_7cluster_6pruned_highaccuracy_voronoi_network};
-static PyObject *__pyx_pw_11zeoplusplus_7cluster_7pruned_highaccuracy_voronoi_network(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_7cluster_7pruned_highaccuracy_voronoi_network(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_7cluster_6pruned_highaccuracy_voronoi_network[] = "\n    Prunes hgh accuracy voronoi network by removing voronoi\n    nodes close to the center of the bigger atoms.\n    ";
+static PyMethodDef __pyx_mdef_5pyzeo_7cluster_7pruned_highaccuracy_voronoi_network = {"pruned_highaccuracy_voronoi_network", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_7cluster_7pruned_highaccuracy_voronoi_network, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_7cluster_6pruned_highaccuracy_voronoi_network};
+static PyObject *__pyx_pw_5pyzeo_7cluster_7pruned_highaccuracy_voronoi_network(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_atmnet = 0;
   PyObject *__pyx_v_delta = 0;
   int __pyx_lineno = 0;
@@ -2181,18 +2161,18 @@ static PyObject *__pyx_pw_11zeoplusplus_7cluster_7pruned_highaccuracy_voronoi_ne
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("pruned_highaccuracy_voronoi_network", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 54, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.cluster.pruned_highaccuracy_voronoi_network", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.cluster.pruned_highaccuracy_voronoi_network", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_7cluster_6pruned_highaccuracy_voronoi_network(__pyx_self, __pyx_v_atmnet, __pyx_v_delta);
+  __pyx_r = __pyx_pf_5pyzeo_7cluster_6pruned_highaccuracy_voronoi_network(__pyx_self, __pyx_v_atmnet, __pyx_v_delta);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_7cluster_6pruned_highaccuracy_voronoi_network(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_delta) {
+static PyObject *__pyx_pf_5pyzeo_7cluster_6pruned_highaccuracy_voronoi_network(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_delta) {
   PyObject *__pyx_v_ha_atmnet = NULL;
   PyObject *__pyx_v_vornet = NULL;
   CYTHON_UNUSED PyObject *__pyx_v_ecs = NULL;
@@ -2217,7 +2197,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_6pruned_highaccuracy_voronoi_ne
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("pruned_highaccuracy_voronoi_network", 0);
 
-  /* "zeoplusplus/cluster.pyx":59
+  /* "pyzeo/cluster.pyx":59
  *     nodes close to the center of the bigger atoms.
  *     """
  *     ha_atmnet = atmnet.copy()             # <<<<<<<<<<<<<<
@@ -2244,7 +2224,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_6pruned_highaccuracy_voronoi_ne
   __pyx_v_ha_atmnet = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":60
+  /* "pyzeo/cluster.pyx":60
  *     """
  *     ha_atmnet = atmnet.copy()
  *     high_accuracy_atmnet(ha_atmnet, "MED")             # <<<<<<<<<<<<<<
@@ -2300,7 +2280,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_6pruned_highaccuracy_voronoi_ne
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":61
+  /* "pyzeo/cluster.pyx":61
  *     ha_atmnet = atmnet.copy()
  *     high_accuracy_atmnet(ha_atmnet, "MED")
  *     vornet,ecs,fcs = ha_atmnet.perform_voronoi_decomposition()             # <<<<<<<<<<<<<<
@@ -2384,40 +2364,40 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_6pruned_highaccuracy_voronoi_ne
   __pyx_v_fcs = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "zeoplusplus/cluster.pyx":62
+  /* "pyzeo/cluster.pyx":62
  *     high_accuracy_atmnet(ha_atmnet, "MED")
  *     vornet,ecs,fcs = ha_atmnet.perform_voronoi_decomposition()
  *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr             # <<<<<<<<<<<<<<
  *     cdef ATOM_NETWORK* c_ha_atmnetptr = (<AtomNetwork?>ha_atmnet).thisptr
  *     cdef VORONOI_NETWORK* c_vornetptr = (<VoronoiNetwork?>vornet).thisptr
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)))) __PYX_ERR(0, 62, __pyx_L1_error)
-  __pyx_t_8 = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
+  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_8 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
   __pyx_v_c_atmnetptr = __pyx_t_8;
 
-  /* "zeoplusplus/cluster.pyx":63
+  /* "pyzeo/cluster.pyx":63
  *     vornet,ecs,fcs = ha_atmnet.perform_voronoi_decomposition()
  *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
  *     cdef ATOM_NETWORK* c_ha_atmnetptr = (<AtomNetwork?>ha_atmnet).thisptr             # <<<<<<<<<<<<<<
  *     cdef VORONOI_NETWORK* c_vornetptr = (<VoronoiNetwork?>vornet).thisptr
  *     prune_high_accuracy_voronoi_network(c_vornetptr, c_atmnetptr,
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_ha_atmnet, __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)))) __PYX_ERR(0, 63, __pyx_L1_error)
-  __pyx_t_8 = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_ha_atmnet)->thisptr;
+  if (!(likely(__Pyx_TypeTest(__pyx_v_ha_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_t_8 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_ha_atmnet)->thisptr;
   __pyx_v_c_ha_atmnetptr = __pyx_t_8;
 
-  /* "zeoplusplus/cluster.pyx":64
+  /* "pyzeo/cluster.pyx":64
  *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
  *     cdef ATOM_NETWORK* c_ha_atmnetptr = (<AtomNetwork?>ha_atmnet).thisptr
  *     cdef VORONOI_NETWORK* c_vornetptr = (<VoronoiNetwork?>vornet).thisptr             # <<<<<<<<<<<<<<
  *     prune_high_accuracy_voronoi_network(c_vornetptr, c_atmnetptr,
  *             c_ha_atmnetptr, delta)
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_vornet, __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork)))) __PYX_ERR(0, 64, __pyx_L1_error)
-  __pyx_t_9 = ((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_vornet)->thisptr;
+  if (!(likely(__Pyx_TypeTest(__pyx_v_vornet, __pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork)))) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_9 = ((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_vornet)->thisptr;
   __pyx_v_c_vornetptr = __pyx_t_9;
 
-  /* "zeoplusplus/cluster.pyx":66
+  /* "pyzeo/cluster.pyx":66
  *     cdef VORONOI_NETWORK* c_vornetptr = (<VoronoiNetwork?>vornet).thisptr
  *     prune_high_accuracy_voronoi_network(c_vornetptr, c_atmnetptr,
  *             c_ha_atmnetptr, delta)             # <<<<<<<<<<<<<<
@@ -2426,7 +2406,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_6pruned_highaccuracy_voronoi_ne
  */
   __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_v_delta); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 66, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":65
+  /* "pyzeo/cluster.pyx":65
  *     cdef ATOM_NETWORK* c_ha_atmnetptr = (<AtomNetwork?>ha_atmnet).thisptr
  *     cdef VORONOI_NETWORK* c_vornetptr = (<VoronoiNetwork?>vornet).thisptr
  *     prune_high_accuracy_voronoi_network(c_vornetptr, c_atmnetptr,             # <<<<<<<<<<<<<<
@@ -2435,7 +2415,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_6pruned_highaccuracy_voronoi_ne
  */
   prune_high_accuracy_voronoi_network(__pyx_v_c_vornetptr, __pyx_v_c_atmnetptr, __pyx_v_c_ha_atmnetptr, __pyx_t_10);
 
-  /* "zeoplusplus/cluster.pyx":67
+  /* "pyzeo/cluster.pyx":67
  *     prune_high_accuracy_voronoi_network(c_vornetptr, c_atmnetptr,
  *             c_ha_atmnetptr, delta)
  *     return vornet             # <<<<<<<<<<<<<<
@@ -2447,7 +2427,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_6pruned_highaccuracy_voronoi_ne
   __pyx_r = __pyx_v_vornet;
   goto __pyx_L0;
 
-  /* "zeoplusplus/cluster.pyx":54
+  /* "pyzeo/cluster.pyx":54
  * 
  * 
  * def pruned_highaccuracy_voronoi_network(atmnet, delta=0.5):             # <<<<<<<<<<<<<<
@@ -2462,7 +2442,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_6pruned_highaccuracy_voronoi_ne
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("zeoplusplus.cluster.pruned_highaccuracy_voronoi_network", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.cluster.pruned_highaccuracy_voronoi_network", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_ha_atmnet);
@@ -2474,7 +2454,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_6pruned_highaccuracy_voronoi_ne
   return __pyx_r;
 }
 
-/* "zeoplusplus/cluster.pyx":69
+/* "pyzeo/cluster.pyx":69
  *     return vornet
  * 
  * def get_nearest_largest_diameter_highaccuracy_vornode( atmnet, delta=0.25):             # <<<<<<<<<<<<<<
@@ -2483,10 +2463,10 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_6pruned_highaccuracy_voronoi_ne
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7cluster_9get_nearest_largest_diameter_highaccuracy_vornode(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_7cluster_8get_nearest_largest_diameter_highaccuracy_vornode[] = "\n    Get the reduced high accuracy voronoi network where only nodes that \n    has the largest diameter and within the cutoff distance to the nodes\n    of the low accuracy voronoi network are retained. A one-one mapping\n    of high accuracy voronoi nodes and low accuracy nodes is obtained.\n\n    Input:\n        atmnet: AtomNetwork object\n        delta: cutoff (default = 0.25 angstroms)\n    Output:\n        Reduced voronoi network\n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_7cluster_9get_nearest_largest_diameter_highaccuracy_vornode = {"get_nearest_largest_diameter_highaccuracy_vornode", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_7cluster_9get_nearest_largest_diameter_highaccuracy_vornode, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_7cluster_8get_nearest_largest_diameter_highaccuracy_vornode};
-static PyObject *__pyx_pw_11zeoplusplus_7cluster_9get_nearest_largest_diameter_highaccuracy_vornode(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_7cluster_9get_nearest_largest_diameter_highaccuracy_vornode(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_7cluster_8get_nearest_largest_diameter_highaccuracy_vornode[] = "\n    Get the reduced high accuracy voronoi network where only nodes that \n    has the largest diameter and within the cutoff distance to the nodes\n    of the low accuracy voronoi network are retained. A one-one mapping\n    of high accuracy voronoi nodes and low accuracy nodes is obtained.\n\n    Input:\n        atmnet: AtomNetwork object\n        delta: cutoff (default = 0.25 angstroms)\n    Output:\n        Reduced voronoi network\n    ";
+static PyMethodDef __pyx_mdef_5pyzeo_7cluster_9get_nearest_largest_diameter_highaccuracy_vornode = {"get_nearest_largest_diameter_highaccuracy_vornode", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_7cluster_9get_nearest_largest_diameter_highaccuracy_vornode, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_7cluster_8get_nearest_largest_diameter_highaccuracy_vornode};
+static PyObject *__pyx_pw_5pyzeo_7cluster_9get_nearest_largest_diameter_highaccuracy_vornode(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_atmnet = 0;
   PyObject *__pyx_v_delta = 0;
   int __pyx_lineno = 0;
@@ -2541,18 +2521,18 @@ static PyObject *__pyx_pw_11zeoplusplus_7cluster_9get_nearest_largest_diameter_h
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("get_nearest_largest_diameter_highaccuracy_vornode", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 69, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.cluster.get_nearest_largest_diameter_highaccuracy_vornode", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.cluster.get_nearest_largest_diameter_highaccuracy_vornode", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_7cluster_8get_nearest_largest_diameter_highaccuracy_vornode(__pyx_self, __pyx_v_atmnet, __pyx_v_delta);
+  __pyx_r = __pyx_pf_5pyzeo_7cluster_8get_nearest_largest_diameter_highaccuracy_vornode(__pyx_self, __pyx_v_atmnet, __pyx_v_delta);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_7cluster_8get_nearest_largest_diameter_highaccuracy_vornode(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_delta) {
+static PyObject *__pyx_pf_5pyzeo_7cluster_8get_nearest_largest_diameter_highaccuracy_vornode(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_delta) {
   PyObject *__pyx_v_ha_vornet = NULL;
   PyObject *__pyx_v_vornet = NULL;
   CYTHON_UNUSED PyObject *__pyx_v_ecs = NULL;
@@ -2560,7 +2540,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_8get_nearest_largest_diameter_h
   ATOM_NETWORK *__pyx_v_c_atmnet_ptr;
   VORONOI_NETWORK *__pyx_v_c_vornet_ptr;
   VORONOI_NETWORK *__pyx_v_c_ha_vornet_ptr;
-  struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_red_vornet = NULL;
+  struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_red_vornet = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2577,7 +2557,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_8get_nearest_largest_diameter_h
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_nearest_largest_diameter_highaccuracy_vornode", 0);
 
-  /* "zeoplusplus/cluster.pyx":83
+  /* "pyzeo/cluster.pyx":83
  *     """
  *     #generate_simplified_highaccuracy_voronoi_network(atmnet)
  *     ha_vornet = pruned_highaccuracy_voronoi_network(atmnet, delta=0.7)             # <<<<<<<<<<<<<<
@@ -2602,7 +2582,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_8get_nearest_largest_diameter_h
   __pyx_v_ha_vornet = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "zeoplusplus/cluster.pyx":87
+  /* "pyzeo/cluster.pyx":87
  *     #print '**********ONE DECOMPOSITION.************'
  *     #print ''
  *     vornet,ecs,fcs = atmnet.perform_voronoi_decomposition()             # <<<<<<<<<<<<<<
@@ -2686,52 +2666,52 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_8get_nearest_largest_diameter_h
   __pyx_v_fcs = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":88
+  /* "pyzeo/cluster.pyx":88
  *     #print ''
  *     vornet,ecs,fcs = atmnet.perform_voronoi_decomposition()
  *     cdef ATOM_NETWORK* c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr             # <<<<<<<<<<<<<<
  *     cdef VORONOI_NETWORK* c_vornet_ptr = (<VoronoiNetwork?>vornet).thisptr
  *     cdef VORONOI_NETWORK* c_ha_vornet_ptr = (<VoronoiNetwork?>ha_vornet).thisptr
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)))) __PYX_ERR(0, 88, __pyx_L1_error)
-  __pyx_t_7 = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
+  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_7 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
   __pyx_v_c_atmnet_ptr = __pyx_t_7;
 
-  /* "zeoplusplus/cluster.pyx":89
+  /* "pyzeo/cluster.pyx":89
  *     vornet,ecs,fcs = atmnet.perform_voronoi_decomposition()
  *     cdef ATOM_NETWORK* c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
  *     cdef VORONOI_NETWORK* c_vornet_ptr = (<VoronoiNetwork?>vornet).thisptr             # <<<<<<<<<<<<<<
  *     cdef VORONOI_NETWORK* c_ha_vornet_ptr = (<VoronoiNetwork?>ha_vornet).thisptr
  *     red_vornet = VoronoiNetwork()
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_vornet, __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork)))) __PYX_ERR(0, 89, __pyx_L1_error)
-  __pyx_t_8 = ((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_vornet)->thisptr;
+  if (!(likely(__Pyx_TypeTest(__pyx_v_vornet, __pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork)))) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_8 = ((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_vornet)->thisptr;
   __pyx_v_c_vornet_ptr = __pyx_t_8;
 
-  /* "zeoplusplus/cluster.pyx":90
+  /* "pyzeo/cluster.pyx":90
  *     cdef ATOM_NETWORK* c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
  *     cdef VORONOI_NETWORK* c_vornet_ptr = (<VoronoiNetwork?>vornet).thisptr
  *     cdef VORONOI_NETWORK* c_ha_vornet_ptr = (<VoronoiNetwork?>ha_vornet).thisptr             # <<<<<<<<<<<<<<
  *     red_vornet = VoronoiNetwork()
  *     #print ''
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_ha_vornet, __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork)))) __PYX_ERR(0, 90, __pyx_L1_error)
-  __pyx_t_8 = ((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_ha_vornet)->thisptr;
+  if (!(likely(__Pyx_TypeTest(__pyx_v_ha_vornet, __pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork)))) __PYX_ERR(0, 90, __pyx_L1_error)
+  __pyx_t_8 = ((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_ha_vornet)->thisptr;
   __pyx_v_c_ha_vornet_ptr = __pyx_t_8;
 
-  /* "zeoplusplus/cluster.pyx":91
+  /* "pyzeo/cluster.pyx":91
  *     cdef VORONOI_NETWORK* c_vornet_ptr = (<VoronoiNetwork?>vornet).thisptr
  *     cdef VORONOI_NETWORK* c_ha_vornet_ptr = (<VoronoiNetwork?>ha_vornet).thisptr
  *     red_vornet = VoronoiNetwork()             # <<<<<<<<<<<<<<
  *     #print ''
  *     #print '*********WORKED TILL HERE*********'
  */
-  __pyx_t_4 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_v_red_vornet = ((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_t_4);
+  __pyx_v_red_vornet = ((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "zeoplusplus/cluster.pyx":96
+  /* "pyzeo/cluster.pyx":96
  *     #print ''
  *     nearest_largest_diameter_ha_vornet(c_ha_vornet_ptr, c_vornet_ptr,
  *             c_atmnet_ptr, red_vornet.thisptr, delta)             # <<<<<<<<<<<<<<
@@ -2740,7 +2720,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_8get_nearest_largest_diameter_h
  */
   __pyx_t_9 = __pyx_PyFloat_AsFloat(__pyx_v_delta); if (unlikely((__pyx_t_9 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 96, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":95
+  /* "pyzeo/cluster.pyx":95
  *     #print '*********WORKED TILL HERE*********'
  *     #print ''
  *     nearest_largest_diameter_ha_vornet(c_ha_vornet_ptr, c_vornet_ptr,             # <<<<<<<<<<<<<<
@@ -2749,7 +2729,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_8get_nearest_largest_diameter_h
  */
   nearest_largest_diameter_ha_vornet(__pyx_v_c_ha_vornet_ptr, __pyx_v_c_vornet_ptr, __pyx_v_c_atmnet_ptr, __pyx_v_red_vornet->thisptr, __pyx_t_9);
 
-  /* "zeoplusplus/cluster.pyx":97
+  /* "pyzeo/cluster.pyx":97
  *     nearest_largest_diameter_ha_vornet(c_ha_vornet_ptr, c_vornet_ptr,
  *             c_atmnet_ptr, red_vornet.thisptr, delta)
  *     return red_vornet             # <<<<<<<<<<<<<<
@@ -2761,7 +2741,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_8get_nearest_largest_diameter_h
   __pyx_r = ((PyObject *)__pyx_v_red_vornet);
   goto __pyx_L0;
 
-  /* "zeoplusplus/cluster.pyx":69
+  /* "pyzeo/cluster.pyx":69
  *     return vornet
  * 
  * def get_nearest_largest_diameter_highaccuracy_vornode( atmnet, delta=0.25):             # <<<<<<<<<<<<<<
@@ -2776,7 +2756,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_8get_nearest_largest_diameter_h
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("zeoplusplus.cluster.get_nearest_largest_diameter_highaccuracy_vornode", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.cluster.get_nearest_largest_diameter_highaccuracy_vornode", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_ha_vornet);
@@ -2789,7 +2769,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_8get_nearest_largest_diameter_h
   return __pyx_r;
 }
 
-/* "zeoplusplus/cluster.pyx":99
+/* "pyzeo/cluster.pyx":99
  *     return red_vornet
  * 
  * def generate_simplified_highaccuracy_voronoi_network(atmnet,delta=0.6):             # <<<<<<<<<<<<<<
@@ -2798,10 +2778,10 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_8get_nearest_largest_diameter_h
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7cluster_11generate_simplified_highaccuracy_voronoi_network(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_7cluster_10generate_simplified_highaccuracy_voronoi_network[] = "\n    Generate a simplified high accuracy voronoi network. \n    Uses Zeo++ high accuracy network and simplifies it such that only voronoi \n    nodes that belong to different atoms of original atom network are \n    retained. There can be different no. of voronoi nodes when compared with\n    the voronoi nodes obtained with regular tesselation. \n    Input:\n        atmnet: AtomNetwork object\n    Output:\n        Simplified high accuracy voronoi network\n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_7cluster_11generate_simplified_highaccuracy_voronoi_network = {"generate_simplified_highaccuracy_voronoi_network", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_7cluster_11generate_simplified_highaccuracy_voronoi_network, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_7cluster_10generate_simplified_highaccuracy_voronoi_network};
-static PyObject *__pyx_pw_11zeoplusplus_7cluster_11generate_simplified_highaccuracy_voronoi_network(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_7cluster_11generate_simplified_highaccuracy_voronoi_network(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_7cluster_10generate_simplified_highaccuracy_voronoi_network[] = "\n    Generate a simplified high accuracy voronoi network. \n    Uses Zeo++ high accuracy network and simplifies it such that only voronoi \n    nodes that belong to different atoms of original atom network are \n    retained. There can be different no. of voronoi nodes when compared with\n    the voronoi nodes obtained with regular tesselation. \n    Input:\n        atmnet: AtomNetwork object\n    Output:\n        Simplified high accuracy voronoi network\n    ";
+static PyMethodDef __pyx_mdef_5pyzeo_7cluster_11generate_simplified_highaccuracy_voronoi_network = {"generate_simplified_highaccuracy_voronoi_network", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_7cluster_11generate_simplified_highaccuracy_voronoi_network, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_7cluster_10generate_simplified_highaccuracy_voronoi_network};
+static PyObject *__pyx_pw_5pyzeo_7cluster_11generate_simplified_highaccuracy_voronoi_network(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_atmnet = 0;
   CYTHON_UNUSED PyObject *__pyx_v_delta = 0;
   int __pyx_lineno = 0;
@@ -2856,18 +2836,18 @@ static PyObject *__pyx_pw_11zeoplusplus_7cluster_11generate_simplified_highaccur
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("generate_simplified_highaccuracy_voronoi_network", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 99, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.cluster.generate_simplified_highaccuracy_voronoi_network", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.cluster.generate_simplified_highaccuracy_voronoi_network", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccuracy_voronoi_network(__pyx_self, __pyx_v_atmnet, __pyx_v_delta);
+  __pyx_r = __pyx_pf_5pyzeo_7cluster_10generate_simplified_highaccuracy_voronoi_network(__pyx_self, __pyx_v_atmnet, __pyx_v_delta);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccuracy_voronoi_network(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, CYTHON_UNUSED PyObject *__pyx_v_delta) {
+static PyObject *__pyx_pf_5pyzeo_7cluster_10generate_simplified_highaccuracy_voronoi_network(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, CYTHON_UNUSED PyObject *__pyx_v_delta) {
   PyObject *__pyx_v_ha_atmnet = NULL;
   PyObject *__pyx_v_vornet = NULL;
   CYTHON_UNUSED PyObject *__pyx_v_ecs = NULL;
@@ -2890,7 +2870,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccur
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("generate_simplified_highaccuracy_voronoi_network", 0);
 
-  /* "zeoplusplus/cluster.pyx":111
+  /* "pyzeo/cluster.pyx":111
  *         Simplified high accuracy voronoi network
  *     """
  *     ha_atmnet = atmnet.copy()             # <<<<<<<<<<<<<<
@@ -2917,7 +2897,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccur
   __pyx_v_ha_atmnet = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":112
+  /* "pyzeo/cluster.pyx":112
  *     """
  *     ha_atmnet = atmnet.copy()
  *     high_accuracy_atmnet(ha_atmnet, "LOW")             # <<<<<<<<<<<<<<
@@ -2973,7 +2953,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccur
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":113
+  /* "pyzeo/cluster.pyx":113
  *     ha_atmnet = atmnet.copy()
  *     high_accuracy_atmnet(ha_atmnet, "LOW")
  *     vornet,ecs,fcs = atmnet.perform_voronoi_decomposition()             # <<<<<<<<<<<<<<
@@ -3057,7 +3037,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccur
   __pyx_v_fcs = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "zeoplusplus/cluster.pyx":114
+  /* "pyzeo/cluster.pyx":114
  *     high_accuracy_atmnet(ha_atmnet, "LOW")
  *     vornet,ecs,fcs = atmnet.perform_voronoi_decomposition()
  *     ha_vornet,ecs,fcs = ha_atmnet.perform_voronoi_decomposition()             # <<<<<<<<<<<<<<
@@ -3141,7 +3121,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccur
   __Pyx_DECREF_SET(__pyx_v_fcs, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "zeoplusplus/cluster.pyx":115
+  /* "pyzeo/cluster.pyx":115
  *     vornet,ecs,fcs = atmnet.perform_voronoi_decomposition()
  *     ha_vornet,ecs,fcs = ha_atmnet.perform_voronoi_decomposition()
  *     node_size = vornet.size()             # <<<<<<<<<<<<<<
@@ -3168,7 +3148,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccur
   __pyx_v_node_size = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":116
+  /* "pyzeo/cluster.pyx":116
  *     ha_vornet,ecs,fcs = ha_atmnet.perform_voronoi_decomposition()
  *     node_size = vornet.size()
  *     ha_node_size = ha_vornet.size()             # <<<<<<<<<<<<<<
@@ -3195,7 +3175,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccur
   __pyx_v_ha_node_size = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":117
+  /* "pyzeo/cluster.pyx":117
  *     node_size = vornet.size()
  *     ha_node_size = ha_vornet.size()
  *     if node_size == ha_node_size:             # <<<<<<<<<<<<<<
@@ -3207,7 +3187,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccur
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_8) {
 
-    /* "zeoplusplus/cluster.pyx":118
+    /* "pyzeo/cluster.pyx":118
  *     ha_node_size = ha_vornet.size()
  *     if node_size == ha_node_size:
  *         warning('No high accuracy')             # <<<<<<<<<<<<<<
@@ -3233,7 +3213,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccur
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "zeoplusplus/cluster.pyx":117
+    /* "pyzeo/cluster.pyx":117
  *     node_size = vornet.size()
  *     ha_node_size = ha_vornet.size()
  *     if node_size == ha_node_size:             # <<<<<<<<<<<<<<
@@ -3242,7 +3222,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccur
  */
   }
 
-  /* "zeoplusplus/cluster.pyx":119
+  /* "pyzeo/cluster.pyx":119
  *     if node_size == ha_node_size:
  *         warning('No high accuracy')
  *     return ha_vornet        # The processing below is eliminated temporarily             # <<<<<<<<<<<<<<
@@ -3254,7 +3234,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccur
   __pyx_r = __pyx_v_ha_vornet;
   goto __pyx_L0;
 
-  /* "zeoplusplus/cluster.pyx":99
+  /* "pyzeo/cluster.pyx":99
  *     return red_vornet
  * 
  * def generate_simplified_highaccuracy_voronoi_network(atmnet,delta=0.6):             # <<<<<<<<<<<<<<
@@ -3269,7 +3249,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccur
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("zeoplusplus.cluster.generate_simplified_highaccuracy_voronoi_network", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.cluster.generate_simplified_highaccuracy_voronoi_network", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_ha_atmnet);
@@ -3284,7 +3264,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccur
   return __pyx_r;
 }
 
-/* "zeoplusplus/cluster.pyx":153
+/* "pyzeo/cluster.pyx":153
  *     #print '********SIMPLIFIED_VORNET_COMPLETE*******'
  * 
  * def prune_voronoi_network_close_node(atmnet,delta=0.1):             # <<<<<<<<<<<<<<
@@ -3293,10 +3273,10 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_10generate_simplified_highaccur
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7cluster_13prune_voronoi_network_close_node(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_7cluster_12prune_voronoi_network_close_node[] = "\n    Generate a pruned high accuracy voronoi network. \n    Uses Zeo++ high accuracy network and simplifies it such that only voronoi \n    nodes that are farther than \"delta\" are retained. \n    Input:\n        atmnet: AtomNetwork object\n    Output:\n        Simplified high accuracy voronoi network\n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_7cluster_13prune_voronoi_network_close_node = {"prune_voronoi_network_close_node", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_7cluster_13prune_voronoi_network_close_node, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_7cluster_12prune_voronoi_network_close_node};
-static PyObject *__pyx_pw_11zeoplusplus_7cluster_13prune_voronoi_network_close_node(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_7cluster_13prune_voronoi_network_close_node(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_7cluster_12prune_voronoi_network_close_node[] = "\n    Generate a pruned high accuracy voronoi network. \n    Uses Zeo++ high accuracy network and simplifies it such that only voronoi \n    nodes that are farther than \"delta\" are retained. \n    Input:\n        atmnet: AtomNetwork object\n    Output:\n        Simplified high accuracy voronoi network\n    ";
+static PyMethodDef __pyx_mdef_5pyzeo_7cluster_13prune_voronoi_network_close_node = {"prune_voronoi_network_close_node", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_7cluster_13prune_voronoi_network_close_node, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_7cluster_12prune_voronoi_network_close_node};
+static PyObject *__pyx_pw_5pyzeo_7cluster_13prune_voronoi_network_close_node(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_atmnet = 0;
   PyObject *__pyx_v_delta = 0;
   int __pyx_lineno = 0;
@@ -3351,18 +3331,18 @@ static PyObject *__pyx_pw_11zeoplusplus_7cluster_13prune_voronoi_network_close_n
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("prune_voronoi_network_close_node", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 153, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.cluster.prune_voronoi_network_close_node", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.cluster.prune_voronoi_network_close_node", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_node(__pyx_self, __pyx_v_atmnet, __pyx_v_delta);
+  __pyx_r = __pyx_pf_5pyzeo_7cluster_12prune_voronoi_network_close_node(__pyx_self, __pyx_v_atmnet, __pyx_v_delta);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_node(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_delta) {
+static PyObject *__pyx_pf_5pyzeo_7cluster_12prune_voronoi_network_close_node(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_delta) {
   PyObject *__pyx_v_ha_atmnet = NULL;
   PyObject *__pyx_v_vornet = NULL;
   CYTHON_UNUSED PyObject *__pyx_v_ecs = NULL;
@@ -3372,8 +3352,8 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
   PyObject *__pyx_v_ha_node_size = NULL;
   ATOM_NETWORK *__pyx_v_c_atmnet_ptr;
   VORONOI_NETWORK *__pyx_v_c_ha_vornet_ptr;
-  struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_red_vornet = NULL;
-  struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_pruned_vornet = NULL;
+  struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_red_vornet = NULL;
+  struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_pruned_vornet = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3392,7 +3372,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("prune_voronoi_network_close_node", 0);
 
-  /* "zeoplusplus/cluster.pyx":163
+  /* "pyzeo/cluster.pyx":163
  *         Simplified high accuracy voronoi network
  *     """
  *     ha_atmnet = atmnet.copy()             # <<<<<<<<<<<<<<
@@ -3419,7 +3399,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
   __pyx_v_ha_atmnet = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":164
+  /* "pyzeo/cluster.pyx":164
  *     """
  *     ha_atmnet = atmnet.copy()
  *     high_accuracy_atmnet(ha_atmnet, "MED")             # <<<<<<<<<<<<<<
@@ -3475,7 +3455,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":165
+  /* "pyzeo/cluster.pyx":165
  *     ha_atmnet = atmnet.copy()
  *     high_accuracy_atmnet(ha_atmnet, "MED")
  *     vornet,ecs,fcs = atmnet.perform_voronoi_decomposition()             # <<<<<<<<<<<<<<
@@ -3559,7 +3539,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
   __pyx_v_fcs = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "zeoplusplus/cluster.pyx":166
+  /* "pyzeo/cluster.pyx":166
  *     high_accuracy_atmnet(ha_atmnet, "MED")
  *     vornet,ecs,fcs = atmnet.perform_voronoi_decomposition()
  *     ha_vornet,ecs,fcs = ha_atmnet.perform_voronoi_decomposition()             # <<<<<<<<<<<<<<
@@ -3643,7 +3623,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
   __Pyx_DECREF_SET(__pyx_v_fcs, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "zeoplusplus/cluster.pyx":168
+  /* "pyzeo/cluster.pyx":168
  *     ha_vornet,ecs,fcs = ha_atmnet.perform_voronoi_decomposition()
  * 
  *     node_size = vornet.size()             # <<<<<<<<<<<<<<
@@ -3670,7 +3650,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
   __pyx_v_node_size = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":169
+  /* "pyzeo/cluster.pyx":169
  * 
  *     node_size = vornet.size()
  *     ha_node_size = ha_vornet.size()             # <<<<<<<<<<<<<<
@@ -3697,7 +3677,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
   __pyx_v_ha_node_size = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":170
+  /* "pyzeo/cluster.pyx":170
  *     node_size = vornet.size()
  *     ha_node_size = ha_vornet.size()
  *     print (node_size, ha_node_size)             # <<<<<<<<<<<<<<
@@ -3717,7 +3697,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "zeoplusplus/cluster.pyx":171
+  /* "pyzeo/cluster.pyx":171
  *     ha_node_size = ha_vornet.size()
  *     print (node_size, ha_node_size)
  *     if node_size == ha_node_size:             # <<<<<<<<<<<<<<
@@ -3729,7 +3709,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_8) {
 
-    /* "zeoplusplus/cluster.pyx":172
+    /* "pyzeo/cluster.pyx":172
  *     print (node_size, ha_node_size)
  *     if node_size == ha_node_size:
  *         warning('No high accuracy')             # <<<<<<<<<<<<<<
@@ -3755,7 +3735,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "zeoplusplus/cluster.pyx":171
+    /* "pyzeo/cluster.pyx":171
  *     ha_node_size = ha_vornet.size()
  *     print (node_size, ha_node_size)
  *     if node_size == ha_node_size:             # <<<<<<<<<<<<<<
@@ -3764,41 +3744,41 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
  */
   }
 
-  /* "zeoplusplus/cluster.pyx":175
+  /* "pyzeo/cluster.pyx":175
  *         #return vornet
  * 
  *     cdef ATOM_NETWORK* c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr             # <<<<<<<<<<<<<<
  *     cdef VORONOI_NETWORK* c_ha_vornet_ptr = (<VoronoiNetwork?>ha_vornet).thisptr
  *     red_vornet = VoronoiNetwork()
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)))) __PYX_ERR(0, 175, __pyx_L1_error)
-  __pyx_t_9 = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
+  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(0, 175, __pyx_L1_error)
+  __pyx_t_9 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
   __pyx_v_c_atmnet_ptr = __pyx_t_9;
 
-  /* "zeoplusplus/cluster.pyx":176
+  /* "pyzeo/cluster.pyx":176
  * 
  *     cdef ATOM_NETWORK* c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
  *     cdef VORONOI_NETWORK* c_ha_vornet_ptr = (<VoronoiNetwork?>ha_vornet).thisptr             # <<<<<<<<<<<<<<
  *     red_vornet = VoronoiNetwork()
  *     #print ''
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_ha_vornet, __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork)))) __PYX_ERR(0, 176, __pyx_L1_error)
-  __pyx_t_10 = ((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_ha_vornet)->thisptr;
+  if (!(likely(__Pyx_TypeTest(__pyx_v_ha_vornet, __pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork)))) __PYX_ERR(0, 176, __pyx_L1_error)
+  __pyx_t_10 = ((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_ha_vornet)->thisptr;
   __pyx_v_c_ha_vornet_ptr = __pyx_t_10;
 
-  /* "zeoplusplus/cluster.pyx":177
+  /* "pyzeo/cluster.pyx":177
  *     cdef ATOM_NETWORK* c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
  *     cdef VORONOI_NETWORK* c_ha_vornet_ptr = (<VoronoiNetwork?>ha_vornet).thisptr
  *     red_vornet = VoronoiNetwork()             # <<<<<<<<<<<<<<
  *     #print ''
  *     #print '*********WORKED TILL HERE*********'
  */
-  __pyx_t_2 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 177, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_v_red_vornet = ((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_t_2);
+  __pyx_v_red_vornet = ((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "zeoplusplus/cluster.pyx":181
+  /* "pyzeo/cluster.pyx":181
  *     #print '*********WORKED TILL HERE*********'
  *     #print ''
  *     geometry_pruning(c_ha_vornet_ptr, c_atmnet_ptr, delta,             # <<<<<<<<<<<<<<
@@ -3807,7 +3787,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
  */
   __pyx_t_11 = __pyx_PyFloat_AsFloat(__pyx_v_delta); if (unlikely((__pyx_t_11 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 181, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":182
+  /* "pyzeo/cluster.pyx":182
  *     #print ''
  *     geometry_pruning(c_ha_vornet_ptr, c_atmnet_ptr, delta,
  *             red_vornet.thisptr)             # <<<<<<<<<<<<<<
@@ -3816,7 +3796,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
  */
   geometry_pruning(__pyx_v_c_ha_vornet_ptr, __pyx_v_c_atmnet_ptr, __pyx_t_11, __pyx_v_red_vornet->thisptr);
 
-  /* "zeoplusplus/cluster.pyx":183
+  /* "pyzeo/cluster.pyx":183
  *     geometry_pruning(c_ha_vornet_ptr, c_atmnet_ptr, delta,
  *             red_vornet.thisptr)
  *     print (red_vornet.size())             # <<<<<<<<<<<<<<
@@ -3845,19 +3825,19 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":184
+  /* "pyzeo/cluster.pyx":184
  *             red_vornet.thisptr)
  *     print (red_vornet.size())
  *     pruned_vornet = VoronoiNetwork()             # <<<<<<<<<<<<<<
  *     ha_prune_within_atom(red_vornet.thisptr, c_atmnet_ptr,
  *             delta, pruned_vornet.thisptr)
  */
-  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_pruned_vornet = ((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_t_1);
+  __pyx_v_pruned_vornet = ((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":186
+  /* "pyzeo/cluster.pyx":186
  *     pruned_vornet = VoronoiNetwork()
  *     ha_prune_within_atom(red_vornet.thisptr, c_atmnet_ptr,
  *             delta, pruned_vornet.thisptr)             # <<<<<<<<<<<<<<
@@ -3866,7 +3846,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
  */
   __pyx_t_11 = __pyx_PyFloat_AsFloat(__pyx_v_delta); if (unlikely((__pyx_t_11 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 186, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":185
+  /* "pyzeo/cluster.pyx":185
  *     print (red_vornet.size())
  *     pruned_vornet = VoronoiNetwork()
  *     ha_prune_within_atom(red_vornet.thisptr, c_atmnet_ptr,             # <<<<<<<<<<<<<<
@@ -3875,7 +3855,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
  */
   ha_prune_within_atom(__pyx_v_red_vornet->thisptr, __pyx_v_c_atmnet_ptr, __pyx_t_11, __pyx_v_pruned_vornet->thisptr);
 
-  /* "zeoplusplus/cluster.pyx":187
+  /* "pyzeo/cluster.pyx":187
  *     ha_prune_within_atom(red_vornet.thisptr, c_atmnet_ptr,
  *             delta, pruned_vornet.thisptr)
  *     print (pruned_vornet.size())             # <<<<<<<<<<<<<<
@@ -3903,7 +3883,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "zeoplusplus/cluster.pyx":188
+  /* "pyzeo/cluster.pyx":188
  *             delta, pruned_vornet.thisptr)
  *     print (pruned_vornet.size())
  *     return pruned_vornet             # <<<<<<<<<<<<<<
@@ -3913,7 +3893,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
   __pyx_r = ((PyObject *)__pyx_v_pruned_vornet);
   goto __pyx_L0;
 
-  /* "zeoplusplus/cluster.pyx":153
+  /* "pyzeo/cluster.pyx":153
  *     #print '********SIMPLIFIED_VORNET_COMPLETE*******'
  * 
  * def prune_voronoi_network_close_node(atmnet,delta=0.1):             # <<<<<<<<<<<<<<
@@ -3928,7 +3908,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7cluster_12prune_voronoi_network_close_n
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("zeoplusplus.cluster.prune_voronoi_network_close_node", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.cluster.prune_voronoi_network_close_node", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_ha_atmnet);
@@ -4038,11 +4018,14 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_prune_voronoi_network_close_node, __pyx_k_prune_voronoi_network_close_node, sizeof(__pyx_k_prune_voronoi_network_close_node), 0, 0, 1, 1},
   {&__pyx_n_s_pruned_highaccuracy_voronoi_netw, __pyx_k_pruned_highaccuracy_voronoi_netw, sizeof(__pyx_k_pruned_highaccuracy_voronoi_netw), 0, 0, 1, 1},
   {&__pyx_n_s_pruned_vornet, __pyx_k_pruned_vornet, sizeof(__pyx_k_pruned_vornet), 0, 0, 1, 1},
+  {&__pyx_n_s_pyzeo_cluster, __pyx_k_pyzeo_cluster, sizeof(__pyx_k_pyzeo_cluster), 0, 0, 1, 1},
+  {&__pyx_n_s_pyzeo_geometry, __pyx_k_pyzeo_geometry, sizeof(__pyx_k_pyzeo_geometry), 0, 0, 1, 1},
+  {&__pyx_n_s_pyzeo_high_accuracy, __pyx_k_pyzeo_high_accuracy, sizeof(__pyx_k_pyzeo_high_accuracy), 0, 0, 1, 1},
   {&__pyx_n_s_red_vornet, __pyx_k_red_vornet, sizeof(__pyx_k_red_vornet), 0, 0, 1, 1},
   {&__pyx_n_s_reduced_highaccuracy_vornodes, __pyx_k_reduced_highaccuracy_vornodes, sizeof(__pyx_k_reduced_highaccuracy_vornodes), 0, 0, 1, 1},
   {&__pyx_n_s_simplify_highaccuracy_vornet, __pyx_k_simplify_highaccuracy_vornet, sizeof(__pyx_k_simplify_highaccuracy_vornet), 0, 0, 1, 1},
   {&__pyx_n_s_size, __pyx_k_size, sizeof(__pyx_k_size), 0, 0, 1, 1},
-  {&__pyx_kp_s_src_zeoplusplus_cluster_pyx, __pyx_k_src_zeoplusplus_cluster_pyx, sizeof(__pyx_k_src_zeoplusplus_cluster_pyx), 0, 0, 1, 0},
+  {&__pyx_kp_s_src_pyzeo_cluster_pyx, __pyx_k_src_pyzeo_cluster_pyx, sizeof(__pyx_k_src_pyzeo_cluster_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_status, __pyx_k_status, sizeof(__pyx_k_status), 0, 0, 1, 1},
   {&__pyx_n_s_stderr, __pyx_k_stderr, sizeof(__pyx_k_stderr), 0, 0, 1, 1},
   {&__pyx_n_s_sys, __pyx_k_sys, sizeof(__pyx_k_sys), 0, 0, 1, 1},
@@ -4052,9 +4035,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_warning, __pyx_k_warning, sizeof(__pyx_k_warning), 0, 0, 1, 1},
   {&__pyx_n_s_xyz_list, __pyx_k_xyz_list, sizeof(__pyx_k_xyz_list), 0, 0, 1, 1},
   {&__pyx_n_s_xyz_vect, __pyx_k_xyz_vect, sizeof(__pyx_k_xyz_vect), 0, 0, 1, 1},
-  {&__pyx_n_s_zeoplusplus_cluster, __pyx_k_zeoplusplus_cluster, sizeof(__pyx_k_zeoplusplus_cluster), 0, 0, 1, 1},
-  {&__pyx_n_s_zeoplusplus_geometry, __pyx_k_zeoplusplus_geometry, sizeof(__pyx_k_zeoplusplus_geometry), 0, 0, 1, 1},
-  {&__pyx_n_s_zeoplusplus_high_accuracy, __pyx_k_zeoplusplus_high_accuracy, sizeof(__pyx_k_zeoplusplus_high_accuracy), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
@@ -4068,7 +4048,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "zeoplusplus/cluster.pyx":25
+  /* "pyzeo/cluster.pyx":25
  * 
  * def warning(*objs):
  *     print ("WARNING", *objs, files=sys.stderr)             # <<<<<<<<<<<<<<
@@ -4079,8 +4059,8 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "zeoplusplus/cluster.pyx":24
- * from zeoplusplus.geometry import Xyz
+  /* "pyzeo/cluster.pyx":24
+ * from pyzeo.geometry import Xyz
  * 
  * def warning(*objs):             # <<<<<<<<<<<<<<
  *     print ("WARNING", *objs, files=sys.stderr)
@@ -4089,9 +4069,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__3 = PyTuple_Pack(1, __pyx_n_s_objs); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_cluster_pyx, __pyx_n_s_warning, 24, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_pyzeo_cluster_pyx, __pyx_n_s_warning, 24, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 24, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":27
+  /* "pyzeo/cluster.pyx":27
  *     print ("WARNING", *objs, files=sys.stderr)
  * 
  * def simplify_highaccuracy_vornet(atmnet):             # <<<<<<<<<<<<<<
@@ -4101,9 +4081,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__5 = PyTuple_Pack(2, __pyx_n_s_atmnet, __pyx_n_s_c_atmnetptr); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
-  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_cluster_pyx, __pyx_n_s_simplify_highaccuracy_vornet, 27, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_pyzeo_cluster_pyx, __pyx_n_s_simplify_highaccuracy_vornet, 27, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 27, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":35
+  /* "pyzeo/cluster.pyx":35
  * 
  * 
  * def reduced_highaccuracy_vornodes(atmnet):             # <<<<<<<<<<<<<<
@@ -4113,9 +4093,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__7 = PyTuple_Pack(6, __pyx_n_s_atmnet, __pyx_n_s_c_atmnetptr, __pyx_n_s_xyz_vect, __pyx_n_s_xyz_list, __pyx_n_s_it, __pyx_n_s_new_xyz); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_cluster_pyx, __pyx_n_s_reduced_highaccuracy_vornodes, 35, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_pyzeo_cluster_pyx, __pyx_n_s_reduced_highaccuracy_vornodes, 35, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 35, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":54
+  /* "pyzeo/cluster.pyx":54
  * 
  * 
  * def pruned_highaccuracy_voronoi_network(atmnet, delta=0.5):             # <<<<<<<<<<<<<<
@@ -4125,9 +4105,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__9 = PyTuple_Pack(9, __pyx_n_s_atmnet, __pyx_n_s_delta, __pyx_n_s_ha_atmnet, __pyx_n_s_vornet, __pyx_n_s_ecs, __pyx_n_s_fcs, __pyx_n_s_c_atmnetptr, __pyx_n_s_c_ha_atmnetptr, __pyx_n_s_c_vornetptr); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(2, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_cluster_pyx, __pyx_n_s_pruned_highaccuracy_voronoi_netw, 54, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(2, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_pyzeo_cluster_pyx, __pyx_n_s_pruned_highaccuracy_voronoi_netw, 54, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 54, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":69
+  /* "pyzeo/cluster.pyx":69
  *     return vornet
  * 
  * def get_nearest_largest_diameter_highaccuracy_vornode( atmnet, delta=0.25):             # <<<<<<<<<<<<<<
@@ -4137,9 +4117,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__11 = PyTuple_Pack(10, __pyx_n_s_atmnet, __pyx_n_s_delta, __pyx_n_s_ha_vornet, __pyx_n_s_vornet, __pyx_n_s_ecs, __pyx_n_s_fcs, __pyx_n_s_c_atmnet_ptr, __pyx_n_s_c_vornet_ptr, __pyx_n_s_c_ha_vornet_ptr, __pyx_n_s_red_vornet); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(2, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_cluster_pyx, __pyx_n_s_get_nearest_largest_diameter_hig, 69, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(2, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_pyzeo_cluster_pyx, __pyx_n_s_get_nearest_largest_diameter_hig, 69, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 69, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":99
+  /* "pyzeo/cluster.pyx":99
  *     return red_vornet
  * 
  * def generate_simplified_highaccuracy_voronoi_network(atmnet,delta=0.6):             # <<<<<<<<<<<<<<
@@ -4149,9 +4129,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__13 = PyTuple_Pack(9, __pyx_n_s_atmnet, __pyx_n_s_delta, __pyx_n_s_ha_atmnet, __pyx_n_s_vornet, __pyx_n_s_ecs, __pyx_n_s_fcs, __pyx_n_s_ha_vornet, __pyx_n_s_node_size, __pyx_n_s_ha_node_size); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(2, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_cluster_pyx, __pyx_n_s_generate_simplified_highaccuracy, 99, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 99, __pyx_L1_error)
+  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(2, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_pyzeo_cluster_pyx, __pyx_n_s_generate_simplified_highaccuracy, 99, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 99, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":153
+  /* "pyzeo/cluster.pyx":153
  *     #print '********SIMPLIFIED_VORNET_COMPLETE*******'
  * 
  * def prune_voronoi_network_close_node(atmnet,delta=0.1):             # <<<<<<<<<<<<<<
@@ -4161,7 +4141,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__15 = PyTuple_Pack(13, __pyx_n_s_atmnet, __pyx_n_s_delta, __pyx_n_s_ha_atmnet, __pyx_n_s_vornet, __pyx_n_s_ecs, __pyx_n_s_fcs, __pyx_n_s_ha_vornet, __pyx_n_s_node_size, __pyx_n_s_ha_node_size, __pyx_n_s_c_atmnet_ptr, __pyx_n_s_c_ha_vornet_ptr, __pyx_n_s_red_vornet, __pyx_n_s_pruned_vornet); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
-  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(2, 0, 13, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_cluster_pyx, __pyx_n_s_prune_voronoi_network_close_node, 153, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(2, 0, 13, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_pyzeo_cluster_pyx, __pyx_n_s_prune_voronoi_network_close_node, 153, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -4229,32 +4209,32 @@ static int __Pyx_modinit_type_import_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.geometry"); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 24, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.geometry"); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_8geometry_Xyz = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.geometry", "Xyz", sizeof(struct __pyx_obj_11zeoplusplus_8geometry_Xyz), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_8geometry_Xyz) __PYX_ERR(1, 24, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_8geometry_Point = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.geometry", "Point", sizeof(struct __pyx_obj_11zeoplusplus_8geometry_Point), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_8geometry_Point) __PYX_ERR(1, 32, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_8geometry_Xyz = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Xyz", sizeof(struct __pyx_obj_5pyzeo_8geometry_Xyz), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Xyz) __PYX_ERR(1, 24, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_8geometry_Point = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Point", sizeof(struct __pyx_obj_5pyzeo_8geometry_Point), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Point) __PYX_ERR(1, 32, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.voronoicell"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 39, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.voronoicell"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_11voronoicell_VorFace = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "VorFace", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_VorFace) __PYX_ERR(2, 39, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_11voronoicell_VorCell = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "VorCell", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_VorCell) __PYX_ERR(2, 42, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "BasicVCell", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell) __PYX_ERR(2, 45, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_VorFace = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "VorFace", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorFace), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_VorFace) __PYX_ERR(2, 39, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_VorCell = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "VorCell", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorCell), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_VorCell) __PYX_ERR(2, 42, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_BasicVCell = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "BasicVCell", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_BasicVCell) __PYX_ERR(2, 45, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.netstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 120, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.netstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_10netstorage_Atom = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "Atom", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_Atom), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_Atom) __PYX_ERR(3, 120, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "AtomNetwork", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork) __PYX_ERR(3, 126, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "VoronoiNode", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode) __PYX_ERR(3, 135, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "VoronoiNetwork", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork) __PYX_ERR(3, 141, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_Atom = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "Atom", sizeof(struct __pyx_obj_5pyzeo_10netstorage_Atom), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_Atom) __PYX_ERR(3, 120, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_AtomNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "AtomNetwork", sizeof(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_AtomNetwork) __PYX_ERR(3, 126, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNode = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "VoronoiNode", sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_VoronoiNode) __PYX_ERR(3, 135, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "VoronoiNetwork", sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork) __PYX_ERR(3, 141, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -4453,14 +4433,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_zeoplusplus__cluster) {
+  if (__pyx_module_is_main_pyzeo__cluster) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "zeoplusplus.cluster")) {
-      if (unlikely(PyDict_SetItemString(modules, "zeoplusplus.cluster", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "pyzeo.cluster")) {
+      if (unlikely(PyDict_SetItemString(modules, "pyzeo.cluster", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -4481,7 +4461,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "zeoplusplus/cluster.pyx":6
+  /* "pyzeo/cluster.pyx":6
  * from __future__ import print_function
  * 
  * __author__ = 'Bharat Medasani'             # <<<<<<<<<<<<<<
@@ -4490,7 +4470,7 @@ if (!__Pyx_RefNanny) {
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_author, __pyx_kp_s_Bharat_Medasani) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":7
+  /* "pyzeo/cluster.pyx":7
  * 
  * __author__ = 'Bharat Medasani'
  * __copyright__ = ""             # <<<<<<<<<<<<<<
@@ -4499,7 +4479,7 @@ if (!__Pyx_RefNanny) {
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_copyright, __pyx_kp_s__2) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":8
+  /* "pyzeo/cluster.pyx":8
  * __author__ = 'Bharat Medasani'
  * __copyright__ = ""
  * __version__ = "0.1"             # <<<<<<<<<<<<<<
@@ -4508,7 +4488,7 @@ if (!__Pyx_RefNanny) {
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_version, __pyx_kp_s_0_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":9
+  /* "pyzeo/cluster.pyx":9
  * __copyright__ = ""
  * __version__ = "0.1"
  * __maintainer__ = "Bharat Medasani"             # <<<<<<<<<<<<<<
@@ -4517,7 +4497,7 @@ if (!__Pyx_RefNanny) {
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_maintainer, __pyx_kp_s_Bharat_Medasani) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":10
+  /* "pyzeo/cluster.pyx":10
  * __version__ = "0.1"
  * __maintainer__ = "Bharat Medasani"
  * __email__ = "mbkumar@gmail.com"             # <<<<<<<<<<<<<<
@@ -4526,7 +4506,7 @@ if (!__Pyx_RefNanny) {
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_email, __pyx_kp_s_mbkumar_gmail_com) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":11
+  /* "pyzeo/cluster.pyx":11
  * __maintainer__ = "Bharat Medasani"
  * __email__ = "mbkumar@gmail.com"
  * __status__ = "alpha"             # <<<<<<<<<<<<<<
@@ -4535,7 +4515,7 @@ if (!__Pyx_RefNanny) {
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_status, __pyx_n_s_alpha) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":12
+  /* "pyzeo/cluster.pyx":12
  * __email__ = "mbkumar@gmail.com"
  * __status__ = "alpha"
  * __date__ = "Dec 6, 2013"             # <<<<<<<<<<<<<<
@@ -4544,7 +4524,7 @@ if (!__Pyx_RefNanny) {
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_date, __pyx_kp_s_Dec_6_2013) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
 
-  /* "zeoplusplus/cluster.pyx":14
+  /* "pyzeo/cluster.pyx":14
  * __date__ = "Dec 6, 2013"
  * 
  * import sys             # <<<<<<<<<<<<<<
@@ -4556,19 +4536,19 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":20
- * from zeoplusplus.netstorage cimport ATOM_NETWORK, VORONOI_NETWORK, VOR_NODE
- * from zeoplusplus.netstorage cimport AtomNetwork, VoronoiNetwork
- * from zeoplusplus.high_accuracy import high_accuracy_atmnet             # <<<<<<<<<<<<<<
- * from zeoplusplus.geometry cimport XYZ
- * from zeoplusplus.geometry import Xyz
+  /* "pyzeo/cluster.pyx":20
+ * from pyzeo.netstorage cimport ATOM_NETWORK, VORONOI_NETWORK, VOR_NODE
+ * from pyzeo.netstorage cimport AtomNetwork, VoronoiNetwork
+ * from pyzeo.high_accuracy import high_accuracy_atmnet             # <<<<<<<<<<<<<<
+ * from pyzeo.geometry cimport XYZ
+ * from pyzeo.geometry import Xyz
  */
   __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_high_accuracy_atmnet);
   __Pyx_GIVEREF(__pyx_n_s_high_accuracy_atmnet);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_high_accuracy_atmnet);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_zeoplusplus_high_accuracy, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_pyzeo_high_accuracy, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_high_accuracy_atmnet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
@@ -4577,10 +4557,10 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "zeoplusplus/cluster.pyx":22
- * from zeoplusplus.high_accuracy import high_accuracy_atmnet
- * from zeoplusplus.geometry cimport XYZ
- * from zeoplusplus.geometry import Xyz             # <<<<<<<<<<<<<<
+  /* "pyzeo/cluster.pyx":22
+ * from pyzeo.high_accuracy import high_accuracy_atmnet
+ * from pyzeo.geometry cimport XYZ
+ * from pyzeo.geometry import Xyz             # <<<<<<<<<<<<<<
  * 
  * def warning(*objs):
  */
@@ -4589,7 +4569,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_INCREF(__pyx_n_s_Xyz);
   __Pyx_GIVEREF(__pyx_n_s_Xyz);
   PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_Xyz);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_zeoplusplus_geometry, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_pyzeo_geometry, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_Xyz); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
@@ -4598,91 +4578,91 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":24
- * from zeoplusplus.geometry import Xyz
+  /* "pyzeo/cluster.pyx":24
+ * from pyzeo.geometry import Xyz
  * 
  * def warning(*objs):             # <<<<<<<<<<<<<<
  *     print ("WARNING", *objs, files=sys.stderr)
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7cluster_1warning, NULL, __pyx_n_s_zeoplusplus_cluster); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5pyzeo_7cluster_1warning, NULL, __pyx_n_s_pyzeo_cluster); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_warning, __pyx_t_1) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":27
+  /* "pyzeo/cluster.pyx":27
  *     print ("WARNING", *objs, files=sys.stderr)
  * 
  * def simplify_highaccuracy_vornet(atmnet):             # <<<<<<<<<<<<<<
  *     """
  *     Generates and simplifies high accuracy voronoi network
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7cluster_3simplify_highaccuracy_vornet, NULL, __pyx_n_s_zeoplusplus_cluster); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5pyzeo_7cluster_3simplify_highaccuracy_vornet, NULL, __pyx_n_s_pyzeo_cluster); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_simplify_highaccuracy_vornet, __pyx_t_1) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":35
+  /* "pyzeo/cluster.pyx":35
  * 
  * 
  * def reduced_highaccuracy_vornodes(atmnet):             # <<<<<<<<<<<<<<
  *     """
  *     Generates simplified hgh accuracy voronoi network
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7cluster_5reduced_highaccuracy_vornodes, NULL, __pyx_n_s_zeoplusplus_cluster); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5pyzeo_7cluster_5reduced_highaccuracy_vornodes, NULL, __pyx_n_s_pyzeo_cluster); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduced_highaccuracy_vornodes, __pyx_t_1) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":54
+  /* "pyzeo/cluster.pyx":54
  * 
  * 
  * def pruned_highaccuracy_voronoi_network(atmnet, delta=0.5):             # <<<<<<<<<<<<<<
  *     """
  *     Prunes hgh accuracy voronoi network by removing voronoi
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7cluster_7pruned_highaccuracy_voronoi_network, NULL, __pyx_n_s_zeoplusplus_cluster); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5pyzeo_7cluster_7pruned_highaccuracy_voronoi_network, NULL, __pyx_n_s_pyzeo_cluster); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_pruned_highaccuracy_voronoi_netw, __pyx_t_1) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":69
+  /* "pyzeo/cluster.pyx":69
  *     return vornet
  * 
  * def get_nearest_largest_diameter_highaccuracy_vornode( atmnet, delta=0.25):             # <<<<<<<<<<<<<<
  *     """
  *     Get the reduced high accuracy voronoi network where only nodes that
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7cluster_9get_nearest_largest_diameter_highaccuracy_vornode, NULL, __pyx_n_s_zeoplusplus_cluster); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5pyzeo_7cluster_9get_nearest_largest_diameter_highaccuracy_vornode, NULL, __pyx_n_s_pyzeo_cluster); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_nearest_largest_diameter_hig, __pyx_t_1) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":99
+  /* "pyzeo/cluster.pyx":99
  *     return red_vornet
  * 
  * def generate_simplified_highaccuracy_voronoi_network(atmnet,delta=0.6):             # <<<<<<<<<<<<<<
  *     """
  *     Generate a simplified high accuracy voronoi network.
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7cluster_11generate_simplified_highaccuracy_voronoi_network, NULL, __pyx_n_s_zeoplusplus_cluster); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5pyzeo_7cluster_11generate_simplified_highaccuracy_voronoi_network, NULL, __pyx_n_s_pyzeo_cluster); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_generate_simplified_highaccuracy, __pyx_t_1) < 0) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":153
+  /* "pyzeo/cluster.pyx":153
  *     #print '********SIMPLIFIED_VORNET_COMPLETE*******'
  * 
  * def prune_voronoi_network_close_node(atmnet,delta=0.1):             # <<<<<<<<<<<<<<
  *     """
  *     Generate a pruned high accuracy voronoi network.
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_7cluster_13prune_voronoi_network_close_node, NULL, __pyx_n_s_zeoplusplus_cluster); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5pyzeo_7cluster_13prune_voronoi_network_close_node, NULL, __pyx_n_s_pyzeo_cluster); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_prune_voronoi_network_close_node, __pyx_t_1) < 0) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/cluster.pyx":1
+  /* "pyzeo/cluster.pyx":1
  * """             # <<<<<<<<<<<<<<
  * This module provides functions to simplify high accuracy voronoi network
  * """
@@ -4700,11 +4680,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init zeoplusplus.cluster", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init pyzeo.cluster", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init zeoplusplus.cluster");
+    PyErr_SetString(PyExc_ImportError, "init pyzeo.cluster");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

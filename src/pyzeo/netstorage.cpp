@@ -5,44 +5,27 @@
     "distutils": {
         "depends": [
             "src/area_and_volume.h",
-            "src/geometry.h",
             "src/network.h",
-            "src/networkinfo.h",
             "src/networkio.h",
-            "src/networkstorage.h",
-            "src/voronoicell.h"
+            "src/networkstorage.h"
         ],
         "extra_compile_args": [
-            "-fPIC",
             "-Wall",
             "-ansi",
             "-pedantic",
             "-O3"
         ],
         "include_dirs": [
-            "src/zeoplusplus",
-            "src/voro++/src"
+            "src/pyzeo"
         ],
         "language": "c++",
-        "name": "zeoplusplus.netstorage",
+        "name": "pyzeo.netstorage",
         "sources": [
-            "src/zeoplusplus/netstorage.pyx",
+            "src/pyzeo/netstorage.pyx",
             "src/networkio.cc",
             "src/grid.cc",
             "src/symbcalc.cc",
-            "src/voro++/src/cell.cc",
-            "src/voro++/src/c_loops.cc",
-            "src/voro++/src/cmd_line.cc",
-            "src/voro++/src/common.cc",
-            "src/voro++/src/container.cc",
-            "src/voro++/src/container_prd.cc",
-            "src/voro++/src/pre_container.cc",
-            "src/voro++/src/unitcell.cc",
-            "src/voro++/src/v_base.cc",
-            "src/voro++/src/v_base_wl.cc",
-            "src/voro++/src/v_compute.cc",
             "src/voro++/src/voro++.cc",
-            "src/voro++/src/wall.cc",
             "src/networkanalysis.cc",
             "src/networkstorage.cc",
             "src/networkinfo.cc",
@@ -65,7 +48,7 @@
             "src/string_additions.cc"
         ]
     },
-    "module_name": "zeoplusplus.netstorage"
+    "module_name": "pyzeo.netstorage"
 }
 END: Cython Metadata */
 
@@ -821,8 +804,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__zeoplusplus__netstorage
-#define __PYX_HAVE_API__zeoplusplus__netstorage
+#define __PYX_HAVE__pyzeo__netstorage
+#define __PYX_HAVE_API__pyzeo__netstorage
 /* Early includes */
 #include "ios"
 #include "new"
@@ -1063,164 +1046,164 @@ static const char *__pyx_filename;
 
 static const char *__pyx_f[] = {
   "stringsource",
-  "src/zeoplusplus/netstorage.pyx",
-  "src/zeoplusplus/geometry.pxd",
-  "src/zeoplusplus/voronoicell.pxd",
+  "src/pyzeo/netstorage.pyx",
+  "src/pyzeo/geometry.pxd",
+  "src/pyzeo/voronoicell.pxd",
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_11zeoplusplus_8geometry_Xyz;
-struct __pyx_obj_11zeoplusplus_8geometry_Point;
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace;
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell;
-struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell;
-struct __pyx_obj_11zeoplusplus_10netstorage_Atom;
-struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork;
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode;
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork;
-struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition;
-struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr;
+struct __pyx_obj_5pyzeo_8geometry_Xyz;
+struct __pyx_obj_5pyzeo_8geometry_Point;
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace;
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell;
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell;
+struct __pyx_obj_5pyzeo_10netstorage_Atom;
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork;
+struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition;
+struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr;
 
-/* "zeoplusplus/geometry.pxd":24
+/* "pyzeo/geometry.pxd":24
  * 
  * 
  * cdef class Xyz:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper declaration for Zeo++ XYZ class defined in geometry.h
  */
-struct __pyx_obj_11zeoplusplus_8geometry_Xyz {
+struct __pyx_obj_5pyzeo_8geometry_Xyz {
   PyObject_HEAD
   XYZ *thisptr;
 };
 
 
-/* "zeoplusplus/geometry.pxd":32
+/* "pyzeo/geometry.pxd":32
  * 
  * 
  * cdef class Point:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper declaration for Zeo++ Point class defined in geometry.h
  */
-struct __pyx_obj_11zeoplusplus_8geometry_Point {
+struct __pyx_obj_5pyzeo_8geometry_Point {
   PyObject_HEAD
   Point *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":39
+/* "pyzeo/voronoicell.pxd":39
  * 
  * 
  * cdef class VorFace:             # <<<<<<<<<<<<<<
  *     cdef  VOR_FACE* thisptr
  * 
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace {
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace {
   PyObject_HEAD
   VOR_FACE *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":42
+/* "pyzeo/voronoicell.pxd":42
  *     cdef  VOR_FACE* thisptr
  * 
  * cdef class VorCell:             # <<<<<<<<<<<<<<
  *     cdef VOR_CELL* thisptr
  * 
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell {
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell {
   PyObject_HEAD
   VOR_CELL *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":45
+/* "pyzeo/voronoicell.pxd":45
  *     cdef VOR_CELL* thisptr
  * 
  * cdef class BasicVCell:             # <<<<<<<<<<<<<<
  *     cdef BASIC_VCELL* thisptr
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell {
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell {
   PyObject_HEAD
   BASIC_VCELL *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":120
+/* "pyzeo/netstorage.pxd":120
  *             VORONOI_NETWORK* vornet, ATOM_NETWORK* atmnet)
  * 
  * cdef class Atom:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ ATOM class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_Atom {
+struct __pyx_obj_5pyzeo_10netstorage_Atom {
   PyObject_HEAD
   ATOM *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":126
+/* "pyzeo/netstorage.pxd":126
  *     cdef ATOM* thisptr
  * 
  * cdef class AtomNetwork:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ ATOM_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork {
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork {
   PyObject_HEAD
   ATOM_NETWORK *thisptr;
   int rad_flag;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":135
+/* "pyzeo/netstorage.pxd":135
  *     cdef bint rad_flag
  * 
  * cdef class VoronoiNode:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ VOR_NODE class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode {
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode {
   PyObject_HEAD
   VOR_NODE *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":141
+/* "pyzeo/netstorage.pxd":141
  *     cdef VOR_NODE* thisptr
  * 
  * cdef class VoronoiNetwork:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ VORONOI_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork {
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork {
   PyObject_HEAD
   VORONOI_NETWORK *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pyx":361
+/* "pyzeo/netstorage.pyx":361
  *         calculateFreeSphereParameters(vornet_ptr, c_fname, False)
  * 
  *     def perform_voronoi_decomposition(self, saveVorCells=True):             # <<<<<<<<<<<<<<
  *         """
  *         Performs weighted voronoi decomposition of atoms in the AtomNetwork
  */
-struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition {
+struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition {
   PyObject_HEAD
   PyObject *__pyx_v_edge_center;
 };
 
 
-/* "zeoplusplus/netstorage.pyx":394
+/* "pyzeo/netstorage.pyx":394
  *                            o_vnode.y + e_vnode.y, \
  *                            o_vnode.z + e_vnode.z)
  *             edge_center = tuple(x/2 for x in edge_center)             # <<<<<<<<<<<<<<
  *             if edge_center not in edge_centers:
  *                 edge_centers.append(edge_center)
  */
-struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr {
+struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr {
   PyObject_HEAD
-  struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *__pyx_outer_scope;
+  struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *__pyx_outer_scope;
   PyObject *__pyx_v_x;
   PyObject *__pyx_t_0;
   Py_ssize_t __pyx_t_1;
@@ -1823,9 +1806,9 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* Module declarations from 'libcpp.vector' */
 
-/* Module declarations from 'zeoplusplus.geometry' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Xyz = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Point = 0;
+/* Module declarations from 'pyzeo.geometry' */
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Xyz = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Point = 0;
 
 /* Module declarations from 'libcpp.utility' */
 
@@ -1833,31 +1816,31 @@ static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Point = 0;
 
 /* Module declarations from 'libcpp.set' */
 
-/* Module declarations from 'zeoplusplus.voronoicell' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_VorFace = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_VorCell = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell = 0;
+/* Module declarations from 'pyzeo.voronoicell' */
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorFace = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorCell = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_BasicVCell = 0;
 
 /* Module declarations from 'libc.string' */
 
 /* Module declarations from 'libcpp.string' */
 
-/* Module declarations from 'zeoplusplus.netinfo' */
+/* Module declarations from 'pyzeo.netinfo' */
 
-/* Module declarations from 'zeoplusplus' */
+/* Module declarations from 'pyzeo' */
 
-/* Module declarations from 'zeoplusplus.netstorage' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_Atom = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr = 0;
-#define __Pyx_MODULE_NAME "zeoplusplus.netstorage"
-extern int __pyx_module_is_main_zeoplusplus__netstorage;
-int __pyx_module_is_main_zeoplusplus__netstorage = 0;
+/* Module declarations from 'pyzeo.netstorage' */
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_Atom = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_AtomNetwork = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNode = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr = 0;
+#define __Pyx_MODULE_NAME "pyzeo.netstorage"
+extern int __pyx_module_is_main_pyzeo__netstorage;
+int __pyx_module_is_main_pyzeo__netstorage = 0;
 
-/* Implementation of 'zeoplusplus.netstorage' */
+/* Implementation of 'pyzeo.netstorage' */
 static PyObject *__pyx_builtin_TypeError;
 static PyObject *__pyx_builtin_IOError;
 static PyObject *__pyx_builtin_ValueError;
@@ -1918,13 +1901,13 @@ static const char __pyx_k_substitutionNo[] = "substitutionNo";
 static const char __pyx_k_supercell_flag[] = "supercell_flag";
 static const char __pyx_k_Bharat_Medasani[] = "Bharat Medasani";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
+static const char __pyx_k_pyzeo_netstorage[] = "pyzeo.netstorage";
 static const char __pyx_k_substitute_atoms[] = "substitute_atoms";
 static const char __pyx_k_mbkumar_gmail_com[] = "mbkumar@gmail.com";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_zeoplusplus_netstorage[] = "zeoplusplus.netstorage";
+static const char __pyx_k_src_pyzeo_netstorage_pyx[] = "src/pyzeo/netstorage.pyx";
 static const char __pyx_k_is_duplicate_perimeter_atoms[] = "is_duplicate_perimeter_atoms";
 static const char __pyx_k_perform_voronoi_decomposition[] = "perform_voronoi_decomposition";
-static const char __pyx_k_src_zeoplusplus_netstorage_pyx[] = "src/zeoplusplus/netstorage.pyx";
 static const char __pyx_k_Cython_file_defining_methods_fo[] = "\nCython file defining methods for AtomNetwork and VoronoiNetowrk \ndeclared in netstorage.pxd file. \n";
 static const char __pyx_k_This_value_is_not_supposed_to_be[] = "This value is not supposed to be modified";
 static const char __pyx_k_no_default___reduce___due_to_non[] = "no default __reduce__ due to non-trivial __cinit__";
@@ -1965,6 +1948,7 @@ static PyObject *__pyx_n_s_perform_voronoi_decomposition;
 static PyObject *__pyx_n_s_perform_voronoi_decomposition_lo;
 static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_probeRad;
+static PyObject *__pyx_n_s_pyzeo_netstorage;
 static PyObject *__pyx_n_s_rad_file;
 static PyObject *__pyx_n_s_rad_flag;
 static PyObject *__pyx_n_s_radialFlag;
@@ -1983,7 +1967,7 @@ static PyObject *__pyx_n_s_setstate_cython;
 static PyObject *__pyx_n_s_shift_x;
 static PyObject *__pyx_n_s_shift_y;
 static PyObject *__pyx_n_s_shift_z;
-static PyObject *__pyx_kp_s_src_zeoplusplus_netstorage_pyx;
+static PyObject *__pyx_kp_s_src_pyzeo_netstorage_pyx;
 static PyObject *__pyx_n_s_subNo;
 static PyObject *__pyx_n_s_substituteSeed;
 static PyObject *__pyx_n_s_substitute_atoms;
@@ -1994,61 +1978,60 @@ static PyObject *__pyx_n_s_throw;
 static PyObject *__pyx_n_s_x;
 static PyObject *__pyx_n_s_y;
 static PyObject *__pyx_n_s_z;
-static PyObject *__pyx_n_s_zeoplusplus_netstorage;
-static int __pyx_pf_11zeoplusplus_10netstorage_4Atom___cinit__(struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self); /* proto */
-static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_2__init__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self); /* proto */
-static void __pyx_pf_11zeoplusplus_10netstorage_4Atom_4__dealloc__(struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords___get__(struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self); /* proto */
-static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords_2__set__(struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self, PyObject *__pyx_v_coords); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6radius___get__(struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self); /* proto */
-static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6radius_2__set__(struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self, PyObject *__pyx_v_radius); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork___cinit__(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self); /* proto */
-static int __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_2__init__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self); /* proto */
-static void __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_4__dealloc__(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_6copy(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CIF(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_ARC(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_CSSR(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V1(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CSSR(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CIF(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XYZ(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename, PyObject *__pyx_v_supercell_flag, PyObject *__pyx_v_is_duplicate_perimeter_atoms); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VTK(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MOPAC(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename, PyObject *__pyx_v_supercell_flag); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_28calculate_free_sphere_parameters(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_genexpr(PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_voronoi_decomposition(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_saveVorCells); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_32__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_34__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode___cinit__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self); /* proto */
-static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_2__init__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self); /* proto */
-static void __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_4__dealloc__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords___get__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self); /* proto */
-static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords_2__set__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self, PyObject *__pyx_v_coords); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6radius___get__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self); /* proto */
-static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6radius_2__set__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self, PyObject *__pyx_v_rad); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork___cinit__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self); /* proto */
-static int __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_2__init__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self); /* proto */
-static void __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_4__dealloc__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_6size(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_8prune(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self, PyObject *__pyx_v_radius); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_10analyze_writeto_XYZ(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self, PyObject *__pyx_v_name, double __pyx_v_probeRad, PyObject *__pyx_v_atmnet, int __pyx_v_shift_x, int __pyx_v_shift_y, int __pyx_v_shift_z); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to_XYZ(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self, PyObject *__pyx_v_filename, double __pyx_v_cutoff_radius); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_14perform_voronoi_decomposition(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_saveVorCells); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_16__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_18__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_substitute_atoms(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_substituteSeed, PyObject *__pyx_v_radialFlag); /* proto */
-static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage_Atom(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage_AtomNetwork(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage_VoronoiNode(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage_VoronoiNetwork(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static int __pyx_pf_5pyzeo_10netstorage_4Atom___cinit__(struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self); /* proto */
+static int __pyx_pf_5pyzeo_10netstorage_4Atom_2__init__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self); /* proto */
+static void __pyx_pf_5pyzeo_10netstorage_4Atom_4__dealloc__(struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_4Atom_6coords___get__(struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self); /* proto */
+static int __pyx_pf_5pyzeo_10netstorage_4Atom_6coords_2__set__(struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self, PyObject *__pyx_v_coords); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_4Atom_6radius___get__(struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self); /* proto */
+static int __pyx_pf_5pyzeo_10netstorage_4Atom_6radius_2__set__(struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self, PyObject *__pyx_v_radius); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_4Atom_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_4Atom_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_5pyzeo_10netstorage_11AtomNetwork___cinit__(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self); /* proto */
+static int __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_2__init__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self); /* proto */
+static void __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_4__dealloc__(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_6copy(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_8read_from_CIF(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_10read_from_ARC(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_12read_from_CSSR(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_14read_from_V1(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_16write_to_CSSR(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_18write_to_CIF(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_20write_to_V1(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_22write_to_XYZ(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename, PyObject *__pyx_v_supercell_flag, PyObject *__pyx_v_is_duplicate_perimeter_atoms); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_24write_to_VTK(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_26write_to_MOPAC(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename, PyObject *__pyx_v_supercell_flag); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_28calculate_free_sphere_parameters(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_genexpr(PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_30perform_voronoi_decomposition(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_saveVorCells); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_32__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_34__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_5pyzeo_10netstorage_11VoronoiNode___cinit__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self); /* proto */
+static int __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_2__init__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self); /* proto */
+static void __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_4__dealloc__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11VoronoiNode_6coords___get__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self); /* proto */
+static int __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_6coords_2__set__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self, PyObject *__pyx_v_coords); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11VoronoiNode_6radius___get__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self); /* proto */
+static int __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_6radius_2__set__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self, PyObject *__pyx_v_rad); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11VoronoiNode_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11VoronoiNode_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork___cinit__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self); /* proto */
+static int __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_2__init__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self); /* proto */
+static void __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_4__dealloc__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_6size(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_8prune(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self, PyObject *__pyx_v_radius); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_10analyze_writeto_XYZ(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self, PyObject *__pyx_v_name, double __pyx_v_probeRad, PyObject *__pyx_v_atmnet, int __pyx_v_shift_x, int __pyx_v_shift_y, int __pyx_v_shift_z); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_12write_to_XYZ(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self, PyObject *__pyx_v_filename, double __pyx_v_cutoff_radius); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_14perform_voronoi_decomposition(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_saveVorCells); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_16__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_18__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_5pyzeo_10netstorage_substitute_atoms(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_substituteSeed, PyObject *__pyx_v_radialFlag); /* proto */
+static PyObject *__pyx_tp_new_5pyzeo_10netstorage_Atom(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_5pyzeo_10netstorage_AtomNetwork(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_5pyzeo_10netstorage_VoronoiNode(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_5pyzeo_10netstorage_VoronoiNetwork(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_int_2;
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_tuple__2;
@@ -2062,7 +2045,7 @@ static PyObject *__pyx_tuple__9;
 static PyObject *__pyx_codeobj__10;
 /* Late includes */
 
-/* "zeoplusplus/netstorage.pyx":25
+/* "pyzeo/netstorage.pyx":25
  *     Class to store the information about atom (or ion) in a structure.
  *     """
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -2071,22 +2054,22 @@ static PyObject *__pyx_codeobj__10;
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_10netstorage_4Atom_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_11zeoplusplus_10netstorage_4Atom_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_5pyzeo_10netstorage_4Atom_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_5pyzeo_10netstorage_4Atom_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
   if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
     __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
   if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__cinit__", 0))) return -1;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_4Atom___cinit__(((struct __pyx_obj_11zeoplusplus_10netstorage_Atom *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_4Atom___cinit__(((struct __pyx_obj_5pyzeo_10netstorage_Atom *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_10netstorage_4Atom___cinit__(struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self) {
+static int __pyx_pf_5pyzeo_10netstorage_4Atom___cinit__(struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   ATOM *__pyx_t_1;
@@ -2095,7 +2078,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom___cinit__(struct __pyx_obj_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "zeoplusplus/netstorage.pyx":26
+  /* "pyzeo/netstorage.pyx":26
  *     """
  *     def __cinit__(self):
  *         self.thisptr = new ATOM()             # <<<<<<<<<<<<<<
@@ -2110,7 +2093,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom___cinit__(struct __pyx_obj_
   }
   __pyx_v_self->thisptr = __pyx_t_1;
 
-  /* "zeoplusplus/netstorage.pyx":25
+  /* "pyzeo/netstorage.pyx":25
  *     Class to store the information about atom (or ion) in a structure.
  *     """
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -2122,14 +2105,14 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom___cinit__(struct __pyx_obj_
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.Atom.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.Atom.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":28
+/* "pyzeo/netstorage.pyx":28
  *         self.thisptr = new ATOM()
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -2138,22 +2121,22 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom___cinit__(struct __pyx_obj_
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_10netstorage_4Atom_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_11zeoplusplus_10netstorage_4Atom_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_5pyzeo_10netstorage_4Atom_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_5pyzeo_10netstorage_4Atom_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
   if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
     __Pyx_RaiseArgtupleInvalid("__init__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
   if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__init__", 0))) return -1;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_4Atom_2__init__(((struct __pyx_obj_11zeoplusplus_10netstorage_Atom *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_4Atom_2__init__(((struct __pyx_obj_5pyzeo_10netstorage_Atom *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_2__init__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self) {
+static int __pyx_pf_5pyzeo_10netstorage_4Atom_2__init__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__", 0);
@@ -2164,7 +2147,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_2__init__(CYTHON_UNUSED str
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":31
+/* "pyzeo/netstorage.pyx":31
  *         pass
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2173,21 +2156,21 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_2__init__(CYTHON_UNUSED str
  */
 
 /* Python wrapper */
-static void __pyx_pw_11zeoplusplus_10netstorage_4Atom_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_11zeoplusplus_10netstorage_4Atom_5__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_5pyzeo_10netstorage_4Atom_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_5pyzeo_10netstorage_4Atom_5__dealloc__(PyObject *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
-  __pyx_pf_11zeoplusplus_10netstorage_4Atom_4__dealloc__(((struct __pyx_obj_11zeoplusplus_10netstorage_Atom *)__pyx_v_self));
+  __pyx_pf_5pyzeo_10netstorage_4Atom_4__dealloc__(((struct __pyx_obj_5pyzeo_10netstorage_Atom *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_11zeoplusplus_10netstorage_4Atom_4__dealloc__(struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self) {
+static void __pyx_pf_5pyzeo_10netstorage_4Atom_4__dealloc__(struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "zeoplusplus/netstorage.pyx":32
+  /* "pyzeo/netstorage.pyx":32
  * 
  *     def __dealloc__(self):
  *         del self.thisptr             # <<<<<<<<<<<<<<
@@ -2196,7 +2179,7 @@ static void __pyx_pf_11zeoplusplus_10netstorage_4Atom_4__dealloc__(struct __pyx_
  */
   delete __pyx_v_self->thisptr;
 
-  /* "zeoplusplus/netstorage.pyx":31
+  /* "pyzeo/netstorage.pyx":31
  *         pass
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2208,7 +2191,7 @@ static void __pyx_pf_11zeoplusplus_10netstorage_4Atom_4__dealloc__(struct __pyx_
   __Pyx_RefNannyFinishContext();
 }
 
-/* "zeoplusplus/netstorage.pyx":35
+/* "pyzeo/netstorage.pyx":35
  * 
  *     property coords:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -2217,19 +2200,19 @@ static void __pyx_pf_11zeoplusplus_10netstorage_4Atom_4__dealloc__(struct __pyx_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_4Atom_6coords_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_4Atom_6coords_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_4Atom_6coords_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_10netstorage_4Atom_6coords_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords___get__(((struct __pyx_obj_11zeoplusplus_10netstorage_Atom *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_4Atom_6coords___get__(((struct __pyx_obj_5pyzeo_10netstorage_Atom *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords___get__(struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_4Atom_6coords___get__(struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self) {
   PyObject *__pyx_v_coords = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -2242,7 +2225,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords___get__(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "zeoplusplus/netstorage.pyx":36
+  /* "pyzeo/netstorage.pyx":36
  *     property coords:
  *         def __get__(self):
  *             coords = list(self.thisptr.x, self.thisptr.y, self.thisptr.z)             # <<<<<<<<<<<<<<
@@ -2272,7 +2255,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords___get__(struc
   __pyx_v_coords = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":37
+  /* "pyzeo/netstorage.pyx":37
  *         def __get__(self):
  *             coords = list(self.thisptr.x, self.thisptr.y, self.thisptr.z)
  *             return coords             # <<<<<<<<<<<<<<
@@ -2284,7 +2267,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords___get__(struc
   __pyx_r = __pyx_v_coords;
   goto __pyx_L0;
 
-  /* "zeoplusplus/netstorage.pyx":35
+  /* "pyzeo/netstorage.pyx":35
  * 
  *     property coords:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -2298,7 +2281,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords___get__(struc
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.Atom.coords.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.Atom.coords.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_coords);
@@ -2307,7 +2290,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords___get__(struc
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":38
+/* "pyzeo/netstorage.pyx":38
  *             coords = list(self.thisptr.x, self.thisptr.y, self.thisptr.z)
  *             return coords
  *         def __set__(self, coords):      # Don't set this             # <<<<<<<<<<<<<<
@@ -2316,19 +2299,19 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords___get__(struc
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_10netstorage_4Atom_6coords_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_coords); /*proto*/
-static int __pyx_pw_11zeoplusplus_10netstorage_4Atom_6coords_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_coords) {
+static int __pyx_pw_5pyzeo_10netstorage_4Atom_6coords_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_coords); /*proto*/
+static int __pyx_pw_5pyzeo_10netstorage_4Atom_6coords_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_coords) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords_2__set__(((struct __pyx_obj_11zeoplusplus_10netstorage_Atom *)__pyx_v_self), ((PyObject *)__pyx_v_coords));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_4Atom_6coords_2__set__(((struct __pyx_obj_5pyzeo_10netstorage_Atom *)__pyx_v_self), ((PyObject *)__pyx_v_coords));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords_2__set__(struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self, PyObject *__pyx_v_coords) {
+static int __pyx_pf_5pyzeo_10netstorage_4Atom_6coords_2__set__(struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self, PyObject *__pyx_v_coords) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2338,7 +2321,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords_2__set__(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "zeoplusplus/netstorage.pyx":42
+  /* "pyzeo/netstorage.pyx":42
  *             This variable is not supposed to be modified manually
  *             """
  *             print ("This value is not supposed to be modified")             # <<<<<<<<<<<<<<
@@ -2347,7 +2330,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords_2__set__(struct __p
  */
   if (__Pyx_PrintOne(0, __pyx_kp_s_This_value_is_not_supposed_to_be) < 0) __PYX_ERR(1, 42, __pyx_L1_error)
 
-  /* "zeoplusplus/netstorage.pyx":43
+  /* "pyzeo/netstorage.pyx":43
  *             """
  *             print ("This value is not supposed to be modified")
  *             self.thisptr.x = coords[0]             # <<<<<<<<<<<<<<
@@ -2360,7 +2343,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords_2__set__(struct __p
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->thisptr->x = __pyx_t_2;
 
-  /* "zeoplusplus/netstorage.pyx":44
+  /* "pyzeo/netstorage.pyx":44
  *             print ("This value is not supposed to be modified")
  *             self.thisptr.x = coords[0]
  *             self.thisptr.y = coords[1]             # <<<<<<<<<<<<<<
@@ -2373,7 +2356,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords_2__set__(struct __p
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->thisptr->y = __pyx_t_2;
 
-  /* "zeoplusplus/netstorage.pyx":45
+  /* "pyzeo/netstorage.pyx":45
  *             self.thisptr.x = coords[0]
  *             self.thisptr.y = coords[1]
  *             self.thisptr.z = coords[2]             # <<<<<<<<<<<<<<
@@ -2386,7 +2369,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords_2__set__(struct __p
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->thisptr->z = __pyx_t_2;
 
-  /* "zeoplusplus/netstorage.pyx":38
+  /* "pyzeo/netstorage.pyx":38
  *             coords = list(self.thisptr.x, self.thisptr.y, self.thisptr.z)
  *             return coords
  *         def __set__(self, coords):      # Don't set this             # <<<<<<<<<<<<<<
@@ -2399,14 +2382,14 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords_2__set__(struct __p
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.Atom.coords.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.Atom.coords.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":48
+/* "pyzeo/netstorage.pyx":48
  * 
  *     property radius:
  *         def __get__(self): return self.thisptr.radius             # <<<<<<<<<<<<<<
@@ -2415,19 +2398,19 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6coords_2__set__(struct __p
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_4Atom_6radius_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_4Atom_6radius_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_4Atom_6radius_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_10netstorage_4Atom_6radius_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_4Atom_6radius___get__(((struct __pyx_obj_11zeoplusplus_10netstorage_Atom *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_4Atom_6radius___get__(((struct __pyx_obj_5pyzeo_10netstorage_Atom *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6radius___get__(struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_4Atom_6radius___get__(struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2445,7 +2428,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6radius___get__(struc
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.Atom.radius.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.Atom.radius.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2453,7 +2436,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6radius___get__(struc
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":49
+/* "pyzeo/netstorage.pyx":49
  *     property radius:
  *         def __get__(self): return self.thisptr.radius
  *         def __set__(self, radius):             # <<<<<<<<<<<<<<
@@ -2462,19 +2445,19 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6radius___get__(struc
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_10netstorage_4Atom_6radius_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_radius); /*proto*/
-static int __pyx_pw_11zeoplusplus_10netstorage_4Atom_6radius_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_radius) {
+static int __pyx_pw_5pyzeo_10netstorage_4Atom_6radius_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_radius); /*proto*/
+static int __pyx_pw_5pyzeo_10netstorage_4Atom_6radius_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_radius) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_4Atom_6radius_2__set__(((struct __pyx_obj_11zeoplusplus_10netstorage_Atom *)__pyx_v_self), ((PyObject *)__pyx_v_radius));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_4Atom_6radius_2__set__(((struct __pyx_obj_5pyzeo_10netstorage_Atom *)__pyx_v_self), ((PyObject *)__pyx_v_radius));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6radius_2__set__(struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self, PyObject *__pyx_v_radius) {
+static int __pyx_pf_5pyzeo_10netstorage_4Atom_6radius_2__set__(struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self, PyObject *__pyx_v_radius) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
@@ -2483,7 +2466,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6radius_2__set__(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "zeoplusplus/netstorage.pyx":50
+  /* "pyzeo/netstorage.pyx":50
  *         def __get__(self): return self.thisptr.radius
  *         def __set__(self, radius):
  *             print ("This value is not supposed to be modified")             # <<<<<<<<<<<<<<
@@ -2492,7 +2475,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6radius_2__set__(struct __p
  */
   if (__Pyx_PrintOne(0, __pyx_kp_s_This_value_is_not_supposed_to_be) < 0) __PYX_ERR(1, 50, __pyx_L1_error)
 
-  /* "zeoplusplus/netstorage.pyx":51
+  /* "pyzeo/netstorage.pyx":51
  *         def __set__(self, radius):
  *             print ("This value is not supposed to be modified")
  *             self.thisptr.radius = radius             # <<<<<<<<<<<<<<
@@ -2502,7 +2485,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6radius_2__set__(struct __p
   __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_radius); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 51, __pyx_L1_error)
   __pyx_v_self->thisptr->radius = __pyx_t_1;
 
-  /* "zeoplusplus/netstorage.pyx":49
+  /* "pyzeo/netstorage.pyx":49
  *     property radius:
  *         def __get__(self): return self.thisptr.radius
  *         def __set__(self, radius):             # <<<<<<<<<<<<<<
@@ -2514,7 +2497,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6radius_2__set__(struct __p
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.Atom.radius.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.Atom.radius.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -2528,19 +2511,19 @@ static int __pyx_pf_11zeoplusplus_10netstorage_4Atom_6radius_2__set__(struct __p
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_4Atom_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_4Atom_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_4Atom_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_10netstorage_4Atom_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_4Atom_6__reduce_cython__(((struct __pyx_obj_11zeoplusplus_10netstorage_Atom *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_4Atom_6__reduce_cython__(((struct __pyx_obj_5pyzeo_10netstorage_Atom *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_4Atom_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2570,7 +2553,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6__reduce_cython__(CY
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.Atom.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.Atom.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -2585,19 +2568,19 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_6__reduce_cython__(CY
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_4Atom_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_4Atom_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_4Atom_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_10netstorage_4Atom_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_4Atom_8__setstate_cython__(((struct __pyx_obj_11zeoplusplus_10netstorage_Atom *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_4Atom_8__setstate_cython__(((struct __pyx_obj_5pyzeo_10netstorage_Atom *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_Atom *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_4Atom_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_Atom *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2627,14 +2610,14 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_8__setstate_cython__(
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.Atom.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.Atom.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":61
+/* "pyzeo/netstorage.pyx":61
  *     #Contains a pointer to ATOM_NETWORK and a flag denoting whether radius
  *     #for each atomic species is non-zero.
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -2643,22 +2626,22 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_4Atom_8__setstate_cython__(
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_5pyzeo_10netstorage_11AtomNetwork_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_5pyzeo_10netstorage_11AtomNetwork_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
   if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
     __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
   if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__cinit__", 0))) return -1;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork___cinit__(((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork___cinit__(((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork___cinit__(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self) {
+static int __pyx_pf_5pyzeo_10netstorage_11AtomNetwork___cinit__(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   ATOM_NETWORK *__pyx_t_1;
@@ -2667,7 +2650,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork___cinit__(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "zeoplusplus/netstorage.pyx":62
+  /* "pyzeo/netstorage.pyx":62
  *     #for each atomic species is non-zero.
  *     def __cinit__(self):
  *         self.thisptr = new ATOM_NETWORK()             # <<<<<<<<<<<<<<
@@ -2682,7 +2665,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork___cinit__(struct __
   }
   __pyx_v_self->thisptr = __pyx_t_1;
 
-  /* "zeoplusplus/netstorage.pyx":61
+  /* "pyzeo/netstorage.pyx":61
  *     #Contains a pointer to ATOM_NETWORK and a flag denoting whether radius
  *     #for each atomic species is non-zero.
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -2694,14 +2677,14 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork___cinit__(struct __
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":64
+/* "pyzeo/netstorage.pyx":64
  *         self.thisptr = new ATOM_NETWORK()
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -2710,22 +2693,22 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork___cinit__(struct __
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_5pyzeo_10netstorage_11AtomNetwork_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_5pyzeo_10netstorage_11AtomNetwork_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
   if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
     __Pyx_RaiseArgtupleInvalid("__init__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
   if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__init__", 0))) return -1;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_2__init__(((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_2__init__(((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_2__init__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self) {
+static int __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_2__init__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__", 0);
@@ -2736,7 +2719,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_2__init__(CYTHON_UN
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":67
+/* "pyzeo/netstorage.pyx":67
  *         pass
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2745,21 +2728,21 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_2__init__(CYTHON_UN
  */
 
 /* Python wrapper */
-static void __pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_5__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_5pyzeo_10netstorage_11AtomNetwork_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_5pyzeo_10netstorage_11AtomNetwork_5__dealloc__(PyObject *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
-  __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_4__dealloc__(((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_self));
+  __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_4__dealloc__(((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_4__dealloc__(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self) {
+static void __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_4__dealloc__(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "zeoplusplus/netstorage.pyx":68
+  /* "pyzeo/netstorage.pyx":68
  * 
  *     def __dealloc__(self):
  *         del self.thisptr             # <<<<<<<<<<<<<<
@@ -2768,7 +2751,7 @@ static void __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_4__dealloc__(struc
  */
   delete __pyx_v_self->thisptr;
 
-  /* "zeoplusplus/netstorage.pyx":67
+  /* "pyzeo/netstorage.pyx":67
  *         pass
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2780,7 +2763,7 @@ static void __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_4__dealloc__(struc
   __Pyx_RefNannyFinishContext();
 }
 
-/* "zeoplusplus/netstorage.pyx":70
+/* "pyzeo/netstorage.pyx":70
  *         del self.thisptr
  * 
  *     def copy(self):             # <<<<<<<<<<<<<<
@@ -2789,21 +2772,21 @@ static void __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_4__dealloc__(struc
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_7copy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_6copy[] = "\n        Create a copy of the AtomNetwork instance\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_7copy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_7copy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_6copy[] = "\n        Create a copy of the AtomNetwork instance\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_7copy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("copy (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_6copy(((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_6copy(((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_6copy(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self) {
-  struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_newatmnet = NULL;
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_6copy(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self) {
+  struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_newatmnet = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2813,19 +2796,19 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_6copy(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("copy", 0);
 
-  /* "zeoplusplus/netstorage.pyx":74
+  /* "pyzeo/netstorage.pyx":74
  *         Create a copy of the AtomNetwork instance
  *         """
  *         newatmnet = AtomNetwork()             # <<<<<<<<<<<<<<
  *         self.thisptr.copy(newatmnet.thisptr)
  *         newatmnet.rad_flag = self.rad_flag
  */
-  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 74, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5pyzeo_10netstorage_AtomNetwork)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 74, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_newatmnet = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_t_1);
+  __pyx_v_newatmnet = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":75
+  /* "pyzeo/netstorage.pyx":75
  *         """
  *         newatmnet = AtomNetwork()
  *         self.thisptr.copy(newatmnet.thisptr)             # <<<<<<<<<<<<<<
@@ -2834,7 +2817,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_6copy(struct 
  */
   __pyx_v_self->thisptr->copy(__pyx_v_newatmnet->thisptr);
 
-  /* "zeoplusplus/netstorage.pyx":76
+  /* "pyzeo/netstorage.pyx":76
  *         newatmnet = AtomNetwork()
  *         self.thisptr.copy(newatmnet.thisptr)
  *         newatmnet.rad_flag = self.rad_flag             # <<<<<<<<<<<<<<
@@ -2844,7 +2827,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_6copy(struct 
   __pyx_t_2 = __pyx_v_self->rad_flag;
   __pyx_v_newatmnet->rad_flag = __pyx_t_2;
 
-  /* "zeoplusplus/netstorage.pyx":77
+  /* "pyzeo/netstorage.pyx":77
  *         self.thisptr.copy(newatmnet.thisptr)
  *         newatmnet.rad_flag = self.rad_flag
  *         return newatmnet             # <<<<<<<<<<<<<<
@@ -2856,7 +2839,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_6copy(struct 
   __pyx_r = ((PyObject *)__pyx_v_newatmnet);
   goto __pyx_L0;
 
-  /* "zeoplusplus/netstorage.pyx":70
+  /* "pyzeo/netstorage.pyx":70
  *         del self.thisptr
  * 
  *     def copy(self):             # <<<<<<<<<<<<<<
@@ -2867,7 +2850,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_6copy(struct 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.copy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.copy", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_newatmnet);
@@ -2876,7 +2859,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_6copy(struct 
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":95
+/* "pyzeo/netstorage.pyx":95
  * 
  *     @classmethod
  *     def read_from_CIF(cls, filename, rad_flag=True, rad_file=None):             # <<<<<<<<<<<<<<
@@ -2885,9 +2868,9 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_6copy(struct 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_9read_from_CIF(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CIF[] = "\n        Static method to create and populate the AtomNetwork with \n        atom data from a CIF file.\n        Arguments:\n            filename: \n                Input CIF file name.\n            rad_flag (optional):\n                Flag denoting whether atomic radii are non-zero.\n                Default is True\n            rad_file (optional):\n                Input file containing atomic radii\n                Works only when rad_flag is True.\n                If rad_file is not specified, Zeo++ default values are used.\n        Returns:\n            Instance of AtomNetwork\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_9read_from_CIF(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_9read_from_CIF(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_8read_from_CIF[] = "\n        Static method to create and populate the AtomNetwork with \n        atom data from a CIF file.\n        Arguments:\n            filename: \n                Input CIF file name.\n            rad_flag (optional):\n                Flag denoting whether atomic radii are non-zero.\n                Default is True\n            rad_file (optional):\n                Input file containing atomic radii\n                Works only when rad_flag is True.\n                If rad_file is not specified, Zeo++ default values are used.\n        Returns:\n            Instance of AtomNetwork\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_9read_from_CIF(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_filename = 0;
   PyObject *__pyx_v_rad_flag = 0;
   PyObject *__pyx_v_rad_file = 0;
@@ -2955,20 +2938,20 @@ static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_9read_from_CI
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("read_from_CIF", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 95, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.read_from_CIF", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.read_from_CIF", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CIF(((PyTypeObject*)__pyx_v_cls), __pyx_v_filename, __pyx_v_rad_flag, __pyx_v_rad_file);
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_8read_from_CIF(((PyTypeObject*)__pyx_v_cls), __pyx_v_filename, __pyx_v_rad_flag, __pyx_v_rad_file);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CIF(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_8read_from_CIF(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file) {
   char *__pyx_v_c_rad_file;
-  struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_atmnet = NULL;
+  struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_atmnet = NULL;
   char *__pyx_v_c_filename;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -2983,7 +2966,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
   __Pyx_INCREF(__pyx_v_filename);
   __Pyx_INCREF(__pyx_v_rad_file);
 
-  /* "zeoplusplus/netstorage.pyx":113
+  /* "pyzeo/netstorage.pyx":113
  *         """
  *         #Calls Zeo++ readCIFFile function defined in networkio.cc.
  *         if isinstance(rad_file, unicode):             # <<<<<<<<<<<<<<
@@ -2994,7 +2977,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "zeoplusplus/netstorage.pyx":114
+    /* "pyzeo/netstorage.pyx":114
  *         #Calls Zeo++ readCIFFile function defined in networkio.cc.
  *         if isinstance(rad_file, unicode):
  *             rad_file = (<unicode>rad_file).encode('utf8')             # <<<<<<<<<<<<<<
@@ -3010,7 +2993,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
     __Pyx_DECREF_SET(__pyx_v_rad_file, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":113
+    /* "pyzeo/netstorage.pyx":113
  *         """
  *         #Calls Zeo++ readCIFFile function defined in networkio.cc.
  *         if isinstance(rad_file, unicode):             # <<<<<<<<<<<<<<
@@ -3019,7 +3002,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":115
+  /* "pyzeo/netstorage.pyx":115
  *         if isinstance(rad_file, unicode):
  *             rad_file = (<unicode>rad_file).encode('utf8')
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -3030,7 +3013,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (__pyx_t_1) {
 
-    /* "zeoplusplus/netstorage.pyx":116
+    /* "pyzeo/netstorage.pyx":116
  *             rad_file = (<unicode>rad_file).encode('utf8')
  *         if isinstance(filename, unicode):
  *             filename = (<unicode>filename).encode('utf8')             # <<<<<<<<<<<<<<
@@ -3046,7 +3029,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
     __Pyx_DECREF_SET(__pyx_v_filename, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":115
+    /* "pyzeo/netstorage.pyx":115
  *         if isinstance(rad_file, unicode):
  *             rad_file = (<unicode>rad_file).encode('utf8')
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -3055,7 +3038,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":118
+  /* "pyzeo/netstorage.pyx":118
  *             filename = (<unicode>filename).encode('utf8')
  * 
  *         cdef char* c_rad_file = rad_file             # <<<<<<<<<<<<<<
@@ -3065,61 +3048,61 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
   __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_rad_file); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 118, __pyx_L1_error)
   __pyx_v_c_rad_file = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":119
+  /* "pyzeo/netstorage.pyx":119
  * 
  *         cdef char* c_rad_file = rad_file
  *         if rad_flag:             # <<<<<<<<<<<<<<
  *             if not rad_file:
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()
+ *                 pyzeo.netinfo.zeo_initializeRadTable()
  */
   __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_rad_flag); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(1, 119, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "zeoplusplus/netstorage.pyx":120
+    /* "pyzeo/netstorage.pyx":120
  *         cdef char* c_rad_file = rad_file
  *         if rad_flag:
  *             if not rad_file:             # <<<<<<<<<<<<<<
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()
+ *                 pyzeo.netinfo.zeo_initializeRadTable()
  *             else:       # rad_file is defined
  */
     __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_rad_file); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(1, 120, __pyx_L1_error)
     __pyx_t_2 = ((!__pyx_t_1) != 0);
     if (__pyx_t_2) {
 
-      /* "zeoplusplus/netstorage.pyx":121
+      /* "pyzeo/netstorage.pyx":121
  *         if rad_flag:
  *             if not rad_file:
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()             # <<<<<<<<<<<<<<
+ *                 pyzeo.netinfo.zeo_initializeRadTable()             # <<<<<<<<<<<<<<
  *             else:       # rad_file is defined
  *                 c_rad_file = rad_file
  */
       initializeRadTable();
 
-      /* "zeoplusplus/netstorage.pyx":120
+      /* "pyzeo/netstorage.pyx":120
  *         cdef char* c_rad_file = rad_file
  *         if rad_flag:
  *             if not rad_file:             # <<<<<<<<<<<<<<
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()
+ *                 pyzeo.netinfo.zeo_initializeRadTable()
  *             else:       # rad_file is defined
  */
       goto __pyx_L6;
     }
 
-    /* "zeoplusplus/netstorage.pyx":123
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()
+    /* "pyzeo/netstorage.pyx":123
+ *                 pyzeo.netinfo.zeo_initializeRadTable()
  *             else:       # rad_file is defined
  *                 c_rad_file = rad_file             # <<<<<<<<<<<<<<
- *                 zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)
+ *                 pyzeo.netinfo.zeo_readRadTable(c_rad_file)
  * 
  */
     /*else*/ {
       __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_rad_file); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 123, __pyx_L1_error)
       __pyx_v_c_rad_file = __pyx_t_4;
 
-      /* "zeoplusplus/netstorage.pyx":124
+      /* "pyzeo/netstorage.pyx":124
  *             else:       # rad_file is defined
  *                 c_rad_file = rad_file
- *                 zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)             # <<<<<<<<<<<<<<
+ *                 pyzeo.netinfo.zeo_readRadTable(c_rad_file)             # <<<<<<<<<<<<<<
  * 
  *         atmnet = AtomNetwork()
  */
@@ -3127,28 +3110,28 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
     }
     __pyx_L6:;
 
-    /* "zeoplusplus/netstorage.pyx":119
+    /* "pyzeo/netstorage.pyx":119
  * 
  *         cdef char* c_rad_file = rad_file
  *         if rad_flag:             # <<<<<<<<<<<<<<
  *             if not rad_file:
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()
+ *                 pyzeo.netinfo.zeo_initializeRadTable()
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":126
- *                 zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)
+  /* "pyzeo/netstorage.pyx":126
+ *                 pyzeo.netinfo.zeo_readRadTable(c_rad_file)
  * 
  *         atmnet = AtomNetwork()             # <<<<<<<<<<<<<<
  *         cdef char* c_filename = filename
  *         if not readCIFFile(c_filename, atmnet.thisptr, rad_flag):
  */
-  __pyx_t_3 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 126, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5pyzeo_10netstorage_AtomNetwork)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 126, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_v_atmnet = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_t_3);
+  __pyx_v_atmnet = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":127
+  /* "pyzeo/netstorage.pyx":127
  * 
  *         atmnet = AtomNetwork()
  *         cdef char* c_filename = filename             # <<<<<<<<<<<<<<
@@ -3158,7 +3141,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
   __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 127, __pyx_L1_error)
   __pyx_v_c_filename = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":128
+  /* "pyzeo/netstorage.pyx":128
  *         atmnet = AtomNetwork()
  *         cdef char* c_filename = filename
  *         if not readCIFFile(c_filename, atmnet.thisptr, rad_flag):             # <<<<<<<<<<<<<<
@@ -3169,7 +3152,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
   __pyx_t_1 = ((!(readCIFFile(__pyx_v_c_filename, __pyx_v_atmnet->thisptr, __pyx_t_2) != 0)) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "zeoplusplus/netstorage.pyx":129
+    /* "pyzeo/netstorage.pyx":129
  *         cdef char* c_filename = filename
  *         if not readCIFFile(c_filename, atmnet.thisptr, rad_flag):
  *             raise IOError             # <<<<<<<<<<<<<<
@@ -3179,7 +3162,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
     __Pyx_Raise(__pyx_builtin_IOError, 0, 0, 0);
     __PYX_ERR(1, 129, __pyx_L1_error)
 
-    /* "zeoplusplus/netstorage.pyx":128
+    /* "pyzeo/netstorage.pyx":128
  *         atmnet = AtomNetwork()
  *         cdef char* c_filename = filename
  *         if not readCIFFile(c_filename, atmnet.thisptr, rad_flag):             # <<<<<<<<<<<<<<
@@ -3188,7 +3171,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":130
+  /* "pyzeo/netstorage.pyx":130
  *         if not readCIFFile(c_filename, atmnet.thisptr, rad_flag):
  *             raise IOError
  *         atmnet.rad_flag = rad_flag             # <<<<<<<<<<<<<<
@@ -3198,7 +3181,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
   __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_rad_flag); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 130, __pyx_L1_error)
   __pyx_v_atmnet->rad_flag = __pyx_t_1;
 
-  /* "zeoplusplus/netstorage.pyx":131
+  /* "pyzeo/netstorage.pyx":131
  *             raise IOError
  *         atmnet.rad_flag = rad_flag
  *         return atmnet             # <<<<<<<<<<<<<<
@@ -3210,7 +3193,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
   __pyx_r = ((PyObject *)__pyx_v_atmnet);
   goto __pyx_L0;
 
-  /* "zeoplusplus/netstorage.pyx":95
+  /* "pyzeo/netstorage.pyx":95
  * 
  *     @classmethod
  *     def read_from_CIF(cls, filename, rad_flag=True, rad_file=None):             # <<<<<<<<<<<<<<
@@ -3221,7 +3204,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.read_from_CIF", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.read_from_CIF", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_atmnet);
@@ -3232,7 +3215,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":134
+/* "pyzeo/netstorage.pyx":134
  * 
  *     @classmethod
  *     def read_from_ARC(cls, filename, rad_flag=True, rad_file=None):             # <<<<<<<<<<<<<<
@@ -3241,9 +3224,9 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CI
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_11read_from_ARC(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_ARC[] = "\n        Static method to create and populate the AtomNetwork with \n        atom data from a ARC file.\n        Arguments:\n            filename: \n                Input ARC file name.\n            rad_flag (optional):\n                Flag denoting whether atomic radii are non-zero.\n                Default is True\n            rad_file (optional):\n                Input file containing atomic radii\n                Works only when rad_flag is True.\n                If rad_file is not specified, default values are used.\n        Returns:\n            Instance of AtomNetwork\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_11read_from_ARC(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_11read_from_ARC(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_10read_from_ARC[] = "\n        Static method to create and populate the AtomNetwork with \n        atom data from a ARC file.\n        Arguments:\n            filename: \n                Input ARC file name.\n            rad_flag (optional):\n                Flag denoting whether atomic radii are non-zero.\n                Default is True\n            rad_file (optional):\n                Input file containing atomic radii\n                Works only when rad_flag is True.\n                If rad_file is not specified, default values are used.\n        Returns:\n            Instance of AtomNetwork\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_11read_from_ARC(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_filename = 0;
   PyObject *__pyx_v_rad_flag = 0;
   PyObject *__pyx_v_rad_file = 0;
@@ -3311,20 +3294,20 @@ static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_11read_from_A
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("read_from_ARC", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 134, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.read_from_ARC", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.read_from_ARC", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_ARC(((PyTypeObject*)__pyx_v_cls), __pyx_v_filename, __pyx_v_rad_flag, __pyx_v_rad_file);
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_10read_from_ARC(((PyTypeObject*)__pyx_v_cls), __pyx_v_filename, __pyx_v_rad_flag, __pyx_v_rad_file);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_ARC(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_10read_from_ARC(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file) {
   char *__pyx_v_c_rad_file;
-  struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_atmnet = NULL;
+  struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_atmnet = NULL;
   char *__pyx_v_c_filename;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -3339,7 +3322,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
   __Pyx_INCREF(__pyx_v_filename);
   __Pyx_INCREF(__pyx_v_rad_file);
 
-  /* "zeoplusplus/netstorage.pyx":151
+  /* "pyzeo/netstorage.pyx":151
  *             Instance of AtomNetwork
  *         """
  *         if isinstance(rad_file, unicode):             # <<<<<<<<<<<<<<
@@ -3350,7 +3333,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "zeoplusplus/netstorage.pyx":152
+    /* "pyzeo/netstorage.pyx":152
  *         """
  *         if isinstance(rad_file, unicode):
  *             rad_file = (<unicode>rad_file).encode('utf8')             # <<<<<<<<<<<<<<
@@ -3366,7 +3349,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
     __Pyx_DECREF_SET(__pyx_v_rad_file, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":151
+    /* "pyzeo/netstorage.pyx":151
  *             Instance of AtomNetwork
  *         """
  *         if isinstance(rad_file, unicode):             # <<<<<<<<<<<<<<
@@ -3375,7 +3358,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":153
+  /* "pyzeo/netstorage.pyx":153
  *         if isinstance(rad_file, unicode):
  *             rad_file = (<unicode>rad_file).encode('utf8')
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -3386,7 +3369,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (__pyx_t_1) {
 
-    /* "zeoplusplus/netstorage.pyx":154
+    /* "pyzeo/netstorage.pyx":154
  *             rad_file = (<unicode>rad_file).encode('utf8')
  *         if isinstance(filename, unicode):
  *             filename = (<unicode>filename).encode('utf8')             # <<<<<<<<<<<<<<
@@ -3402,7 +3385,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
     __Pyx_DECREF_SET(__pyx_v_filename, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":153
+    /* "pyzeo/netstorage.pyx":153
  *         if isinstance(rad_file, unicode):
  *             rad_file = (<unicode>rad_file).encode('utf8')
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -3411,7 +3394,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":157
+  /* "pyzeo/netstorage.pyx":157
  * 
  *         #Calls Zeo++ readARCFile function defined in networkio.cc.
  *         cdef char* c_rad_file = rad_file             # <<<<<<<<<<<<<<
@@ -3421,61 +3404,61 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
   __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_rad_file); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 157, __pyx_L1_error)
   __pyx_v_c_rad_file = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":158
+  /* "pyzeo/netstorage.pyx":158
  *         #Calls Zeo++ readARCFile function defined in networkio.cc.
  *         cdef char* c_rad_file = rad_file
  *         if rad_flag:             # <<<<<<<<<<<<<<
  *             if not rad_file:
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()
+ *                 pyzeo.netinfo.zeo_initializeRadTable()
  */
   __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_rad_flag); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(1, 158, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "zeoplusplus/netstorage.pyx":159
+    /* "pyzeo/netstorage.pyx":159
  *         cdef char* c_rad_file = rad_file
  *         if rad_flag:
  *             if not rad_file:             # <<<<<<<<<<<<<<
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()
+ *                 pyzeo.netinfo.zeo_initializeRadTable()
  *             else:       # rad_file is defined
  */
     __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_rad_file); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(1, 159, __pyx_L1_error)
     __pyx_t_2 = ((!__pyx_t_1) != 0);
     if (__pyx_t_2) {
 
-      /* "zeoplusplus/netstorage.pyx":160
+      /* "pyzeo/netstorage.pyx":160
  *         if rad_flag:
  *             if not rad_file:
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()             # <<<<<<<<<<<<<<
+ *                 pyzeo.netinfo.zeo_initializeRadTable()             # <<<<<<<<<<<<<<
  *             else:       # rad_file is defined
  *                 c_rad_file = rad_file
  */
       initializeRadTable();
 
-      /* "zeoplusplus/netstorage.pyx":159
+      /* "pyzeo/netstorage.pyx":159
  *         cdef char* c_rad_file = rad_file
  *         if rad_flag:
  *             if not rad_file:             # <<<<<<<<<<<<<<
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()
+ *                 pyzeo.netinfo.zeo_initializeRadTable()
  *             else:       # rad_file is defined
  */
       goto __pyx_L6;
     }
 
-    /* "zeoplusplus/netstorage.pyx":162
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()
+    /* "pyzeo/netstorage.pyx":162
+ *                 pyzeo.netinfo.zeo_initializeRadTable()
  *             else:       # rad_file is defined
  *                 c_rad_file = rad_file             # <<<<<<<<<<<<<<
- *                 zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)
+ *                 pyzeo.netinfo.zeo_readRadTable(c_rad_file)
  * 
  */
     /*else*/ {
       __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_rad_file); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 162, __pyx_L1_error)
       __pyx_v_c_rad_file = __pyx_t_4;
 
-      /* "zeoplusplus/netstorage.pyx":163
+      /* "pyzeo/netstorage.pyx":163
  *             else:       # rad_file is defined
  *                 c_rad_file = rad_file
- *                 zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)             # <<<<<<<<<<<<<<
+ *                 pyzeo.netinfo.zeo_readRadTable(c_rad_file)             # <<<<<<<<<<<<<<
  * 
  *         atmnet = AtomNetwork()
  */
@@ -3483,28 +3466,28 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
     }
     __pyx_L6:;
 
-    /* "zeoplusplus/netstorage.pyx":158
+    /* "pyzeo/netstorage.pyx":158
  *         #Calls Zeo++ readARCFile function defined in networkio.cc.
  *         cdef char* c_rad_file = rad_file
  *         if rad_flag:             # <<<<<<<<<<<<<<
  *             if not rad_file:
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()
+ *                 pyzeo.netinfo.zeo_initializeRadTable()
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":165
- *                 zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)
+  /* "pyzeo/netstorage.pyx":165
+ *                 pyzeo.netinfo.zeo_readRadTable(c_rad_file)
  * 
  *         atmnet = AtomNetwork()             # <<<<<<<<<<<<<<
  *         cdef char* c_filename = filename
  *         if not readARCFile(c_filename, atmnet.thisptr, rad_flag):
  */
-  __pyx_t_3 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 165, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5pyzeo_10netstorage_AtomNetwork)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_v_atmnet = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_t_3);
+  __pyx_v_atmnet = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":166
+  /* "pyzeo/netstorage.pyx":166
  * 
  *         atmnet = AtomNetwork()
  *         cdef char* c_filename = filename             # <<<<<<<<<<<<<<
@@ -3514,7 +3497,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
   __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 166, __pyx_L1_error)
   __pyx_v_c_filename = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":167
+  /* "pyzeo/netstorage.pyx":167
  *         atmnet = AtomNetwork()
  *         cdef char* c_filename = filename
  *         if not readARCFile(c_filename, atmnet.thisptr, rad_flag):             # <<<<<<<<<<<<<<
@@ -3525,7 +3508,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
   __pyx_t_1 = ((!(readARCFile(__pyx_v_c_filename, __pyx_v_atmnet->thisptr, __pyx_t_2) != 0)) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "zeoplusplus/netstorage.pyx":168
+    /* "pyzeo/netstorage.pyx":168
  *         cdef char* c_filename = filename
  *         if not readARCFile(c_filename, atmnet.thisptr, rad_flag):
  *             raise IOError             # <<<<<<<<<<<<<<
@@ -3535,7 +3518,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
     __Pyx_Raise(__pyx_builtin_IOError, 0, 0, 0);
     __PYX_ERR(1, 168, __pyx_L1_error)
 
-    /* "zeoplusplus/netstorage.pyx":167
+    /* "pyzeo/netstorage.pyx":167
  *         atmnet = AtomNetwork()
  *         cdef char* c_filename = filename
  *         if not readARCFile(c_filename, atmnet.thisptr, rad_flag):             # <<<<<<<<<<<<<<
@@ -3544,7 +3527,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":169
+  /* "pyzeo/netstorage.pyx":169
  *         if not readARCFile(c_filename, atmnet.thisptr, rad_flag):
  *             raise IOError
  *         atmnet.rad_flag = rad_flag             # <<<<<<<<<<<<<<
@@ -3554,7 +3537,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
   __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_rad_flag); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 169, __pyx_L1_error)
   __pyx_v_atmnet->rad_flag = __pyx_t_1;
 
-  /* "zeoplusplus/netstorage.pyx":170
+  /* "pyzeo/netstorage.pyx":170
  *             raise IOError
  *         atmnet.rad_flag = rad_flag
  *         return atmnet             # <<<<<<<<<<<<<<
@@ -3566,7 +3549,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
   __pyx_r = ((PyObject *)__pyx_v_atmnet);
   goto __pyx_L0;
 
-  /* "zeoplusplus/netstorage.pyx":134
+  /* "pyzeo/netstorage.pyx":134
  * 
  *     @classmethod
  *     def read_from_ARC(cls, filename, rad_flag=True, rad_file=None):             # <<<<<<<<<<<<<<
@@ -3577,7 +3560,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.read_from_ARC", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.read_from_ARC", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_atmnet);
@@ -3588,7 +3571,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":173
+/* "pyzeo/netstorage.pyx":173
  * 
  *     @classmethod
  *     def read_from_CSSR(cls, filename, rad_flag=True, rad_file=None):             # <<<<<<<<<<<<<<
@@ -3597,9 +3580,9 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_A
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_13read_from_CSSR(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_CSSR[] = "\n        Static method to create and populate the AtomNetwork with \n        atom data from a CSSR file.\n        Arguments:\n            filename: \n                Input CSSR file name.\n            rad_flag (optional):\n                Flag denoting whether atomic radii are non-zero.\n                Default is True\n            rad_file (optional):\n                Input file containing atomic radii\n                Works only when rad_flag is True.\n                If rad_file is not specified, default values are used.\n        Returns:\n            Instance of AtomNetwork\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_13read_from_CSSR(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_13read_from_CSSR(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_12read_from_CSSR[] = "\n        Static method to create and populate the AtomNetwork with \n        atom data from a CSSR file.\n        Arguments:\n            filename: \n                Input CSSR file name.\n            rad_flag (optional):\n                Flag denoting whether atomic radii are non-zero.\n                Default is True\n            rad_file (optional):\n                Input file containing atomic radii\n                Works only when rad_flag is True.\n                If rad_file is not specified, default values are used.\n        Returns:\n            Instance of AtomNetwork\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_13read_from_CSSR(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_filename = 0;
   PyObject *__pyx_v_rad_flag = 0;
   PyObject *__pyx_v_rad_file = 0;
@@ -3667,20 +3650,20 @@ static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_13read_from_C
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("read_from_CSSR", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 173, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.read_from_CSSR", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.read_from_CSSR", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_CSSR(((PyTypeObject*)__pyx_v_cls), __pyx_v_filename, __pyx_v_rad_flag, __pyx_v_rad_file);
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_12read_from_CSSR(((PyTypeObject*)__pyx_v_cls), __pyx_v_filename, __pyx_v_rad_flag, __pyx_v_rad_file);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_CSSR(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_12read_from_CSSR(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file) {
   char *__pyx_v_c_rad_file;
-  struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_atmnet = NULL;
+  struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_atmnet = NULL;
   char *__pyx_v_c_filename;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -3695,7 +3678,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
   __Pyx_INCREF(__pyx_v_filename);
   __Pyx_INCREF(__pyx_v_rad_file);
 
-  /* "zeoplusplus/netstorage.pyx":190
+  /* "pyzeo/netstorage.pyx":190
  *             Instance of AtomNetwork
  *         """
  *         if isinstance(rad_file, unicode):             # <<<<<<<<<<<<<<
@@ -3706,7 +3689,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "zeoplusplus/netstorage.pyx":191
+    /* "pyzeo/netstorage.pyx":191
  *         """
  *         if isinstance(rad_file, unicode):
  *             rad_file = (<unicode>rad_file).encode('utf8')             # <<<<<<<<<<<<<<
@@ -3722,7 +3705,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
     __Pyx_DECREF_SET(__pyx_v_rad_file, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":190
+    /* "pyzeo/netstorage.pyx":190
  *             Instance of AtomNetwork
  *         """
  *         if isinstance(rad_file, unicode):             # <<<<<<<<<<<<<<
@@ -3731,7 +3714,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":192
+  /* "pyzeo/netstorage.pyx":192
  *         if isinstance(rad_file, unicode):
  *             rad_file = (<unicode>rad_file).encode('utf8')
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -3742,7 +3725,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (__pyx_t_1) {
 
-    /* "zeoplusplus/netstorage.pyx":193
+    /* "pyzeo/netstorage.pyx":193
  *             rad_file = (<unicode>rad_file).encode('utf8')
  *         if isinstance(filename, unicode):
  *             filename = (<unicode>filename).encode('utf8')             # <<<<<<<<<<<<<<
@@ -3758,7 +3741,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
     __Pyx_DECREF_SET(__pyx_v_filename, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":192
+    /* "pyzeo/netstorage.pyx":192
  *         if isinstance(rad_file, unicode):
  *             rad_file = (<unicode>rad_file).encode('utf8')
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -3767,7 +3750,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":197
+  /* "pyzeo/netstorage.pyx":197
  *         #Calls Zeo++ readCSSRFile function defined in networkio.cc.
  *         cdef char* c_rad_file
  *         print (rad_flag, rad_file)             # <<<<<<<<<<<<<<
@@ -3785,85 +3768,85 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
   if (__Pyx_PrintOne(0, __pyx_t_3) < 0) __PYX_ERR(1, 197, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":198
+  /* "pyzeo/netstorage.pyx":198
  *         cdef char* c_rad_file
  *         print (rad_flag, rad_file)
  *         if rad_flag:             # <<<<<<<<<<<<<<
  *             #if not rad_file:
- *             zeoplusplus.netinfo.zeo_initializeRadTable()
+ *             pyzeo.netinfo.zeo_initializeRadTable()
  */
   __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_rad_flag); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(1, 198, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "zeoplusplus/netstorage.pyx":200
+    /* "pyzeo/netstorage.pyx":200
  *         if rad_flag:
  *             #if not rad_file:
- *             zeoplusplus.netinfo.zeo_initializeRadTable()             # <<<<<<<<<<<<<<
+ *             pyzeo.netinfo.zeo_initializeRadTable()             # <<<<<<<<<<<<<<
  *             if rad_file:       # rad_file is defined
  *                 c_rad_file = rad_file
  */
     initializeRadTable();
 
-    /* "zeoplusplus/netstorage.pyx":201
+    /* "pyzeo/netstorage.pyx":201
  *             #if not rad_file:
- *             zeoplusplus.netinfo.zeo_initializeRadTable()
+ *             pyzeo.netinfo.zeo_initializeRadTable()
  *             if rad_file:       # rad_file is defined             # <<<<<<<<<<<<<<
  *                 c_rad_file = rad_file
- *                 zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)
+ *                 pyzeo.netinfo.zeo_readRadTable(c_rad_file)
  */
     __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_rad_file); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(1, 201, __pyx_L1_error)
     if (__pyx_t_1) {
 
-      /* "zeoplusplus/netstorage.pyx":202
- *             zeoplusplus.netinfo.zeo_initializeRadTable()
+      /* "pyzeo/netstorage.pyx":202
+ *             pyzeo.netinfo.zeo_initializeRadTable()
  *             if rad_file:       # rad_file is defined
  *                 c_rad_file = rad_file             # <<<<<<<<<<<<<<
- *                 zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)
+ *                 pyzeo.netinfo.zeo_readRadTable(c_rad_file)
  * 
  */
       __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_rad_file); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 202, __pyx_L1_error)
       __pyx_v_c_rad_file = __pyx_t_4;
 
-      /* "zeoplusplus/netstorage.pyx":203
+      /* "pyzeo/netstorage.pyx":203
  *             if rad_file:       # rad_file is defined
  *                 c_rad_file = rad_file
- *                 zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)             # <<<<<<<<<<<<<<
+ *                 pyzeo.netinfo.zeo_readRadTable(c_rad_file)             # <<<<<<<<<<<<<<
  * 
  *         atmnet = AtomNetwork()
  */
       readRadTable(__pyx_v_c_rad_file);
 
-      /* "zeoplusplus/netstorage.pyx":201
+      /* "pyzeo/netstorage.pyx":201
  *             #if not rad_file:
- *             zeoplusplus.netinfo.zeo_initializeRadTable()
+ *             pyzeo.netinfo.zeo_initializeRadTable()
  *             if rad_file:       # rad_file is defined             # <<<<<<<<<<<<<<
  *                 c_rad_file = rad_file
- *                 zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)
+ *                 pyzeo.netinfo.zeo_readRadTable(c_rad_file)
  */
     }
 
-    /* "zeoplusplus/netstorage.pyx":198
+    /* "pyzeo/netstorage.pyx":198
  *         cdef char* c_rad_file
  *         print (rad_flag, rad_file)
  *         if rad_flag:             # <<<<<<<<<<<<<<
  *             #if not rad_file:
- *             zeoplusplus.netinfo.zeo_initializeRadTable()
+ *             pyzeo.netinfo.zeo_initializeRadTable()
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":205
- *                 zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)
+  /* "pyzeo/netstorage.pyx":205
+ *                 pyzeo.netinfo.zeo_readRadTable(c_rad_file)
  * 
  *         atmnet = AtomNetwork()             # <<<<<<<<<<<<<<
  *         cdef char* c_filename = filename
  *         if not readCSSRFile(c_filename, atmnet.thisptr, rad_flag):
  */
-  __pyx_t_3 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 205, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5pyzeo_10netstorage_AtomNetwork)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_v_atmnet = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_t_3);
+  __pyx_v_atmnet = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":206
+  /* "pyzeo/netstorage.pyx":206
  * 
  *         atmnet = AtomNetwork()
  *         cdef char* c_filename = filename             # <<<<<<<<<<<<<<
@@ -3873,7 +3856,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
   __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 206, __pyx_L1_error)
   __pyx_v_c_filename = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":207
+  /* "pyzeo/netstorage.pyx":207
  *         atmnet = AtomNetwork()
  *         cdef char* c_filename = filename
  *         if not readCSSRFile(c_filename, atmnet.thisptr, rad_flag):             # <<<<<<<<<<<<<<
@@ -3884,7 +3867,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
   __pyx_t_2 = ((!(readCSSRFile(__pyx_v_c_filename, __pyx_v_atmnet->thisptr, __pyx_t_1) != 0)) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "zeoplusplus/netstorage.pyx":208
+    /* "pyzeo/netstorage.pyx":208
  *         cdef char* c_filename = filename
  *         if not readCSSRFile(c_filename, atmnet.thisptr, rad_flag):
  *             raise IOError             # <<<<<<<<<<<<<<
@@ -3894,7 +3877,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
     __Pyx_Raise(__pyx_builtin_IOError, 0, 0, 0);
     __PYX_ERR(1, 208, __pyx_L1_error)
 
-    /* "zeoplusplus/netstorage.pyx":207
+    /* "pyzeo/netstorage.pyx":207
  *         atmnet = AtomNetwork()
  *         cdef char* c_filename = filename
  *         if not readCSSRFile(c_filename, atmnet.thisptr, rad_flag):             # <<<<<<<<<<<<<<
@@ -3903,7 +3886,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":209
+  /* "pyzeo/netstorage.pyx":209
  *         if not readCSSRFile(c_filename, atmnet.thisptr, rad_flag):
  *             raise IOError
  *         atmnet.rad_flag = rad_flag             # <<<<<<<<<<<<<<
@@ -3913,7 +3896,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
   __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_rad_flag); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 209, __pyx_L1_error)
   __pyx_v_atmnet->rad_flag = __pyx_t_2;
 
-  /* "zeoplusplus/netstorage.pyx":210
+  /* "pyzeo/netstorage.pyx":210
  *             raise IOError
  *         atmnet.rad_flag = rad_flag
  *         return atmnet             # <<<<<<<<<<<<<<
@@ -3925,7 +3908,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
   __pyx_r = ((PyObject *)__pyx_v_atmnet);
   goto __pyx_L0;
 
-  /* "zeoplusplus/netstorage.pyx":173
+  /* "pyzeo/netstorage.pyx":173
  * 
  *     @classmethod
  *     def read_from_CSSR(cls, filename, rad_flag=True, rad_file=None):             # <<<<<<<<<<<<<<
@@ -3936,7 +3919,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.read_from_CSSR", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.read_from_CSSR", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_atmnet);
@@ -3947,7 +3930,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":213
+/* "pyzeo/netstorage.pyx":213
  * 
  *     @classmethod
  *     def read_from_V1(cls, filename, rad_flag=True, rad_file=None):             # <<<<<<<<<<<<<<
@@ -3956,9 +3939,9 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_C
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_15read_from_V1(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V1[] = "\n        Static method to create and populate the AtomNetwork with \n        atom data from a V1 file.\n        Arguments:\n            filename: \n                Input V1 file name.\n            rad_flag (optional):\n                Flag denoting whether atomic radii are non-zero.\n                Default is True\n            rad_file (optional):\n                Input file containing atomic radii\n                Works only when rad_flag is True.\n                If rad_file is not specified, default values are used.\n        Returns:\n            Instance of AtomNetwork\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_15read_from_V1(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_15read_from_V1(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_14read_from_V1[] = "\n        Static method to create and populate the AtomNetwork with \n        atom data from a V1 file.\n        Arguments:\n            filename: \n                Input V1 file name.\n            rad_flag (optional):\n                Flag denoting whether atomic radii are non-zero.\n                Default is True\n            rad_file (optional):\n                Input file containing atomic radii\n                Works only when rad_flag is True.\n                If rad_file is not specified, default values are used.\n        Returns:\n            Instance of AtomNetwork\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_15read_from_V1(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_filename = 0;
   PyObject *__pyx_v_rad_flag = 0;
   PyObject *__pyx_v_rad_file = 0;
@@ -4026,20 +4009,20 @@ static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_15read_from_V
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("read_from_V1", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 213, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.read_from_V1", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.read_from_V1", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V1(((PyTypeObject*)__pyx_v_cls), __pyx_v_filename, __pyx_v_rad_flag, __pyx_v_rad_file);
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_14read_from_V1(((PyTypeObject*)__pyx_v_cls), __pyx_v_filename, __pyx_v_rad_flag, __pyx_v_rad_file);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V1(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_14read_from_V1(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_filename, PyObject *__pyx_v_rad_flag, PyObject *__pyx_v_rad_file) {
   char *__pyx_v_c_rad_file;
-  struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_atmnet = NULL;
+  struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_atmnet = NULL;
   char *__pyx_v_c_filename;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -4054,7 +4037,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
   __Pyx_INCREF(__pyx_v_filename);
   __Pyx_INCREF(__pyx_v_rad_file);
 
-  /* "zeoplusplus/netstorage.pyx":230
+  /* "pyzeo/netstorage.pyx":230
  *             Instance of AtomNetwork
  *         """
  *         if isinstance(rad_file, unicode):             # <<<<<<<<<<<<<<
@@ -4065,7 +4048,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "zeoplusplus/netstorage.pyx":231
+    /* "pyzeo/netstorage.pyx":231
  *         """
  *         if isinstance(rad_file, unicode):
  *             rad_file = (<unicode>rad_file).encode('utf8')             # <<<<<<<<<<<<<<
@@ -4081,7 +4064,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
     __Pyx_DECREF_SET(__pyx_v_rad_file, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":230
+    /* "pyzeo/netstorage.pyx":230
  *             Instance of AtomNetwork
  *         """
  *         if isinstance(rad_file, unicode):             # <<<<<<<<<<<<<<
@@ -4090,7 +4073,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":232
+  /* "pyzeo/netstorage.pyx":232
  *         if isinstance(rad_file, unicode):
  *             rad_file = (<unicode>rad_file).encode('utf8')
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -4101,7 +4084,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (__pyx_t_1) {
 
-    /* "zeoplusplus/netstorage.pyx":233
+    /* "pyzeo/netstorage.pyx":233
  *             rad_file = (<unicode>rad_file).encode('utf8')
  *         if isinstance(filename, unicode):
  *             filename = (<unicode>filename).encode('utf8')             # <<<<<<<<<<<<<<
@@ -4117,7 +4100,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
     __Pyx_DECREF_SET(__pyx_v_filename, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":232
+    /* "pyzeo/netstorage.pyx":232
  *         if isinstance(rad_file, unicode):
  *             rad_file = (<unicode>rad_file).encode('utf8')
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -4126,7 +4109,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":236
+  /* "pyzeo/netstorage.pyx":236
  * 
  *         #Calls Zeo++ readV1File function defined in networkio.cc.
  *         cdef char* c_rad_file = rad_file             # <<<<<<<<<<<<<<
@@ -4136,50 +4119,50 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
   __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_rad_file); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 236, __pyx_L1_error)
   __pyx_v_c_rad_file = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":237
+  /* "pyzeo/netstorage.pyx":237
  *         #Calls Zeo++ readV1File function defined in networkio.cc.
  *         cdef char* c_rad_file = rad_file
  *         if rad_flag:             # <<<<<<<<<<<<<<
  *             if not rad_file:
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()
+ *                 pyzeo.netinfo.zeo_initializeRadTable()
  */
   __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_rad_flag); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(1, 237, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "zeoplusplus/netstorage.pyx":238
+    /* "pyzeo/netstorage.pyx":238
  *         cdef char* c_rad_file = rad_file
  *         if rad_flag:
  *             if not rad_file:             # <<<<<<<<<<<<<<
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()
+ *                 pyzeo.netinfo.zeo_initializeRadTable()
  *             else:       # rad_file is defined
  */
     __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_rad_file); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(1, 238, __pyx_L1_error)
     __pyx_t_2 = ((!__pyx_t_1) != 0);
     if (__pyx_t_2) {
 
-      /* "zeoplusplus/netstorage.pyx":239
+      /* "pyzeo/netstorage.pyx":239
  *         if rad_flag:
  *             if not rad_file:
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()             # <<<<<<<<<<<<<<
+ *                 pyzeo.netinfo.zeo_initializeRadTable()             # <<<<<<<<<<<<<<
  *             else:       # rad_file is defined
- *                 zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)
+ *                 pyzeo.netinfo.zeo_readRadTable(c_rad_file)
  */
       initializeRadTable();
 
-      /* "zeoplusplus/netstorage.pyx":238
+      /* "pyzeo/netstorage.pyx":238
  *         cdef char* c_rad_file = rad_file
  *         if rad_flag:
  *             if not rad_file:             # <<<<<<<<<<<<<<
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()
+ *                 pyzeo.netinfo.zeo_initializeRadTable()
  *             else:       # rad_file is defined
  */
       goto __pyx_L6;
     }
 
-    /* "zeoplusplus/netstorage.pyx":241
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()
+    /* "pyzeo/netstorage.pyx":241
+ *                 pyzeo.netinfo.zeo_initializeRadTable()
  *             else:       # rad_file is defined
- *                 zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)             # <<<<<<<<<<<<<<
+ *                 pyzeo.netinfo.zeo_readRadTable(c_rad_file)             # <<<<<<<<<<<<<<
  * 
  *         atmnet = AtomNetwork()
  */
@@ -4188,28 +4171,28 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
     }
     __pyx_L6:;
 
-    /* "zeoplusplus/netstorage.pyx":237
+    /* "pyzeo/netstorage.pyx":237
  *         #Calls Zeo++ readV1File function defined in networkio.cc.
  *         cdef char* c_rad_file = rad_file
  *         if rad_flag:             # <<<<<<<<<<<<<<
  *             if not rad_file:
- *                 zeoplusplus.netinfo.zeo_initializeRadTable()
+ *                 pyzeo.netinfo.zeo_initializeRadTable()
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":243
- *                 zeoplusplus.netinfo.zeo_readRadTable(c_rad_file)
+  /* "pyzeo/netstorage.pyx":243
+ *                 pyzeo.netinfo.zeo_readRadTable(c_rad_file)
  * 
  *         atmnet = AtomNetwork()             # <<<<<<<<<<<<<<
  *         cdef char* c_filename = filename
  *         if not readV1File(c_filename, atmnet.thisptr, rad_flag):
  */
-  __pyx_t_3 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 243, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5pyzeo_10netstorage_AtomNetwork)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_v_atmnet = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_t_3);
+  __pyx_v_atmnet = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":244
+  /* "pyzeo/netstorage.pyx":244
  * 
  *         atmnet = AtomNetwork()
  *         cdef char* c_filename = filename             # <<<<<<<<<<<<<<
@@ -4219,7 +4202,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
   __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 244, __pyx_L1_error)
   __pyx_v_c_filename = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":245
+  /* "pyzeo/netstorage.pyx":245
  *         atmnet = AtomNetwork()
  *         cdef char* c_filename = filename
  *         if not readV1File(c_filename, atmnet.thisptr, rad_flag):             # <<<<<<<<<<<<<<
@@ -4230,7 +4213,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
   __pyx_t_1 = ((!(readV1File(__pyx_v_c_filename, __pyx_v_atmnet->thisptr, __pyx_t_2) != 0)) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "zeoplusplus/netstorage.pyx":246
+    /* "pyzeo/netstorage.pyx":246
  *         cdef char* c_filename = filename
  *         if not readV1File(c_filename, atmnet.thisptr, rad_flag):
  *             raise IOError             # <<<<<<<<<<<<<<
@@ -4240,7 +4223,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
     __Pyx_Raise(__pyx_builtin_IOError, 0, 0, 0);
     __PYX_ERR(1, 246, __pyx_L1_error)
 
-    /* "zeoplusplus/netstorage.pyx":245
+    /* "pyzeo/netstorage.pyx":245
  *         atmnet = AtomNetwork()
  *         cdef char* c_filename = filename
  *         if not readV1File(c_filename, atmnet.thisptr, rad_flag):             # <<<<<<<<<<<<<<
@@ -4249,7 +4232,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":247
+  /* "pyzeo/netstorage.pyx":247
  *         if not readV1File(c_filename, atmnet.thisptr, rad_flag):
  *             raise IOError
  *         atmnet.rad_flag = rad_flag             # <<<<<<<<<<<<<<
@@ -4259,7 +4242,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
   __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_rad_flag); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 247, __pyx_L1_error)
   __pyx_v_atmnet->rad_flag = __pyx_t_1;
 
-  /* "zeoplusplus/netstorage.pyx":248
+  /* "pyzeo/netstorage.pyx":248
  *             raise IOError
  *         atmnet.rad_flag = rad_flag
  *         return atmnet             # <<<<<<<<<<<<<<
@@ -4271,7 +4254,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
   __pyx_r = ((PyObject *)__pyx_v_atmnet);
   goto __pyx_L0;
 
-  /* "zeoplusplus/netstorage.pyx":213
+  /* "pyzeo/netstorage.pyx":213
  * 
  *     @classmethod
  *     def read_from_V1(cls, filename, rad_flag=True, rad_file=None):             # <<<<<<<<<<<<<<
@@ -4282,7 +4265,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.read_from_V1", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.read_from_V1", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_atmnet);
@@ -4293,7 +4276,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":250
+/* "pyzeo/netstorage.pyx":250
  *         return atmnet
  * 
  *     def write_to_CSSR(self, filename):             # <<<<<<<<<<<<<<
@@ -4302,20 +4285,20 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_17write_to_CSSR(PyObject *__pyx_v_self, PyObject *__pyx_v_filename); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CSSR[] = "\n        Writes the atom data in AtomNetwork to a CSSR file.\n        Arguments:\n            filename: \n                Output CSSR file name.\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_17write_to_CSSR(PyObject *__pyx_v_self, PyObject *__pyx_v_filename) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_17write_to_CSSR(PyObject *__pyx_v_self, PyObject *__pyx_v_filename); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_16write_to_CSSR[] = "\n        Writes the atom data in AtomNetwork to a CSSR file.\n        Arguments:\n            filename: \n                Output CSSR file name.\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_17write_to_CSSR(PyObject *__pyx_v_self, PyObject *__pyx_v_filename) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("write_to_CSSR (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CSSR(((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_self), ((PyObject *)__pyx_v_filename));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_16write_to_CSSR(((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_self), ((PyObject *)__pyx_v_filename));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CSSR(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_16write_to_CSSR(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename) {
   char *__pyx_v_c_filename;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -4329,7 +4312,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CS
   __Pyx_RefNannySetupContext("write_to_CSSR", 0);
   __Pyx_INCREF(__pyx_v_filename);
 
-  /* "zeoplusplus/netstorage.pyx":257
+  /* "pyzeo/netstorage.pyx":257
  *                 Output CSSR file name.
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -4340,7 +4323,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CS
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "zeoplusplus/netstorage.pyx":258
+    /* "pyzeo/netstorage.pyx":258
  *         """
  *         if isinstance(filename, unicode):
  *             filename = (<unicode>filename).encode('utf8')             # <<<<<<<<<<<<<<
@@ -4356,7 +4339,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CS
     __Pyx_DECREF_SET(__pyx_v_filename, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":257
+    /* "pyzeo/netstorage.pyx":257
  *                 Output CSSR file name.
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -4365,7 +4348,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CS
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":261
+  /* "pyzeo/netstorage.pyx":261
  * 
  *         #Calls Zeo++ writeToCSSR function defined in networkio.cc.
  *         cdef char* c_filename = filename             # <<<<<<<<<<<<<<
@@ -4375,7 +4358,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CS
   __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 261, __pyx_L1_error)
   __pyx_v_c_filename = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":262
+  /* "pyzeo/netstorage.pyx":262
  *         #Calls Zeo++ writeToCSSR function defined in networkio.cc.
  *         cdef char* c_filename = filename
  *         if not writeToCSSR(c_filename, self.thisptr):             # <<<<<<<<<<<<<<
@@ -4385,7 +4368,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CS
   __pyx_t_2 = ((!(writeToCSSR(__pyx_v_c_filename, __pyx_v_self->thisptr) != 0)) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "zeoplusplus/netstorage.pyx":263
+    /* "pyzeo/netstorage.pyx":263
  *         cdef char* c_filename = filename
  *         if not writeToCSSR(c_filename, self.thisptr):
  *             raise IOError             # <<<<<<<<<<<<<<
@@ -4395,7 +4378,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CS
     __Pyx_Raise(__pyx_builtin_IOError, 0, 0, 0);
     __PYX_ERR(1, 263, __pyx_L1_error)
 
-    /* "zeoplusplus/netstorage.pyx":262
+    /* "pyzeo/netstorage.pyx":262
  *         #Calls Zeo++ writeToCSSR function defined in networkio.cc.
  *         cdef char* c_filename = filename
  *         if not writeToCSSR(c_filename, self.thisptr):             # <<<<<<<<<<<<<<
@@ -4404,7 +4387,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CS
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":250
+  /* "pyzeo/netstorage.pyx":250
  *         return atmnet
  * 
  *     def write_to_CSSR(self, filename):             # <<<<<<<<<<<<<<
@@ -4417,7 +4400,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CS
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.write_to_CSSR", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.write_to_CSSR", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_filename);
@@ -4426,7 +4409,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CS
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":265
+/* "pyzeo/netstorage.pyx":265
  *             raise IOError
  * 
  *     def write_to_CIF(self, filename):             # <<<<<<<<<<<<<<
@@ -4435,20 +4418,20 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CS
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_19write_to_CIF(PyObject *__pyx_v_self, PyObject *__pyx_v_filename); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CIF[] = "\n        Writes the atom data in AtomNetwork to a CIF file.\n        Arguments:\n            filename: \n                Output CIF file name.\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_19write_to_CIF(PyObject *__pyx_v_self, PyObject *__pyx_v_filename) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_19write_to_CIF(PyObject *__pyx_v_self, PyObject *__pyx_v_filename); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_18write_to_CIF[] = "\n        Writes the atom data in AtomNetwork to a CIF file.\n        Arguments:\n            filename: \n                Output CIF file name.\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_19write_to_CIF(PyObject *__pyx_v_self, PyObject *__pyx_v_filename) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("write_to_CIF (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CIF(((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_self), ((PyObject *)__pyx_v_filename));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_18write_to_CIF(((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_self), ((PyObject *)__pyx_v_filename));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CIF(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_18write_to_CIF(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename) {
   char *__pyx_v_c_filename;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -4462,7 +4445,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CI
   __Pyx_RefNannySetupContext("write_to_CIF", 0);
   __Pyx_INCREF(__pyx_v_filename);
 
-  /* "zeoplusplus/netstorage.pyx":272
+  /* "pyzeo/netstorage.pyx":272
  *                 Output CIF file name.
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -4473,7 +4456,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CI
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "zeoplusplus/netstorage.pyx":273
+    /* "pyzeo/netstorage.pyx":273
  *         """
  *         if isinstance(filename, unicode):
  *             filename = (<unicode>filename).encode('utf8')             # <<<<<<<<<<<<<<
@@ -4489,7 +4472,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CI
     __Pyx_DECREF_SET(__pyx_v_filename, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":272
+    /* "pyzeo/netstorage.pyx":272
  *                 Output CIF file name.
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -4498,7 +4481,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CI
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":276
+  /* "pyzeo/netstorage.pyx":276
  * 
  *         #Calls Zeo++ writeToCIF function defined in networkio.cc.
  *         cdef char* c_filename = filename             # <<<<<<<<<<<<<<
@@ -4508,7 +4491,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CI
   __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 276, __pyx_L1_error)
   __pyx_v_c_filename = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":277
+  /* "pyzeo/netstorage.pyx":277
  *         #Calls Zeo++ writeToCIF function defined in networkio.cc.
  *         cdef char* c_filename = filename
  *         if not writeToCIF(c_filename, self.thisptr):             # <<<<<<<<<<<<<<
@@ -4518,7 +4501,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CI
   __pyx_t_2 = ((!(writeToCIF(__pyx_v_c_filename, __pyx_v_self->thisptr) != 0)) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "zeoplusplus/netstorage.pyx":278
+    /* "pyzeo/netstorage.pyx":278
  *         cdef char* c_filename = filename
  *         if not writeToCIF(c_filename, self.thisptr):
  *             raise IOError             # <<<<<<<<<<<<<<
@@ -4528,7 +4511,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CI
     __Pyx_Raise(__pyx_builtin_IOError, 0, 0, 0);
     __PYX_ERR(1, 278, __pyx_L1_error)
 
-    /* "zeoplusplus/netstorage.pyx":277
+    /* "pyzeo/netstorage.pyx":277
  *         #Calls Zeo++ writeToCIF function defined in networkio.cc.
  *         cdef char* c_filename = filename
  *         if not writeToCIF(c_filename, self.thisptr):             # <<<<<<<<<<<<<<
@@ -4537,7 +4520,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CI
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":265
+  /* "pyzeo/netstorage.pyx":265
  *             raise IOError
  * 
  *     def write_to_CIF(self, filename):             # <<<<<<<<<<<<<<
@@ -4550,7 +4533,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CI
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.write_to_CIF", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.write_to_CIF", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_filename);
@@ -4559,7 +4542,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CI
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":280
+/* "pyzeo/netstorage.pyx":280
  *             raise IOError
  * 
  *     def write_to_V1(self, filename):             # <<<<<<<<<<<<<<
@@ -4568,20 +4551,20 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CI
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_21write_to_V1(PyObject *__pyx_v_self, PyObject *__pyx_v_filename); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1[] = "\n        Writes the atom data in AtomNetwork to a V1 file.\n        Arguments:\n            filename: \n                Output V1 file name.\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_21write_to_V1(PyObject *__pyx_v_self, PyObject *__pyx_v_filename) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_21write_to_V1(PyObject *__pyx_v_self, PyObject *__pyx_v_filename); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_20write_to_V1[] = "\n        Writes the atom data in AtomNetwork to a V1 file.\n        Arguments:\n            filename: \n                Output V1 file name.\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_21write_to_V1(PyObject *__pyx_v_self, PyObject *__pyx_v_filename) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("write_to_V1 (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1(((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_self), ((PyObject *)__pyx_v_filename));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_20write_to_V1(((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_self), ((PyObject *)__pyx_v_filename));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_20write_to_V1(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename) {
   char *__pyx_v_c_filename;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -4595,7 +4578,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1
   __Pyx_RefNannySetupContext("write_to_V1", 0);
   __Pyx_INCREF(__pyx_v_filename);
 
-  /* "zeoplusplus/netstorage.pyx":287
+  /* "pyzeo/netstorage.pyx":287
  *                 Output V1 file name.
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -4606,7 +4589,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "zeoplusplus/netstorage.pyx":288
+    /* "pyzeo/netstorage.pyx":288
  *         """
  *         if isinstance(filename, unicode):
  *             filename = (<unicode>filename).encode('utf8')             # <<<<<<<<<<<<<<
@@ -4622,7 +4605,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1
     __Pyx_DECREF_SET(__pyx_v_filename, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":287
+    /* "pyzeo/netstorage.pyx":287
  *                 Output V1 file name.
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -4631,7 +4614,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":291
+  /* "pyzeo/netstorage.pyx":291
  * 
  *         #Calls Zeo++ writeToV1 function defined in networkio.cc.
  *         cdef char* c_filename = filename             # <<<<<<<<<<<<<<
@@ -4641,7 +4624,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1
   __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 291, __pyx_L1_error)
   __pyx_v_c_filename = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":292
+  /* "pyzeo/netstorage.pyx":292
  *         #Calls Zeo++ writeToV1 function defined in networkio.cc.
  *         cdef char* c_filename = filename
  *         if not writeToV1(c_filename, self.thisptr):             # <<<<<<<<<<<<<<
@@ -4651,7 +4634,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1
   __pyx_t_2 = ((!(writeToV1(__pyx_v_c_filename, __pyx_v_self->thisptr) != 0)) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "zeoplusplus/netstorage.pyx":293
+    /* "pyzeo/netstorage.pyx":293
  *         cdef char* c_filename = filename
  *         if not writeToV1(c_filename, self.thisptr):
  *             raise IOError             # <<<<<<<<<<<<<<
@@ -4661,7 +4644,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1
     __Pyx_Raise(__pyx_builtin_IOError, 0, 0, 0);
     __PYX_ERR(1, 293, __pyx_L1_error)
 
-    /* "zeoplusplus/netstorage.pyx":292
+    /* "pyzeo/netstorage.pyx":292
  *         #Calls Zeo++ writeToV1 function defined in networkio.cc.
  *         cdef char* c_filename = filename
  *         if not writeToV1(c_filename, self.thisptr):             # <<<<<<<<<<<<<<
@@ -4670,7 +4653,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":280
+  /* "pyzeo/netstorage.pyx":280
  *             raise IOError
  * 
  *     def write_to_V1(self, filename):             # <<<<<<<<<<<<<<
@@ -4683,7 +4666,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.write_to_V1", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.write_to_V1", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_filename);
@@ -4692,7 +4675,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":295
+/* "pyzeo/netstorage.pyx":295
  *             raise IOError
  * 
  *     def write_to_XYZ(self, filename, supercell_flag,             # <<<<<<<<<<<<<<
@@ -4701,9 +4684,9 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_23write_to_XYZ(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XYZ[] = "\n        Writes the atom data in AtomNetwork to an XYZ file.\n        Arguments:\n            filename: \n                Output XYZ file name.\n            supercell_flag:\n                Flag denoting whether to write 2x2x2 supercell.\n            is_duplicate_perimeter_atoms:\n                Flag denoting whether perimeter atoms need to be replicated.\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_23write_to_XYZ(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_23write_to_XYZ(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_22write_to_XYZ[] = "\n        Writes the atom data in AtomNetwork to an XYZ file.\n        Arguments:\n            filename: \n                Output XYZ file name.\n            supercell_flag:\n                Flag denoting whether to write 2x2x2 supercell.\n            is_duplicate_perimeter_atoms:\n                Flag denoting whether perimeter atoms need to be replicated.\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_23write_to_XYZ(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_filename = 0;
   PyObject *__pyx_v_supercell_flag = 0;
   PyObject *__pyx_v_is_duplicate_perimeter_atoms = 0;
@@ -4765,18 +4748,18 @@ static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_23write_to_XY
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("write_to_XYZ", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 295, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.write_to_XYZ", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.write_to_XYZ", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XYZ(((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_self), __pyx_v_filename, __pyx_v_supercell_flag, __pyx_v_is_duplicate_perimeter_atoms);
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_22write_to_XYZ(((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_self), __pyx_v_filename, __pyx_v_supercell_flag, __pyx_v_is_duplicate_perimeter_atoms);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XYZ(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename, PyObject *__pyx_v_supercell_flag, PyObject *__pyx_v_is_duplicate_perimeter_atoms) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_22write_to_XYZ(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename, PyObject *__pyx_v_supercell_flag, PyObject *__pyx_v_is_duplicate_perimeter_atoms) {
   char *__pyx_v_c_filename;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -4791,7 +4774,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XY
   __Pyx_RefNannySetupContext("write_to_XYZ", 0);
   __Pyx_INCREF(__pyx_v_filename);
 
-  /* "zeoplusplus/netstorage.pyx":307
+  /* "pyzeo/netstorage.pyx":307
  *                 Flag denoting whether perimeter atoms need to be replicated.
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -4802,7 +4785,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XY
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "zeoplusplus/netstorage.pyx":308
+    /* "pyzeo/netstorage.pyx":308
  *         """
  *         if isinstance(filename, unicode):
  *             filename = (<unicode>filename).encode('utf8')             # <<<<<<<<<<<<<<
@@ -4818,7 +4801,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XY
     __Pyx_DECREF_SET(__pyx_v_filename, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":307
+    /* "pyzeo/netstorage.pyx":307
  *                 Flag denoting whether perimeter atoms need to be replicated.
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -4827,7 +4810,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XY
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":311
+  /* "pyzeo/netstorage.pyx":311
  * 
  *         #Calls Zeo++ writeToXYZ function defined in networkio.cc.
  *         cdef char* c_filename = filename             # <<<<<<<<<<<<<<
@@ -4837,7 +4820,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XY
   __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 311, __pyx_L1_error)
   __pyx_v_c_filename = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":312
+  /* "pyzeo/netstorage.pyx":312
  *         #Calls Zeo++ writeToXYZ function defined in networkio.cc.
  *         cdef char* c_filename = filename
  *         if not writeToXYZ(c_filename, self.thisptr, supercell_flag,             # <<<<<<<<<<<<<<
@@ -4846,7 +4829,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XY
  */
   __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_supercell_flag); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 312, __pyx_L1_error)
 
-  /* "zeoplusplus/netstorage.pyx":313
+  /* "pyzeo/netstorage.pyx":313
  *         cdef char* c_filename = filename
  *         if not writeToXYZ(c_filename, self.thisptr, supercell_flag,
  *                 is_duplicate_perimeter_atoms):             # <<<<<<<<<<<<<<
@@ -4855,7 +4838,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XY
  */
   __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_is_duplicate_perimeter_atoms); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 313, __pyx_L1_error)
 
-  /* "zeoplusplus/netstorage.pyx":312
+  /* "pyzeo/netstorage.pyx":312
  *         #Calls Zeo++ writeToXYZ function defined in networkio.cc.
  *         cdef char* c_filename = filename
  *         if not writeToXYZ(c_filename, self.thisptr, supercell_flag,             # <<<<<<<<<<<<<<
@@ -4865,7 +4848,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XY
   __pyx_t_5 = ((!(writeToXYZ(__pyx_v_c_filename, __pyx_v_self->thisptr, __pyx_t_2, __pyx_t_1) != 0)) != 0);
   if (unlikely(__pyx_t_5)) {
 
-    /* "zeoplusplus/netstorage.pyx":314
+    /* "pyzeo/netstorage.pyx":314
  *         if not writeToXYZ(c_filename, self.thisptr, supercell_flag,
  *                 is_duplicate_perimeter_atoms):
  *             raise IOError             # <<<<<<<<<<<<<<
@@ -4875,7 +4858,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XY
     __Pyx_Raise(__pyx_builtin_IOError, 0, 0, 0);
     __PYX_ERR(1, 314, __pyx_L1_error)
 
-    /* "zeoplusplus/netstorage.pyx":312
+    /* "pyzeo/netstorage.pyx":312
  *         #Calls Zeo++ writeToXYZ function defined in networkio.cc.
  *         cdef char* c_filename = filename
  *         if not writeToXYZ(c_filename, self.thisptr, supercell_flag,             # <<<<<<<<<<<<<<
@@ -4884,7 +4867,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XY
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":295
+  /* "pyzeo/netstorage.pyx":295
  *             raise IOError
  * 
  *     def write_to_XYZ(self, filename, supercell_flag,             # <<<<<<<<<<<<<<
@@ -4897,7 +4880,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XY
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.write_to_XYZ", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.write_to_XYZ", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_filename);
@@ -4906,7 +4889,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XY
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":316
+/* "pyzeo/netstorage.pyx":316
  *             raise IOError
  * 
  *     def write_to_VTK(self, filename):             # <<<<<<<<<<<<<<
@@ -4915,20 +4898,20 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XY
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_25write_to_VTK(PyObject *__pyx_v_self, PyObject *__pyx_v_filename); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VTK[] = "\n        Writes the boundary of unit cell within the AtomNetwork to a VTK file.\n        Arguments:\n            filename: \n                Output VTK file name.\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_25write_to_VTK(PyObject *__pyx_v_self, PyObject *__pyx_v_filename) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_25write_to_VTK(PyObject *__pyx_v_self, PyObject *__pyx_v_filename); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_24write_to_VTK[] = "\n        Writes the boundary of unit cell within the AtomNetwork to a VTK file.\n        Arguments:\n            filename: \n                Output VTK file name.\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_25write_to_VTK(PyObject *__pyx_v_self, PyObject *__pyx_v_filename) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("write_to_VTK (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VTK(((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_self), ((PyObject *)__pyx_v_filename));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_24write_to_VTK(((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_self), ((PyObject *)__pyx_v_filename));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VTK(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_24write_to_VTK(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename) {
   char *__pyx_v_c_filename;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -4942,7 +4925,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VT
   __Pyx_RefNannySetupContext("write_to_VTK", 0);
   __Pyx_INCREF(__pyx_v_filename);
 
-  /* "zeoplusplus/netstorage.pyx":323
+  /* "pyzeo/netstorage.pyx":323
  *                 Output VTK file name.
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -4953,7 +4936,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VT
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "zeoplusplus/netstorage.pyx":324
+    /* "pyzeo/netstorage.pyx":324
  *         """
  *         if isinstance(filename, unicode):
  *             filename = (<unicode>filename).encode('utf8')             # <<<<<<<<<<<<<<
@@ -4969,7 +4952,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VT
     __Pyx_DECREF_SET(__pyx_v_filename, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":323
+    /* "pyzeo/netstorage.pyx":323
  *                 Output VTK file name.
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -4978,7 +4961,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VT
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":327
+  /* "pyzeo/netstorage.pyx":327
  * 
  *         #Calls Zeo++ writeToVTK function defined in networkio.cc.
  *         cdef char* c_filename = filename             # <<<<<<<<<<<<<<
@@ -4988,7 +4971,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VT
   __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 327, __pyx_L1_error)
   __pyx_v_c_filename = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":328
+  /* "pyzeo/netstorage.pyx":328
  *         #Calls Zeo++ writeToVTK function defined in networkio.cc.
  *         cdef char* c_filename = filename
  *         if not writeToVTK(c_filename, self.thisptr):             # <<<<<<<<<<<<<<
@@ -4998,7 +4981,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VT
   __pyx_t_2 = ((!(writeToVTK(__pyx_v_c_filename, __pyx_v_self->thisptr) != 0)) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "zeoplusplus/netstorage.pyx":329
+    /* "pyzeo/netstorage.pyx":329
  *         cdef char* c_filename = filename
  *         if not writeToVTK(c_filename, self.thisptr):
  *             raise IOError             # <<<<<<<<<<<<<<
@@ -5008,7 +4991,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VT
     __Pyx_Raise(__pyx_builtin_IOError, 0, 0, 0);
     __PYX_ERR(1, 329, __pyx_L1_error)
 
-    /* "zeoplusplus/netstorage.pyx":328
+    /* "pyzeo/netstorage.pyx":328
  *         #Calls Zeo++ writeToVTK function defined in networkio.cc.
  *         cdef char* c_filename = filename
  *         if not writeToVTK(c_filename, self.thisptr):             # <<<<<<<<<<<<<<
@@ -5017,7 +5000,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VT
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":316
+  /* "pyzeo/netstorage.pyx":316
  *             raise IOError
  * 
  *     def write_to_VTK(self, filename):             # <<<<<<<<<<<<<<
@@ -5030,7 +5013,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VT
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.write_to_VTK", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.write_to_VTK", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_filename);
@@ -5039,7 +5022,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VT
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":331
+/* "pyzeo/netstorage.pyx":331
  *             raise IOError
  * 
  *     def write_to_MOPAC(self, filename, supercell_flag):             # <<<<<<<<<<<<<<
@@ -5048,9 +5031,9 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VT
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_27write_to_MOPAC(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MOPAC[] = "\n        Writes the atom data in AtomNetwork to a .mop file.\n        Arguments:\n            filename: \n                Output MOPAC file name.\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_27write_to_MOPAC(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_27write_to_MOPAC(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_26write_to_MOPAC[] = "\n        Writes the atom data in AtomNetwork to a .mop file.\n        Arguments:\n            filename: \n                Output MOPAC file name.\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_27write_to_MOPAC(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_filename = 0;
   PyObject *__pyx_v_supercell_flag = 0;
   int __pyx_lineno = 0;
@@ -5101,18 +5084,18 @@ static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_27write_to_MO
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("write_to_MOPAC", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 331, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.write_to_MOPAC", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.write_to_MOPAC", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MOPAC(((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_self), __pyx_v_filename, __pyx_v_supercell_flag);
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_26write_to_MOPAC(((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_self), __pyx_v_filename, __pyx_v_supercell_flag);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MOPAC(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename, PyObject *__pyx_v_supercell_flag) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_26write_to_MOPAC(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename, PyObject *__pyx_v_supercell_flag) {
   char *__pyx_v_c_filename;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -5126,7 +5109,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MO
   __Pyx_RefNannySetupContext("write_to_MOPAC", 0);
   __Pyx_INCREF(__pyx_v_filename);
 
-  /* "zeoplusplus/netstorage.pyx":338
+  /* "pyzeo/netstorage.pyx":338
  *                 Output MOPAC file name.
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -5137,7 +5120,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MO
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "zeoplusplus/netstorage.pyx":339
+    /* "pyzeo/netstorage.pyx":339
  *         """
  *         if isinstance(filename, unicode):
  *             filename = (<unicode>filename).encode('utf8')             # <<<<<<<<<<<<<<
@@ -5153,7 +5136,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MO
     __Pyx_DECREF_SET(__pyx_v_filename, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":338
+    /* "pyzeo/netstorage.pyx":338
  *                 Output MOPAC file name.
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -5162,7 +5145,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MO
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":341
+  /* "pyzeo/netstorage.pyx":341
  *             filename = (<unicode>filename).encode('utf8')
  * 
  *         cdef char* c_filename = filename             # <<<<<<<<<<<<<<
@@ -5172,7 +5155,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MO
   __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 341, __pyx_L1_error)
   __pyx_v_c_filename = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":342
+  /* "pyzeo/netstorage.pyx":342
  * 
  *         cdef char* c_filename = filename
  *         if not writeToMOPAC(c_filename, self.thisptr, supercell_flag):             # <<<<<<<<<<<<<<
@@ -5183,7 +5166,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MO
   __pyx_t_1 = ((!(writeToMOPAC(__pyx_v_c_filename, __pyx_v_self->thisptr, __pyx_t_2) != 0)) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "zeoplusplus/netstorage.pyx":343
+    /* "pyzeo/netstorage.pyx":343
  *         cdef char* c_filename = filename
  *         if not writeToMOPAC(c_filename, self.thisptr, supercell_flag):
  *              raise IOError             # <<<<<<<<<<<<<<
@@ -5193,7 +5176,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MO
     __Pyx_Raise(__pyx_builtin_IOError, 0, 0, 0);
     __PYX_ERR(1, 343, __pyx_L1_error)
 
-    /* "zeoplusplus/netstorage.pyx":342
+    /* "pyzeo/netstorage.pyx":342
  * 
  *         cdef char* c_filename = filename
  *         if not writeToMOPAC(c_filename, self.thisptr, supercell_flag):             # <<<<<<<<<<<<<<
@@ -5202,7 +5185,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MO
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":331
+  /* "pyzeo/netstorage.pyx":331
  *             raise IOError
  * 
  *     def write_to_MOPAC(self, filename, supercell_flag):             # <<<<<<<<<<<<<<
@@ -5215,7 +5198,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MO
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.write_to_MOPAC", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.write_to_MOPAC", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_filename);
@@ -5224,7 +5207,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MO
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":345
+/* "pyzeo/netstorage.pyx":345
  *              raise IOError
  * 
  *     def calculate_free_sphere_parameters(self, filename):             # <<<<<<<<<<<<<<
@@ -5233,20 +5216,20 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MO
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_29calculate_free_sphere_parameters(PyObject *__pyx_v_self, PyObject *__pyx_v_filename); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_28calculate_free_sphere_parameters[] = "\n        Computes the diameters of the largest included sphere, free sphere \n        and included sphere along free sphere path. \n        Arguments:\n            filename:\n                Name of file where the diameters are stored.\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_29calculate_free_sphere_parameters(PyObject *__pyx_v_self, PyObject *__pyx_v_filename) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_29calculate_free_sphere_parameters(PyObject *__pyx_v_self, PyObject *__pyx_v_filename); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_28calculate_free_sphere_parameters[] = "\n        Computes the diameters of the largest included sphere, free sphere \n        and included sphere along free sphere path. \n        Arguments:\n            filename:\n                Name of file where the diameters are stored.\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_29calculate_free_sphere_parameters(PyObject *__pyx_v_self, PyObject *__pyx_v_filename) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("calculate_free_sphere_parameters (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_28calculate_free_sphere_parameters(((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_self), ((PyObject *)__pyx_v_filename));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_28calculate_free_sphere_parameters(((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_self), ((PyObject *)__pyx_v_filename));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_28calculate_free_sphere_parameters(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_28calculate_free_sphere_parameters(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_filename) {
   PyObject *__pyx_v_vornet = NULL;
   CYTHON_UNUSED PyObject *__pyx_v_edge_centers = NULL;
   CYTHON_UNUSED PyObject *__pyx_v_face_centers = NULL;
@@ -5270,7 +5253,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_28calculate_f
   __Pyx_RefNannySetupContext("calculate_free_sphere_parameters", 0);
   __Pyx_INCREF(__pyx_v_filename);
 
-  /* "zeoplusplus/netstorage.pyx":353
+  /* "pyzeo/netstorage.pyx":353
  *                 Name of file where the diameters are stored.
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -5281,7 +5264,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_28calculate_f
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "zeoplusplus/netstorage.pyx":354
+    /* "pyzeo/netstorage.pyx":354
  *         """
  *         if isinstance(filename, unicode):
  *             filename = (<unicode>filename).encode('utf8')             # <<<<<<<<<<<<<<
@@ -5297,7 +5280,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_28calculate_f
     __Pyx_DECREF_SET(__pyx_v_filename, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":353
+    /* "pyzeo/netstorage.pyx":353
  *                 Name of file where the diameters are stored.
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -5306,7 +5289,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_28calculate_f
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":356
+  /* "pyzeo/netstorage.pyx":356
  *             filename = (<unicode>filename).encode('utf8')
  * 
  *         vornet, edge_centers, face_centers = self.perform_voronoi_decomposition()             # <<<<<<<<<<<<<<
@@ -5390,7 +5373,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_28calculate_f
   __pyx_v_face_centers = __pyx_t_6;
   __pyx_t_6 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":357
+  /* "pyzeo/netstorage.pyx":357
  * 
  *         vornet, edge_centers, face_centers = self.perform_voronoi_decomposition()
  *         cdef char* c_fname = filename             # <<<<<<<<<<<<<<
@@ -5400,18 +5383,18 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_28calculate_f
   __pyx_t_9 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_9) && PyErr_Occurred())) __PYX_ERR(1, 357, __pyx_L1_error)
   __pyx_v_c_fname = __pyx_t_9;
 
-  /* "zeoplusplus/netstorage.pyx":358
+  /* "pyzeo/netstorage.pyx":358
  *         vornet, edge_centers, face_centers = self.perform_voronoi_decomposition()
  *         cdef char* c_fname = filename
  *         vornet_ptr = (<VoronoiNetwork?>vornet).thisptr             # <<<<<<<<<<<<<<
  *         calculateFreeSphereParameters(vornet_ptr, c_fname, False)
  * 
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_vornet, __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork)))) __PYX_ERR(1, 358, __pyx_L1_error)
-  __pyx_t_10 = ((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_vornet)->thisptr;
+  if (!(likely(__Pyx_TypeTest(__pyx_v_vornet, __pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork)))) __PYX_ERR(1, 358, __pyx_L1_error)
+  __pyx_t_10 = ((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_vornet)->thisptr;
   __pyx_v_vornet_ptr = __pyx_t_10;
 
-  /* "zeoplusplus/netstorage.pyx":359
+  /* "pyzeo/netstorage.pyx":359
  *         cdef char* c_fname = filename
  *         vornet_ptr = (<VoronoiNetwork?>vornet).thisptr
  *         calculateFreeSphereParameters(vornet_ptr, c_fname, False)             # <<<<<<<<<<<<<<
@@ -5420,7 +5403,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_28calculate_f
  */
   calculateFreeSphereParameters(__pyx_v_vornet_ptr, __pyx_v_c_fname, 0);
 
-  /* "zeoplusplus/netstorage.pyx":345
+  /* "pyzeo/netstorage.pyx":345
  *              raise IOError
  * 
  *     def calculate_free_sphere_parameters(self, filename):             # <<<<<<<<<<<<<<
@@ -5437,7 +5420,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_28calculate_f
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.calculate_free_sphere_parameters", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.calculate_free_sphere_parameters", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_vornet);
@@ -5449,7 +5432,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_28calculate_f
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":361
+/* "pyzeo/netstorage.pyx":361
  *         calculateFreeSphereParameters(vornet_ptr, c_fname, False)
  * 
  *     def perform_voronoi_decomposition(self, saveVorCells=True):             # <<<<<<<<<<<<<<
@@ -5458,9 +5441,9 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_28calculate_f
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_31perform_voronoi_decomposition(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_30perform_voronoi_decomposition[] = "\n        Performs weighted voronoi decomposition of atoms in the AtomNetwork \n        to analyze void space and generate voronoi nodes, edges and faces.\n        Arguments:\n            saveVorCells (optional): \n                Flag to denote whether to save the VorCells.\n                Reserved for future use, so ignore this.\n        Returns:\n            Instance of VoronoiNetwork\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_31perform_voronoi_decomposition(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_31perform_voronoi_decomposition(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_30perform_voronoi_decomposition[] = "\n        Performs weighted voronoi decomposition of atoms in the AtomNetwork \n        to analyze void space and generate voronoi nodes, edges and faces.\n        Arguments:\n            saveVorCells (optional): \n                Flag to denote whether to save the VorCells.\n                Reserved for future use, so ignore this.\n        Returns:\n            Instance of VoronoiNetwork\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_31perform_voronoi_decomposition(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_saveVorCells = 0;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -5506,19 +5489,19 @@ static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_31perform_vor
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("perform_voronoi_decomposition", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 361, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.perform_voronoi_decomposition", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.perform_voronoi_decomposition", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_voronoi_decomposition(((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_self), __pyx_v_saveVorCells);
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_30perform_voronoi_decomposition(((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_self), __pyx_v_saveVorCells);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_11zeoplusplus_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_5pyzeo_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "zeoplusplus/netstorage.pyx":394
+/* "pyzeo/netstorage.pyx":394
  *                            o_vnode.y + e_vnode.y, \
  *                            o_vnode.z + e_vnode.z)
  *             edge_center = tuple(x/2 for x in edge_center)             # <<<<<<<<<<<<<<
@@ -5526,27 +5509,27 @@ static PyObject *__pyx_gb_11zeoplusplus_10netstorage_11AtomNetwork_29perform_vor
  *                 edge_centers.append(edge_center)
  */
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_genexpr(PyObject *__pyx_self) {
-  struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr *__pyx_cur_scope;
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_genexpr(PyObject *__pyx_self) {
+  struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("genexpr", 0);
-  __pyx_cur_scope = (struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr *)__pyx_tp_new_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr(__pyx_ptype_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr *)__pyx_tp_new_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr(__pyx_ptype_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(1, 394, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
-  __pyx_cur_scope->__pyx_outer_scope = (struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *) __pyx_self;
+  __pyx_cur_scope->__pyx_outer_scope = (struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *) __pyx_self;
   __Pyx_INCREF(((PyObject *)__pyx_cur_scope->__pyx_outer_scope));
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_outer_scope);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_11zeoplusplus_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_2generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_genexpr, __pyx_n_s_perform_voronoi_decomposition_lo, __pyx_n_s_zeoplusplus_netstorage); if (unlikely(!gen)) __PYX_ERR(1, 394, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_5pyzeo_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_2generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_genexpr, __pyx_n_s_perform_voronoi_decomposition_lo, __pyx_n_s_pyzeo_netstorage); if (unlikely(!gen)) __PYX_ERR(1, 394, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -5554,7 +5537,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_29perform_vor
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.perform_voronoi_decomposition.genexpr", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.perform_voronoi_decomposition.genexpr", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
   __Pyx_XGIVEREF(__pyx_r);
@@ -5562,9 +5545,9 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_29perform_vor
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_11zeoplusplus_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_5pyzeo_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr *__pyx_cur_scope = ((struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr *)__pyx_generator->closure);
+  struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr *__pyx_cur_scope = ((struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   Py_ssize_t __pyx_t_2;
@@ -5671,7 +5654,7 @@ static PyObject *__pyx_gb_11zeoplusplus_10netstorage_11AtomNetwork_29perform_vor
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":361
+/* "pyzeo/netstorage.pyx":361
  *         calculateFreeSphereParameters(vornet_ptr, c_fname, False)
  * 
  *     def perform_voronoi_decomposition(self, saveVorCells=True):             # <<<<<<<<<<<<<<
@@ -5679,9 +5662,9 @@ static PyObject *__pyx_gb_11zeoplusplus_10netstorage_11AtomNetwork_29perform_vor
  *         Performs weighted voronoi decomposition of atoms in the AtomNetwork
  */
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_voronoi_decomposition(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_saveVorCells) {
-  struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *__pyx_cur_scope;
-  struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_vornet = NULL;
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_30perform_voronoi_decomposition(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, PyObject *__pyx_v_saveVorCells) {
+  struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *__pyx_cur_scope;
+  struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_vornet = NULL;
   std::vector<VOR_CELL>  __pyx_v_vcells;
   std::vector<BASIC_VCELL>  __pyx_v_bvcells;
   PyObject *__pyx_v_edge_centers = NULL;
@@ -5702,11 +5685,11 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
   PyObject *__pyx_v_node_id_list = NULL;
   std::vector<Point> ::size_type __pyx_v_k;
   PyObject *__pyx_v_node_id_set = NULL;
-  struct __pyx_obj_11zeoplusplus_8geometry_Point *__pyx_v_centroid = NULL;
+  struct __pyx_obj_5pyzeo_8geometry_Point *__pyx_v_centroid = NULL;
   PyObject *__pyx_v_fcs = NULL;
   PyObject *__pyx_v_center = NULL;
   PyObject *__pyx_v_cntr = NULL;
-  PyObject *__pyx_gb_11zeoplusplus_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_2generator = 0;
+  PyObject *__pyx_gb_5pyzeo_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_2generator = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5742,28 +5725,28 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("perform_voronoi_decomposition", 0);
-  __pyx_cur_scope = (struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *)__pyx_tp_new_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition(__pyx_ptype_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *)__pyx_tp_new_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition(__pyx_ptype_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(1, 361, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
 
-  /* "zeoplusplus/netstorage.pyx":373
+  /* "pyzeo/netstorage.pyx":373
  *         """
  *         #Calls Zeo++ performVoronoiDecomp function defined in network.cc.
  *         vornet = VoronoiNetwork()             # <<<<<<<<<<<<<<
  *         cdef vector[VOR_CELL] vcells
  *         cdef vector[BASIC_VCELL] bvcells
  */
-  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 373, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 373, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_vornet = ((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_t_1);
+  __pyx_v_vornet = ((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":378
+  /* "pyzeo/netstorage.pyx":378
  *         #print self.rad_flag
  *         if not performVoronoiDecomp(self.rad_flag, self.thisptr,
  *                 vornet.thisptr, &vcells, saveVorCells, &bvcells):             # <<<<<<<<<<<<<<
@@ -5772,7 +5755,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
  */
   __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_saveVorCells); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 378, __pyx_L1_error)
 
-  /* "zeoplusplus/netstorage.pyx":377
+  /* "pyzeo/netstorage.pyx":377
  *         cdef vector[BASIC_VCELL] bvcells
  *         #print self.rad_flag
  *         if not performVoronoiDecomp(self.rad_flag, self.thisptr,             # <<<<<<<<<<<<<<
@@ -5782,7 +5765,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
   __pyx_t_3 = ((!(performVoronoiDecomp(__pyx_v_self->rad_flag, __pyx_v_self->thisptr, __pyx_v_vornet->thisptr, (&__pyx_v_vcells), __pyx_t_2, (&__pyx_v_bvcells)) != 0)) != 0);
   if (unlikely(__pyx_t_3)) {
 
-    /* "zeoplusplus/netstorage.pyx":379
+    /* "pyzeo/netstorage.pyx":379
  *         if not performVoronoiDecomp(self.rad_flag, self.thisptr,
  *                 vornet.thisptr, &vcells, saveVorCells, &bvcells):
  *             raise ValueError # Change it to appropriate error             # <<<<<<<<<<<<<<
@@ -5792,7 +5775,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
     __Pyx_Raise(__pyx_builtin_ValueError, 0, 0, 0);
     __PYX_ERR(1, 379, __pyx_L1_error)
 
-    /* "zeoplusplus/netstorage.pyx":377
+    /* "pyzeo/netstorage.pyx":377
  *         cdef vector[BASIC_VCELL] bvcells
  *         #print self.rad_flag
  *         if not performVoronoiDecomp(self.rad_flag, self.thisptr,             # <<<<<<<<<<<<<<
@@ -5801,7 +5784,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":383
+  /* "pyzeo/netstorage.pyx":383
  * 
  *         # Get the edge centers
  *         edge_centers = []             # <<<<<<<<<<<<<<
@@ -5813,7 +5796,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
   __pyx_v_edge_centers = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":384
+  /* "pyzeo/netstorage.pyx":384
  *         # Get the edge centers
  *         edge_centers = []
  *         cdef vector[VOR_EDGE] vedges = vornet.thisptr.edges             # <<<<<<<<<<<<<<
@@ -5823,7 +5806,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
   __pyx_t_4 = __pyx_v_vornet->thisptr->edges;
   __pyx_v_vedges = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":385
+  /* "pyzeo/netstorage.pyx":385
  *         edge_centers = []
  *         cdef vector[VOR_EDGE] vedges = vornet.thisptr.edges
  *         cdef vector[VOR_NODE] vnodes = vornet.thisptr.nodes             # <<<<<<<<<<<<<<
@@ -5833,7 +5816,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
   __pyx_t_5 = __pyx_v_vornet->thisptr->nodes;
   __pyx_v_vnodes = __pyx_t_5;
 
-  /* "zeoplusplus/netstorage.pyx":386
+  /* "pyzeo/netstorage.pyx":386
  *         cdef vector[VOR_EDGE] vedges = vornet.thisptr.edges
  *         cdef vector[VOR_NODE] vnodes = vornet.thisptr.nodes
  *         for i in range(vedges.size()):             # <<<<<<<<<<<<<<
@@ -5845,7 +5828,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "zeoplusplus/netstorage.pyx":387
+    /* "pyzeo/netstorage.pyx":387
  *         cdef vector[VOR_NODE] vnodes = vornet.thisptr.nodes
  *         for i in range(vedges.size()):
  *             edge_orig =  vedges[i].origin             # <<<<<<<<<<<<<<
@@ -5855,7 +5838,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
     __pyx_t_9 = (__pyx_v_vedges[__pyx_v_i]).from;
     __pyx_v_edge_orig = __pyx_t_9;
 
-    /* "zeoplusplus/netstorage.pyx":388
+    /* "pyzeo/netstorage.pyx":388
  *         for i in range(vedges.size()):
  *             edge_orig =  vedges[i].origin
  *             edge_end =  vedges[i].ending             # <<<<<<<<<<<<<<
@@ -5865,7 +5848,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
     __pyx_t_9 = (__pyx_v_vedges[__pyx_v_i]).to;
     __pyx_v_edge_end = __pyx_t_9;
 
-    /* "zeoplusplus/netstorage.pyx":389
+    /* "pyzeo/netstorage.pyx":389
  *             edge_orig =  vedges[i].origin
  *             edge_end =  vedges[i].ending
  *             o_vnode = vnodes[edge_orig]             # <<<<<<<<<<<<<<
@@ -5874,7 +5857,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
  */
     __pyx_v_o_vnode = (__pyx_v_vnodes[__pyx_v_edge_orig]);
 
-    /* "zeoplusplus/netstorage.pyx":390
+    /* "pyzeo/netstorage.pyx":390
  *             edge_end =  vedges[i].ending
  *             o_vnode = vnodes[edge_orig]
  *             e_vnode = vnodes[edge_end]             # <<<<<<<<<<<<<<
@@ -5883,7 +5866,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
  */
     __pyx_v_e_vnode = (__pyx_v_vnodes[__pyx_v_edge_end]);
 
-    /* "zeoplusplus/netstorage.pyx":391
+    /* "pyzeo/netstorage.pyx":391
  *             o_vnode = vnodes[edge_orig]
  *             e_vnode = vnodes[edge_end]
  *             edge_center = (o_vnode.x + e_vnode.x, \             # <<<<<<<<<<<<<<
@@ -5893,7 +5876,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
     __pyx_t_1 = PyFloat_FromDouble((__pyx_v_o_vnode.x + __pyx_v_e_vnode.x)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 391, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
 
-    /* "zeoplusplus/netstorage.pyx":392
+    /* "pyzeo/netstorage.pyx":392
  *             e_vnode = vnodes[edge_end]
  *             edge_center = (o_vnode.x + e_vnode.x, \
  *                            o_vnode.y + e_vnode.y, \             # <<<<<<<<<<<<<<
@@ -5903,7 +5886,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
     __pyx_t_10 = PyFloat_FromDouble((__pyx_v_o_vnode.y + __pyx_v_e_vnode.y)); if (unlikely(!__pyx_t_10)) __PYX_ERR(1, 392, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
 
-    /* "zeoplusplus/netstorage.pyx":393
+    /* "pyzeo/netstorage.pyx":393
  *             edge_center = (o_vnode.x + e_vnode.x, \
  *                            o_vnode.y + e_vnode.y, \
  *                            o_vnode.z + e_vnode.z)             # <<<<<<<<<<<<<<
@@ -5913,7 +5896,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
     __pyx_t_11 = PyFloat_FromDouble((__pyx_v_o_vnode.z + __pyx_v_e_vnode.z)); if (unlikely(!__pyx_t_11)) __PYX_ERR(1, 393, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
 
-    /* "zeoplusplus/netstorage.pyx":391
+    /* "pyzeo/netstorage.pyx":391
  *             o_vnode = vnodes[edge_orig]
  *             e_vnode = vnodes[edge_end]
  *             edge_center = (o_vnode.x + e_vnode.x, \             # <<<<<<<<<<<<<<
@@ -5936,14 +5919,14 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
     __Pyx_GIVEREF(__pyx_t_12);
     __pyx_t_12 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":394
+    /* "pyzeo/netstorage.pyx":394
  *                            o_vnode.y + e_vnode.y, \
  *                            o_vnode.z + e_vnode.z)
  *             edge_center = tuple(x/2 for x in edge_center)             # <<<<<<<<<<<<<<
  *             if edge_center not in edge_centers:
  *                 edge_centers.append(edge_center)
  */
-    __pyx_t_12 = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_genexpr(((PyObject*)__pyx_cur_scope)); if (unlikely(!__pyx_t_12)) __PYX_ERR(1, 394, __pyx_L1_error)
+    __pyx_t_12 = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_genexpr(((PyObject*)__pyx_cur_scope)); if (unlikely(!__pyx_t_12)) __PYX_ERR(1, 394, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     __pyx_t_11 = __Pyx_PySequence_Tuple(__pyx_t_12); if (unlikely(!__pyx_t_11)) __PYX_ERR(1, 394, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
@@ -5953,7 +5936,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
     __Pyx_GIVEREF(__pyx_t_11);
     __pyx_t_11 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":395
+    /* "pyzeo/netstorage.pyx":395
  *                            o_vnode.z + e_vnode.z)
  *             edge_center = tuple(x/2 for x in edge_center)
  *             if edge_center not in edge_centers:             # <<<<<<<<<<<<<<
@@ -5964,7 +5947,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
     __pyx_t_2 = (__pyx_t_3 != 0);
     if (__pyx_t_2) {
 
-      /* "zeoplusplus/netstorage.pyx":396
+      /* "pyzeo/netstorage.pyx":396
  *             edge_center = tuple(x/2 for x in edge_center)
  *             if edge_center not in edge_centers:
  *                 edge_centers.append(edge_center)             # <<<<<<<<<<<<<<
@@ -5976,7 +5959,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
       __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_edge_centers, __pyx_t_11); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(1, 396, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-      /* "zeoplusplus/netstorage.pyx":395
+      /* "pyzeo/netstorage.pyx":395
  *                            o_vnode.z + e_vnode.z)
  *             edge_center = tuple(x/2 for x in edge_center)
  *             if edge_center not in edge_centers:             # <<<<<<<<<<<<<<
@@ -5986,7 +5969,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
     }
   }
 
-  /* "zeoplusplus/netstorage.pyx":401
+  /* "pyzeo/netstorage.pyx":401
  * 
  *         # Get the vorcells and obtain the face centers
  *         face_centers = []             # <<<<<<<<<<<<<<
@@ -5998,7 +5981,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
   __pyx_v_face_centers = ((PyObject*)__pyx_t_11);
   __pyx_t_11 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":407
+  /* "pyzeo/netstorage.pyx":407
  *         #cdef map[int, int] id_maps
  *         cdef vector[int] node_ids
  *         face_node_ids = set()             # <<<<<<<<<<<<<<
@@ -6010,7 +5993,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
   __pyx_v_face_node_ids = ((PyObject*)__pyx_t_11);
   __pyx_t_11 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":408
+  /* "pyzeo/netstorage.pyx":408
  *         cdef vector[int] node_ids
  *         face_node_ids = set()
  *         for i in range(vcells.size()):             # <<<<<<<<<<<<<<
@@ -6022,7 +6005,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
   for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_15; __pyx_t_6+=1) {
     __pyx_v_i = __pyx_t_6;
 
-    /* "zeoplusplus/netstorage.pyx":409
+    /* "pyzeo/netstorage.pyx":409
  *         face_node_ids = set()
  *         for i in range(vcells.size()):
  *             vfaces = vcells[i].faces             # <<<<<<<<<<<<<<
@@ -6032,7 +6015,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
     __pyx_t_16 = (__pyx_v_vcells[__pyx_v_i]).faces;
     __pyx_v_vfaces = __pyx_t_16;
 
-    /* "zeoplusplus/netstorage.pyx":410
+    /* "pyzeo/netstorage.pyx":410
  *         for i in range(vcells.size()):
  *             vfaces = vcells[i].faces
  *             for j in range(vfaces.size()):             # <<<<<<<<<<<<<<
@@ -6044,7 +6027,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
     for (__pyx_t_19 = 0; __pyx_t_19 < __pyx_t_18; __pyx_t_19+=1) {
       __pyx_v_j = __pyx_t_19;
 
-      /* "zeoplusplus/netstorage.pyx":411
+      /* "pyzeo/netstorage.pyx":411
  *             vfaces = vcells[i].faces
  *             for j in range(vfaces.size()):
  *                 node_ids = vfaces[j].node_ids             # <<<<<<<<<<<<<<
@@ -6054,7 +6037,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
       __pyx_t_20 = (__pyx_v_vfaces[__pyx_v_j]).nodeIDs;
       __pyx_v_node_ids = __pyx_t_20;
 
-      /* "zeoplusplus/netstorage.pyx":412
+      /* "pyzeo/netstorage.pyx":412
  *             for j in range(vfaces.size()):
  *                 node_ids = vfaces[j].node_ids
  *                 node_id_list = []             # <<<<<<<<<<<<<<
@@ -6066,7 +6049,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
       __Pyx_XDECREF_SET(__pyx_v_node_id_list, ((PyObject*)__pyx_t_11));
       __pyx_t_11 = 0;
 
-      /* "zeoplusplus/netstorage.pyx":413
+      /* "pyzeo/netstorage.pyx":413
  *                 node_ids = vfaces[j].node_ids
  *                 node_id_list = []
  *                 for k in range(node_ids.size()):             # <<<<<<<<<<<<<<
@@ -6078,7 +6061,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
       for (__pyx_t_23 = 0; __pyx_t_23 < __pyx_t_22; __pyx_t_23+=1) {
         __pyx_v_k = __pyx_t_23;
 
-        /* "zeoplusplus/netstorage.pyx":414
+        /* "pyzeo/netstorage.pyx":414
  *                 node_id_list = []
  *                 for k in range(node_ids.size()):
  *                     node_id_list.append(node_ids[k])             # <<<<<<<<<<<<<<
@@ -6091,7 +6074,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       }
 
-      /* "zeoplusplus/netstorage.pyx":415
+      /* "pyzeo/netstorage.pyx":415
  *                 for k in range(node_ids.size()):
  *                     node_id_list.append(node_ids[k])
  *                 node_id_set = frozenset(node_id_list)             # <<<<<<<<<<<<<<
@@ -6103,7 +6086,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
       __Pyx_XDECREF_SET(__pyx_v_node_id_set, ((PyObject*)__pyx_t_11));
       __pyx_t_11 = 0;
 
-      /* "zeoplusplus/netstorage.pyx":416
+      /* "pyzeo/netstorage.pyx":416
  *                     node_id_list.append(node_ids[k])
  *                 node_id_set = frozenset(node_id_list)
  *                 if not node_id_set in face_node_ids:             # <<<<<<<<<<<<<<
@@ -6114,7 +6097,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
       __pyx_t_3 = (__pyx_t_2 != 0);
       if (__pyx_t_3) {
 
-        /* "zeoplusplus/netstorage.pyx":417
+        /* "pyzeo/netstorage.pyx":417
  *                 node_id_set = frozenset(node_id_list)
  *                 if not node_id_set in face_node_ids:
  *                     face_node_ids.add(node_id_set)             # <<<<<<<<<<<<<<
@@ -6123,30 +6106,30 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
  */
         __pyx_t_13 = PySet_Add(__pyx_v_face_node_ids, __pyx_v_node_id_set); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(1, 417, __pyx_L1_error)
 
-        /* "zeoplusplus/netstorage.pyx":418
+        /* "pyzeo/netstorage.pyx":418
  *                 if not node_id_set in face_node_ids:
  *                     face_node_ids.add(node_id_set)
  *                     centroid = Point()             # <<<<<<<<<<<<<<
  *                     cpoint_ptr = (<Point?>centroid).thisptr
  *                     vertices = vfaces[j].vertices
  */
-        __pyx_t_11 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_11zeoplusplus_8geometry_Point)); if (unlikely(!__pyx_t_11)) __PYX_ERR(1, 418, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5pyzeo_8geometry_Point)); if (unlikely(!__pyx_t_11)) __PYX_ERR(1, 418, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __Pyx_XDECREF_SET(__pyx_v_centroid, ((struct __pyx_obj_11zeoplusplus_8geometry_Point *)__pyx_t_11));
+        __Pyx_XDECREF_SET(__pyx_v_centroid, ((struct __pyx_obj_5pyzeo_8geometry_Point *)__pyx_t_11));
         __pyx_t_11 = 0;
 
-        /* "zeoplusplus/netstorage.pyx":419
+        /* "pyzeo/netstorage.pyx":419
  *                     face_node_ids.add(node_id_set)
  *                     centroid = Point()
  *                     cpoint_ptr = (<Point?>centroid).thisptr             # <<<<<<<<<<<<<<
  *                     vertices = vfaces[j].vertices
  *                     for k in range(vertices.size()):
  */
-        if (!(likely(__Pyx_TypeTest(((PyObject *)__pyx_v_centroid), __pyx_ptype_11zeoplusplus_8geometry_Point)))) __PYX_ERR(1, 419, __pyx_L1_error)
+        if (!(likely(__Pyx_TypeTest(((PyObject *)__pyx_v_centroid), __pyx_ptype_5pyzeo_8geometry_Point)))) __PYX_ERR(1, 419, __pyx_L1_error)
         __pyx_t_24 = __pyx_v_centroid->thisptr;
         __pyx_v_cpoint_ptr = __pyx_t_24;
 
-        /* "zeoplusplus/netstorage.pyx":420
+        /* "pyzeo/netstorage.pyx":420
  *                     centroid = Point()
  *                     cpoint_ptr = (<Point?>centroid).thisptr
  *                     vertices = vfaces[j].vertices             # <<<<<<<<<<<<<<
@@ -6156,7 +6139,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
         __pyx_t_25 = (__pyx_v_vfaces[__pyx_v_j]).orderedVertices;
         __pyx_v_vertices = __pyx_t_25;
 
-        /* "zeoplusplus/netstorage.pyx":421
+        /* "pyzeo/netstorage.pyx":421
  *                     cpoint_ptr = (<Point?>centroid).thisptr
  *                     vertices = vfaces[j].vertices
  *                     for k in range(vertices.size()):             # <<<<<<<<<<<<<<
@@ -6168,7 +6151,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
         for (__pyx_t_27 = 0; __pyx_t_27 < __pyx_t_26; __pyx_t_27+=1) {
           __pyx_v_k = __pyx_t_27;
 
-          /* "zeoplusplus/netstorage.pyx":422
+          /* "pyzeo/netstorage.pyx":422
  *                     vertices = vfaces[j].vertices
  *                     for k in range(vertices.size()):
  *                         centroid.x = centroid.x + vertices[k].vals[0]             # <<<<<<<<<<<<<<
@@ -6186,7 +6169,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
           if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_centroid), __pyx_n_s_x, __pyx_t_10) < 0) __PYX_ERR(1, 422, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-          /* "zeoplusplus/netstorage.pyx":423
+          /* "pyzeo/netstorage.pyx":423
  *                     for k in range(vertices.size()):
  *                         centroid.x = centroid.x + vertices[k].vals[0]
  *                         centroid.y = centroid.y + vertices[k].vals[1]             # <<<<<<<<<<<<<<
@@ -6204,7 +6187,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
           if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_centroid), __pyx_n_s_y, __pyx_t_11) < 0) __PYX_ERR(1, 423, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-          /* "zeoplusplus/netstorage.pyx":424
+          /* "pyzeo/netstorage.pyx":424
  *                         centroid.x = centroid.x + vertices[k].vals[0]
  *                         centroid.y = centroid.y + vertices[k].vals[1]
  *                         centroid.z = centroid.z + vertices[k].vals[2]             # <<<<<<<<<<<<<<
@@ -6223,7 +6206,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         }
 
-        /* "zeoplusplus/netstorage.pyx":425
+        /* "pyzeo/netstorage.pyx":425
  *                         centroid.y = centroid.y + vertices[k].vals[1]
  *                         centroid.z = centroid.z + vertices[k].vals[2]
  *                     centroid.x = centroid.x/vertices.size()             # <<<<<<<<<<<<<<
@@ -6241,7 +6224,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
         if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_centroid), __pyx_n_s_x, __pyx_t_11) < 0) __PYX_ERR(1, 425, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-        /* "zeoplusplus/netstorage.pyx":426
+        /* "pyzeo/netstorage.pyx":426
  *                         centroid.z = centroid.z + vertices[k].vals[2]
  *                     centroid.x = centroid.x/vertices.size()
  *                     centroid.y = centroid.y/vertices.size()             # <<<<<<<<<<<<<<
@@ -6259,7 +6242,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
         if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_centroid), __pyx_n_s_y, __pyx_t_10) < 0) __PYX_ERR(1, 426, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-        /* "zeoplusplus/netstorage.pyx":427
+        /* "pyzeo/netstorage.pyx":427
  *                     centroid.x = centroid.x/vertices.size()
  *                     centroid.y = centroid.y/vertices.size()
  *                     centroid.z = centroid.z/vertices.size()             # <<<<<<<<<<<<<<
@@ -6277,7 +6260,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
         if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_centroid), __pyx_n_s_z, __pyx_t_11) < 0) __PYX_ERR(1, 427, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-        /* "zeoplusplus/netstorage.pyx":428
+        /* "pyzeo/netstorage.pyx":428
  *                     centroid.y = centroid.y/vertices.size()
  *                     centroid.z = centroid.z/vertices.size()
  *                     face_centers.append(centroid)             # <<<<<<<<<<<<<<
@@ -6286,7 +6269,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
  */
         __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_face_centers, ((PyObject *)__pyx_v_centroid)); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(1, 428, __pyx_L1_error)
 
-        /* "zeoplusplus/netstorage.pyx":416
+        /* "pyzeo/netstorage.pyx":416
  *                     node_id_list.append(node_ids[k])
  *                 node_id_set = frozenset(node_id_list)
  *                 if not node_id_set in face_node_ids:             # <<<<<<<<<<<<<<
@@ -6297,7 +6280,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
     }
   }
 
-  /* "zeoplusplus/netstorage.pyx":431
+  /* "pyzeo/netstorage.pyx":431
  * 
  *         # Convert the Zeo++ Point objects in (x,y,z) tuple objects
  *         fcs = []             # <<<<<<<<<<<<<<
@@ -6309,7 +6292,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
   __pyx_v_fcs = ((PyObject*)__pyx_t_11);
   __pyx_t_11 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":432
+  /* "pyzeo/netstorage.pyx":432
  *         # Convert the Zeo++ Point objects in (x,y,z) tuple objects
  *         fcs = []
  *         for center in face_centers:             # <<<<<<<<<<<<<<
@@ -6328,7 +6311,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
     __Pyx_XDECREF_SET(__pyx_v_center, __pyx_t_12);
     __pyx_t_12 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":433
+    /* "pyzeo/netstorage.pyx":433
  *         fcs = []
  *         for center in face_centers:
  *             cntr = (center.x,center.y,center.z)             # <<<<<<<<<<<<<<
@@ -6355,7 +6338,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
     __Pyx_XDECREF_SET(__pyx_v_cntr, ((PyObject*)__pyx_t_29));
     __pyx_t_29 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":434
+    /* "pyzeo/netstorage.pyx":434
  *         for center in face_centers:
  *             cntr = (center.x,center.y,center.z)
  *             fcs.append(cntr)             # <<<<<<<<<<<<<<
@@ -6364,7 +6347,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
  */
     __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_fcs, __pyx_v_cntr); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(1, 434, __pyx_L1_error)
 
-    /* "zeoplusplus/netstorage.pyx":432
+    /* "pyzeo/netstorage.pyx":432
  *         # Convert the Zeo++ Point objects in (x,y,z) tuple objects
  *         fcs = []
  *         for center in face_centers:             # <<<<<<<<<<<<<<
@@ -6374,7 +6357,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
   }
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":448
+  /* "pyzeo/netstorage.pyx":448
  *             #basicvcell.thisptr = &(bvcells[i])
  *             #bvcelllist.append(bvcells[i])
  *         return vornet, edge_centers, fcs             # <<<<<<<<<<<<<<
@@ -6397,7 +6380,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
   __pyx_t_11 = 0;
   goto __pyx_L0;
 
-  /* "zeoplusplus/netstorage.pyx":361
+  /* "pyzeo/netstorage.pyx":361
  *         calculateFreeSphereParameters(vornet_ptr, c_fname, False)
  * 
  *     def perform_voronoi_decomposition(self, saveVorCells=True):             # <<<<<<<<<<<<<<
@@ -6412,7 +6395,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
   __Pyx_XDECREF(__pyx_t_11);
   __Pyx_XDECREF(__pyx_t_12);
   __Pyx_XDECREF(__pyx_t_29);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.perform_voronoi_decomposition", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.perform_voronoi_decomposition", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_vornet);
@@ -6425,7 +6408,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
   __Pyx_XDECREF(__pyx_v_fcs);
   __Pyx_XDECREF(__pyx_v_center);
   __Pyx_XDECREF(__pyx_v_cntr);
-  __Pyx_XDECREF(__pyx_gb_11zeoplusplus_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_2generator);
+  __Pyx_XDECREF(__pyx_gb_5pyzeo_10netstorage_11AtomNetwork_29perform_voronoi_decomposition_2generator);
   __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -6439,19 +6422,19 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_30perform_vor
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_33__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_33__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_33__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_33__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_32__reduce_cython__(((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_32__reduce_cython__(((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_32__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_32__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6481,7 +6464,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_32__reduce_cy
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -6496,19 +6479,19 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_32__reduce_cy
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_35__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_35__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_35__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_35__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_34__setstate_cython__(((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11AtomNetwork_34__setstate_cython__(((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_34__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_34__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6538,14 +6521,14 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_34__setstate_
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.AtomNetwork.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.AtomNetwork.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":455
+/* "pyzeo/netstorage.pyx":455
  *     Class to store the voronoi nodes with coordinates and radius
  *     """
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -6554,22 +6537,22 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11AtomNetwork_34__setstate_
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
   if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
     __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
   if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__cinit__", 0))) return -1;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode___cinit__(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11VoronoiNode___cinit__(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode___cinit__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self) {
+static int __pyx_pf_5pyzeo_10netstorage_11VoronoiNode___cinit__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   VOR_NODE *__pyx_t_1;
@@ -6578,7 +6561,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode___cinit__(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "zeoplusplus/netstorage.pyx":456
+  /* "pyzeo/netstorage.pyx":456
  *     """
  *     def __cinit__(self):
  *         self.thisptr = new VOR_NODE()             # <<<<<<<<<<<<<<
@@ -6593,7 +6576,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode___cinit__(struct __
   }
   __pyx_v_self->thisptr = __pyx_t_1;
 
-  /* "zeoplusplus/netstorage.pyx":455
+  /* "pyzeo/netstorage.pyx":455
  *     Class to store the voronoi nodes with coordinates and radius
  *     """
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -6605,14 +6588,14 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode___cinit__(struct __
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNode.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNode.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":458
+/* "pyzeo/netstorage.pyx":458
  *         self.thisptr = new VOR_NODE()
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -6621,22 +6604,22 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode___cinit__(struct __
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
   if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
     __Pyx_RaiseArgtupleInvalid("__init__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
   if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__init__", 0))) return -1;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_2__init__(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_2__init__(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_2__init__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self) {
+static int __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_2__init__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__", 0);
@@ -6647,7 +6630,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_2__init__(CYTHON_UN
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":461
+/* "pyzeo/netstorage.pyx":461
  *         pass
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -6656,21 +6639,21 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_2__init__(CYTHON_UN
  */
 
 /* Python wrapper */
-static void __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_5__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_5__dealloc__(PyObject *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
-  __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_4__dealloc__(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *)__pyx_v_self));
+  __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_4__dealloc__(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_4__dealloc__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self) {
+static void __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_4__dealloc__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "zeoplusplus/netstorage.pyx":462
+  /* "pyzeo/netstorage.pyx":462
  * 
  *     def __dealloc__(self):
  *         del self.thisptr             # <<<<<<<<<<<<<<
@@ -6679,7 +6662,7 @@ static void __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_4__dealloc__(struc
  */
   delete __pyx_v_self->thisptr;
 
-  /* "zeoplusplus/netstorage.pyx":461
+  /* "pyzeo/netstorage.pyx":461
  *         pass
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -6691,7 +6674,7 @@ static void __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_4__dealloc__(struc
   __Pyx_RefNannyFinishContext();
 }
 
-/* "zeoplusplus/netstorage.pyx":465
+/* "pyzeo/netstorage.pyx":465
  * 
  *     property coords:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6700,19 +6683,19 @@ static void __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_4__dealloc__(struc
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_6coords_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_6coords_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11VoronoiNode_6coords_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11VoronoiNode_6coords_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords___get__(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_6coords___get__(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords___get__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11VoronoiNode_6coords___get__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self) {
   PyObject *__pyx_v_coords = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -6725,7 +6708,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords___get
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "zeoplusplus/netstorage.pyx":466
+  /* "pyzeo/netstorage.pyx":466
  *     property coords:
  *         def __get__(self):
  *             coords = list(self.thisptr.x, self.thisptr.y, self.thisptr.z)             # <<<<<<<<<<<<<<
@@ -6755,7 +6738,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords___get
   __pyx_v_coords = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":467
+  /* "pyzeo/netstorage.pyx":467
  *         def __get__(self):
  *             coords = list(self.thisptr.x, self.thisptr.y, self.thisptr.z)
  *             return coords             # <<<<<<<<<<<<<<
@@ -6767,7 +6750,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords___get
   __pyx_r = __pyx_v_coords;
   goto __pyx_L0;
 
-  /* "zeoplusplus/netstorage.pyx":465
+  /* "pyzeo/netstorage.pyx":465
  * 
  *     property coords:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6781,7 +6764,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords___get
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNode.coords.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNode.coords.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_coords);
@@ -6790,7 +6773,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords___get
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":468
+/* "pyzeo/netstorage.pyx":468
  *             coords = list(self.thisptr.x, self.thisptr.y, self.thisptr.z)
  *             return coords
  *         def __set__(self, coords):      # Don't set this             # <<<<<<<<<<<<<<
@@ -6799,19 +6782,19 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords___get
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_6coords_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_coords); /*proto*/
-static int __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_6coords_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_coords) {
+static int __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_6coords_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_coords); /*proto*/
+static int __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_6coords_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_coords) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords_2__set__(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *)__pyx_v_self), ((PyObject *)__pyx_v_coords));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_6coords_2__set__(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *)__pyx_v_self), ((PyObject *)__pyx_v_coords));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords_2__set__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self, PyObject *__pyx_v_coords) {
+static int __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_6coords_2__set__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self, PyObject *__pyx_v_coords) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6821,7 +6804,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords_2__set__(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "zeoplusplus/netstorage.pyx":472
+  /* "pyzeo/netstorage.pyx":472
  *             This variable is not supposed to be modified manually
  *             """
  *             print ("This value is not supposed to be modified")             # <<<<<<<<<<<<<<
@@ -6830,7 +6813,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords_2__set__(st
  */
   if (__Pyx_PrintOne(0, __pyx_kp_s_This_value_is_not_supposed_to_be) < 0) __PYX_ERR(1, 472, __pyx_L1_error)
 
-  /* "zeoplusplus/netstorage.pyx":473
+  /* "pyzeo/netstorage.pyx":473
  *             """
  *             print ("This value is not supposed to be modified")
  *             self.thisptr.x = coords[0]             # <<<<<<<<<<<<<<
@@ -6843,7 +6826,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords_2__set__(st
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->thisptr->x = __pyx_t_2;
 
-  /* "zeoplusplus/netstorage.pyx":474
+  /* "pyzeo/netstorage.pyx":474
  *             print ("This value is not supposed to be modified")
  *             self.thisptr.x = coords[0]
  *             self.thisptr.y = coords[1]             # <<<<<<<<<<<<<<
@@ -6856,7 +6839,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords_2__set__(st
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->thisptr->y = __pyx_t_2;
 
-  /* "zeoplusplus/netstorage.pyx":475
+  /* "pyzeo/netstorage.pyx":475
  *             self.thisptr.x = coords[0]
  *             self.thisptr.y = coords[1]
  *             self.thisptr.z = coords[2]             # <<<<<<<<<<<<<<
@@ -6869,7 +6852,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords_2__set__(st
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->thisptr->z = __pyx_t_2;
 
-  /* "zeoplusplus/netstorage.pyx":468
+  /* "pyzeo/netstorage.pyx":468
  *             coords = list(self.thisptr.x, self.thisptr.y, self.thisptr.z)
  *             return coords
  *         def __set__(self, coords):      # Don't set this             # <<<<<<<<<<<<<<
@@ -6882,14 +6865,14 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords_2__set__(st
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNode.coords.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNode.coords.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":478
+/* "pyzeo/netstorage.pyx":478
  * 
  *     property radius:
  *         def __get__(self): return self.thisptr.rad_stat_sphere             # <<<<<<<<<<<<<<
@@ -6898,19 +6881,19 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6coords_2__set__(st
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_6radius_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_6radius_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11VoronoiNode_6radius_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11VoronoiNode_6radius_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6radius___get__(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_6radius___get__(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6radius___get__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11VoronoiNode_6radius___get__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6928,7 +6911,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6radius___get
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNode.radius.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNode.radius.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6936,7 +6919,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6radius___get
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":479
+/* "pyzeo/netstorage.pyx":479
  *     property radius:
  *         def __get__(self): return self.thisptr.rad_stat_sphere
  *         def __set__(self, rad):             # <<<<<<<<<<<<<<
@@ -6945,19 +6928,19 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6radius___get
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_6radius_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_rad); /*proto*/
-static int __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_6radius_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_rad) {
+static int __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_6radius_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_rad); /*proto*/
+static int __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_6radius_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_rad) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6radius_2__set__(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *)__pyx_v_self), ((PyObject *)__pyx_v_rad));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_6radius_2__set__(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *)__pyx_v_self), ((PyObject *)__pyx_v_rad));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6radius_2__set__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self, PyObject *__pyx_v_rad) {
+static int __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_6radius_2__set__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self, PyObject *__pyx_v_rad) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
@@ -6966,7 +6949,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6radius_2__set__(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "zeoplusplus/netstorage.pyx":480
+  /* "pyzeo/netstorage.pyx":480
  *         def __get__(self): return self.thisptr.rad_stat_sphere
  *         def __set__(self, rad):
  *             print ("This value is not supposed to be modified")             # <<<<<<<<<<<<<<
@@ -6975,7 +6958,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6radius_2__set__(st
  */
   if (__Pyx_PrintOne(0, __pyx_kp_s_This_value_is_not_supposed_to_be) < 0) __PYX_ERR(1, 480, __pyx_L1_error)
 
-  /* "zeoplusplus/netstorage.pyx":481
+  /* "pyzeo/netstorage.pyx":481
  *         def __set__(self, rad):
  *             print ("This value is not supposed to be modified")
  *             self.thisptr.rad_stat_sphere = rad             # <<<<<<<<<<<<<<
@@ -6985,7 +6968,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6radius_2__set__(st
   __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_rad); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 481, __pyx_L1_error)
   __pyx_v_self->thisptr->rad_stat_sphere = __pyx_t_1;
 
-  /* "zeoplusplus/netstorage.pyx":479
+  /* "pyzeo/netstorage.pyx":479
  *     property radius:
  *         def __get__(self): return self.thisptr.rad_stat_sphere
  *         def __set__(self, rad):             # <<<<<<<<<<<<<<
@@ -6997,7 +6980,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6radius_2__set__(st
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNode.radius.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNode.radius.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -7011,19 +6994,19 @@ static int __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6radius_2__set__(st
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11VoronoiNode_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11VoronoiNode_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6__reduce_cython__(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_6__reduce_cython__(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11VoronoiNode_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7053,7 +7036,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6__reduce_cyt
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNode.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNode.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -7068,19 +7051,19 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_6__reduce_cyt
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11VoronoiNode_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_10netstorage_11VoronoiNode_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_8__setstate_cython__(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_11VoronoiNode_8__setstate_cython__(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_11VoronoiNode_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7110,14 +7093,14 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_8__setstate_c
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNode.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNode.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":491
+/* "pyzeo/netstorage.pyx":491
  *     #Contains a pointer to ATOM_NETWORK and a flag denoting whether radisu
  *     #for each atomic species is non-zero.
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -7126,22 +7109,22 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_11VoronoiNode_8__setstate_c
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
   if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
     __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
   if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__cinit__", 0))) return -1;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork___cinit__(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork___cinit__(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork___cinit__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self) {
+static int __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork___cinit__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   VORONOI_NETWORK *__pyx_t_1;
@@ -7150,7 +7133,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork___cinit__(struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "zeoplusplus/netstorage.pyx":492
+  /* "pyzeo/netstorage.pyx":492
  *     #for each atomic species is non-zero.
  *     def __cinit__(self):
  *         self.thisptr = new VORONOI_NETWORK()             # <<<<<<<<<<<<<<
@@ -7165,7 +7148,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork___cinit__(struct
   }
   __pyx_v_self->thisptr = __pyx_t_1;
 
-  /* "zeoplusplus/netstorage.pyx":491
+  /* "pyzeo/netstorage.pyx":491
  *     #Contains a pointer to ATOM_NETWORK and a flag denoting whether radisu
  *     #for each atomic species is non-zero.
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -7177,14 +7160,14 @@ static int __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork___cinit__(struct
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNetwork.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNetwork.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":494
+/* "pyzeo/netstorage.pyx":494
  *         self.thisptr = new VORONOI_NETWORK()
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -7193,22 +7176,22 @@ static int __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork___cinit__(struct
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
   if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
     __Pyx_RaiseArgtupleInvalid("__init__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
   if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__init__", 0))) return -1;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_2__init__(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_2__init__(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_2__init__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self) {
+static int __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_2__init__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__", 0);
@@ -7219,7 +7202,7 @@ static int __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_2__init__(CYTHON
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":497
+/* "pyzeo/netstorage.pyx":497
  *         pass
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -7228,21 +7211,21 @@ static int __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_2__init__(CYTHON
  */
 
 /* Python wrapper */
-static void __pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_5__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_5__dealloc__(PyObject *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
-  __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_4__dealloc__(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_self));
+  __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_4__dealloc__(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_4__dealloc__(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self) {
+static void __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_4__dealloc__(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "zeoplusplus/netstorage.pyx":498
+  /* "pyzeo/netstorage.pyx":498
  * 
  *     def __dealloc__(self):
  *         del self.thisptr             # <<<<<<<<<<<<<<
@@ -7251,7 +7234,7 @@ static void __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_4__dealloc__(st
  */
   delete __pyx_v_self->thisptr;
 
-  /* "zeoplusplus/netstorage.pyx":497
+  /* "pyzeo/netstorage.pyx":497
  *         pass
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -7263,7 +7246,7 @@ static void __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_4__dealloc__(st
   __Pyx_RefNannyFinishContext();
 }
 
-/* "zeoplusplus/netstorage.pyx":500
+/* "pyzeo/netstorage.pyx":500
  *         del self.thisptr
  * 
  *     def size(self):             # <<<<<<<<<<<<<<
@@ -7272,19 +7255,19 @@ static void __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_4__dealloc__(st
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_7size(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_7size(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_7size(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_7size(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("size (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_6size(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_6size(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_6size(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_6size(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7293,7 +7276,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_6size(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("size", 0);
 
-  /* "zeoplusplus/netstorage.pyx":501
+  /* "pyzeo/netstorage.pyx":501
  * 
  *     def size(self):
  *         return self.thisptr.nodes.size()             # <<<<<<<<<<<<<<
@@ -7307,7 +7290,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_6size(stru
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "zeoplusplus/netstorage.pyx":500
+  /* "pyzeo/netstorage.pyx":500
  *         del self.thisptr
  * 
  *     def size(self):             # <<<<<<<<<<<<<<
@@ -7318,7 +7301,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_6size(stru
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNetwork.size", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNetwork.size", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -7326,7 +7309,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_6size(stru
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":503
+/* "pyzeo/netstorage.pyx":503
  *         return self.thisptr.nodes.size()
  * 
  *     def prune(self, radius):             # <<<<<<<<<<<<<<
@@ -7335,22 +7318,22 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_6size(stru
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_9prune(PyObject *__pyx_v_self, PyObject *__pyx_v_radius); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_14VoronoiNetwork_8prune[] = "\n        Removes the edges that do not allow a sphere to pass.\n        Arguments:\n            radius:\n                Radius of the sphere\n        Returns:\n            Instance of VoronoiNetwork with edges pruned.\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_9prune(PyObject *__pyx_v_self, PyObject *__pyx_v_radius) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_9prune(PyObject *__pyx_v_self, PyObject *__pyx_v_radius); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_14VoronoiNetwork_8prune[] = "\n        Removes the edges that do not allow a sphere to pass.\n        Arguments:\n            radius:\n                Radius of the sphere\n        Returns:\n            Instance of VoronoiNetwork with edges pruned.\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_9prune(PyObject *__pyx_v_self, PyObject *__pyx_v_radius) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("prune (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_8prune(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_self), ((PyObject *)__pyx_v_radius));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_8prune(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_self), ((PyObject *)__pyx_v_radius));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_8prune(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self, PyObject *__pyx_v_radius) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_8prune(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self, PyObject *__pyx_v_radius) {
   VORONOI_NETWORK __pyx_v_newcvornet;
-  struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_newvornet = NULL;
+  struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_newvornet = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
@@ -7360,7 +7343,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_8prune(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("prune", 0);
 
-  /* "zeoplusplus/netstorage.pyx":512
+  /* "pyzeo/netstorage.pyx":512
  *             Instance of VoronoiNetwork with edges pruned.
  *         """
  *         cdef VORONOI_NETWORK newcvornet = self.thisptr.prune(radius)             # <<<<<<<<<<<<<<
@@ -7370,19 +7353,19 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_8prune(str
   __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_radius); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 512, __pyx_L1_error)
   __pyx_v_newcvornet = __pyx_v_self->thisptr->prune(__pyx_t_1);
 
-  /* "zeoplusplus/netstorage.pyx":513
+  /* "pyzeo/netstorage.pyx":513
  *         """
  *         cdef VORONOI_NETWORK newcvornet = self.thisptr.prune(radius)
  *         newvornet = VoronoiNetwork()             # <<<<<<<<<<<<<<
  *         newvornet.thisptr = &newcvornet
  *         return newvornet
  */
-  __pyx_t_2 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 513, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 513, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_v_newvornet = ((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_t_2);
+  __pyx_v_newvornet = ((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":514
+  /* "pyzeo/netstorage.pyx":514
  *         cdef VORONOI_NETWORK newcvornet = self.thisptr.prune(radius)
  *         newvornet = VoronoiNetwork()
  *         newvornet.thisptr = &newcvornet             # <<<<<<<<<<<<<<
@@ -7391,7 +7374,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_8prune(str
  */
   __pyx_v_newvornet->thisptr = (&__pyx_v_newcvornet);
 
-  /* "zeoplusplus/netstorage.pyx":515
+  /* "pyzeo/netstorage.pyx":515
  *         newvornet = VoronoiNetwork()
  *         newvornet.thisptr = &newcvornet
  *         return newvornet             # <<<<<<<<<<<<<<
@@ -7403,7 +7386,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_8prune(str
   __pyx_r = ((PyObject *)__pyx_v_newvornet);
   goto __pyx_L0;
 
-  /* "zeoplusplus/netstorage.pyx":503
+  /* "pyzeo/netstorage.pyx":503
  *         return self.thisptr.nodes.size()
  * 
  *     def prune(self, radius):             # <<<<<<<<<<<<<<
@@ -7414,7 +7397,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_8prune(str
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNetwork.prune", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNetwork.prune", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_newvornet);
@@ -7423,7 +7406,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_8prune(str
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":517
+/* "pyzeo/netstorage.pyx":517
  *         return newvornet
  * 
  *     def analyze_writeto_XYZ(self, name, double probeRad, atmnet,             # <<<<<<<<<<<<<<
@@ -7432,9 +7415,9 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_8prune(str
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_11analyze_writeto_XYZ(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_14VoronoiNetwork_10analyze_writeto_XYZ[] = "\n        Create diagrams of 1) Voronoi network and 2) accessible Voronoi \n        network, and write the diagrams in VTK files and the Voronoi \n        networks in XYZ files. Useful for visualizing the Voronoi network.\n        Args:\n            name:\n                Name to be used for output files.\n            probeRad:\n                Radius of the probe.\n            atmnet:\n                zeoplusplus.netstorage.AtomNetwork\n            shift_x (default=0):\n                Shift the accessible Voronoi network along x-axis\n            shift_y (default=0):\n                Shift the accessible Voronoi network along y-axis\n            shift_z (default=0):\n                Shift the accessible Voronoi network along z-axis\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_11analyze_writeto_XYZ(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_11analyze_writeto_XYZ(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_14VoronoiNetwork_10analyze_writeto_XYZ[] = "\n        Create diagrams of 1) Voronoi network and 2) accessible Voronoi \n        network, and write the diagrams in VTK files and the Voronoi \n        networks in XYZ files. Useful for visualizing the Voronoi network.\n        Args:\n            name:\n                Name to be used for output files.\n            probeRad:\n                Radius of the probe.\n            atmnet:\n                pyzeo.netstorage.AtomNetwork\n            shift_x (default=0):\n                Shift the accessible Voronoi network along x-axis\n            shift_y (default=0):\n                Shift the accessible Voronoi network along y-axis\n            shift_z (default=0):\n                Shift the accessible Voronoi network along z-axis\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_11analyze_writeto_XYZ(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_name = 0;
   double __pyx_v_probeRad;
   PyObject *__pyx_v_atmnet = 0;
@@ -7546,18 +7529,18 @@ static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_11analyze_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("analyze_writeto_XYZ", 0, 3, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 517, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNetwork.analyze_writeto_XYZ", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNetwork.analyze_writeto_XYZ", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_10analyze_writeto_XYZ(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_self), __pyx_v_name, __pyx_v_probeRad, __pyx_v_atmnet, __pyx_v_shift_x, __pyx_v_shift_y, __pyx_v_shift_z);
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_10analyze_writeto_XYZ(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_self), __pyx_v_name, __pyx_v_probeRad, __pyx_v_atmnet, __pyx_v_shift_x, __pyx_v_shift_y, __pyx_v_shift_z);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_10analyze_writeto_XYZ(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self, PyObject *__pyx_v_name, double __pyx_v_probeRad, PyObject *__pyx_v_atmnet, int __pyx_v_shift_x, int __pyx_v_shift_y, int __pyx_v_shift_z) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_10analyze_writeto_XYZ(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self, PyObject *__pyx_v_name, double __pyx_v_probeRad, PyObject *__pyx_v_atmnet, int __pyx_v_shift_x, int __pyx_v_shift_y, int __pyx_v_shift_z) {
   ATOM_NETWORK *__pyx_v_c_atmnetptr;
   CYTHON_UNUSED char *__pyx_v_cname;
   PyObject *__pyx_r = NULL;
@@ -7573,7 +7556,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_10analyze_
   __Pyx_RefNannySetupContext("analyze_writeto_XYZ", 0);
   __Pyx_INCREF(__pyx_v_name);
 
-  /* "zeoplusplus/netstorage.pyx":537
+  /* "pyzeo/netstorage.pyx":537
  *                 Shift the accessible Voronoi network along z-axis
  *         """
  *         if isinstance(name, unicode):             # <<<<<<<<<<<<<<
@@ -7584,7 +7567,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_10analyze_
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "zeoplusplus/netstorage.pyx":538
+    /* "pyzeo/netstorage.pyx":538
  *         """
  *         if isinstance(name, unicode):
  *             name = (<unicode>name).encode('utf8')             # <<<<<<<<<<<<<<
@@ -7600,7 +7583,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_10analyze_
     __Pyx_DECREF_SET(__pyx_v_name, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":537
+    /* "pyzeo/netstorage.pyx":537
  *                 Shift the accessible Voronoi network along z-axis
  *         """
  *         if isinstance(name, unicode):             # <<<<<<<<<<<<<<
@@ -7609,18 +7592,18 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_10analyze_
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":540
+  /* "pyzeo/netstorage.pyx":540
  *             name = (<unicode>name).encode('utf8')
  * 
  *         cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr             # <<<<<<<<<<<<<<
  *         cdef char* cname = name
  *         visVoro(name, probeRad, shift_x, shift_y, shift_z, self.thisptr,
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)))) __PYX_ERR(1, 540, __pyx_L1_error)
-  __pyx_t_4 = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
+  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(1, 540, __pyx_L1_error)
+  __pyx_t_4 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
   __pyx_v_c_atmnetptr = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":541
+  /* "pyzeo/netstorage.pyx":541
  * 
  *         cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
  *         cdef char* cname = name             # <<<<<<<<<<<<<<
@@ -7630,7 +7613,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_10analyze_
   __pyx_t_5 = __Pyx_PyObject_AsWritableString(__pyx_v_name); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) __PYX_ERR(1, 541, __pyx_L1_error)
   __pyx_v_cname = __pyx_t_5;
 
-  /* "zeoplusplus/netstorage.pyx":542
+  /* "pyzeo/netstorage.pyx":542
  *         cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
  *         cdef char* cname = name
  *         visVoro(name, probeRad, shift_x, shift_y, shift_z, self.thisptr,             # <<<<<<<<<<<<<<
@@ -7639,7 +7622,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_10analyze_
  */
   __pyx_t_5 = __Pyx_PyObject_AsWritableString(__pyx_v_name); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) __PYX_ERR(1, 542, __pyx_L1_error)
 
-  /* "zeoplusplus/netstorage.pyx":543
+  /* "pyzeo/netstorage.pyx":543
  *         cdef char* cname = name
  *         visVoro(name, probeRad, shift_x, shift_y, shift_z, self.thisptr,
  *                 c_atmnetptr)             # <<<<<<<<<<<<<<
@@ -7648,7 +7631,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_10analyze_
  */
   visVoro(__pyx_t_5, __pyx_v_probeRad, __pyx_v_shift_x, __pyx_v_shift_y, __pyx_v_shift_z, __pyx_v_self->thisptr, __pyx_v_c_atmnetptr);
 
-  /* "zeoplusplus/netstorage.pyx":517
+  /* "pyzeo/netstorage.pyx":517
  *         return newvornet
  * 
  *     def analyze_writeto_XYZ(self, name, double probeRad, atmnet,             # <<<<<<<<<<<<<<
@@ -7661,7 +7644,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_10analyze_
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNetwork.analyze_writeto_XYZ", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNetwork.analyze_writeto_XYZ", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_name);
@@ -7670,7 +7653,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_10analyze_
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":545
+/* "pyzeo/netstorage.pyx":545
  *                 c_atmnetptr)
  * 
  *     def write_to_XYZ(self, filename, double cutoff_radius=0):             # <<<<<<<<<<<<<<
@@ -7679,9 +7662,9 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_10analyze_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_13write_to_XYZ(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to_XYZ[] = "\n        Write only voronoi node information to XYZ file.\n        Args:\n            filename:\n                string\n                Name of file to which voronoi node info is written.\n            cutoff_radius:\n                float\n                Threshold radius (default=0)\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_13write_to_XYZ(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_13write_to_XYZ(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_14VoronoiNetwork_12write_to_XYZ[] = "\n        Write only voronoi node information to XYZ file.\n        Args:\n            filename:\n                string\n                Name of file to which voronoi node info is written.\n            cutoff_radius:\n                float\n                Threshold radius (default=0)\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_13write_to_XYZ(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_filename = 0;
   double __pyx_v_cutoff_radius;
   int __pyx_lineno = 0;
@@ -7739,18 +7722,18 @@ static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_13write_to
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("write_to_XYZ", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 545, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNetwork.write_to_XYZ", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNetwork.write_to_XYZ", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to_XYZ(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_self), __pyx_v_filename, __pyx_v_cutoff_radius);
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_12write_to_XYZ(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_self), __pyx_v_filename, __pyx_v_cutoff_radius);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to_XYZ(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self, PyObject *__pyx_v_filename, double __pyx_v_cutoff_radius) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_12write_to_XYZ(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self, PyObject *__pyx_v_filename, double __pyx_v_cutoff_radius) {
   char *__pyx_v_c_filename;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -7764,7 +7747,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to
   __Pyx_RefNannySetupContext("write_to_XYZ", 0);
   __Pyx_INCREF(__pyx_v_filename);
 
-  /* "zeoplusplus/netstorage.pyx":556
+  /* "pyzeo/netstorage.pyx":556
  *                 Threshold radius (default=0)
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -7775,7 +7758,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "zeoplusplus/netstorage.pyx":557
+    /* "pyzeo/netstorage.pyx":557
  *         """
  *         if isinstance(filename, unicode):
  *             filename = (<unicode>filename).encode('utf8')             # <<<<<<<<<<<<<<
@@ -7791,7 +7774,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to
     __Pyx_DECREF_SET(__pyx_v_filename, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "zeoplusplus/netstorage.pyx":556
+    /* "pyzeo/netstorage.pyx":556
  *                 Threshold radius (default=0)
  *         """
  *         if isinstance(filename, unicode):             # <<<<<<<<<<<<<<
@@ -7800,7 +7783,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":559
+  /* "pyzeo/netstorage.pyx":559
  *             filename = (<unicode>filename).encode('utf8')
  * 
  *         cdef char* c_filename = filename             # <<<<<<<<<<<<<<
@@ -7810,7 +7793,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to
   __pyx_t_4 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(1, 559, __pyx_L1_error)
   __pyx_v_c_filename = __pyx_t_4;
 
-  /* "zeoplusplus/netstorage.pyx":560
+  /* "pyzeo/netstorage.pyx":560
  * 
  *         cdef char* c_filename = filename
  *         if not writeVornetToXYZ(c_filename, self.thisptr,             # <<<<<<<<<<<<<<
@@ -7820,7 +7803,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to
   __pyx_t_2 = ((!(writeToXYZ(__pyx_v_c_filename, __pyx_v_self->thisptr, __pyx_v_cutoff_radius) != 0)) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "zeoplusplus/netstorage.pyx":562
+    /* "pyzeo/netstorage.pyx":562
  *         if not writeVornetToXYZ(c_filename, self.thisptr,
  *                 cutoff_radius):
  *             raise ValueError             # <<<<<<<<<<<<<<
@@ -7830,7 +7813,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to
     __Pyx_Raise(__pyx_builtin_ValueError, 0, 0, 0);
     __PYX_ERR(1, 562, __pyx_L1_error)
 
-    /* "zeoplusplus/netstorage.pyx":560
+    /* "pyzeo/netstorage.pyx":560
  * 
  *         cdef char* c_filename = filename
  *         if not writeVornetToXYZ(c_filename, self.thisptr,             # <<<<<<<<<<<<<<
@@ -7839,7 +7822,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":545
+  /* "pyzeo/netstorage.pyx":545
  *                 c_atmnetptr)
  * 
  *     def write_to_XYZ(self, filename, double cutoff_radius=0):             # <<<<<<<<<<<<<<
@@ -7852,7 +7835,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNetwork.write_to_XYZ", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNetwork.write_to_XYZ", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_filename);
@@ -7861,7 +7844,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":565
+/* "pyzeo/netstorage.pyx":565
  * 
  *     @classmethod
  *     def perform_voronoi_decomposition(cls, atmnet, saveVorCells=False):             # <<<<<<<<<<<<<<
@@ -7870,9 +7853,9 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_15perform_voronoi_decomposition(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_14VoronoiNetwork_14perform_voronoi_decomposition[] = "\n        Performs weighted voronoi decomposition of atoms in the AtomNetwork \n        to analyze void space and generate voronoi nodes, edges and faces.\n        Arguments:\n            saveVorCells (optional): \n                Flag to denote whether to save the VorCells.\n                Reserved for future use, so ignore this.\n        Returns:\n            Instance of VoronoiNetwork\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_15perform_voronoi_decomposition(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_15perform_voronoi_decomposition(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_14VoronoiNetwork_14perform_voronoi_decomposition[] = "\n        Performs weighted voronoi decomposition of atoms in the AtomNetwork \n        to analyze void space and generate voronoi nodes, edges and faces.\n        Arguments:\n            saveVorCells (optional): \n                Flag to denote whether to save the VorCells.\n                Reserved for future use, so ignore this.\n        Returns:\n            Instance of VoronoiNetwork\n        ";
+static PyObject *__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_15perform_voronoi_decomposition(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_atmnet = 0;
   PyObject *__pyx_v_saveVorCells = 0;
   int __pyx_lineno = 0;
@@ -7927,19 +7910,19 @@ static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_15perform_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("perform_voronoi_decomposition", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 565, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNetwork.perform_voronoi_decomposition", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNetwork.perform_voronoi_decomposition", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_14perform_voronoi_decomposition(((PyTypeObject*)__pyx_v_cls), __pyx_v_atmnet, __pyx_v_saveVorCells);
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_14perform_voronoi_decomposition(((PyTypeObject*)__pyx_v_cls), __pyx_v_atmnet, __pyx_v_saveVorCells);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_14perform_voronoi_decomposition(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_saveVorCells) {
-  struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_vornet = NULL;
+static PyObject *__pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_14perform_voronoi_decomposition(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_saveVorCells) {
+  struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_vornet = NULL;
   ATOM_NETWORK *__pyx_v_c_atmnetptr;
   std::vector<VOR_CELL>  __pyx_v_vcells;
   std::vector<BASIC_VCELL>  __pyx_v_bvcells;
@@ -7955,30 +7938,30 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_14perform_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("perform_voronoi_decomposition", 0);
 
-  /* "zeoplusplus/netstorage.pyx":577
+  /* "pyzeo/netstorage.pyx":577
  *         """
  *         #Calls Zeo++ performVoronoiDecomp function defined in network.cc.
  *         vornet = VoronoiNetwork()             # <<<<<<<<<<<<<<
  *         cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
  *         cdef vector[VOR_CELL] vcells
  */
-  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 577, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 577, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_vornet = ((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_t_1);
+  __pyx_v_vornet = ((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":578
+  /* "pyzeo/netstorage.pyx":578
  *         #Calls Zeo++ performVoronoiDecomp function defined in network.cc.
  *         vornet = VoronoiNetwork()
  *         cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr             # <<<<<<<<<<<<<<
  *         cdef vector[VOR_CELL] vcells
  *         cdef vector[BASIC_VCELL] bvcells
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)))) __PYX_ERR(1, 578, __pyx_L1_error)
-  __pyx_t_2 = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
+  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(1, 578, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
   __pyx_v_c_atmnetptr = __pyx_t_2;
 
-  /* "zeoplusplus/netstorage.pyx":582
+  /* "pyzeo/netstorage.pyx":582
  *         cdef vector[BASIC_VCELL] bvcells
  *         #print self.rad_flag
  *         if not performVoronoiDecomp(atmnet.rad_flag, c_atmnetptr,             # <<<<<<<<<<<<<<
@@ -7990,7 +7973,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_14perform_
   __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 582, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":583
+  /* "pyzeo/netstorage.pyx":583
  *         #print self.rad_flag
  *         if not performVoronoiDecomp(atmnet.rad_flag, c_atmnetptr,
  *                 vornet.thisptr, &vcells, saveVorCells, &bvcells):             # <<<<<<<<<<<<<<
@@ -7999,7 +7982,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_14perform_
  */
   __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_saveVorCells); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 583, __pyx_L1_error)
 
-  /* "zeoplusplus/netstorage.pyx":582
+  /* "pyzeo/netstorage.pyx":582
  *         cdef vector[BASIC_VCELL] bvcells
  *         #print self.rad_flag
  *         if not performVoronoiDecomp(atmnet.rad_flag, c_atmnetptr,             # <<<<<<<<<<<<<<
@@ -8009,7 +7992,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_14perform_
   __pyx_t_5 = ((!(performVoronoiDecomp(__pyx_t_3, __pyx_v_c_atmnetptr, __pyx_v_vornet->thisptr, (&__pyx_v_vcells), __pyx_t_4, (&__pyx_v_bvcells)) != 0)) != 0);
   if (unlikely(__pyx_t_5)) {
 
-    /* "zeoplusplus/netstorage.pyx":584
+    /* "pyzeo/netstorage.pyx":584
  *         if not performVoronoiDecomp(atmnet.rad_flag, c_atmnetptr,
  *                 vornet.thisptr, &vcells, saveVorCells, &bvcells):
  *             raise ValueError # Change it to appropriate error             # <<<<<<<<<<<<<<
@@ -8019,7 +8002,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_14perform_
     __Pyx_Raise(__pyx_builtin_ValueError, 0, 0, 0);
     __PYX_ERR(1, 584, __pyx_L1_error)
 
-    /* "zeoplusplus/netstorage.pyx":582
+    /* "pyzeo/netstorage.pyx":582
  *         cdef vector[BASIC_VCELL] bvcells
  *         #print self.rad_flag
  *         if not performVoronoiDecomp(atmnet.rad_flag, c_atmnetptr,             # <<<<<<<<<<<<<<
@@ -8028,7 +8011,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_14perform_
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":599
+  /* "pyzeo/netstorage.pyx":599
  *             #basicvcell.thisptr = &(bvcells[i])
  *             #bvcelllist.append(bvcells[i])
  *         return vornet             # <<<<<<<<<<<<<<
@@ -8040,7 +8023,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_14perform_
   __pyx_r = ((PyObject *)__pyx_v_vornet);
   goto __pyx_L0;
 
-  /* "zeoplusplus/netstorage.pyx":565
+  /* "pyzeo/netstorage.pyx":565
  * 
  *     @classmethod
  *     def perform_voronoi_decomposition(cls, atmnet, saveVorCells=False):             # <<<<<<<<<<<<<<
@@ -8051,7 +8034,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_14perform_
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNetwork.perform_voronoi_decomposition", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNetwork.perform_voronoi_decomposition", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_vornet);
@@ -8067,19 +8050,19 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_14perform_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_17__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_17__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_17__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_17__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_16__reduce_cython__(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_16__reduce_cython__(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_16__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_16__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -8109,7 +8092,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_16__reduce
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNetwork.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNetwork.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -8124,19 +8107,19 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_16__reduce
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_19__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_19__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_19__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_19__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_18__setstate_cython__(((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_18__setstate_cython__(((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_18__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_14VoronoiNetwork_18__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -8166,14 +8149,14 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_18__setsta
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.VoronoiNetwork.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.VoronoiNetwork.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "zeoplusplus/netstorage.pyx":601
+/* "pyzeo/netstorage.pyx":601
  *         return vornet
  * 
  * def substitute_atoms(atmnet, substituteSeed, radialFlag):             # <<<<<<<<<<<<<<
@@ -8182,10 +8165,10 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_14VoronoiNetwork_18__setsta
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_1substitute_atoms(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_10netstorage_substitute_atoms[] = "\n    Attempt to substitute every other Si atom with Al atom.\n    AtomNetwork may only consist of Si and O atoms, where each Si atom \n    must be bonded to exactly 4 oxygen atoms and each oxygen atom must \n    be bonded to exactly 2 Si atoms. Raises exception if the substitution\n    is not successful. \n    Args:\n        atmnet:\n            zeoplusplus.netstorage.AtomNetwork\n        substiuteSeed:\n            Boolean flag to specify whether the seeded Si atom is \n            substituted or not. Since only 2 configurations are possible \n            if the structure is consistent, changing this parameter enables \n            generation of all configurations. \n        radialFlag:\n            Boolean flag to specify whether atomic sizes are to be used.\n    Returns:\n        If successful, returns AtomNetwork instance with Si replaced with Al\n        and the number of substitutions. \n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_10netstorage_1substitute_atoms = {"substitute_atoms", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_10netstorage_1substitute_atoms, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_10netstorage_substitute_atoms};
-static PyObject *__pyx_pw_11zeoplusplus_10netstorage_1substitute_atoms(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_10netstorage_1substitute_atoms(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_10netstorage_substitute_atoms[] = "\n    Attempt to substitute every other Si atom with Al atom.\n    AtomNetwork may only consist of Si and O atoms, where each Si atom \n    must be bonded to exactly 4 oxygen atoms and each oxygen atom must \n    be bonded to exactly 2 Si atoms. Raises exception if the substitution\n    is not successful. \n    Args:\n        atmnet:\n            pyzeo.netstorage.AtomNetwork\n        substiuteSeed:\n            Boolean flag to specify whether the seeded Si atom is \n            substituted or not. Since only 2 configurations are possible \n            if the structure is consistent, changing this parameter enables \n            generation of all configurations. \n        radialFlag:\n            Boolean flag to specify whether atomic sizes are to be used.\n    Returns:\n        If successful, returns AtomNetwork instance with Si replaced with Al\n        and the number of substitutions. \n    ";
+static PyMethodDef __pyx_mdef_5pyzeo_10netstorage_1substitute_atoms = {"substitute_atoms", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_10netstorage_1substitute_atoms, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_10netstorage_substitute_atoms};
+static PyObject *__pyx_pw_5pyzeo_10netstorage_1substitute_atoms(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_atmnet = 0;
   PyObject *__pyx_v_substituteSeed = 0;
   PyObject *__pyx_v_radialFlag = 0;
@@ -8247,20 +8230,20 @@ static PyObject *__pyx_pw_11zeoplusplus_10netstorage_1substitute_atoms(PyObject 
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("substitute_atoms", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 601, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.netstorage.substitute_atoms", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.substitute_atoms", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_10netstorage_substitute_atoms(__pyx_self, __pyx_v_atmnet, __pyx_v_substituteSeed, __pyx_v_radialFlag);
+  __pyx_r = __pyx_pf_5pyzeo_10netstorage_substitute_atoms(__pyx_self, __pyx_v_atmnet, __pyx_v_substituteSeed, __pyx_v_radialFlag);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_10netstorage_substitute_atoms(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_substituteSeed, PyObject *__pyx_v_radialFlag) {
+static PyObject *__pyx_pf_5pyzeo_10netstorage_substitute_atoms(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_substituteSeed, PyObject *__pyx_v_radialFlag) {
   int __pyx_v_substitutionNo[1];
-  struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *__pyx_v_atmnet_copy = NULL;
+  struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *__pyx_v_atmnet_copy = NULL;
   ATOM_NETWORK *__pyx_v_c_atmnet_ptr;
   int __pyx_v_subNo;
   PyObject *__pyx_r = NULL;
@@ -8276,30 +8259,30 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_substitute_atoms(CYTHON_UNU
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("substitute_atoms", 0);
 
-  /* "zeoplusplus/netstorage.pyx":623
+  /* "pyzeo/netstorage.pyx":623
  *     """
  *     cdef int substitutionNo[1]
  *     atmnet_copy = AtomNetwork()             # <<<<<<<<<<<<<<
  *     c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
  *     if not c_substituteAtoms(c_atmnet_ptr, atmnet_copy.thisptr, substituteSeed,
  */
-  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 623, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5pyzeo_10netstorage_AtomNetwork)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 623, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_atmnet_copy = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_t_1);
+  __pyx_v_atmnet_copy = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":624
+  /* "pyzeo/netstorage.pyx":624
  *     cdef int substitutionNo[1]
  *     atmnet_copy = AtomNetwork()
  *     c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr             # <<<<<<<<<<<<<<
  *     if not c_substituteAtoms(c_atmnet_ptr, atmnet_copy.thisptr, substituteSeed,
  *             substitutionNo, radialFlag):
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)))) __PYX_ERR(1, 624, __pyx_L1_error)
-  __pyx_t_2 = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
+  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(1, 624, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
   __pyx_v_c_atmnet_ptr = __pyx_t_2;
 
-  /* "zeoplusplus/netstorage.pyx":625
+  /* "pyzeo/netstorage.pyx":625
  *     atmnet_copy = AtomNetwork()
  *     c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
  *     if not c_substituteAtoms(c_atmnet_ptr, atmnet_copy.thisptr, substituteSeed,             # <<<<<<<<<<<<<<
@@ -8308,7 +8291,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_substitute_atoms(CYTHON_UNU
  */
   __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_substituteSeed); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 625, __pyx_L1_error)
 
-  /* "zeoplusplus/netstorage.pyx":626
+  /* "pyzeo/netstorage.pyx":626
  *     c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
  *     if not c_substituteAtoms(c_atmnet_ptr, atmnet_copy.thisptr, substituteSeed,
  *             substitutionNo, radialFlag):             # <<<<<<<<<<<<<<
@@ -8317,7 +8300,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_substitute_atoms(CYTHON_UNU
  */
   __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_radialFlag); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 626, __pyx_L1_error)
 
-  /* "zeoplusplus/netstorage.pyx":625
+  /* "pyzeo/netstorage.pyx":625
  *     atmnet_copy = AtomNetwork()
  *     c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
  *     if not c_substituteAtoms(c_atmnet_ptr, atmnet_copy.thisptr, substituteSeed,             # <<<<<<<<<<<<<<
@@ -8327,7 +8310,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_substitute_atoms(CYTHON_UNU
   __pyx_t_5 = ((!(substituteAtoms(__pyx_v_c_atmnet_ptr, __pyx_v_atmnet_copy->thisptr, __pyx_t_3, __pyx_v_substitutionNo, __pyx_t_4) != 0)) != 0);
   if (unlikely(__pyx_t_5)) {
 
-    /* "zeoplusplus/netstorage.pyx":627
+    /* "pyzeo/netstorage.pyx":627
  *     if not c_substituteAtoms(c_atmnet_ptr, atmnet_copy.thisptr, substituteSeed,
  *             substitutionNo, radialFlag):
  *         raise ValueError             # <<<<<<<<<<<<<<
@@ -8337,7 +8320,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_substitute_atoms(CYTHON_UNU
     __Pyx_Raise(__pyx_builtin_ValueError, 0, 0, 0);
     __PYX_ERR(1, 627, __pyx_L1_error)
 
-    /* "zeoplusplus/netstorage.pyx":625
+    /* "pyzeo/netstorage.pyx":625
  *     atmnet_copy = AtomNetwork()
  *     c_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
  *     if not c_substituteAtoms(c_atmnet_ptr, atmnet_copy.thisptr, substituteSeed,             # <<<<<<<<<<<<<<
@@ -8346,7 +8329,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_substitute_atoms(CYTHON_UNU
  */
   }
 
-  /* "zeoplusplus/netstorage.pyx":628
+  /* "pyzeo/netstorage.pyx":628
  *             substitutionNo, radialFlag):
  *         raise ValueError
  *     subNo = substitutionNo[0]             # <<<<<<<<<<<<<<
@@ -8355,7 +8338,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_substitute_atoms(CYTHON_UNU
  */
   __pyx_v_subNo = (__pyx_v_substitutionNo[0]);
 
-  /* "zeoplusplus/netstorage.pyx":629
+  /* "pyzeo/netstorage.pyx":629
  *         raise ValueError
  *     subNo = substitutionNo[0]
  *     return atmnet_copy, subNo             # <<<<<<<<<<<<<<
@@ -8377,7 +8360,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_substitute_atoms(CYTHON_UNU
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "zeoplusplus/netstorage.pyx":601
+  /* "pyzeo/netstorage.pyx":601
  *         return vornet
  * 
  * def substitute_atoms(atmnet, substituteSeed, radialFlag):             # <<<<<<<<<<<<<<
@@ -8389,7 +8372,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_substitute_atoms(CYTHON_UNU
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("zeoplusplus.netstorage.substitute_atoms", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.netstorage.substitute_atoms", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_atmnet_copy);
@@ -8398,7 +8381,7 @@ static PyObject *__pyx_pf_11zeoplusplus_10netstorage_substitute_atoms(CYTHON_UNU
   return __pyx_r;
 }
 
-static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage_Atom(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5pyzeo_10netstorage_Atom(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -8406,14 +8389,14 @@ static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage_Atom(PyTypeObject *t, C
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  if (unlikely(__pyx_pw_11zeoplusplus_10netstorage_4Atom_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
+  if (unlikely(__pyx_pw_5pyzeo_10netstorage_4Atom_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
   return o;
   bad:
   Py_DECREF(o); o = 0;
   return NULL;
 }
 
-static void __pyx_tp_dealloc_11zeoplusplus_10netstorage_Atom(PyObject *o) {
+static void __pyx_tp_dealloc_5pyzeo_10netstorage_Atom(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -8423,20 +8406,20 @@ static void __pyx_tp_dealloc_11zeoplusplus_10netstorage_Atom(PyObject *o) {
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) + 1);
-    __pyx_pw_11zeoplusplus_10netstorage_4Atom_5__dealloc__(o);
+    __pyx_pw_5pyzeo_10netstorage_4Atom_5__dealloc__(o);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) - 1);
     PyErr_Restore(etype, eval, etb);
   }
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static PyObject *__pyx_getprop_11zeoplusplus_10netstorage_4Atom_coords(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_11zeoplusplus_10netstorage_4Atom_6coords_1__get__(o);
+static PyObject *__pyx_getprop_5pyzeo_10netstorage_4Atom_coords(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_5pyzeo_10netstorage_4Atom_6coords_1__get__(o);
 }
 
-static int __pyx_setprop_11zeoplusplus_10netstorage_4Atom_coords(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_5pyzeo_10netstorage_4Atom_coords(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_11zeoplusplus_10netstorage_4Atom_6coords_3__set__(o, v);
+    return __pyx_pw_5pyzeo_10netstorage_4Atom_6coords_3__set__(o, v);
   }
   else {
     PyErr_SetString(PyExc_NotImplementedError, "__del__");
@@ -8444,13 +8427,13 @@ static int __pyx_setprop_11zeoplusplus_10netstorage_4Atom_coords(PyObject *o, Py
   }
 }
 
-static PyObject *__pyx_getprop_11zeoplusplus_10netstorage_4Atom_radius(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_11zeoplusplus_10netstorage_4Atom_6radius_1__get__(o);
+static PyObject *__pyx_getprop_5pyzeo_10netstorage_4Atom_radius(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_5pyzeo_10netstorage_4Atom_6radius_1__get__(o);
 }
 
-static int __pyx_setprop_11zeoplusplus_10netstorage_4Atom_radius(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_5pyzeo_10netstorage_4Atom_radius(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_11zeoplusplus_10netstorage_4Atom_6radius_3__set__(o, v);
+    return __pyx_pw_5pyzeo_10netstorage_4Atom_6radius_3__set__(o, v);
   }
   else {
     PyErr_SetString(PyExc_NotImplementedError, "__del__");
@@ -8458,24 +8441,24 @@ static int __pyx_setprop_11zeoplusplus_10netstorage_4Atom_radius(PyObject *o, Py
   }
 }
 
-static PyMethodDef __pyx_methods_11zeoplusplus_10netstorage_Atom[] = {
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_4Atom_7__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_4Atom_9__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_5pyzeo_10netstorage_Atom[] = {
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_4Atom_7__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_4Atom_9__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static struct PyGetSetDef __pyx_getsets_11zeoplusplus_10netstorage_Atom[] = {
-  {(char *)"coords", __pyx_getprop_11zeoplusplus_10netstorage_4Atom_coords, __pyx_setprop_11zeoplusplus_10netstorage_4Atom_coords, (char *)0, 0},
-  {(char *)"radius", __pyx_getprop_11zeoplusplus_10netstorage_4Atom_radius, __pyx_setprop_11zeoplusplus_10netstorage_4Atom_radius, (char *)0, 0},
+static struct PyGetSetDef __pyx_getsets_5pyzeo_10netstorage_Atom[] = {
+  {(char *)"coords", __pyx_getprop_5pyzeo_10netstorage_4Atom_coords, __pyx_setprop_5pyzeo_10netstorage_4Atom_coords, (char *)0, 0},
+  {(char *)"radius", __pyx_getprop_5pyzeo_10netstorage_4Atom_radius, __pyx_setprop_5pyzeo_10netstorage_4Atom_radius, (char *)0, 0},
   {0, 0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_11zeoplusplus_10netstorage_Atom = {
+static PyTypeObject __pyx_type_5pyzeo_10netstorage_Atom = {
   PyVarObject_HEAD_INIT(0, 0)
-  "zeoplusplus.netstorage.Atom", /*tp_name*/
-  sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_Atom), /*tp_basicsize*/
+  "pyzeo.netstorage.Atom", /*tp_name*/
+  sizeof(struct __pyx_obj_5pyzeo_10netstorage_Atom), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_11zeoplusplus_10netstorage_Atom, /*tp_dealloc*/
+  __pyx_tp_dealloc_5pyzeo_10netstorage_Atom, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -8508,17 +8491,17 @@ static PyTypeObject __pyx_type_11zeoplusplus_10netstorage_Atom = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_11zeoplusplus_10netstorage_Atom, /*tp_methods*/
+  __pyx_methods_5pyzeo_10netstorage_Atom, /*tp_methods*/
   0, /*tp_members*/
-  __pyx_getsets_11zeoplusplus_10netstorage_Atom, /*tp_getset*/
+  __pyx_getsets_5pyzeo_10netstorage_Atom, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_11zeoplusplus_10netstorage_4Atom_3__init__, /*tp_init*/
+  __pyx_pw_5pyzeo_10netstorage_4Atom_3__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_11zeoplusplus_10netstorage_Atom, /*tp_new*/
+  __pyx_tp_new_5pyzeo_10netstorage_Atom, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -8542,7 +8525,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_10netstorage_Atom = {
   #endif
 };
 
-static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage_AtomNetwork(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5pyzeo_10netstorage_AtomNetwork(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -8550,14 +8533,14 @@ static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage_AtomNetwork(PyTypeObjec
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  if (unlikely(__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
+  if (unlikely(__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
   return o;
   bad:
   Py_DECREF(o); o = 0;
   return NULL;
 }
 
-static void __pyx_tp_dealloc_11zeoplusplus_10netstorage_AtomNetwork(PyObject *o) {
+static void __pyx_tp_dealloc_5pyzeo_10netstorage_AtomNetwork(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -8567,38 +8550,38 @@ static void __pyx_tp_dealloc_11zeoplusplus_10netstorage_AtomNetwork(PyObject *o)
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) + 1);
-    __pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_5__dealloc__(o);
+    __pyx_pw_5pyzeo_10netstorage_11AtomNetwork_5__dealloc__(o);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) - 1);
     PyErr_Restore(etype, eval, etb);
   }
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static PyMethodDef __pyx_methods_11zeoplusplus_10netstorage_AtomNetwork[] = {
-  {"copy", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_7copy, METH_NOARGS, __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_6copy},
-  {"read_from_CIF", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_9read_from_CIF, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_8read_from_CIF},
-  {"read_from_ARC", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_11read_from_ARC, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_10read_from_ARC},
-  {"read_from_CSSR", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_13read_from_CSSR, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_12read_from_CSSR},
-  {"read_from_V1", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_15read_from_V1, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_14read_from_V1},
-  {"write_to_CSSR", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_17write_to_CSSR, METH_O, __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_16write_to_CSSR},
-  {"write_to_CIF", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_19write_to_CIF, METH_O, __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_18write_to_CIF},
-  {"write_to_V1", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_21write_to_V1, METH_O, __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_20write_to_V1},
-  {"write_to_XYZ", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_23write_to_XYZ, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_22write_to_XYZ},
-  {"write_to_VTK", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_25write_to_VTK, METH_O, __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_24write_to_VTK},
-  {"write_to_MOPAC", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_27write_to_MOPAC, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_26write_to_MOPAC},
-  {"calculate_free_sphere_parameters", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_29calculate_free_sphere_parameters, METH_O, __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_28calculate_free_sphere_parameters},
-  {"perform_voronoi_decomposition", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_31perform_voronoi_decomposition, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_10netstorage_11AtomNetwork_30perform_voronoi_decomposition},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_33__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_35__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_5pyzeo_10netstorage_AtomNetwork[] = {
+  {"copy", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_7copy, METH_NOARGS, __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_6copy},
+  {"read_from_CIF", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_9read_from_CIF, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_8read_from_CIF},
+  {"read_from_ARC", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_11read_from_ARC, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_10read_from_ARC},
+  {"read_from_CSSR", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_13read_from_CSSR, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_12read_from_CSSR},
+  {"read_from_V1", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_15read_from_V1, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_14read_from_V1},
+  {"write_to_CSSR", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_17write_to_CSSR, METH_O, __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_16write_to_CSSR},
+  {"write_to_CIF", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_19write_to_CIF, METH_O, __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_18write_to_CIF},
+  {"write_to_V1", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_21write_to_V1, METH_O, __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_20write_to_V1},
+  {"write_to_XYZ", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_23write_to_XYZ, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_22write_to_XYZ},
+  {"write_to_VTK", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_25write_to_VTK, METH_O, __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_24write_to_VTK},
+  {"write_to_MOPAC", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_27write_to_MOPAC, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_26write_to_MOPAC},
+  {"calculate_free_sphere_parameters", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_29calculate_free_sphere_parameters, METH_O, __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_28calculate_free_sphere_parameters},
+  {"perform_voronoi_decomposition", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_31perform_voronoi_decomposition, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_10netstorage_11AtomNetwork_30perform_voronoi_decomposition},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_33__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_11AtomNetwork_35__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_11zeoplusplus_10netstorage_AtomNetwork = {
+static PyTypeObject __pyx_type_5pyzeo_10netstorage_AtomNetwork = {
   PyVarObject_HEAD_INIT(0, 0)
-  "zeoplusplus.netstorage.AtomNetwork", /*tp_name*/
-  sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork), /*tp_basicsize*/
+  "pyzeo.netstorage.AtomNetwork", /*tp_name*/
+  sizeof(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_11zeoplusplus_10netstorage_AtomNetwork, /*tp_dealloc*/
+  __pyx_tp_dealloc_5pyzeo_10netstorage_AtomNetwork, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -8631,7 +8614,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_10netstorage_AtomNetwork = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_11zeoplusplus_10netstorage_AtomNetwork, /*tp_methods*/
+  __pyx_methods_5pyzeo_10netstorage_AtomNetwork, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -8639,9 +8622,9 @@ static PyTypeObject __pyx_type_11zeoplusplus_10netstorage_AtomNetwork = {
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_11zeoplusplus_10netstorage_11AtomNetwork_3__init__, /*tp_init*/
+  __pyx_pw_5pyzeo_10netstorage_11AtomNetwork_3__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_11zeoplusplus_10netstorage_AtomNetwork, /*tp_new*/
+  __pyx_tp_new_5pyzeo_10netstorage_AtomNetwork, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -8665,7 +8648,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_10netstorage_AtomNetwork = {
   #endif
 };
 
-static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage_VoronoiNode(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5pyzeo_10netstorage_VoronoiNode(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -8673,14 +8656,14 @@ static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage_VoronoiNode(PyTypeObjec
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  if (unlikely(__pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
+  if (unlikely(__pyx_pw_5pyzeo_10netstorage_11VoronoiNode_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
   return o;
   bad:
   Py_DECREF(o); o = 0;
   return NULL;
 }
 
-static void __pyx_tp_dealloc_11zeoplusplus_10netstorage_VoronoiNode(PyObject *o) {
+static void __pyx_tp_dealloc_5pyzeo_10netstorage_VoronoiNode(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -8690,20 +8673,20 @@ static void __pyx_tp_dealloc_11zeoplusplus_10netstorage_VoronoiNode(PyObject *o)
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) + 1);
-    __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_5__dealloc__(o);
+    __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_5__dealloc__(o);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) - 1);
     PyErr_Restore(etype, eval, etb);
   }
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static PyObject *__pyx_getprop_11zeoplusplus_10netstorage_11VoronoiNode_coords(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_6coords_1__get__(o);
+static PyObject *__pyx_getprop_5pyzeo_10netstorage_11VoronoiNode_coords(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_6coords_1__get__(o);
 }
 
-static int __pyx_setprop_11zeoplusplus_10netstorage_11VoronoiNode_coords(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_5pyzeo_10netstorage_11VoronoiNode_coords(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_6coords_3__set__(o, v);
+    return __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_6coords_3__set__(o, v);
   }
   else {
     PyErr_SetString(PyExc_NotImplementedError, "__del__");
@@ -8711,13 +8694,13 @@ static int __pyx_setprop_11zeoplusplus_10netstorage_11VoronoiNode_coords(PyObjec
   }
 }
 
-static PyObject *__pyx_getprop_11zeoplusplus_10netstorage_11VoronoiNode_radius(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_6radius_1__get__(o);
+static PyObject *__pyx_getprop_5pyzeo_10netstorage_11VoronoiNode_radius(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_6radius_1__get__(o);
 }
 
-static int __pyx_setprop_11zeoplusplus_10netstorage_11VoronoiNode_radius(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_5pyzeo_10netstorage_11VoronoiNode_radius(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_6radius_3__set__(o, v);
+    return __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_6radius_3__set__(o, v);
   }
   else {
     PyErr_SetString(PyExc_NotImplementedError, "__del__");
@@ -8725,24 +8708,24 @@ static int __pyx_setprop_11zeoplusplus_10netstorage_11VoronoiNode_radius(PyObjec
   }
 }
 
-static PyMethodDef __pyx_methods_11zeoplusplus_10netstorage_VoronoiNode[] = {
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_7__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_9__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_5pyzeo_10netstorage_VoronoiNode[] = {
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_11VoronoiNode_7__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_11VoronoiNode_9__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static struct PyGetSetDef __pyx_getsets_11zeoplusplus_10netstorage_VoronoiNode[] = {
-  {(char *)"coords", __pyx_getprop_11zeoplusplus_10netstorage_11VoronoiNode_coords, __pyx_setprop_11zeoplusplus_10netstorage_11VoronoiNode_coords, (char *)0, 0},
-  {(char *)"radius", __pyx_getprop_11zeoplusplus_10netstorage_11VoronoiNode_radius, __pyx_setprop_11zeoplusplus_10netstorage_11VoronoiNode_radius, (char *)0, 0},
+static struct PyGetSetDef __pyx_getsets_5pyzeo_10netstorage_VoronoiNode[] = {
+  {(char *)"coords", __pyx_getprop_5pyzeo_10netstorage_11VoronoiNode_coords, __pyx_setprop_5pyzeo_10netstorage_11VoronoiNode_coords, (char *)0, 0},
+  {(char *)"radius", __pyx_getprop_5pyzeo_10netstorage_11VoronoiNode_radius, __pyx_setprop_5pyzeo_10netstorage_11VoronoiNode_radius, (char *)0, 0},
   {0, 0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_11zeoplusplus_10netstorage_VoronoiNode = {
+static PyTypeObject __pyx_type_5pyzeo_10netstorage_VoronoiNode = {
   PyVarObject_HEAD_INIT(0, 0)
-  "zeoplusplus.netstorage.VoronoiNode", /*tp_name*/
-  sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode), /*tp_basicsize*/
+  "pyzeo.netstorage.VoronoiNode", /*tp_name*/
+  sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_11zeoplusplus_10netstorage_VoronoiNode, /*tp_dealloc*/
+  __pyx_tp_dealloc_5pyzeo_10netstorage_VoronoiNode, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -8775,17 +8758,17 @@ static PyTypeObject __pyx_type_11zeoplusplus_10netstorage_VoronoiNode = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_11zeoplusplus_10netstorage_VoronoiNode, /*tp_methods*/
+  __pyx_methods_5pyzeo_10netstorage_VoronoiNode, /*tp_methods*/
   0, /*tp_members*/
-  __pyx_getsets_11zeoplusplus_10netstorage_VoronoiNode, /*tp_getset*/
+  __pyx_getsets_5pyzeo_10netstorage_VoronoiNode, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_11zeoplusplus_10netstorage_11VoronoiNode_3__init__, /*tp_init*/
+  __pyx_pw_5pyzeo_10netstorage_11VoronoiNode_3__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_11zeoplusplus_10netstorage_VoronoiNode, /*tp_new*/
+  __pyx_tp_new_5pyzeo_10netstorage_VoronoiNode, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -8809,7 +8792,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_10netstorage_VoronoiNode = {
   #endif
 };
 
-static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage_VoronoiNetwork(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5pyzeo_10netstorage_VoronoiNetwork(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -8817,14 +8800,14 @@ static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage_VoronoiNetwork(PyTypeOb
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  if (unlikely(__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
+  if (unlikely(__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
   return o;
   bad:
   Py_DECREF(o); o = 0;
   return NULL;
 }
 
-static void __pyx_tp_dealloc_11zeoplusplus_10netstorage_VoronoiNetwork(PyObject *o) {
+static void __pyx_tp_dealloc_5pyzeo_10netstorage_VoronoiNetwork(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -8834,30 +8817,30 @@ static void __pyx_tp_dealloc_11zeoplusplus_10netstorage_VoronoiNetwork(PyObject 
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) + 1);
-    __pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_5__dealloc__(o);
+    __pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_5__dealloc__(o);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) - 1);
     PyErr_Restore(etype, eval, etb);
   }
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static PyMethodDef __pyx_methods_11zeoplusplus_10netstorage_VoronoiNetwork[] = {
-  {"size", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_7size, METH_NOARGS, 0},
-  {"prune", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_9prune, METH_O, __pyx_doc_11zeoplusplus_10netstorage_14VoronoiNetwork_8prune},
-  {"analyze_writeto_XYZ", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_11analyze_writeto_XYZ, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_10netstorage_14VoronoiNetwork_10analyze_writeto_XYZ},
-  {"write_to_XYZ", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_13write_to_XYZ, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_10netstorage_14VoronoiNetwork_12write_to_XYZ},
-  {"perform_voronoi_decomposition", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_15perform_voronoi_decomposition, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_10netstorage_14VoronoiNetwork_14perform_voronoi_decomposition},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_17__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_19__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_5pyzeo_10netstorage_VoronoiNetwork[] = {
+  {"size", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_7size, METH_NOARGS, 0},
+  {"prune", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_9prune, METH_O, __pyx_doc_5pyzeo_10netstorage_14VoronoiNetwork_8prune},
+  {"analyze_writeto_XYZ", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_11analyze_writeto_XYZ, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_10netstorage_14VoronoiNetwork_10analyze_writeto_XYZ},
+  {"write_to_XYZ", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_13write_to_XYZ, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_10netstorage_14VoronoiNetwork_12write_to_XYZ},
+  {"perform_voronoi_decomposition", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_15perform_voronoi_decomposition, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_10netstorage_14VoronoiNetwork_14perform_voronoi_decomposition},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_17__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_19__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_11zeoplusplus_10netstorage_VoronoiNetwork = {
+static PyTypeObject __pyx_type_5pyzeo_10netstorage_VoronoiNetwork = {
   PyVarObject_HEAD_INIT(0, 0)
-  "zeoplusplus.netstorage.VoronoiNetwork", /*tp_name*/
-  sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork), /*tp_basicsize*/
+  "pyzeo.netstorage.VoronoiNetwork", /*tp_name*/
+  sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_11zeoplusplus_10netstorage_VoronoiNetwork, /*tp_dealloc*/
+  __pyx_tp_dealloc_5pyzeo_10netstorage_VoronoiNetwork, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -8890,7 +8873,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_10netstorage_VoronoiNetwork = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_11zeoplusplus_10netstorage_VoronoiNetwork, /*tp_methods*/
+  __pyx_methods_5pyzeo_10netstorage_VoronoiNetwork, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -8898,9 +8881,9 @@ static PyTypeObject __pyx_type_11zeoplusplus_10netstorage_VoronoiNetwork = {
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_11zeoplusplus_10netstorage_14VoronoiNetwork_3__init__, /*tp_init*/
+  __pyx_pw_5pyzeo_10netstorage_14VoronoiNetwork_3__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_11zeoplusplus_10netstorage_VoronoiNetwork, /*tp_new*/
+  __pyx_tp_new_5pyzeo_10netstorage_VoronoiNetwork, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -8924,14 +8907,14 @@ static PyTypeObject __pyx_type_11zeoplusplus_10netstorage_VoronoiNetwork = {
   #endif
 };
 
-static struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *__pyx_freelist_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition[8];
-static int __pyx_freecount_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition = 0;
+static struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *__pyx_freelist_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition[8];
+static int __pyx_freecount_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition = 0;
 
-static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition)))) {
-    o = (PyObject*)__pyx_freelist_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition[--__pyx_freecount_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition];
-    memset(o, 0, sizeof(struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition));
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition)))) {
+    o = (PyObject*)__pyx_freelist_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition[--__pyx_freecount_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition];
+    memset(o, 0, sizeof(struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else {
@@ -8941,41 +8924,41 @@ static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage___pyx_scope_struct__per
   return o;
 }
 
-static void __pyx_tp_dealloc_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition(PyObject *o) {
-  struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *p = (struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *)o;
+static void __pyx_tp_dealloc_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition(PyObject *o) {
+  struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *p = (struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *)o;
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->__pyx_v_edge_center);
-  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition)))) {
-    __pyx_freelist_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition[__pyx_freecount_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition++] = ((struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *)o);
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition)))) {
+    __pyx_freelist_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition[__pyx_freecount_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition++] = ((struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *)o);
   } else {
     (*Py_TYPE(o)->tp_free)(o);
   }
 }
 
-static int __pyx_tp_traverse_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *p = (struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *)o;
+  struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *p = (struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *)o;
   if (p->__pyx_v_edge_center) {
     e = (*v)(p->__pyx_v_edge_center, a); if (e) return e;
   }
   return 0;
 }
 
-static int __pyx_tp_clear_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition(PyObject *o) {
+static int __pyx_tp_clear_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition(PyObject *o) {
   PyObject* tmp;
-  struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *p = (struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *)o;
+  struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *p = (struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition *)o;
   tmp = ((PyObject*)p->__pyx_v_edge_center);
   p->__pyx_v_edge_center = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   return 0;
 }
 
-static PyTypeObject __pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition = {
+static PyTypeObject __pyx_type_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition = {
   PyVarObject_HEAD_INIT(0, 0)
-  "zeoplusplus.netstorage.__pyx_scope_struct__perform_voronoi_decomposition", /*tp_name*/
-  sizeof(struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition), /*tp_basicsize*/
+  "pyzeo.netstorage.__pyx_scope_struct__perform_voronoi_decomposition", /*tp_name*/
+  sizeof(struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition, /*tp_dealloc*/
+  __pyx_tp_dealloc_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -9002,8 +8985,8 @@ static PyTypeObject __pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct__pe
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition, /*tp_traverse*/
-  __pyx_tp_clear_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition, /*tp_clear*/
+  __pyx_tp_traverse_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition, /*tp_traverse*/
+  __pyx_tp_clear_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
@@ -9018,7 +9001,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct__pe
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition, /*tp_new*/
+  __pyx_tp_new_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -9042,14 +9025,14 @@ static PyTypeObject __pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct__pe
   #endif
 };
 
-static struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr *__pyx_freelist_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr[8];
-static int __pyx_freecount_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr = 0;
+static struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr *__pyx_freelist_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr[8];
+static int __pyx_freecount_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr = 0;
 
-static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr)))) {
-    o = (PyObject*)__pyx_freelist_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr[--__pyx_freecount_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr];
-    memset(o, 0, sizeof(struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr));
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr)))) {
+    o = (PyObject*)__pyx_freelist_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr[--__pyx_freecount_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr];
+    memset(o, 0, sizeof(struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else {
@@ -9059,22 +9042,22 @@ static PyObject *__pyx_tp_new_11zeoplusplus_10netstorage___pyx_scope_struct_1_ge
   return o;
 }
 
-static void __pyx_tp_dealloc_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr(PyObject *o) {
-  struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr *p = (struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr *)o;
+static void __pyx_tp_dealloc_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr(PyObject *o) {
+  struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr *p = (struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr *)o;
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->__pyx_outer_scope);
   Py_CLEAR(p->__pyx_v_x);
   Py_CLEAR(p->__pyx_t_0);
-  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr)))) {
-    __pyx_freelist_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr[__pyx_freecount_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr++] = ((struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr *)o);
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr)))) {
+    __pyx_freelist_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr[__pyx_freecount_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr++] = ((struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr *)o);
   } else {
     (*Py_TYPE(o)->tp_free)(o);
   }
 }
 
-static int __pyx_tp_traverse_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr *p = (struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr *)o;
+  struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr *p = (struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr *)o;
   if (p->__pyx_outer_scope) {
     e = (*v)(((PyObject *)p->__pyx_outer_scope), a); if (e) return e;
   }
@@ -9087,12 +9070,12 @@ static int __pyx_tp_traverse_11zeoplusplus_10netstorage___pyx_scope_struct_1_gen
   return 0;
 }
 
-static PyTypeObject __pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr = {
+static PyTypeObject __pyx_type_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr = {
   PyVarObject_HEAD_INIT(0, 0)
-  "zeoplusplus.netstorage.__pyx_scope_struct_1_genexpr", /*tp_name*/
-  sizeof(struct __pyx_obj_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr), /*tp_basicsize*/
+  "pyzeo.netstorage.__pyx_scope_struct_1_genexpr", /*tp_name*/
+  sizeof(struct __pyx_obj_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr, /*tp_dealloc*/
+  __pyx_tp_dealloc_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -9119,7 +9102,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct_1_g
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr, /*tp_traverse*/
+  __pyx_tp_traverse_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -9135,7 +9118,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct_1_g
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr, /*tp_new*/
+  __pyx_tp_new_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -9241,6 +9224,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_perform_voronoi_decomposition_lo, __pyx_k_perform_voronoi_decomposition_lo, sizeof(__pyx_k_perform_voronoi_decomposition_lo), 0, 0, 1, 1},
   {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
   {&__pyx_n_s_probeRad, __pyx_k_probeRad, sizeof(__pyx_k_probeRad), 0, 0, 1, 1},
+  {&__pyx_n_s_pyzeo_netstorage, __pyx_k_pyzeo_netstorage, sizeof(__pyx_k_pyzeo_netstorage), 0, 0, 1, 1},
   {&__pyx_n_s_rad_file, __pyx_k_rad_file, sizeof(__pyx_k_rad_file), 0, 0, 1, 1},
   {&__pyx_n_s_rad_flag, __pyx_k_rad_flag, sizeof(__pyx_k_rad_flag), 0, 0, 1, 1},
   {&__pyx_n_s_radialFlag, __pyx_k_radialFlag, sizeof(__pyx_k_radialFlag), 0, 0, 1, 1},
@@ -9259,7 +9243,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_shift_x, __pyx_k_shift_x, sizeof(__pyx_k_shift_x), 0, 0, 1, 1},
   {&__pyx_n_s_shift_y, __pyx_k_shift_y, sizeof(__pyx_k_shift_y), 0, 0, 1, 1},
   {&__pyx_n_s_shift_z, __pyx_k_shift_z, sizeof(__pyx_k_shift_z), 0, 0, 1, 1},
-  {&__pyx_kp_s_src_zeoplusplus_netstorage_pyx, __pyx_k_src_zeoplusplus_netstorage_pyx, sizeof(__pyx_k_src_zeoplusplus_netstorage_pyx), 0, 0, 1, 0},
+  {&__pyx_kp_s_src_pyzeo_netstorage_pyx, __pyx_k_src_pyzeo_netstorage_pyx, sizeof(__pyx_k_src_pyzeo_netstorage_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_subNo, __pyx_k_subNo, sizeof(__pyx_k_subNo), 0, 0, 1, 1},
   {&__pyx_n_s_substituteSeed, __pyx_k_substituteSeed, sizeof(__pyx_k_substituteSeed), 0, 0, 1, 1},
   {&__pyx_n_s_substitute_atoms, __pyx_k_substitute_atoms, sizeof(__pyx_k_substitute_atoms), 0, 0, 1, 1},
@@ -9270,7 +9254,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_x, __pyx_k_x, sizeof(__pyx_k_x), 0, 0, 1, 1},
   {&__pyx_n_s_y, __pyx_k_y, sizeof(__pyx_k_y), 0, 0, 1, 1},
   {&__pyx_n_s_z, __pyx_k_z, sizeof(__pyx_k_z), 0, 0, 1, 1},
-  {&__pyx_n_s_zeoplusplus_netstorage, __pyx_k_zeoplusplus_netstorage, sizeof(__pyx_k_zeoplusplus_netstorage), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
@@ -9363,7 +9346,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "zeoplusplus/netstorage.pyx":601
+  /* "pyzeo/netstorage.pyx":601
  *         return vornet
  * 
  * def substitute_atoms(atmnet, substituteSeed, radialFlag):             # <<<<<<<<<<<<<<
@@ -9373,7 +9356,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__9 = PyTuple_Pack(7, __pyx_n_s_atmnet, __pyx_n_s_substituteSeed, __pyx_n_s_radialFlag, __pyx_n_s_substitutionNo, __pyx_n_s_atmnet_copy, __pyx_n_s_c_atmnet_ptr, __pyx_n_s_subNo); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(1, 601, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(3, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_netstorage_pyx, __pyx_n_s_substitute_atoms, 601, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(1, 601, __pyx_L1_error)
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(3, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_pyzeo_netstorage_pyx, __pyx_n_s_substitute_atoms, 601, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(1, 601, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -9428,62 +9411,62 @@ static int __Pyx_modinit_type_init_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_11zeoplusplus_10netstorage_Atom) < 0) __PYX_ERR(1, 21, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5pyzeo_10netstorage_Atom) < 0) __PYX_ERR(1, 21, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_11zeoplusplus_10netstorage_Atom.tp_print = 0;
+  __pyx_type_5pyzeo_10netstorage_Atom.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_11zeoplusplus_10netstorage_Atom.tp_dictoffset && __pyx_type_11zeoplusplus_10netstorage_Atom.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_11zeoplusplus_10netstorage_Atom.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5pyzeo_10netstorage_Atom.tp_dictoffset && __pyx_type_5pyzeo_10netstorage_Atom.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5pyzeo_10netstorage_Atom.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Atom, (PyObject *)&__pyx_type_11zeoplusplus_10netstorage_Atom) < 0) __PYX_ERR(1, 21, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_11zeoplusplus_10netstorage_Atom) < 0) __PYX_ERR(1, 21, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_Atom = &__pyx_type_11zeoplusplus_10netstorage_Atom;
-  if (PyType_Ready(&__pyx_type_11zeoplusplus_10netstorage_AtomNetwork) < 0) __PYX_ERR(1, 54, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Atom, (PyObject *)&__pyx_type_5pyzeo_10netstorage_Atom) < 0) __PYX_ERR(1, 21, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5pyzeo_10netstorage_Atom) < 0) __PYX_ERR(1, 21, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_Atom = &__pyx_type_5pyzeo_10netstorage_Atom;
+  if (PyType_Ready(&__pyx_type_5pyzeo_10netstorage_AtomNetwork) < 0) __PYX_ERR(1, 54, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_11zeoplusplus_10netstorage_AtomNetwork.tp_print = 0;
+  __pyx_type_5pyzeo_10netstorage_AtomNetwork.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_11zeoplusplus_10netstorage_AtomNetwork.tp_dictoffset && __pyx_type_11zeoplusplus_10netstorage_AtomNetwork.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_11zeoplusplus_10netstorage_AtomNetwork.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5pyzeo_10netstorage_AtomNetwork.tp_dictoffset && __pyx_type_5pyzeo_10netstorage_AtomNetwork.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5pyzeo_10netstorage_AtomNetwork.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_AtomNetwork, (PyObject *)&__pyx_type_11zeoplusplus_10netstorage_AtomNetwork) < 0) __PYX_ERR(1, 54, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_11zeoplusplus_10netstorage_AtomNetwork) < 0) __PYX_ERR(1, 54, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork = &__pyx_type_11zeoplusplus_10netstorage_AtomNetwork;
-  if (PyType_Ready(&__pyx_type_11zeoplusplus_10netstorage_VoronoiNode) < 0) __PYX_ERR(1, 451, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_AtomNetwork, (PyObject *)&__pyx_type_5pyzeo_10netstorage_AtomNetwork) < 0) __PYX_ERR(1, 54, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5pyzeo_10netstorage_AtomNetwork) < 0) __PYX_ERR(1, 54, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_AtomNetwork = &__pyx_type_5pyzeo_10netstorage_AtomNetwork;
+  if (PyType_Ready(&__pyx_type_5pyzeo_10netstorage_VoronoiNode) < 0) __PYX_ERR(1, 451, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_11zeoplusplus_10netstorage_VoronoiNode.tp_print = 0;
+  __pyx_type_5pyzeo_10netstorage_VoronoiNode.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_11zeoplusplus_10netstorage_VoronoiNode.tp_dictoffset && __pyx_type_11zeoplusplus_10netstorage_VoronoiNode.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_11zeoplusplus_10netstorage_VoronoiNode.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5pyzeo_10netstorage_VoronoiNode.tp_dictoffset && __pyx_type_5pyzeo_10netstorage_VoronoiNode.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5pyzeo_10netstorage_VoronoiNode.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_VoronoiNode, (PyObject *)&__pyx_type_11zeoplusplus_10netstorage_VoronoiNode) < 0) __PYX_ERR(1, 451, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_11zeoplusplus_10netstorage_VoronoiNode) < 0) __PYX_ERR(1, 451, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode = &__pyx_type_11zeoplusplus_10netstorage_VoronoiNode;
-  if (PyType_Ready(&__pyx_type_11zeoplusplus_10netstorage_VoronoiNetwork) < 0) __PYX_ERR(1, 483, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_VoronoiNode, (PyObject *)&__pyx_type_5pyzeo_10netstorage_VoronoiNode) < 0) __PYX_ERR(1, 451, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5pyzeo_10netstorage_VoronoiNode) < 0) __PYX_ERR(1, 451, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNode = &__pyx_type_5pyzeo_10netstorage_VoronoiNode;
+  if (PyType_Ready(&__pyx_type_5pyzeo_10netstorage_VoronoiNetwork) < 0) __PYX_ERR(1, 483, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_11zeoplusplus_10netstorage_VoronoiNetwork.tp_print = 0;
+  __pyx_type_5pyzeo_10netstorage_VoronoiNetwork.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_11zeoplusplus_10netstorage_VoronoiNetwork.tp_dictoffset && __pyx_type_11zeoplusplus_10netstorage_VoronoiNetwork.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_11zeoplusplus_10netstorage_VoronoiNetwork.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5pyzeo_10netstorage_VoronoiNetwork.tp_dictoffset && __pyx_type_5pyzeo_10netstorage_VoronoiNetwork.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5pyzeo_10netstorage_VoronoiNetwork.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_VoronoiNetwork, (PyObject *)&__pyx_type_11zeoplusplus_10netstorage_VoronoiNetwork) < 0) __PYX_ERR(1, 483, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_11zeoplusplus_10netstorage_VoronoiNetwork) < 0) __PYX_ERR(1, 483, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork = &__pyx_type_11zeoplusplus_10netstorage_VoronoiNetwork;
-  if (PyType_Ready(&__pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition) < 0) __PYX_ERR(1, 361, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_VoronoiNetwork, (PyObject *)&__pyx_type_5pyzeo_10netstorage_VoronoiNetwork) < 0) __PYX_ERR(1, 483, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5pyzeo_10netstorage_VoronoiNetwork) < 0) __PYX_ERR(1, 483, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = &__pyx_type_5pyzeo_10netstorage_VoronoiNetwork;
+  if (PyType_Ready(&__pyx_type_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition) < 0) __PYX_ERR(1, 361, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition.tp_print = 0;
+  __pyx_type_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition.tp_dictoffset && __pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition.tp_dictoffset && __pyx_type_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
-  __pyx_ptype_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition = &__pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct__perform_voronoi_decomposition;
-  if (PyType_Ready(&__pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr) < 0) __PYX_ERR(1, 394, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition = &__pyx_type_5pyzeo_10netstorage___pyx_scope_struct__perform_voronoi_decomposition;
+  if (PyType_Ready(&__pyx_type_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr) < 0) __PYX_ERR(1, 394, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr.tp_print = 0;
+  __pyx_type_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr.tp_dictoffset && __pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr.tp_dictoffset && __pyx_type_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
-  __pyx_ptype_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr = &__pyx_type_11zeoplusplus_10netstorage___pyx_scope_struct_1_genexpr;
+  __pyx_ptype_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr = &__pyx_type_5pyzeo_10netstorage___pyx_scope_struct_1_genexpr;
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -9499,21 +9482,21 @@ static int __Pyx_modinit_type_import_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.geometry"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 24, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.geometry"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_8geometry_Xyz = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.geometry", "Xyz", sizeof(struct __pyx_obj_11zeoplusplus_8geometry_Xyz), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_8geometry_Xyz) __PYX_ERR(2, 24, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_8geometry_Point = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.geometry", "Point", sizeof(struct __pyx_obj_11zeoplusplus_8geometry_Point), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_8geometry_Point) __PYX_ERR(2, 32, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_8geometry_Xyz = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Xyz", sizeof(struct __pyx_obj_5pyzeo_8geometry_Xyz), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Xyz) __PYX_ERR(2, 24, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_8geometry_Point = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Point", sizeof(struct __pyx_obj_5pyzeo_8geometry_Point), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Point) __PYX_ERR(2, 32, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.voronoicell"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 39, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.voronoicell"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_11voronoicell_VorFace = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "VorFace", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_VorFace) __PYX_ERR(3, 39, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_11voronoicell_VorCell = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "VorCell", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_VorCell) __PYX_ERR(3, 42, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "BasicVCell", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell) __PYX_ERR(3, 45, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_VorFace = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "VorFace", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorFace), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_VorFace) __PYX_ERR(3, 39, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_VorCell = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "VorCell", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorCell), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_VorCell) __PYX_ERR(3, 42, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_BasicVCell = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "BasicVCell", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_BasicVCell) __PYX_ERR(3, 45, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -9712,14 +9695,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_zeoplusplus__netstorage) {
+  if (__pyx_module_is_main_pyzeo__netstorage) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name_2, __pyx_n_s_main) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(1, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "zeoplusplus.netstorage")) {
-      if (unlikely(PyDict_SetItemString(modules, "zeoplusplus.netstorage", __pyx_m) < 0)) __PYX_ERR(1, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "pyzeo.netstorage")) {
+      if (unlikely(PyDict_SetItemString(modules, "pyzeo.netstorage", __pyx_m) < 0)) __PYX_ERR(1, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -9740,7 +9723,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   #endif
 
-  /* "zeoplusplus/netstorage.pyx":6
+  /* "pyzeo/netstorage.pyx":6
  * """
  * 
  * __author__ = "Bharat Medasani"             # <<<<<<<<<<<<<<
@@ -9749,7 +9732,7 @@ if (!__Pyx_RefNanny) {
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_author, __pyx_kp_s_Bharat_Medasani) < 0) __PYX_ERR(1, 6, __pyx_L1_error)
 
-  /* "zeoplusplus/netstorage.pyx":7
+  /* "pyzeo/netstorage.pyx":7
  * 
  * __author__ = "Bharat Medasani"
  * __maintainer__ = "Bharat Medasani"             # <<<<<<<<<<<<<<
@@ -9758,7 +9741,7 @@ if (!__Pyx_RefNanny) {
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_maintainer, __pyx_kp_s_Bharat_Medasani) < 0) __PYX_ERR(1, 7, __pyx_L1_error)
 
-  /* "zeoplusplus/netstorage.pyx":8
+  /* "pyzeo/netstorage.pyx":8
  * __author__ = "Bharat Medasani"
  * __maintainer__ = "Bharat Medasani"
  * __email__ = "mbkumar@gmail.com"             # <<<<<<<<<<<<<<
@@ -9767,7 +9750,7 @@ if (!__Pyx_RefNanny) {
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_email, __pyx_kp_s_mbkumar_gmail_com) < 0) __PYX_ERR(1, 8, __pyx_L1_error)
 
-  /* "zeoplusplus/netstorage.pyx":9
+  /* "pyzeo/netstorage.pyx":9
  * __maintainer__ = "Bharat Medasani"
  * __email__ = "mbkumar@gmail.com"
  * __date__ = "Dec 12, 2013"             # <<<<<<<<<<<<<<
@@ -9776,17 +9759,17 @@ if (!__Pyx_RefNanny) {
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_date, __pyx_kp_s_Dec_12_2013) < 0) __PYX_ERR(1, 9, __pyx_L1_error)
 
-  /* "zeoplusplus/netstorage.pyx":95
+  /* "pyzeo/netstorage.pyx":95
  * 
  *     @classmethod
  *     def read_from_CIF(cls, filename, rad_flag=True, rad_file=None):             # <<<<<<<<<<<<<<
  *         """
  *         Static method to create and populate the AtomNetwork with
  */
-  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork, __pyx_n_s_read_from_CIF); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 95, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_5pyzeo_10netstorage_AtomNetwork, __pyx_n_s_read_from_CIF); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "zeoplusplus/netstorage.pyx":94
+  /* "pyzeo/netstorage.pyx":94
  *     #            rel_point.vals[2])
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -9796,21 +9779,21 @@ if (!__Pyx_RefNanny) {
   __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork->tp_dict, __pyx_n_s_read_from_CIF, __pyx_t_2) < 0) __PYX_ERR(1, 95, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5pyzeo_10netstorage_AtomNetwork->tp_dict, __pyx_n_s_read_from_CIF, __pyx_t_2) < 0) __PYX_ERR(1, 95, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork);
+  PyType_Modified(__pyx_ptype_5pyzeo_10netstorage_AtomNetwork);
 
-  /* "zeoplusplus/netstorage.pyx":134
+  /* "pyzeo/netstorage.pyx":134
  * 
  *     @classmethod
  *     def read_from_ARC(cls, filename, rad_flag=True, rad_file=None):             # <<<<<<<<<<<<<<
  *         """
  *         Static method to create and populate the AtomNetwork with
  */
-  __Pyx_GetNameInClass(__pyx_t_2, (PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork, __pyx_n_s_read_from_ARC); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 134, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_2, (PyObject *)__pyx_ptype_5pyzeo_10netstorage_AtomNetwork, __pyx_n_s_read_from_ARC); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 134, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "zeoplusplus/netstorage.pyx":133
+  /* "pyzeo/netstorage.pyx":133
  *         return atmnet
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -9820,21 +9803,21 @@ if (!__Pyx_RefNanny) {
   __pyx_t_1 = __Pyx_Method_ClassMethod(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 133, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork->tp_dict, __pyx_n_s_read_from_ARC, __pyx_t_1) < 0) __PYX_ERR(1, 134, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5pyzeo_10netstorage_AtomNetwork->tp_dict, __pyx_n_s_read_from_ARC, __pyx_t_1) < 0) __PYX_ERR(1, 134, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  PyType_Modified(__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork);
+  PyType_Modified(__pyx_ptype_5pyzeo_10netstorage_AtomNetwork);
 
-  /* "zeoplusplus/netstorage.pyx":173
+  /* "pyzeo/netstorage.pyx":173
  * 
  *     @classmethod
  *     def read_from_CSSR(cls, filename, rad_flag=True, rad_file=None):             # <<<<<<<<<<<<<<
  *         """
  *         Static method to create and populate the AtomNetwork with
  */
-  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork, __pyx_n_s_read_from_CSSR); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 173, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_5pyzeo_10netstorage_AtomNetwork, __pyx_n_s_read_from_CSSR); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 173, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "zeoplusplus/netstorage.pyx":172
+  /* "pyzeo/netstorage.pyx":172
  *         return atmnet
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -9844,21 +9827,21 @@ if (!__Pyx_RefNanny) {
   __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork->tp_dict, __pyx_n_s_read_from_CSSR, __pyx_t_2) < 0) __PYX_ERR(1, 173, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5pyzeo_10netstorage_AtomNetwork->tp_dict, __pyx_n_s_read_from_CSSR, __pyx_t_2) < 0) __PYX_ERR(1, 173, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork);
+  PyType_Modified(__pyx_ptype_5pyzeo_10netstorage_AtomNetwork);
 
-  /* "zeoplusplus/netstorage.pyx":213
+  /* "pyzeo/netstorage.pyx":213
  * 
  *     @classmethod
  *     def read_from_V1(cls, filename, rad_flag=True, rad_file=None):             # <<<<<<<<<<<<<<
  *         """
  *         Static method to create and populate the AtomNetwork with
  */
-  __Pyx_GetNameInClass(__pyx_t_2, (PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork, __pyx_n_s_read_from_V1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 213, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_2, (PyObject *)__pyx_ptype_5pyzeo_10netstorage_AtomNetwork, __pyx_n_s_read_from_V1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 213, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "zeoplusplus/netstorage.pyx":212
+  /* "pyzeo/netstorage.pyx":212
  *         return atmnet
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -9868,21 +9851,21 @@ if (!__Pyx_RefNanny) {
   __pyx_t_1 = __Pyx_Method_ClassMethod(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 212, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork->tp_dict, __pyx_n_s_read_from_V1, __pyx_t_1) < 0) __PYX_ERR(1, 213, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5pyzeo_10netstorage_AtomNetwork->tp_dict, __pyx_n_s_read_from_V1, __pyx_t_1) < 0) __PYX_ERR(1, 213, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  PyType_Modified(__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork);
+  PyType_Modified(__pyx_ptype_5pyzeo_10netstorage_AtomNetwork);
 
-  /* "zeoplusplus/netstorage.pyx":565
+  /* "pyzeo/netstorage.pyx":565
  * 
  *     @classmethod
  *     def perform_voronoi_decomposition(cls, atmnet, saveVorCells=False):             # <<<<<<<<<<<<<<
  *         """
  *         Performs weighted voronoi decomposition of atoms in the AtomNetwork
  */
-  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork, __pyx_n_s_perform_voronoi_decomposition); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 565, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork, __pyx_n_s_perform_voronoi_decomposition); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 565, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "zeoplusplus/netstorage.pyx":564
+  /* "pyzeo/netstorage.pyx":564
  *             raise ValueError
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -9892,23 +9875,23 @@ if (!__Pyx_RefNanny) {
   __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 564, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork->tp_dict, __pyx_n_s_perform_voronoi_decomposition, __pyx_t_2) < 0) __PYX_ERR(1, 565, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork->tp_dict, __pyx_n_s_perform_voronoi_decomposition, __pyx_t_2) < 0) __PYX_ERR(1, 565, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork);
+  PyType_Modified(__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork);
 
-  /* "zeoplusplus/netstorage.pyx":601
+  /* "pyzeo/netstorage.pyx":601
  *         return vornet
  * 
  * def substitute_atoms(atmnet, substituteSeed, radialFlag):             # <<<<<<<<<<<<<<
  *     """
  *     Attempt to substitute every other Si atom with Al atom.
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_10netstorage_1substitute_atoms, NULL, __pyx_n_s_zeoplusplus_netstorage); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 601, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_5pyzeo_10netstorage_1substitute_atoms, NULL, __pyx_n_s_pyzeo_netstorage); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 601, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_substitute_atoms, __pyx_t_2) < 0) __PYX_ERR(1, 601, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "zeoplusplus/netstorage.pyx":1
+  /* "pyzeo/netstorage.pyx":1
  * """             # <<<<<<<<<<<<<<
  * Cython file defining methods for AtomNetwork and VoronoiNetowrk
  * declared in netstorage.pxd file.
@@ -9926,11 +9909,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init zeoplusplus.netstorage", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init pyzeo.netstorage", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init zeoplusplus.netstorage");
+    PyErr_SetString(PyExc_ImportError, "init pyzeo.netstorage");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

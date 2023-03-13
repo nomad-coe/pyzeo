@@ -8,8 +8,8 @@ from subprocess import getoutput
 
 
 # Check python version
-if sys.version_info[:2] < (3, 6):
-    raise RuntimeError("Python version >= 3.6 required.")
+if sys.version_info[:2] < (3, 8):
+    raise RuntimeError("Python version >= 3.8 required.")
 
 # The recommendation
 # (https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#distributing-cython-modules)
@@ -20,8 +20,8 @@ ext = '.pyx' if USE_CYTHON else '.cpp'
 language = "c++"
 includedirs = []
 cpp_extra_link_args = []
+
 # These default compile flags mimic the flags used in the Zeo++/Voro++ Makefile
-# with the addition of the -fPIC flag which is needed to build a shared library.
 cpp_extra_compile_args = [
     "-Wall",
     "-ansi",
@@ -69,42 +69,42 @@ common_srcfiles = [
     'src/string_additions.cc',
 ]
 netstorage_srcfiles = [
-    'src/zeoplusplus/netstorage'+ext,
+    'src/pyzeo/netstorage'+ext,
     'src/networkio.cc',
     'src/grid.cc',
     'src/symbcalc.cc',
 ] + common_srcfiles
 voronoicell_srcfiles = [
-    'src/zeoplusplus/voronoicell'+ext,
+    'src/pyzeo/voronoicell'+ext,
 ] + common_srcfiles
 highaccuracy_srcfiles = [
-    'src/zeoplusplus/high_accuracy'+ext,
+    'src/pyzeo/high_accuracy'+ext,
 	'src/networkio.cc',
 	'src/grid.cc',
 	'src/symbcalc.cc',
     'src/sphere_approx.cc',
 ] + common_srcfiles
 areavol_srcfiles = [
-    'src/zeoplusplus/area_volume'+ext,
+    'src/pyzeo/area_volume'+ext,
     'src/networkio.cc',
     'src/grid.cc',
     'src/symbcalc.cc',
 ] + common_srcfiles
 cluster_srcfiles = [
-    'src/zeoplusplus/cluster'+ext,
+    'src/pyzeo/cluster'+ext,
     'src/cluster.cc',
     'src/sphere_approx.cc',
 ] + common_srcfiles
 cycle_srcfiles = [
-    'src/zeoplusplus/cycle'+ext,
+    'src/pyzeo/cycle'+ext,
     'src/cycle.cc',
     'src/sphere_approx.cc',
 ] + common_srcfiles
 graphstorage_srcfiles = [
-    'src/zeoplusplus/graphstorage'+ext,
+    'src/pyzeo/graphstorage'+ext,
 ] + common_srcfiles
 netio_srcfiles = [
-    'src/zeoplusplus/netio'+ext,
+    'src/pyzeo/netio'+ext,
     'src/networkio.cc', 
     'src/networkinfo.cc',
     'src/string_additions.cc',
@@ -118,24 +118,24 @@ netio_srcfiles = [
     'src/rmsd.cc',
 ]
 channel_srcfiles = [
-    'src/zeoplusplus/channel'+ext,
+    'src/pyzeo/channel'+ext,
     'src/channel.cc',
 ]
 geometry_srcfiles = [
-    'src/zeoplusplus/geometry'+ext,
+    'src/pyzeo/geometry'+ext,
     'src/geometry.cc'
 ]
 netinfo_srcfiles = [
-    'src/zeoplusplus/netinfo'+ext,
+    'src/pyzeo/netinfo'+ext,
     'src/networkinfo.cc',
 ]
 psd_srcfiles = [
-    'src/zeoplusplus/psd'+ext,
+    'src/pyzeo/psd'+ext,
     'src/psd.cc',
 ]
 extensions = [
     Extension(
-        "zeoplusplus.netstorage",
+        "pyzeo.netstorage",
         sources=netstorage_srcfiles, 
         include_dirs=includedirs,
         extra_compile_args=cpp_extra_compile_args,
@@ -143,7 +143,7 @@ extensions = [
         language=language
     ),
     Extension(
-        "zeoplusplus.voronoicell",
+        "pyzeo.voronoicell",
         sources=voronoicell_srcfiles,
         include_dirs=includedirs,
         extra_compile_args=cpp_extra_compile_args,
@@ -151,7 +151,7 @@ extensions = [
         language=language
     ),
     Extension(
-        "zeoplusplus.high_accuracy", 
+        "pyzeo.high_accuracy", 
         sources=highaccuracy_srcfiles,
         include_dirs=includedirs,
         extra_compile_args=cpp_extra_compile_args,
@@ -159,7 +159,7 @@ extensions = [
         language=language
     ),
     Extension(
-        "zeoplusplus.area_volume", 
+        "pyzeo.area_volume", 
         sources=areavol_srcfiles,
         include_dirs=includedirs,
         extra_compile_args=cpp_extra_compile_args,
@@ -167,7 +167,7 @@ extensions = [
         language=language
     ),
     Extension(
-        "zeoplusplus.cluster", 
+        "pyzeo.cluster", 
         sources=cluster_srcfiles,
         include_dirs=includedirs,
         extra_compile_args=cpp_extra_compile_args,
@@ -175,7 +175,7 @@ extensions = [
         language=language
     ),
     Extension(
-        "zeoplusplus.cycle", 
+        "pyzeo.cycle", 
         sources=cycle_srcfiles,
         include_dirs=includedirs,
         extra_compile_args=cpp_extra_compile_args,
@@ -183,7 +183,7 @@ extensions = [
         language=language
     ),
     Extension(
-        "zeoplusplus.graphstorage",
+        "pyzeo.graphstorage",
         sources=graphstorage_srcfiles,
         include_dirs=includedirs,
         extra_compile_args=cpp_extra_compile_args,
@@ -191,7 +191,7 @@ extensions = [
         language=language
     ),
     Extension(
-        "zeoplusplus.netio",
+        "pyzeo.netio",
         sources=netio_srcfiles,
         include_dirs=includedirs,
         extra_compile_args=cpp_extra_compile_args,
@@ -199,7 +199,7 @@ extensions = [
         language=language
     ),
     Extension(
-        "zeoplusplus.channel", 
+        "pyzeo.channel", 
         sources=channel_srcfiles,
         include_dirs=includedirs,
         extra_compile_args=cpp_extra_compile_args,
@@ -207,21 +207,21 @@ extensions = [
         language=language
     ),
     Extension(
-        "zeoplusplus.geometry", 
+        "pyzeo.geometry", 
         sources=geometry_srcfiles,
         extra_compile_args=cpp_extra_compile_args,
         extra_link_args=cpp_extra_link_args,
         language=language
     ),
     Extension(
-        "zeoplusplus.netinfo", 
+        "pyzeo.netinfo", 
         sources=netinfo_srcfiles,
         extra_compile_args=cpp_extra_compile_args,
         extra_link_args=cpp_extra_link_args,
         language=language
     ),
     Extension(
-        "zeoplusplus.psd",
+        "pyzeo.psd",
         sources=psd_srcfiles,
         include_dirs=includedirs,
         extra_compile_args=cpp_extra_compile_args,
@@ -235,11 +235,11 @@ if USE_CYTHON:
     extensions = cythonize(extensions)
 
 setup(
-    name='zeoplusplus',
+    name='pyzeo',
     version='0.1.0',
     description="Python interface to Zeo++",
     long_description="Python interface to Zeo++",
-    url="https://github.com/lauri-codes/zeoplusplus",
+    url="https://github.com/nomad-coe/pyzeo",
     author="Lauri Himanen",
     license="",
     classifiers=[
@@ -248,8 +248,6 @@ setup(
         "Programming Language :: Cython",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
@@ -264,5 +262,5 @@ setup(
     zip_safe=False,
     ext_modules=extensions,
     keywords="zeo++ porous materials science",
-    python_requires=">=3.6",
+    python_requires=">=3.8",
 )

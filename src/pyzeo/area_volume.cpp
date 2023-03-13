@@ -4,46 +4,25 @@
 {
     "distutils": {
         "depends": [
-            "src/area_and_volume.h",
-            "src/geometry.h",
-            "src/network.h",
-            "src/networkio.h",
-            "src/networkstorage.h",
-            "src/sphere_approx.h",
-            "src/voronoicell.h"
+            "src/area_and_volume.h"
         ],
         "extra_compile_args": [
-            "-fPIC",
             "-Wall",
             "-ansi",
             "-pedantic",
             "-O3"
         ],
         "include_dirs": [
-            "src/zeoplusplus",
-            "src/voro++/src"
+            "src/pyzeo"
         ],
         "language": "c++",
-        "name": "zeoplusplus.high_accuracy",
+        "name": "pyzeo.area_volume",
         "sources": [
-            "src/zeoplusplus/high_accuracy.pyx",
+            "src/pyzeo/area_volume.pyx",
             "src/networkio.cc",
             "src/grid.cc",
             "src/symbcalc.cc",
-            "src/sphere_approx.cc",
-            "src/voro++/src/cell.cc",
-            "src/voro++/src/c_loops.cc",
-            "src/voro++/src/cmd_line.cc",
-            "src/voro++/src/common.cc",
-            "src/voro++/src/container.cc",
-            "src/voro++/src/container_prd.cc",
-            "src/voro++/src/pre_container.cc",
-            "src/voro++/src/unitcell.cc",
-            "src/voro++/src/v_base.cc",
-            "src/voro++/src/v_base_wl.cc",
-            "src/voro++/src/v_compute.cc",
             "src/voro++/src/voro++.cc",
-            "src/voro++/src/wall.cc",
             "src/networkanalysis.cc",
             "src/networkstorage.cc",
             "src/networkinfo.cc",
@@ -66,7 +45,7 @@
             "src/string_additions.cc"
         ]
     },
-    "module_name": "zeoplusplus.high_accuracy"
+    "module_name": "pyzeo.area_volume"
 }
 END: Cython Metadata */
 
@@ -822,8 +801,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__zeoplusplus__high_accuracy
-#define __PYX_HAVE_API__zeoplusplus__high_accuracy
+#define __PYX_HAVE__pyzeo__area_volume
+#define __PYX_HAVE_API__pyzeo__area_volume
 /* Early includes */
 #include <string.h>
 #include <string>
@@ -853,7 +832,6 @@ static CYTHON_INLINE float __PYX_NAN() {
 #include "../networkio.h"
 #include "../network.h"
 #include "../area_and_volume.h"
-#include "../sphere_approx.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -1063,136 +1041,136 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "src/zeoplusplus/high_accuracy.pyx",
+  "src/pyzeo/area_volume.pyx",
   "stringsource",
-  "src/zeoplusplus/geometry.pxd",
-  "src/zeoplusplus/voronoicell.pxd",
-  "src/zeoplusplus/netstorage.pxd",
+  "src/pyzeo/geometry.pxd",
+  "src/pyzeo/voronoicell.pxd",
+  "src/pyzeo/netstorage.pxd",
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_11zeoplusplus_8geometry_Xyz;
-struct __pyx_obj_11zeoplusplus_8geometry_Point;
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace;
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell;
-struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell;
-struct __pyx_obj_11zeoplusplus_10netstorage_Atom;
-struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork;
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode;
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork;
+struct __pyx_obj_5pyzeo_8geometry_Xyz;
+struct __pyx_obj_5pyzeo_8geometry_Point;
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace;
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell;
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell;
+struct __pyx_obj_5pyzeo_10netstorage_Atom;
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork;
 
-/* "zeoplusplus/geometry.pxd":24
+/* "pyzeo/geometry.pxd":24
  * 
  * 
  * cdef class Xyz:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper declaration for Zeo++ XYZ class defined in geometry.h
  */
-struct __pyx_obj_11zeoplusplus_8geometry_Xyz {
+struct __pyx_obj_5pyzeo_8geometry_Xyz {
   PyObject_HEAD
   XYZ *thisptr;
 };
 
 
-/* "zeoplusplus/geometry.pxd":32
+/* "pyzeo/geometry.pxd":32
  * 
  * 
  * cdef class Point:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper declaration for Zeo++ Point class defined in geometry.h
  */
-struct __pyx_obj_11zeoplusplus_8geometry_Point {
+struct __pyx_obj_5pyzeo_8geometry_Point {
   PyObject_HEAD
   Point *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":39
+/* "pyzeo/voronoicell.pxd":39
  * 
  * 
  * cdef class VorFace:             # <<<<<<<<<<<<<<
  *     cdef  VOR_FACE* thisptr
  * 
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace {
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace {
   PyObject_HEAD
   VOR_FACE *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":42
+/* "pyzeo/voronoicell.pxd":42
  *     cdef  VOR_FACE* thisptr
  * 
  * cdef class VorCell:             # <<<<<<<<<<<<<<
  *     cdef VOR_CELL* thisptr
  * 
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell {
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell {
   PyObject_HEAD
   VOR_CELL *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":45
+/* "pyzeo/voronoicell.pxd":45
  *     cdef VOR_CELL* thisptr
  * 
  * cdef class BasicVCell:             # <<<<<<<<<<<<<<
  *     cdef BASIC_VCELL* thisptr
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell {
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell {
   PyObject_HEAD
   BASIC_VCELL *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":120
+/* "pyzeo/netstorage.pxd":120
  *             VORONOI_NETWORK* vornet, ATOM_NETWORK* atmnet)
  * 
  * cdef class Atom:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ ATOM class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_Atom {
+struct __pyx_obj_5pyzeo_10netstorage_Atom {
   PyObject_HEAD
   ATOM *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":126
+/* "pyzeo/netstorage.pxd":126
  *     cdef ATOM* thisptr
  * 
  * cdef class AtomNetwork:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ ATOM_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork {
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork {
   PyObject_HEAD
   ATOM_NETWORK *thisptr;
   int rad_flag;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":135
+/* "pyzeo/netstorage.pxd":135
  *     cdef bint rad_flag
  * 
  * cdef class VoronoiNode:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ VOR_NODE class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode {
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode {
   PyObject_HEAD
   VOR_NODE *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":141
+/* "pyzeo/netstorage.pxd":141
  *     cdef VOR_NODE* thisptr
  * 
  * cdef class VoronoiNetwork:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ VORONOI_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork {
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork {
   PyObject_HEAD
   VORONOI_NETWORK *thisptr;
 };
@@ -1262,15 +1240,9 @@ struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork {
 #define __Pyx_CLEAR(r)    do { PyObject* tmp = ((PyObject*)(r)); r = NULL; __Pyx_DECREF(tmp);} while(0)
 #define __Pyx_XCLEAR(r)   do { if((r) != NULL) {PyObject* tmp = ((PyObject*)(r)); r = NULL; __Pyx_DECREF(tmp);}} while(0)
 
-/* PyObjectGetAttrStr.proto */
-#if CYTHON_USE_TYPE_SLOTS
-static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject* attr_name);
-#else
-#define __Pyx_PyObject_GetAttrStr(o,n) PyObject_GetAttr(o,n)
-#endif
-
-/* GetBuiltinName.proto */
-static PyObject *__Pyx_GetBuiltinName(PyObject *name);
+/* RaiseArgTupleInvalid.proto */
+static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
+    Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
 
 /* RaiseDoubleKeywords.proto */
 static void __Pyx_RaiseDoubleKeywordsError(const char* func_name, PyObject* kw_name);
@@ -1280,9 +1252,75 @@ static int __Pyx_ParseOptionalKeywords(PyObject *kwds, PyObject **argnames[],\
     PyObject *kwds2, PyObject *values[], Py_ssize_t num_pos_args,\
     const char* function_name);
 
-/* RaiseArgTupleInvalid.proto */
-static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
-    Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
+/* PyObjectGetAttrStr.proto */
+#if CYTHON_USE_TYPE_SLOTS
+static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject* attr_name);
+#else
+#define __Pyx_PyObject_GetAttrStr(o,n) PyObject_GetAttr(o,n)
+#endif
+
+/* PyFunctionFastCall.proto */
+#if CYTHON_FAST_PYCALL
+#define __Pyx_PyFunction_FastCall(func, args, nargs)\
+    __Pyx_PyFunction_FastCallDict((func), (args), (nargs), NULL)
+#if 1 || PY_VERSION_HEX < 0x030600B1
+static PyObject *__Pyx_PyFunction_FastCallDict(PyObject *func, PyObject **args, Py_ssize_t nargs, PyObject *kwargs);
+#else
+#define __Pyx_PyFunction_FastCallDict(func, args, nargs, kwargs) _PyFunction_FastCallDict(func, args, nargs, kwargs)
+#endif
+#define __Pyx_BUILD_ASSERT_EXPR(cond)\
+    (sizeof(char [1 - 2*!(cond)]) - 1)
+#ifndef Py_MEMBER_SIZE
+#define Py_MEMBER_SIZE(type, member) sizeof(((type *)0)->member)
+#endif
+#if CYTHON_FAST_PYCALL
+  static size_t __pyx_pyframe_localsplus_offset = 0;
+  #include "frameobject.h"
+#if PY_VERSION_HEX >= 0x030b00a6
+  #ifndef Py_BUILD_CORE
+    #define Py_BUILD_CORE 1
+  #endif
+  #include "internal/pycore_frame.h"
+#endif
+  #define __Pxy_PyFrame_Initialize_Offsets()\
+    ((void)__Pyx_BUILD_ASSERT_EXPR(sizeof(PyFrameObject) == offsetof(PyFrameObject, f_localsplus) + Py_MEMBER_SIZE(PyFrameObject, f_localsplus)),\
+     (void)(__pyx_pyframe_localsplus_offset = ((size_t)PyFrame_Type.tp_basicsize) - Py_MEMBER_SIZE(PyFrameObject, f_localsplus)))
+  #define __Pyx_PyFrame_GetLocalsplus(frame)\
+    (assert(__pyx_pyframe_localsplus_offset), (PyObject **)(((char *)(frame)) + __pyx_pyframe_localsplus_offset))
+#endif // CYTHON_FAST_PYCALL
+#endif
+
+/* PyObjectCall.proto */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw);
+#else
+#define __Pyx_PyObject_Call(func, arg, kw) PyObject_Call(func, arg, kw)
+#endif
+
+/* PyObjectCallMethO.proto */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject *arg);
+#endif
+
+/* PyObjectCallNoArg.proto */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func);
+#else
+#define __Pyx_PyObject_CallNoArg(func) __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL)
+#endif
+
+/* PyCFunctionFastCall.proto */
+#if CYTHON_FAST_PYCCALL
+static CYTHON_INLINE PyObject *__Pyx_PyCFunction_FastCall(PyObject *func, PyObject **args, Py_ssize_t nargs);
+#else
+#define __Pyx_PyCFunction_FastCall(func, args, nargs)  (assert(0), NULL)
+#endif
+
+/* PyObjectCallOneArg.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObject *arg);
+
+/* GetBuiltinName.proto */
+static PyObject *__Pyx_GetBuiltinName(PyObject *name);
 
 /* PyDictVersioning.proto */
 #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
@@ -1331,18 +1369,25 @@ static PyObject *__Pyx__GetModuleGlobalName(PyObject *name, PY_UINT64_T *dict_ve
 static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name);
 #endif
 
-/* PySequenceContains.proto */
-static CYTHON_INLINE int __Pyx_PySequence_ContainsTF(PyObject* item, PyObject* seq, int eq) {
-    int result = PySequence_Contains(seq, item);
-    return unlikely(result < 0) ? result : (result == (eq == Py_EQ));
-}
+/* PyObjectCall2Args.proto */
+static CYTHON_UNUSED PyObject* __Pyx_PyObject_Call2Args(PyObject* function, PyObject* arg1, PyObject* arg2);
 
-/* PyObjectCall.proto */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw);
-#else
-#define __Pyx_PyObject_Call(func, arg, kw) PyObject_Call(func, arg, kw)
+/* ExtTypeTest.proto */
+static CYTHON_INLINE int __Pyx_TypeTest(PyObject *obj, PyTypeObject *type);
+
+/* TypeImport.proto */
+#ifndef __PYX_HAVE_RT_ImportType_proto
+#define __PYX_HAVE_RT_ImportType_proto
+enum __Pyx_ImportType_CheckSize {
+   __Pyx_ImportType_CheckSize_Error = 0,
+   __Pyx_ImportType_CheckSize_Warn = 1,
+   __Pyx_ImportType_CheckSize_Ignore = 2
+};
+static PyTypeObject *__Pyx_ImportType(PyObject* module, const char *module_name, const char *class_name, size_t size, enum __Pyx_ImportType_CheckSize check_size);
 #endif
+
+/* Import.proto */
+static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
 
 /* PyThreadStateGet.proto */
 #if CYTHON_FAST_THREAD_STATE
@@ -1380,23 +1425,6 @@ static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject 
 #define __Pyx_ErrFetch(type, value, tb)  PyErr_Fetch(type, value, tb)
 #endif
 
-/* RaiseException.proto */
-static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause);
-
-/* ExtTypeTest.proto */
-static CYTHON_INLINE int __Pyx_TypeTest(PyObject *obj, PyTypeObject *type);
-
-/* TypeImport.proto */
-#ifndef __PYX_HAVE_RT_ImportType_proto
-#define __PYX_HAVE_RT_ImportType_proto
-enum __Pyx_ImportType_CheckSize {
-   __Pyx_ImportType_CheckSize_Error = 0,
-   __Pyx_ImportType_CheckSize_Warn = 1,
-   __Pyx_ImportType_CheckSize_Ignore = 2
-};
-static PyTypeObject *__Pyx_ImportType(PyObject* module, const char *module_name, const char *class_name, size_t size, enum __Pyx_ImportType_CheckSize check_size);
-#endif
-
 /* CLineInTraceback.proto */
 #ifdef CYTHON_CLINE_IN_TRACEBACK
 #define __Pyx_CLineForTraceback(tstate, c_line)  (((CYTHON_CLINE_IN_TRACEBACK)) ? c_line : 0)
@@ -1428,14 +1456,14 @@ static void __Pyx_AddTraceback(const char *funcname, int c_line,
 #define __Pyx_HAS_GCC_DIAGNOSTIC
 #endif
 
+/* CIntFromPy.proto */
+static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
+
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 
 /* CIntFromPy.proto */
 static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *);
-
-/* CIntFromPy.proto */
-static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
 
 /* FastTypeChecks.proto */
 #if CYTHON_COMPILING_IN_CPYTHON
@@ -1463,9 +1491,9 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* Module declarations from 'libcpp.vector' */
 
-/* Module declarations from 'zeoplusplus.geometry' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Xyz = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Point = 0;
+/* Module declarations from 'pyzeo.geometry' */
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Xyz = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Point = 0;
 
 /* Module declarations from 'libcpp.utility' */
 
@@ -1473,134 +1501,163 @@ static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Point = 0;
 
 /* Module declarations from 'libcpp.set' */
 
-/* Module declarations from 'zeoplusplus.voronoicell' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_VorFace = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_VorCell = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell = 0;
+/* Module declarations from 'pyzeo.voronoicell' */
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorFace = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorCell = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_BasicVCell = 0;
 
-/* Module declarations from 'zeoplusplus.netstorage' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_Atom = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork = 0;
+/* Module declarations from 'pyzeo.netstorage' */
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_Atom = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_AtomNetwork = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNode = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = 0;
 
-/* Module declarations from 'zeoplusplus.high_accuracy' */
-static std::string __pyx_convert_string_from_py_std__in_string(PyObject *); /*proto*/
-#define __Pyx_MODULE_NAME "zeoplusplus.high_accuracy"
-extern int __pyx_module_is_main_zeoplusplus__high_accuracy;
-int __pyx_module_is_main_zeoplusplus__high_accuracy = 0;
+/* Module declarations from 'pyzeo.area_volume' */
+static CYTHON_INLINE PyObject *__pyx_convert_PyObject_string_to_py_std__in_string(std::string const &); /*proto*/
+static CYTHON_INLINE PyObject *__pyx_convert_PyUnicode_string_to_py_std__in_string(std::string const &); /*proto*/
+static CYTHON_INLINE PyObject *__pyx_convert_PyStr_string_to_py_std__in_string(std::string const &); /*proto*/
+static CYTHON_INLINE PyObject *__pyx_convert_PyBytes_string_to_py_std__in_string(std::string const &); /*proto*/
+static CYTHON_INLINE PyObject *__pyx_convert_PyByteArray_string_to_py_std__in_string(std::string const &); /*proto*/
+#define __Pyx_MODULE_NAME "pyzeo.area_volume"
+extern int __pyx_module_is_main_pyzeo__area_volume;
+int __pyx_module_is_main_pyzeo__area_volume = 0;
 
-/* Implementation of 'zeoplusplus.high_accuracy' */
-static PyObject *__pyx_builtin_ValueError;
-static const char __pyx_k_HI[] = "HI";
-static const char __pyx_k_S4[] = "S4";
-static const char __pyx_k_ACC[] = "ACC";
-static const char __pyx_k_AQC[] = "AQC";
-static const char __pyx_k_DDH[] = "DDH";
-static const char __pyx_k_DEF[] = "DEF";
-static const char __pyx_k_FCC[] = "FCC";
-static const char __pyx_k_ICC[] = "ICC";
-static const char __pyx_k_ICH[] = "ICH";
-static const char __pyx_k_LOW[] = "LOW";
-static const char __pyx_k_MED[] = "MED";
-static const char __pyx_k_OCC[] = "OCC";
-static const char __pyx_k_RIH[] = "RIH";
-static const char __pyx_k_S10[] = "S10";
-static const char __pyx_k_S20[] = "S20";
-static const char __pyx_k_S30[] = "S30";
-static const char __pyx_k_S40[] = "S40";
-static const char __pyx_k_S50[] = "S50";
-static const char __pyx_k_TIH[] = "TIH";
-static const char __pyx_k_S100[] = "S100";
-static const char __pyx_k_S500[] = "S500";
+/* Implementation of 'pyzeo.area_volume' */
+static const char __pyx_k_copy[] = "copy";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
-static const char __pyx_k_S1000[] = "S1000";
-static const char __pyx_k_S10000[] = "S10000";
+static const char __pyx_k_pyzeo[] = "pyzeo";
 static const char __pyx_k_atmnet[] = "atmnet";
-static const char __pyx_k_acc_set[] = "acc_set";
-static const char __pyx_k_ValueError[] = "ValueError";
-static const char __pyx_k_accuracy_kw[] = "_accuracy_kw";
-static const char __pyx_k_c_atmnetptr[] = "c_atmnetptr";
-static const char __pyx_k_accuracy_setting[] = "accuracy_setting";
+static const char __pyx_k_import[] = "__import__";
+static const char __pyx_k_sa_str[] = "sa_str";
+static const char __pyx_k_volume[] = "volume";
+static const char __pyx_k_vol_str[] = "vol_str";
+static const char __pyx_k_tmp_atmnet[] = "tmp_atmnet";
+static const char __pyx_k_c_atmnet_ptr[] = "c_atmnet_ptr";
+static const char __pyx_k_probe_radius[] = "probe_radius";
+static const char __pyx_k_surface_area[] = "surface_area";
+static const char __pyx_k_high_accuracy[] = "high_accuracy";
+static const char __pyx_k_channel_radius[] = "channel_radius";
+static const char __pyx_k_low_dist_range[] = "low_dist_range";
+static const char __pyx_k_mc_sampling_no[] = "mc_sampling_no";
+static const char __pyx_k_exclude_pockets[] = "exclude_pockets";
+static const char __pyx_k_extended_output[] = "extended_output";
+static const char __pyx_k_high_dist_range[] = "high_dist_range";
+static const char __pyx_k_c_org_atmnet_ptr[] = "c_org_atmnet_ptr";
+static const char __pyx_k_pyzeo_area_volume[] = "pyzeo.area_volume";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
+static const char __pyx_k_pyzeo_high_accuracy[] = "pyzeo.high_accuracy";
+static const char __pyx_k_ret_high_acc_atmnet[] = "ret_high_acc_atmnet";
 static const char __pyx_k_high_accuracy_atmnet[] = "high_accuracy_atmnet";
-static const char __pyx_k_zeoplusplus_high_accuracy[] = "zeoplusplus.high_accuracy";
-static const char __pyx_k_Accuracy_setting_not_understood[] = "Accuracy setting not understood";
-static const char __pyx_k_src_zeoplusplus_high_accuracy_py[] = "src/zeoplusplus/high_accuracy.pyx";
-static PyObject *__pyx_n_s_ACC;
-static PyObject *__pyx_n_s_AQC;
-static PyObject *__pyx_kp_s_Accuracy_setting_not_understood;
-static PyObject *__pyx_n_s_DDH;
-static PyObject *__pyx_n_s_DEF;
-static PyObject *__pyx_n_s_FCC;
-static PyObject *__pyx_n_s_HI;
-static PyObject *__pyx_n_s_ICC;
-static PyObject *__pyx_n_s_ICH;
-static PyObject *__pyx_n_s_LOW;
-static PyObject *__pyx_n_s_MED;
-static PyObject *__pyx_n_s_OCC;
-static PyObject *__pyx_n_s_RIH;
-static PyObject *__pyx_n_s_S10;
-static PyObject *__pyx_n_s_S100;
-static PyObject *__pyx_n_s_S1000;
-static PyObject *__pyx_n_s_S10000;
-static PyObject *__pyx_n_s_S20;
-static PyObject *__pyx_n_s_S30;
-static PyObject *__pyx_n_s_S4;
-static PyObject *__pyx_n_s_S40;
-static PyObject *__pyx_n_s_S50;
-static PyObject *__pyx_n_s_S500;
-static PyObject *__pyx_n_s_TIH;
-static PyObject *__pyx_n_s_ValueError;
-static PyObject *__pyx_n_s_acc_set;
-static PyObject *__pyx_n_s_accuracy_kw;
-static PyObject *__pyx_n_s_accuracy_setting;
+static const char __pyx_k_src_pyzeo_area_volume_pyx[] = "src/pyzeo/area_volume.pyx";
 static PyObject *__pyx_n_s_atmnet;
-static PyObject *__pyx_n_s_c_atmnetptr;
+static PyObject *__pyx_n_s_c_atmnet_ptr;
+static PyObject *__pyx_n_s_c_org_atmnet_ptr;
+static PyObject *__pyx_n_s_channel_radius;
 static PyObject *__pyx_n_s_cline_in_traceback;
+static PyObject *__pyx_n_s_copy;
+static PyObject *__pyx_n_s_exclude_pockets;
+static PyObject *__pyx_n_s_extended_output;
+static PyObject *__pyx_n_s_high_accuracy;
 static PyObject *__pyx_n_s_high_accuracy_atmnet;
+static PyObject *__pyx_n_s_high_dist_range;
+static PyObject *__pyx_n_s_import;
+static PyObject *__pyx_n_s_low_dist_range;
 static PyObject *__pyx_n_s_main;
+static PyObject *__pyx_n_s_mc_sampling_no;
 static PyObject *__pyx_n_s_name;
-static PyObject *__pyx_kp_s_src_zeoplusplus_high_accuracy_py;
+static PyObject *__pyx_n_s_probe_radius;
+static PyObject *__pyx_n_s_pyzeo;
+static PyObject *__pyx_n_s_pyzeo_area_volume;
+static PyObject *__pyx_n_s_pyzeo_high_accuracy;
+static PyObject *__pyx_n_s_ret_high_acc_atmnet;
+static PyObject *__pyx_n_s_sa_str;
+static PyObject *__pyx_kp_s_src_pyzeo_area_volume_pyx;
+static PyObject *__pyx_n_s_surface_area;
 static PyObject *__pyx_n_s_test;
-static PyObject *__pyx_n_s_zeoplusplus_high_accuracy;
-static PyObject *__pyx_pf_11zeoplusplus_13high_accuracy_high_accuracy_atmnet(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_accuracy_setting); /* proto */
+static PyObject *__pyx_n_s_tmp_atmnet;
+static PyObject *__pyx_n_s_vol_str;
+static PyObject *__pyx_n_s_volume;
+static PyObject *__pyx_pf_5pyzeo_11area_volume_volume(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_channel_radius, PyObject *__pyx_v_probe_radius, PyObject *__pyx_v_mc_sampling_no, PyObject *__pyx_v_high_accuracy, PyObject *__pyx_v_high_accuracy_atmnet, PyObject *__pyx_v_exclude_pockets, PyObject *__pyx_v_low_dist_range, PyObject *__pyx_v_high_dist_range); /* proto */
+static PyObject *__pyx_pf_5pyzeo_11area_volume_2surface_area(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_channel_radius, PyObject *__pyx_v_probe_radius, PyObject *__pyx_v_mc_sampling_no, PyObject *__pyx_v_high_accuracy, PyObject *__pyx_v_high_accuracy_atmnet, PyObject *__pyx_v_exclude_pockets, PyObject *__pyx_v_extended_output); /* proto */
+static PyObject *__pyx_int_neg_1;
 static PyObject *__pyx_tuple_;
-static PyObject *__pyx_tuple__2;
-static PyObject *__pyx_codeobj__3;
+static PyObject *__pyx_tuple__3;
+static PyObject *__pyx_codeobj__2;
+static PyObject *__pyx_codeobj__4;
 /* Late includes */
 
-/* "zeoplusplus/high_accuracy.pyx":7
- *         "S30","S40","S50","S100","S500","S1000","S10000","DEF","HI","MED","LOW"
- *         }
- * def high_accuracy_atmnet(atmnet, accuracy_setting="LOW"):             # <<<<<<<<<<<<<<
- *     """
- *     Increases the accuracy of voronoi decomposition by replacing big
+/* "pyzeo/area_volume.pyx":6
+ * import pyzeo.high_accuracy
+ * 
+ * def volume(atmnet, channel_radius, probe_radius,             # <<<<<<<<<<<<<<
+ *         mc_sampling_no, high_accuracy=False, high_accuracy_atmnet=None,
+ *         exclude_pockets=True, low_dist_range=-1, high_dist_range=-1):
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_13high_accuracy_1high_accuracy_atmnet(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_11zeoplusplus_13high_accuracy_high_accuracy_atmnet[] = "\n    Increases the accuracy of voronoi decomposition by replacing big\n    atoms (spheres) with a number of small spheres.\n    *** Modifies atmnet argument in place ***\n    Args:\n        atmnet:\n            zeoplusplus.netstorage.AtomNetwork\n            Is modified in place.\n        accuracy_setting: \n            String specifying the accuracy settings.\n            Possible choices are \"OCC\",\"FCC\",\"ACC\",\"AQC\",\"DDH\",\n            \"TIH\",\"ICH\",\"ICC\",\"RIH\",\"S4\",\"S10\",\"S20\",\"S30\",\"S40\",\"S50\",\n            \"S100\",\"S500\",\"S1000\",\"S10000\",\"DEF\",\"HI\",\"MED\",\"LOW\".\n            Default is \"DEF\".\n    ";
-static PyMethodDef __pyx_mdef_11zeoplusplus_13high_accuracy_1high_accuracy_atmnet = {"high_accuracy_atmnet", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_11zeoplusplus_13high_accuracy_1high_accuracy_atmnet, METH_VARARGS|METH_KEYWORDS, __pyx_doc_11zeoplusplus_13high_accuracy_high_accuracy_atmnet};
-static PyObject *__pyx_pw_11zeoplusplus_13high_accuracy_1high_accuracy_atmnet(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5pyzeo_11area_volume_1volume(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_11area_volume_volume[] = "\n    Calculates the volume of channels and pockets in a given strucutre.\n    Args:\n        atmnet:\n            zoe.storage.AtomNetwork\n        channel_radius:\n            Radius of probe used to determine the accessibility of void space.\n        probe_radius:\n            Radius of probe used in Monte Carlo (MC) sampling of surface.\n        mc_sampling_no:\n            No. of MC samples per atom\n        high_accuracy (Default=False):\n            Optional flag to use high accuracy.\n        high_accuracy_atmnet (Default=None):\n            pyzeo.netstorage.AtomNetwork\n            Optional high accuracy AtomNetwork. If not given and high_accuracy\n            flag is set to True, then it is computed and returned.\n        exclude_pockets (Default=True):\n            Optional flag to include pockets.\n        low_dist_range(Default=-1):\n            Use if you know the C++ Zeo++ code.\n        high_dist_range(Default=-1):\n            Use if you know the C++ Zeo++ code.\n    Returns:\n        1) string containing channel and pocket volumes\n        2) if high_accuracy=True and no input high_accuracy_atmnet is given,\n           returns high_accuracy_atmnet for future use.\n    ";
+static PyMethodDef __pyx_mdef_5pyzeo_11area_volume_1volume = {"volume", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_11area_volume_1volume, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_11area_volume_volume};
+static PyObject *__pyx_pw_5pyzeo_11area_volume_1volume(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_atmnet = 0;
-  PyObject *__pyx_v_accuracy_setting = 0;
+  PyObject *__pyx_v_channel_radius = 0;
+  PyObject *__pyx_v_probe_radius = 0;
+  PyObject *__pyx_v_mc_sampling_no = 0;
+  PyObject *__pyx_v_high_accuracy = 0;
+  PyObject *__pyx_v_high_accuracy_atmnet = 0;
+  PyObject *__pyx_v_exclude_pockets = 0;
+  PyObject *__pyx_v_low_dist_range = 0;
+  PyObject *__pyx_v_high_dist_range = 0;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("high_accuracy_atmnet (wrapper)", 0);
+  __Pyx_RefNannySetupContext("volume (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_atmnet,&__pyx_n_s_accuracy_setting,0};
-    PyObject* values[2] = {0,0};
-    values[1] = ((PyObject *)__pyx_n_s_LOW);
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_atmnet,&__pyx_n_s_channel_radius,&__pyx_n_s_probe_radius,&__pyx_n_s_mc_sampling_no,&__pyx_n_s_high_accuracy,&__pyx_n_s_high_accuracy_atmnet,&__pyx_n_s_exclude_pockets,&__pyx_n_s_low_dist_range,&__pyx_n_s_high_dist_range,0};
+    PyObject* values[9] = {0,0,0,0,0,0,0,0,0};
+
+    /* "pyzeo/area_volume.pyx":7
+ * 
+ * def volume(atmnet, channel_radius, probe_radius,
+ *         mc_sampling_no, high_accuracy=False, high_accuracy_atmnet=None,             # <<<<<<<<<<<<<<
+ *         exclude_pockets=True, low_dist_range=-1, high_dist_range=-1):
+ *     """
+ */
+    values[4] = ((PyObject *)Py_False);
+    values[5] = ((PyObject *)Py_None);
+
+    /* "pyzeo/area_volume.pyx":8
+ * def volume(atmnet, channel_radius, probe_radius,
+ *         mc_sampling_no, high_accuracy=False, high_accuracy_atmnet=None,
+ *         exclude_pockets=True, low_dist_range=-1, high_dist_range=-1):             # <<<<<<<<<<<<<<
+ *     """
+ *     Calculates the volume of channels and pockets in a given strucutre.
+ */
+    values[6] = ((PyObject *)Py_True);
+    values[7] = ((PyObject *)__pyx_int_neg_1);
+    values[8] = ((PyObject *)__pyx_int_neg_1);
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
+        case  9: values[8] = PyTuple_GET_ITEM(__pyx_args, 8);
+        CYTHON_FALLTHROUGH;
+        case  8: values[7] = PyTuple_GET_ITEM(__pyx_args, 7);
+        CYTHON_FALLTHROUGH;
+        case  7: values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
+        CYTHON_FALLTHROUGH;
+        case  6: values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
+        CYTHON_FALLTHROUGH;
+        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
         case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
         CYTHON_FALLTHROUGH;
         case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
@@ -1615,242 +1672,1279 @@ static PyObject *__pyx_pw_11zeoplusplus_13high_accuracy_1high_accuracy_atmnet(Py
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_channel_radius)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("volume", 0, 4, 9, 1); __PYX_ERR(0, 6, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_probe_radius)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("volume", 0, 4, 9, 2); __PYX_ERR(0, 6, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_mc_sampling_no)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("volume", 0, 4, 9, 3); __PYX_ERR(0, 6, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  4:
         if (kw_args > 0) {
-          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_accuracy_setting);
-          if (value) { values[1] = value; kw_args--; }
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_high_accuracy);
+          if (value) { values[4] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  5:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_high_accuracy_atmnet);
+          if (value) { values[5] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  6:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_exclude_pockets);
+          if (value) { values[6] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  7:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_low_dist_range);
+          if (value) { values[7] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  8:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_high_dist_range);
+          if (value) { values[8] = value; kw_args--; }
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "high_accuracy_atmnet") < 0)) __PYX_ERR(0, 7, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "volume") < 0)) __PYX_ERR(0, 6, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        case  9: values[8] = PyTuple_GET_ITEM(__pyx_args, 8);
         CYTHON_FALLTHROUGH;
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        case  8: values[7] = PyTuple_GET_ITEM(__pyx_args, 7);
+        CYTHON_FALLTHROUGH;
+        case  7: values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
+        CYTHON_FALLTHROUGH;
+        case  6: values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
+        CYTHON_FALLTHROUGH;
+        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
         break;
         default: goto __pyx_L5_argtuple_error;
       }
     }
     __pyx_v_atmnet = values[0];
-    __pyx_v_accuracy_setting = values[1];
+    __pyx_v_channel_radius = values[1];
+    __pyx_v_probe_radius = values[2];
+    __pyx_v_mc_sampling_no = values[3];
+    __pyx_v_high_accuracy = values[4];
+    __pyx_v_high_accuracy_atmnet = values[5];
+    __pyx_v_exclude_pockets = values[6];
+    __pyx_v_low_dist_range = values[7];
+    __pyx_v_high_dist_range = values[8];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("high_accuracy_atmnet", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 7, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("volume", 0, 4, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 6, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("zeoplusplus.high_accuracy.high_accuracy_atmnet", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.area_volume.volume", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11zeoplusplus_13high_accuracy_high_accuracy_atmnet(__pyx_self, __pyx_v_atmnet, __pyx_v_accuracy_setting);
+  __pyx_r = __pyx_pf_5pyzeo_11area_volume_volume(__pyx_self, __pyx_v_atmnet, __pyx_v_channel_radius, __pyx_v_probe_radius, __pyx_v_mc_sampling_no, __pyx_v_high_accuracy, __pyx_v_high_accuracy_atmnet, __pyx_v_exclude_pockets, __pyx_v_low_dist_range, __pyx_v_high_dist_range);
+
+  /* "pyzeo/area_volume.pyx":6
+ * import pyzeo.high_accuracy
+ * 
+ * def volume(atmnet, channel_radius, probe_radius,             # <<<<<<<<<<<<<<
+ *         mc_sampling_no, high_accuracy=False, high_accuracy_atmnet=None,
+ *         exclude_pockets=True, low_dist_range=-1, high_dist_range=-1):
+ */
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_13high_accuracy_high_accuracy_atmnet(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_accuracy_setting) {
-  ATOM_NETWORK *__pyx_v_c_atmnetptr;
-  std::string __pyx_v_acc_set;
+static PyObject *__pyx_pf_5pyzeo_11area_volume_volume(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_channel_radius, PyObject *__pyx_v_probe_radius, PyObject *__pyx_v_mc_sampling_no, PyObject *__pyx_v_high_accuracy, PyObject *__pyx_v_high_accuracy_atmnet, PyObject *__pyx_v_exclude_pockets, PyObject *__pyx_v_low_dist_range, PyObject *__pyx_v_high_dist_range) {
+  int __pyx_v_ret_high_acc_atmnet;
+  ATOM_NETWORK *__pyx_v_c_org_atmnet_ptr;
+  ATOM_NETWORK *__pyx_v_c_atmnet_ptr;
+  PyObject *__pyx_v_tmp_atmnet = NULL;
+  std::string __pyx_v_vol_str;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
+  int __pyx_t_1;
   int __pyx_t_2;
   int __pyx_t_3;
-  ATOM_NETWORK *__pyx_t_4;
-  std::string __pyx_t_5;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  ATOM_NETWORK *__pyx_t_7;
+  double __pyx_t_8;
+  double __pyx_t_9;
+  int __pyx_t_10;
+  double __pyx_t_11;
+  double __pyx_t_12;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("high_accuracy_atmnet", 0);
-  __Pyx_INCREF(__pyx_v_accuracy_setting);
+  __Pyx_RefNannySetupContext("volume", 0);
+  __Pyx_INCREF(__pyx_v_high_accuracy);
+  __Pyx_INCREF(__pyx_v_high_accuracy_atmnet);
 
-  /* "zeoplusplus/high_accuracy.pyx":23
- *             Default is "DEF".
+  /* "pyzeo/area_volume.pyx":37
+ *            returns high_accuracy_atmnet for future use.
  *     """
- *     if not accuracy_setting in _accuracy_kw:             # <<<<<<<<<<<<<<
- *         raise ValueError("Accuracy setting not understood")
- *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
+ *     if high_accuracy and not high_accuracy_atmnet:             # <<<<<<<<<<<<<<
+ *         high_accuracy_atmnet = atmnet.copy()
+ *         pyzeo.high_accuracy.high_accuracy_atmnet(high_accuracy_atmnet)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_accuracy_kw); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_accuracy_setting, __pyx_t_1, Py_NE)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 23, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = (__pyx_t_2 != 0);
-  if (unlikely(__pyx_t_3)) {
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_high_accuracy); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 37, __pyx_L1_error)
+  if (__pyx_t_2) {
+  } else {
+    __pyx_t_1 = __pyx_t_2;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_high_accuracy_atmnet); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 37, __pyx_L1_error)
+  __pyx_t_3 = ((!__pyx_t_2) != 0);
+  __pyx_t_1 = __pyx_t_3;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_1) {
 
-    /* "zeoplusplus/high_accuracy.pyx":24
+    /* "pyzeo/area_volume.pyx":38
  *     """
- *     if not accuracy_setting in _accuracy_kw:
- *         raise ValueError("Accuracy setting not understood")             # <<<<<<<<<<<<<<
- *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
- *     if isinstance(accuracy_setting, unicode):
+ *     if high_accuracy and not high_accuracy_atmnet:
+ *         high_accuracy_atmnet = atmnet.copy()             # <<<<<<<<<<<<<<
+ *         pyzeo.high_accuracy.high_accuracy_atmnet(high_accuracy_atmnet)
+ *         ret_high_acc_atmnet = True
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_Raise(__pyx_t_1, 0, 0, 0);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 24, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_atmnet, __pyx_n_s_copy); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 38, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_6 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
+      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
+      if (likely(__pyx_t_6)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+        __Pyx_INCREF(__pyx_t_6);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_5, function);
+      }
+    }
+    __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
+    __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 38, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF_SET(__pyx_v_high_accuracy_atmnet, __pyx_t_4);
+    __pyx_t_4 = 0;
 
-    /* "zeoplusplus/high_accuracy.pyx":23
- *             Default is "DEF".
+    /* "pyzeo/area_volume.pyx":39
+ *     if high_accuracy and not high_accuracy_atmnet:
+ *         high_accuracy_atmnet = atmnet.copy()
+ *         pyzeo.high_accuracy.high_accuracy_atmnet(high_accuracy_atmnet)             # <<<<<<<<<<<<<<
+ *         ret_high_acc_atmnet = True
+ *     else:
+ */
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_pyzeo); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_high_accuracy); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_high_accuracy_atmnet); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __pyx_t_6 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
+      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
+      if (likely(__pyx_t_6)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+        __Pyx_INCREF(__pyx_t_6);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_5, function);
+      }
+    }
+    __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_v_high_accuracy_atmnet) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_high_accuracy_atmnet);
+    __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+    /* "pyzeo/area_volume.pyx":40
+ *         high_accuracy_atmnet = atmnet.copy()
+ *         pyzeo.high_accuracy.high_accuracy_atmnet(high_accuracy_atmnet)
+ *         ret_high_acc_atmnet = True             # <<<<<<<<<<<<<<
+ *     else:
+ *         ret_high_acc_atmnet = False
+ */
+    __pyx_v_ret_high_acc_atmnet = 1;
+
+    /* "pyzeo/area_volume.pyx":37
+ *            returns high_accuracy_atmnet for future use.
  *     """
- *     if not accuracy_setting in _accuracy_kw:             # <<<<<<<<<<<<<<
- *         raise ValueError("Accuracy setting not understood")
- *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
+ *     if high_accuracy and not high_accuracy_atmnet:             # <<<<<<<<<<<<<<
+ *         high_accuracy_atmnet = atmnet.copy()
+ *         pyzeo.high_accuracy.high_accuracy_atmnet(high_accuracy_atmnet)
+ */
+    goto __pyx_L3;
+  }
+
+  /* "pyzeo/area_volume.pyx":42
+ *         ret_high_acc_atmnet = True
+ *     else:
+ *         ret_high_acc_atmnet = False             # <<<<<<<<<<<<<<
+ * 
+ *     if high_accuracy_atmnet and not high_accuracy:
+ */
+  /*else*/ {
+    __pyx_v_ret_high_acc_atmnet = 0;
+  }
+  __pyx_L3:;
+
+  /* "pyzeo/area_volume.pyx":44
+ *         ret_high_acc_atmnet = False
+ * 
+ *     if high_accuracy_atmnet and not high_accuracy:             # <<<<<<<<<<<<<<
+ *         high_accuracy = True
+ * 
+ */
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_high_accuracy_atmnet); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (__pyx_t_3) {
+  } else {
+    __pyx_t_1 = __pyx_t_3;
+    goto __pyx_L7_bool_binop_done;
+  }
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_high_accuracy); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_2 = ((!__pyx_t_3) != 0);
+  __pyx_t_1 = __pyx_t_2;
+  __pyx_L7_bool_binop_done:;
+  if (__pyx_t_1) {
+
+    /* "pyzeo/area_volume.pyx":45
+ * 
+ *     if high_accuracy_atmnet and not high_accuracy:
+ *         high_accuracy = True             # <<<<<<<<<<<<<<
+ * 
+ *     cdef ATOM_NETWORK* c_org_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
+ */
+    __Pyx_INCREF(Py_True);
+    __Pyx_DECREF_SET(__pyx_v_high_accuracy, Py_True);
+
+    /* "pyzeo/area_volume.pyx":44
+ *         ret_high_acc_atmnet = False
+ * 
+ *     if high_accuracy_atmnet and not high_accuracy:             # <<<<<<<<<<<<<<
+ *         high_accuracy = True
+ * 
  */
   }
 
-  /* "zeoplusplus/high_accuracy.pyx":25
- *     if not accuracy_setting in _accuracy_kw:
- *         raise ValueError("Accuracy setting not understood")
- *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr             # <<<<<<<<<<<<<<
- *     if isinstance(accuracy_setting, unicode):
- *         accuracy_setting = (<unicode>accuracy_setting).encode('utf8')
+  /* "pyzeo/area_volume.pyx":47
+ *         high_accuracy = True
+ * 
+ *     cdef ATOM_NETWORK* c_org_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr             # <<<<<<<<<<<<<<
+ *     cdef ATOM_NETWORK* c_atmnet_ptr
+ *     if high_accuracy_atmnet:
  */
-  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork)))) __PYX_ERR(0, 25, __pyx_L1_error)
-  __pyx_t_4 = ((struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
-  __pyx_v_c_atmnetptr = __pyx_t_4;
+  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_7 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
+  __pyx_v_c_org_atmnet_ptr = __pyx_t_7;
 
-  /* "zeoplusplus/high_accuracy.pyx":26
- *         raise ValueError("Accuracy setting not understood")
- *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
- *     if isinstance(accuracy_setting, unicode):             # <<<<<<<<<<<<<<
- *         accuracy_setting = (<unicode>accuracy_setting).encode('utf8')
- *     cdef string acc_set = accuracy_setting
+  /* "pyzeo/area_volume.pyx":49
+ *     cdef ATOM_NETWORK* c_org_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
+ *     cdef ATOM_NETWORK* c_atmnet_ptr
+ *     if high_accuracy_atmnet:             # <<<<<<<<<<<<<<
+ *         c_atmnet_ptr = (<AtomNetwork?>high_accuracy_atmnet).thisptr
+ *     else:
  */
-  __pyx_t_3 = PyUnicode_Check(__pyx_v_accuracy_setting); 
-  __pyx_t_2 = (__pyx_t_3 != 0);
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_high_accuracy_atmnet); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 49, __pyx_L1_error)
+  if (__pyx_t_1) {
+
+    /* "pyzeo/area_volume.pyx":50
+ *     cdef ATOM_NETWORK* c_atmnet_ptr
+ *     if high_accuracy_atmnet:
+ *         c_atmnet_ptr = (<AtomNetwork?>high_accuracy_atmnet).thisptr             # <<<<<<<<<<<<<<
+ *     else:
+ *         tmp_atmnet = atmnet.copy()
+ */
+    if (!(likely(__Pyx_TypeTest(__pyx_v_high_accuracy_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(0, 50, __pyx_L1_error)
+    __pyx_t_7 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_high_accuracy_atmnet)->thisptr;
+    __pyx_v_c_atmnet_ptr = __pyx_t_7;
+
+    /* "pyzeo/area_volume.pyx":49
+ *     cdef ATOM_NETWORK* c_org_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
+ *     cdef ATOM_NETWORK* c_atmnet_ptr
+ *     if high_accuracy_atmnet:             # <<<<<<<<<<<<<<
+ *         c_atmnet_ptr = (<AtomNetwork?>high_accuracy_atmnet).thisptr
+ *     else:
+ */
+    goto __pyx_L9;
+  }
+
+  /* "pyzeo/area_volume.pyx":52
+ *         c_atmnet_ptr = (<AtomNetwork?>high_accuracy_atmnet).thisptr
+ *     else:
+ *         tmp_atmnet = atmnet.copy()             # <<<<<<<<<<<<<<
+ *         c_atmnet_ptr = (<AtomNetwork?>tmp_atmnet).thisptr
+ * 
+ */
+  /*else*/ {
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_atmnet, __pyx_n_s_copy); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_6 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
+      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
+      if (likely(__pyx_t_6)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+        __Pyx_INCREF(__pyx_t_6);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_5, function);
+      }
+    }
+    __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
+    __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_v_tmp_atmnet = __pyx_t_4;
+    __pyx_t_4 = 0;
+
+    /* "pyzeo/area_volume.pyx":53
+ *     else:
+ *         tmp_atmnet = atmnet.copy()
+ *         c_atmnet_ptr = (<AtomNetwork?>tmp_atmnet).thisptr             # <<<<<<<<<<<<<<
+ * 
+ *     vol_str = calcAV(c_atmnet_ptr, c_org_atmnet_ptr, high_accuracy,
+ */
+    if (!(likely(__Pyx_TypeTest(__pyx_v_tmp_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(0, 53, __pyx_L1_error)
+    __pyx_t_7 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_tmp_atmnet)->thisptr;
+    __pyx_v_c_atmnet_ptr = __pyx_t_7;
+  }
+  __pyx_L9:;
+
+  /* "pyzeo/area_volume.pyx":55
+ *         c_atmnet_ptr = (<AtomNetwork?>tmp_atmnet).thisptr
+ * 
+ *     vol_str = calcAV(c_atmnet_ptr, c_org_atmnet_ptr, high_accuracy,             # <<<<<<<<<<<<<<
+ *             channel_radius, probe_radius, mc_sampling_no, exclude_pockets,
+ *             low_dist_range, high_dist_range)
+ */
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_high_accuracy); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 55, __pyx_L1_error)
+
+  /* "pyzeo/area_volume.pyx":56
+ * 
+ *     vol_str = calcAV(c_atmnet_ptr, c_org_atmnet_ptr, high_accuracy,
+ *             channel_radius, probe_radius, mc_sampling_no, exclude_pockets,             # <<<<<<<<<<<<<<
+ *             low_dist_range, high_dist_range)
+ *     #print vol_str
+ */
+  __pyx_t_8 = __pyx_PyFloat_AsDouble(__pyx_v_channel_radius); if (unlikely((__pyx_t_8 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_v_probe_radius); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_v_mc_sampling_no); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_exclude_pockets); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 56, __pyx_L1_error)
+
+  /* "pyzeo/area_volume.pyx":57
+ *     vol_str = calcAV(c_atmnet_ptr, c_org_atmnet_ptr, high_accuracy,
+ *             channel_radius, probe_radius, mc_sampling_no, exclude_pockets,
+ *             low_dist_range, high_dist_range)             # <<<<<<<<<<<<<<
+ *     #print vol_str
+ *     if ret_high_acc_atmnet:
+ */
+  __pyx_t_11 = __pyx_PyFloat_AsDouble(__pyx_v_low_dist_range); if (unlikely((__pyx_t_11 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 57, __pyx_L1_error)
+  __pyx_t_12 = __pyx_PyFloat_AsDouble(__pyx_v_high_dist_range); if (unlikely((__pyx_t_12 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 57, __pyx_L1_error)
+
+  /* "pyzeo/area_volume.pyx":55
+ *         c_atmnet_ptr = (<AtomNetwork?>tmp_atmnet).thisptr
+ * 
+ *     vol_str = calcAV(c_atmnet_ptr, c_org_atmnet_ptr, high_accuracy,             # <<<<<<<<<<<<<<
+ *             channel_radius, probe_radius, mc_sampling_no, exclude_pockets,
+ *             low_dist_range, high_dist_range)
+ */
+  __pyx_v_vol_str = calcAV(__pyx_v_c_atmnet_ptr, __pyx_v_c_org_atmnet_ptr, __pyx_t_1, __pyx_t_8, __pyx_t_9, __pyx_t_10, __pyx_t_2, __pyx_t_11, __pyx_t_12);
+
+  /* "pyzeo/area_volume.pyx":59
+ *             low_dist_range, high_dist_range)
+ *     #print vol_str
+ *     if ret_high_acc_atmnet:             # <<<<<<<<<<<<<<
+ *         return vol_str, high_accuracy_atmnet
+ *     else:
+ */
+  __pyx_t_2 = (__pyx_v_ret_high_acc_atmnet != 0);
   if (__pyx_t_2) {
 
-    /* "zeoplusplus/high_accuracy.pyx":27
- *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
- *     if isinstance(accuracy_setting, unicode):
- *         accuracy_setting = (<unicode>accuracy_setting).encode('utf8')             # <<<<<<<<<<<<<<
- *     cdef string acc_set = accuracy_setting
- *     setupHighAccuracyAtomNetwork(c_atmnetptr, acc_set)
+    /* "pyzeo/area_volume.pyx":60
+ *     #print vol_str
+ *     if ret_high_acc_atmnet:
+ *         return vol_str, high_accuracy_atmnet             # <<<<<<<<<<<<<<
+ *     else:
+ *         return vol_str
  */
-    if (unlikely(__pyx_v_accuracy_setting == Py_None)) {
-      PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "encode");
-      __PYX_ERR(0, 27, __pyx_L1_error)
-    }
-    __pyx_t_1 = PyUnicode_AsUTF8String(((PyObject*)__pyx_v_accuracy_setting)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF_SET(__pyx_v_accuracy_setting, __pyx_t_1);
-    __pyx_t_1 = 0;
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_4 = __pyx_convert_PyBytes_string_to_py_std__in_string(__pyx_v_vol_str); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 60, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 60, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_GIVEREF(__pyx_t_4);
+    PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4);
+    __Pyx_INCREF(__pyx_v_high_accuracy_atmnet);
+    __Pyx_GIVEREF(__pyx_v_high_accuracy_atmnet);
+    PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_v_high_accuracy_atmnet);
+    __pyx_t_4 = 0;
+    __pyx_r = __pyx_t_5;
+    __pyx_t_5 = 0;
+    goto __pyx_L0;
 
-    /* "zeoplusplus/high_accuracy.pyx":26
- *         raise ValueError("Accuracy setting not understood")
- *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
- *     if isinstance(accuracy_setting, unicode):             # <<<<<<<<<<<<<<
- *         accuracy_setting = (<unicode>accuracy_setting).encode('utf8')
- *     cdef string acc_set = accuracy_setting
+    /* "pyzeo/area_volume.pyx":59
+ *             low_dist_range, high_dist_range)
+ *     #print vol_str
+ *     if ret_high_acc_atmnet:             # <<<<<<<<<<<<<<
+ *         return vol_str, high_accuracy_atmnet
+ *     else:
  */
   }
 
-  /* "zeoplusplus/high_accuracy.pyx":28
- *     if isinstance(accuracy_setting, unicode):
- *         accuracy_setting = (<unicode>accuracy_setting).encode('utf8')
- *     cdef string acc_set = accuracy_setting             # <<<<<<<<<<<<<<
- *     setupHighAccuracyAtomNetwork(c_atmnetptr, acc_set)
+  /* "pyzeo/area_volume.pyx":62
+ *         return vol_str, high_accuracy_atmnet
+ *     else:
+ *         return vol_str             # <<<<<<<<<<<<<<
  * 
+ *     #lines = vol_str.split('\n')
  */
-  __pyx_t_5 = __pyx_convert_string_from_py_std__in_string(__pyx_v_accuracy_setting); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 28, __pyx_L1_error)
-  __pyx_v_acc_set = __pyx_t_5;
+  /*else*/ {
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_5 = __pyx_convert_PyBytes_string_to_py_std__in_string(__pyx_v_vol_str); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_r = __pyx_t_5;
+    __pyx_t_5 = 0;
+    goto __pyx_L0;
+  }
 
-  /* "zeoplusplus/high_accuracy.pyx":29
- *         accuracy_setting = (<unicode>accuracy_setting).encode('utf8')
- *     cdef string acc_set = accuracy_setting
- *     setupHighAccuracyAtomNetwork(c_atmnetptr, acc_set)             # <<<<<<<<<<<<<<
+  /* "pyzeo/area_volume.pyx":6
+ * import pyzeo.high_accuracy
  * 
- * 
- */
-  setupHighAccuracyAtomNetwork(__pyx_v_c_atmnetptr, __pyx_v_acc_set);
-
-  /* "zeoplusplus/high_accuracy.pyx":7
- *         "S30","S40","S50","S100","S500","S1000","S10000","DEF","HI","MED","LOW"
- *         }
- * def high_accuracy_atmnet(atmnet, accuracy_setting="LOW"):             # <<<<<<<<<<<<<<
- *     """
- *     Increases the accuracy of voronoi decomposition by replacing big
+ * def volume(atmnet, channel_radius, probe_radius,             # <<<<<<<<<<<<<<
+ *         mc_sampling_no, high_accuracy=False, high_accuracy_atmnet=None,
+ *         exclude_pockets=True, low_dist_range=-1, high_dist_range=-1):
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.high_accuracy.high_accuracy_atmnet", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_AddTraceback("pyzeo.area_volume.volume", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_accuracy_setting);
+  __Pyx_XDECREF(__pyx_v_tmp_atmnet);
+  __Pyx_XDECREF(__pyx_v_high_accuracy);
+  __Pyx_XDECREF(__pyx_v_high_accuracy_atmnet);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "string.from_py":13
+/* "pyzeo/area_volume.pyx":70
+ *     #        print fields[1], fields[3]
  * 
- * @cname("__pyx_convert_string_from_py_std__in_string")
- * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:             # <<<<<<<<<<<<<<
- *     cdef Py_ssize_t length = 0
- *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
+ * def surface_area(atmnet, channel_radius, probe_radius,             # <<<<<<<<<<<<<<
+ *         mc_sampling_no, high_accuracy=False, high_accuracy_atmnet=None,
+ *         exclude_pockets=True, extended_output=False):
  */
 
-static std::string __pyx_convert_string_from_py_std__in_string(PyObject *__pyx_v_o) {
-  Py_ssize_t __pyx_v_length;
-  char const *__pyx_v_data;
-  std::string __pyx_r;
-  __Pyx_RefNannyDeclarations
-  char const *__pyx_t_1;
+/* Python wrapper */
+static PyObject *__pyx_pw_5pyzeo_11area_volume_3surface_area(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5pyzeo_11area_volume_2surface_area[] = "\n    Calculates the surface area of channels and pockets in a given strucutre.\n    Args:\n        atmnet:\n            zoe.storage.AtomNetwork\n        channel_radius:\n            Radius of probe used to determine the accessibility of void space.\n        probe_radius:\n            Radius of probe used in Monte Carlo (MC) sampling of surface.\n        mc_sampling_no:\n            No. of MC samples per atom\n        high_accuracy (Default=False):\n            Optional flag to use high accuracy.\n        high_accuracy_atmnet (Default=None):\n            pyzeo.netstorage.AtomNetwork\n            Optional high accuracy AtomNetwork. If not given and high_accuracy\n            flag is set to True, then it is computed and returned.\n        exclude_pockets (Default=True):\n            Optional flag to include pockets.\n        low_dist_range(Default=-1):\n            Use if you know the C++ Zeo++ code.\n        high_dist_range(Default=-1):\n            Use if you know the C++ Zeo++ code.\n    Returns:\n        1) string containing channel and pocket surface area\n        2) if high_accuracy=True and no input high_accuracy_atmnet is given,\n           returns high_accuracy_atmnet for future use.\n    ";
+static PyMethodDef __pyx_mdef_5pyzeo_11area_volume_3surface_area = {"surface_area", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5pyzeo_11area_volume_3surface_area, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5pyzeo_11area_volume_2surface_area};
+static PyObject *__pyx_pw_5pyzeo_11area_volume_3surface_area(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_atmnet = 0;
+  PyObject *__pyx_v_channel_radius = 0;
+  PyObject *__pyx_v_probe_radius = 0;
+  PyObject *__pyx_v_mc_sampling_no = 0;
+  PyObject *__pyx_v_high_accuracy = 0;
+  PyObject *__pyx_v_high_accuracy_atmnet = 0;
+  PyObject *__pyx_v_exclude_pockets = 0;
+  PyObject *__pyx_v_extended_output = 0;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__pyx_convert_string_from_py_std__in_string", 0);
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("surface_area (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_atmnet,&__pyx_n_s_channel_radius,&__pyx_n_s_probe_radius,&__pyx_n_s_mc_sampling_no,&__pyx_n_s_high_accuracy,&__pyx_n_s_high_accuracy_atmnet,&__pyx_n_s_exclude_pockets,&__pyx_n_s_extended_output,0};
+    PyObject* values[8] = {0,0,0,0,0,0,0,0};
 
-  /* "string.from_py":14
- * @cname("__pyx_convert_string_from_py_std__in_string")
- * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:
- *     cdef Py_ssize_t length = 0             # <<<<<<<<<<<<<<
- *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
- *     return string(data, length)
- */
-  __pyx_v_length = 0;
-
-  /* "string.from_py":15
- * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:
- *     cdef Py_ssize_t length = 0
- *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)             # <<<<<<<<<<<<<<
- *     return string(data, length)
+    /* "pyzeo/area_volume.pyx":71
+ * 
+ * def surface_area(atmnet, channel_radius, probe_radius,
+ *         mc_sampling_no, high_accuracy=False, high_accuracy_atmnet=None,             # <<<<<<<<<<<<<<
+ *         exclude_pockets=True, extended_output=False):
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_AsStringAndSize(__pyx_v_o, (&__pyx_v_length)); if (unlikely(__pyx_t_1 == ((char const *)NULL))) __PYX_ERR(1, 15, __pyx_L1_error)
-  __pyx_v_data = __pyx_t_1;
+    values[4] = ((PyObject *)Py_False);
+    values[5] = ((PyObject *)Py_None);
 
-  /* "string.from_py":16
- *     cdef Py_ssize_t length = 0
- *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
- *     return string(data, length)             # <<<<<<<<<<<<<<
+    /* "pyzeo/area_volume.pyx":72
+ * def surface_area(atmnet, channel_radius, probe_radius,
+ *         mc_sampling_no, high_accuracy=False, high_accuracy_atmnet=None,
+ *         exclude_pockets=True, extended_output=False):             # <<<<<<<<<<<<<<
  * 
+ *     """
+ */
+    values[6] = ((PyObject *)Py_True);
+    values[7] = ((PyObject *)Py_False);
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  8: values[7] = PyTuple_GET_ITEM(__pyx_args, 7);
+        CYTHON_FALLTHROUGH;
+        case  7: values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
+        CYTHON_FALLTHROUGH;
+        case  6: values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
+        CYTHON_FALLTHROUGH;
+        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_atmnet)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_channel_radius)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("surface_area", 0, 4, 8, 1); __PYX_ERR(0, 70, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_probe_radius)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("surface_area", 0, 4, 8, 2); __PYX_ERR(0, 70, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_mc_sampling_no)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("surface_area", 0, 4, 8, 3); __PYX_ERR(0, 70, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  4:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_high_accuracy);
+          if (value) { values[4] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  5:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_high_accuracy_atmnet);
+          if (value) { values[5] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  6:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_exclude_pockets);
+          if (value) { values[6] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  7:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_extended_output);
+          if (value) { values[7] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "surface_area") < 0)) __PYX_ERR(0, 70, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  8: values[7] = PyTuple_GET_ITEM(__pyx_args, 7);
+        CYTHON_FALLTHROUGH;
+        case  7: values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
+        CYTHON_FALLTHROUGH;
+        case  6: values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
+        CYTHON_FALLTHROUGH;
+        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_atmnet = values[0];
+    __pyx_v_channel_radius = values[1];
+    __pyx_v_probe_radius = values[2];
+    __pyx_v_mc_sampling_no = values[3];
+    __pyx_v_high_accuracy = values[4];
+    __pyx_v_high_accuracy_atmnet = values[5];
+    __pyx_v_exclude_pockets = values[6];
+    __pyx_v_extended_output = values[7];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("surface_area", 0, 4, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 70, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("pyzeo.area_volume.surface_area", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_5pyzeo_11area_volume_2surface_area(__pyx_self, __pyx_v_atmnet, __pyx_v_channel_radius, __pyx_v_probe_radius, __pyx_v_mc_sampling_no, __pyx_v_high_accuracy, __pyx_v_high_accuracy_atmnet, __pyx_v_exclude_pockets, __pyx_v_extended_output);
+
+  /* "pyzeo/area_volume.pyx":70
+ *     #        print fields[1], fields[3]
+ * 
+ * def surface_area(atmnet, channel_radius, probe_radius,             # <<<<<<<<<<<<<<
+ *         mc_sampling_no, high_accuracy=False, high_accuracy_atmnet=None,
+ *         exclude_pockets=True, extended_output=False):
+ */
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_5pyzeo_11area_volume_2surface_area(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_atmnet, PyObject *__pyx_v_channel_radius, PyObject *__pyx_v_probe_radius, PyObject *__pyx_v_mc_sampling_no, PyObject *__pyx_v_high_accuracy, PyObject *__pyx_v_high_accuracy_atmnet, PyObject *__pyx_v_exclude_pockets, PyObject *__pyx_v_extended_output) {
+  int __pyx_v_ret_high_acc_atmnet;
+  ATOM_NETWORK *__pyx_v_c_org_atmnet_ptr;
+  ATOM_NETWORK *__pyx_v_c_atmnet_ptr;
+  PyObject *__pyx_v_tmp_atmnet = NULL;
+  std::string __pyx_v_sa_str;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  int __pyx_t_2;
+  int __pyx_t_3;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  ATOM_NETWORK *__pyx_t_7;
+  double __pyx_t_8;
+  double __pyx_t_9;
+  int __pyx_t_10;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("surface_area", 0);
+  __Pyx_INCREF(__pyx_v_high_accuracy);
+  __Pyx_INCREF(__pyx_v_high_accuracy_atmnet);
+
+  /* "pyzeo/area_volume.pyx":102
+ *            returns high_accuracy_atmnet for future use.
+ *     """
+ *     if high_accuracy and not high_accuracy_atmnet:             # <<<<<<<<<<<<<<
+ *         high_accuracy_atmnet = atmnet.copy()
+ *         pyzeo.high_accuracy.high_accuracy_atmnet(high_accuracy_atmnet)
+ */
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_high_accuracy); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 102, __pyx_L1_error)
+  if (__pyx_t_2) {
+  } else {
+    __pyx_t_1 = __pyx_t_2;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_high_accuracy_atmnet); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 102, __pyx_L1_error)
+  __pyx_t_3 = ((!__pyx_t_2) != 0);
+  __pyx_t_1 = __pyx_t_3;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_1) {
+
+    /* "pyzeo/area_volume.pyx":103
+ *     """
+ *     if high_accuracy and not high_accuracy_atmnet:
+ *         high_accuracy_atmnet = atmnet.copy()             # <<<<<<<<<<<<<<
+ *         pyzeo.high_accuracy.high_accuracy_atmnet(high_accuracy_atmnet)
+ *         ret_high_acc_atmnet = True
+ */
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_atmnet, __pyx_n_s_copy); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 103, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_6 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
+      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
+      if (likely(__pyx_t_6)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+        __Pyx_INCREF(__pyx_t_6);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_5, function);
+      }
+    }
+    __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
+    __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 103, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF_SET(__pyx_v_high_accuracy_atmnet, __pyx_t_4);
+    __pyx_t_4 = 0;
+
+    /* "pyzeo/area_volume.pyx":104
+ *     if high_accuracy and not high_accuracy_atmnet:
+ *         high_accuracy_atmnet = atmnet.copy()
+ *         pyzeo.high_accuracy.high_accuracy_atmnet(high_accuracy_atmnet)             # <<<<<<<<<<<<<<
+ *         ret_high_acc_atmnet = True
+ *     else:
+ */
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_pyzeo); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 104, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_high_accuracy); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 104, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_high_accuracy_atmnet); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 104, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __pyx_t_6 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
+      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
+      if (likely(__pyx_t_6)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+        __Pyx_INCREF(__pyx_t_6);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_5, function);
+      }
+    }
+    __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_v_high_accuracy_atmnet) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_high_accuracy_atmnet);
+    __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+    /* "pyzeo/area_volume.pyx":105
+ *         high_accuracy_atmnet = atmnet.copy()
+ *         pyzeo.high_accuracy.high_accuracy_atmnet(high_accuracy_atmnet)
+ *         ret_high_acc_atmnet = True             # <<<<<<<<<<<<<<
+ *     else:
+ *         ret_high_acc_atmnet = False
+ */
+    __pyx_v_ret_high_acc_atmnet = 1;
+
+    /* "pyzeo/area_volume.pyx":102
+ *            returns high_accuracy_atmnet for future use.
+ *     """
+ *     if high_accuracy and not high_accuracy_atmnet:             # <<<<<<<<<<<<<<
+ *         high_accuracy_atmnet = atmnet.copy()
+ *         pyzeo.high_accuracy.high_accuracy_atmnet(high_accuracy_atmnet)
+ */
+    goto __pyx_L3;
+  }
+
+  /* "pyzeo/area_volume.pyx":107
+ *         ret_high_acc_atmnet = True
+ *     else:
+ *         ret_high_acc_atmnet = False             # <<<<<<<<<<<<<<
+ * 
+ *     if high_accuracy_atmnet and not high_accuracy:
+ */
+  /*else*/ {
+    __pyx_v_ret_high_acc_atmnet = 0;
+  }
+  __pyx_L3:;
+
+  /* "pyzeo/area_volume.pyx":109
+ *         ret_high_acc_atmnet = False
+ * 
+ *     if high_accuracy_atmnet and not high_accuracy:             # <<<<<<<<<<<<<<
+ *         high_accuracy = True
  * 
  */
-  __pyx_r = std::string(__pyx_v_data, __pyx_v_length);
-  goto __pyx_L0;
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_high_accuracy_atmnet); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 109, __pyx_L1_error)
+  if (__pyx_t_3) {
+  } else {
+    __pyx_t_1 = __pyx_t_3;
+    goto __pyx_L7_bool_binop_done;
+  }
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_high_accuracy); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_2 = ((!__pyx_t_3) != 0);
+  __pyx_t_1 = __pyx_t_2;
+  __pyx_L7_bool_binop_done:;
+  if (__pyx_t_1) {
 
-  /* "string.from_py":13
+    /* "pyzeo/area_volume.pyx":110
  * 
- * @cname("__pyx_convert_string_from_py_std__in_string")
- * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:             # <<<<<<<<<<<<<<
- *     cdef Py_ssize_t length = 0
- *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
+ *     if high_accuracy_atmnet and not high_accuracy:
+ *         high_accuracy = True             # <<<<<<<<<<<<<<
+ * 
+ *     cdef ATOM_NETWORK* c_org_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
+ */
+    __Pyx_INCREF(Py_True);
+    __Pyx_DECREF_SET(__pyx_v_high_accuracy, Py_True);
+
+    /* "pyzeo/area_volume.pyx":109
+ *         ret_high_acc_atmnet = False
+ * 
+ *     if high_accuracy_atmnet and not high_accuracy:             # <<<<<<<<<<<<<<
+ *         high_accuracy = True
+ * 
+ */
+  }
+
+  /* "pyzeo/area_volume.pyx":112
+ *         high_accuracy = True
+ * 
+ *     cdef ATOM_NETWORK* c_org_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr             # <<<<<<<<<<<<<<
+ *     cdef ATOM_NETWORK* c_atmnet_ptr
+ *     if high_accuracy_atmnet:
+ */
+  if (!(likely(__Pyx_TypeTest(__pyx_v_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(0, 112, __pyx_L1_error)
+  __pyx_t_7 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_atmnet)->thisptr;
+  __pyx_v_c_org_atmnet_ptr = __pyx_t_7;
+
+  /* "pyzeo/area_volume.pyx":114
+ *     cdef ATOM_NETWORK* c_org_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
+ *     cdef ATOM_NETWORK* c_atmnet_ptr
+ *     if high_accuracy_atmnet:             # <<<<<<<<<<<<<<
+ *         c_atmnet_ptr = (<AtomNetwork?>high_accuracy_atmnet).thisptr
+ *     else:
+ */
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_high_accuracy_atmnet); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 114, __pyx_L1_error)
+  if (__pyx_t_1) {
+
+    /* "pyzeo/area_volume.pyx":115
+ *     cdef ATOM_NETWORK* c_atmnet_ptr
+ *     if high_accuracy_atmnet:
+ *         c_atmnet_ptr = (<AtomNetwork?>high_accuracy_atmnet).thisptr             # <<<<<<<<<<<<<<
+ *     else:
+ *         tmp_atmnet = atmnet.copy()
+ */
+    if (!(likely(__Pyx_TypeTest(__pyx_v_high_accuracy_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(0, 115, __pyx_L1_error)
+    __pyx_t_7 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_high_accuracy_atmnet)->thisptr;
+    __pyx_v_c_atmnet_ptr = __pyx_t_7;
+
+    /* "pyzeo/area_volume.pyx":114
+ *     cdef ATOM_NETWORK* c_org_atmnet_ptr = (<AtomNetwork?>atmnet).thisptr
+ *     cdef ATOM_NETWORK* c_atmnet_ptr
+ *     if high_accuracy_atmnet:             # <<<<<<<<<<<<<<
+ *         c_atmnet_ptr = (<AtomNetwork?>high_accuracy_atmnet).thisptr
+ *     else:
+ */
+    goto __pyx_L9;
+  }
+
+  /* "pyzeo/area_volume.pyx":117
+ *         c_atmnet_ptr = (<AtomNetwork?>high_accuracy_atmnet).thisptr
+ *     else:
+ *         tmp_atmnet = atmnet.copy()             # <<<<<<<<<<<<<<
+ *         c_atmnet_ptr = (<AtomNetwork?>tmp_atmnet).thisptr
+ * 
+ */
+  /*else*/ {
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_atmnet, __pyx_n_s_copy); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 117, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_6 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
+      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
+      if (likely(__pyx_t_6)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+        __Pyx_INCREF(__pyx_t_6);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_5, function);
+      }
+    }
+    __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
+    __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 117, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_v_tmp_atmnet = __pyx_t_4;
+    __pyx_t_4 = 0;
+
+    /* "pyzeo/area_volume.pyx":118
+ *     else:
+ *         tmp_atmnet = atmnet.copy()
+ *         c_atmnet_ptr = (<AtomNetwork?>tmp_atmnet).thisptr             # <<<<<<<<<<<<<<
+ * 
+ *     sa_str = calcASA(c_atmnet_ptr, c_org_atmnet_ptr, high_accuracy,
+ */
+    if (!(likely(__Pyx_TypeTest(__pyx_v_tmp_atmnet, __pyx_ptype_5pyzeo_10netstorage_AtomNetwork)))) __PYX_ERR(0, 118, __pyx_L1_error)
+    __pyx_t_7 = ((struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork *)__pyx_v_tmp_atmnet)->thisptr;
+    __pyx_v_c_atmnet_ptr = __pyx_t_7;
+  }
+  __pyx_L9:;
+
+  /* "pyzeo/area_volume.pyx":120
+ *         c_atmnet_ptr = (<AtomNetwork?>tmp_atmnet).thisptr
+ * 
+ *     sa_str = calcASA(c_atmnet_ptr, c_org_atmnet_ptr, high_accuracy,             # <<<<<<<<<<<<<<
+ *             channel_radius, probe_radius, mc_sampling_no, exclude_pockets,
+ *             extended_output)
+ */
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_high_accuracy); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 120, __pyx_L1_error)
+
+  /* "pyzeo/area_volume.pyx":121
+ * 
+ *     sa_str = calcASA(c_atmnet_ptr, c_org_atmnet_ptr, high_accuracy,
+ *             channel_radius, probe_radius, mc_sampling_no, exclude_pockets,             # <<<<<<<<<<<<<<
+ *             extended_output)
+ *     if ret_high_acc_atmnet:
+ */
+  __pyx_t_8 = __pyx_PyFloat_AsDouble(__pyx_v_channel_radius); if (unlikely((__pyx_t_8 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_v_probe_radius); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_v_mc_sampling_no); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_exclude_pockets); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 121, __pyx_L1_error)
+
+  /* "pyzeo/area_volume.pyx":122
+ *     sa_str = calcASA(c_atmnet_ptr, c_org_atmnet_ptr, high_accuracy,
+ *             channel_radius, probe_radius, mc_sampling_no, exclude_pockets,
+ *             extended_output)             # <<<<<<<<<<<<<<
+ *     if ret_high_acc_atmnet:
+ *         return sa_str, high_accuracy_atmnet
+ */
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_extended_output); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 122, __pyx_L1_error)
+
+  /* "pyzeo/area_volume.pyx":120
+ *         c_atmnet_ptr = (<AtomNetwork?>tmp_atmnet).thisptr
+ * 
+ *     sa_str = calcASA(c_atmnet_ptr, c_org_atmnet_ptr, high_accuracy,             # <<<<<<<<<<<<<<
+ *             channel_radius, probe_radius, mc_sampling_no, exclude_pockets,
+ *             extended_output)
+ */
+  __pyx_v_sa_str = calcASA(__pyx_v_c_atmnet_ptr, __pyx_v_c_org_atmnet_ptr, __pyx_t_1, __pyx_t_8, __pyx_t_9, __pyx_t_10, __pyx_t_2, __pyx_t_3);
+
+  /* "pyzeo/area_volume.pyx":123
+ *             channel_radius, probe_radius, mc_sampling_no, exclude_pockets,
+ *             extended_output)
+ *     if ret_high_acc_atmnet:             # <<<<<<<<<<<<<<
+ *         return sa_str, high_accuracy_atmnet
+ *     else:
+ */
+  __pyx_t_3 = (__pyx_v_ret_high_acc_atmnet != 0);
+  if (__pyx_t_3) {
+
+    /* "pyzeo/area_volume.pyx":124
+ *             extended_output)
+ *     if ret_high_acc_atmnet:
+ *         return sa_str, high_accuracy_atmnet             # <<<<<<<<<<<<<<
+ *     else:
+ *         return sa_str
+ */
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_4 = __pyx_convert_PyBytes_string_to_py_std__in_string(__pyx_v_sa_str); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_GIVEREF(__pyx_t_4);
+    PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4);
+    __Pyx_INCREF(__pyx_v_high_accuracy_atmnet);
+    __Pyx_GIVEREF(__pyx_v_high_accuracy_atmnet);
+    PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_v_high_accuracy_atmnet);
+    __pyx_t_4 = 0;
+    __pyx_r = __pyx_t_5;
+    __pyx_t_5 = 0;
+    goto __pyx_L0;
+
+    /* "pyzeo/area_volume.pyx":123
+ *             channel_radius, probe_radius, mc_sampling_no, exclude_pockets,
+ *             extended_output)
+ *     if ret_high_acc_atmnet:             # <<<<<<<<<<<<<<
+ *         return sa_str, high_accuracy_atmnet
+ *     else:
+ */
+  }
+
+  /* "pyzeo/area_volume.pyx":126
+ *         return sa_str, high_accuracy_atmnet
+ *     else:
+ *         return sa_str             # <<<<<<<<<<<<<<
+ */
+  /*else*/ {
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_5 = __pyx_convert_PyBytes_string_to_py_std__in_string(__pyx_v_sa_str); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 126, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_r = __pyx_t_5;
+    __pyx_t_5 = 0;
+    goto __pyx_L0;
+  }
+
+  /* "pyzeo/area_volume.pyx":70
+ *     #        print fields[1], fields[3]
+ * 
+ * def surface_area(atmnet, channel_radius, probe_radius,             # <<<<<<<<<<<<<<
+ *         mc_sampling_no, high_accuracy=False, high_accuracy_atmnet=None,
+ *         exclude_pockets=True, extended_output=False):
  */
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("string.from_py.__pyx_convert_string_from_py_std__in_string", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_pretend_to_initialize(&__pyx_r);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_AddTraceback("pyzeo.area_volume.surface_area", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
   __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_tmp_atmnet);
+  __Pyx_XDECREF(__pyx_v_high_accuracy);
+  __Pyx_XDECREF(__pyx_v_high_accuracy_atmnet);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "string.to_py":31
+ * 
+ * @cname("__pyx_convert_PyObject_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyObject_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
+ *     return __Pyx_PyObject_FromStringAndSize(s.data(), s.size())
+ * cdef extern from *:
+ */
+
+static CYTHON_INLINE PyObject *__pyx_convert_PyObject_string_to_py_std__in_string(std::string const &__pyx_v_s) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__pyx_convert_PyObject_string_to_py_std__in_string", 0);
+
+  /* "string.to_py":32
+ * @cname("__pyx_convert_PyObject_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyObject_string_to_py_std__in_string(const string& s):
+ *     return __Pyx_PyObject_FromStringAndSize(s.data(), s.size())             # <<<<<<<<<<<<<<
+ * cdef extern from *:
+ *     cdef object __Pyx_PyUnicode_FromStringAndSize(const char*, size_t)
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyObject_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 32, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "string.to_py":31
+ * 
+ * @cname("__pyx_convert_PyObject_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyObject_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
+ *     return __Pyx_PyObject_FromStringAndSize(s.data(), s.size())
+ * cdef extern from *:
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("string.to_py.__pyx_convert_PyObject_string_to_py_std__in_string", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "string.to_py":37
+ * 
+ * @cname("__pyx_convert_PyUnicode_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyUnicode_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
+ *     return __Pyx_PyUnicode_FromStringAndSize(s.data(), s.size())
+ * cdef extern from *:
+ */
+
+static CYTHON_INLINE PyObject *__pyx_convert_PyUnicode_string_to_py_std__in_string(std::string const &__pyx_v_s) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__pyx_convert_PyUnicode_string_to_py_std__in_string", 0);
+
+  /* "string.to_py":38
+ * @cname("__pyx_convert_PyUnicode_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyUnicode_string_to_py_std__in_string(const string& s):
+ *     return __Pyx_PyUnicode_FromStringAndSize(s.data(), s.size())             # <<<<<<<<<<<<<<
+ * cdef extern from *:
+ *     cdef object __Pyx_PyStr_FromStringAndSize(const char*, size_t)
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyUnicode_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 38, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "string.to_py":37
+ * 
+ * @cname("__pyx_convert_PyUnicode_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyUnicode_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
+ *     return __Pyx_PyUnicode_FromStringAndSize(s.data(), s.size())
+ * cdef extern from *:
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("string.to_py.__pyx_convert_PyUnicode_string_to_py_std__in_string", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "string.to_py":43
+ * 
+ * @cname("__pyx_convert_PyStr_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyStr_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
+ *     return __Pyx_PyStr_FromStringAndSize(s.data(), s.size())
+ * cdef extern from *:
+ */
+
+static CYTHON_INLINE PyObject *__pyx_convert_PyStr_string_to_py_std__in_string(std::string const &__pyx_v_s) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__pyx_convert_PyStr_string_to_py_std__in_string", 0);
+
+  /* "string.to_py":44
+ * @cname("__pyx_convert_PyStr_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyStr_string_to_py_std__in_string(const string& s):
+ *     return __Pyx_PyStr_FromStringAndSize(s.data(), s.size())             # <<<<<<<<<<<<<<
+ * cdef extern from *:
+ *     cdef object __Pyx_PyBytes_FromStringAndSize(const char*, size_t)
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyStr_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 44, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "string.to_py":43
+ * 
+ * @cname("__pyx_convert_PyStr_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyStr_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
+ *     return __Pyx_PyStr_FromStringAndSize(s.data(), s.size())
+ * cdef extern from *:
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("string.to_py.__pyx_convert_PyStr_string_to_py_std__in_string", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "string.to_py":49
+ * 
+ * @cname("__pyx_convert_PyBytes_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyBytes_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
+ *     return __Pyx_PyBytes_FromStringAndSize(s.data(), s.size())
+ * cdef extern from *:
+ */
+
+static CYTHON_INLINE PyObject *__pyx_convert_PyBytes_string_to_py_std__in_string(std::string const &__pyx_v_s) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__pyx_convert_PyBytes_string_to_py_std__in_string", 0);
+
+  /* "string.to_py":50
+ * @cname("__pyx_convert_PyBytes_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyBytes_string_to_py_std__in_string(const string& s):
+ *     return __Pyx_PyBytes_FromStringAndSize(s.data(), s.size())             # <<<<<<<<<<<<<<
+ * cdef extern from *:
+ *     cdef object __Pyx_PyByteArray_FromStringAndSize(const char*, size_t)
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 50, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "string.to_py":49
+ * 
+ * @cname("__pyx_convert_PyBytes_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyBytes_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
+ *     return __Pyx_PyBytes_FromStringAndSize(s.data(), s.size())
+ * cdef extern from *:
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("string.to_py.__pyx_convert_PyBytes_string_to_py_std__in_string", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "string.to_py":55
+ * 
+ * @cname("__pyx_convert_PyByteArray_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyByteArray_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
+ *     return __Pyx_PyByteArray_FromStringAndSize(s.data(), s.size())
+ * 
+ */
+
+static CYTHON_INLINE PyObject *__pyx_convert_PyByteArray_string_to_py_std__in_string(std::string const &__pyx_v_s) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__pyx_convert_PyByteArray_string_to_py_std__in_string", 0);
+
+  /* "string.to_py":56
+ * @cname("__pyx_convert_PyByteArray_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyByteArray_string_to_py_std__in_string(const string& s):
+ *     return __Pyx_PyByteArray_FromStringAndSize(s.data(), s.size())             # <<<<<<<<<<<<<<
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyByteArray_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 56, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "string.to_py":55
+ * 
+ * @cname("__pyx_convert_PyByteArray_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyByteArray_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
+ *     return __Pyx_PyByteArray_FromStringAndSize(s.data(), s.size())
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("string.to_py.__pyx_convert_PyByteArray_string_to_py_std__in_string", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -1862,17 +2956,17 @@ static PyMethodDef __pyx_methods[] = {
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_high_accuracy(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_area_volume(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_high_accuracy},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_area_volume},
   {0, NULL}
 };
 #endif
 
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
-    "high_accuracy",
+    "area_volume",
     0, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
@@ -1901,78 +2995,67 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
-  {&__pyx_n_s_ACC, __pyx_k_ACC, sizeof(__pyx_k_ACC), 0, 0, 1, 1},
-  {&__pyx_n_s_AQC, __pyx_k_AQC, sizeof(__pyx_k_AQC), 0, 0, 1, 1},
-  {&__pyx_kp_s_Accuracy_setting_not_understood, __pyx_k_Accuracy_setting_not_understood, sizeof(__pyx_k_Accuracy_setting_not_understood), 0, 0, 1, 0},
-  {&__pyx_n_s_DDH, __pyx_k_DDH, sizeof(__pyx_k_DDH), 0, 0, 1, 1},
-  {&__pyx_n_s_DEF, __pyx_k_DEF, sizeof(__pyx_k_DEF), 0, 0, 1, 1},
-  {&__pyx_n_s_FCC, __pyx_k_FCC, sizeof(__pyx_k_FCC), 0, 0, 1, 1},
-  {&__pyx_n_s_HI, __pyx_k_HI, sizeof(__pyx_k_HI), 0, 0, 1, 1},
-  {&__pyx_n_s_ICC, __pyx_k_ICC, sizeof(__pyx_k_ICC), 0, 0, 1, 1},
-  {&__pyx_n_s_ICH, __pyx_k_ICH, sizeof(__pyx_k_ICH), 0, 0, 1, 1},
-  {&__pyx_n_s_LOW, __pyx_k_LOW, sizeof(__pyx_k_LOW), 0, 0, 1, 1},
-  {&__pyx_n_s_MED, __pyx_k_MED, sizeof(__pyx_k_MED), 0, 0, 1, 1},
-  {&__pyx_n_s_OCC, __pyx_k_OCC, sizeof(__pyx_k_OCC), 0, 0, 1, 1},
-  {&__pyx_n_s_RIH, __pyx_k_RIH, sizeof(__pyx_k_RIH), 0, 0, 1, 1},
-  {&__pyx_n_s_S10, __pyx_k_S10, sizeof(__pyx_k_S10), 0, 0, 1, 1},
-  {&__pyx_n_s_S100, __pyx_k_S100, sizeof(__pyx_k_S100), 0, 0, 1, 1},
-  {&__pyx_n_s_S1000, __pyx_k_S1000, sizeof(__pyx_k_S1000), 0, 0, 1, 1},
-  {&__pyx_n_s_S10000, __pyx_k_S10000, sizeof(__pyx_k_S10000), 0, 0, 1, 1},
-  {&__pyx_n_s_S20, __pyx_k_S20, sizeof(__pyx_k_S20), 0, 0, 1, 1},
-  {&__pyx_n_s_S30, __pyx_k_S30, sizeof(__pyx_k_S30), 0, 0, 1, 1},
-  {&__pyx_n_s_S4, __pyx_k_S4, sizeof(__pyx_k_S4), 0, 0, 1, 1},
-  {&__pyx_n_s_S40, __pyx_k_S40, sizeof(__pyx_k_S40), 0, 0, 1, 1},
-  {&__pyx_n_s_S50, __pyx_k_S50, sizeof(__pyx_k_S50), 0, 0, 1, 1},
-  {&__pyx_n_s_S500, __pyx_k_S500, sizeof(__pyx_k_S500), 0, 0, 1, 1},
-  {&__pyx_n_s_TIH, __pyx_k_TIH, sizeof(__pyx_k_TIH), 0, 0, 1, 1},
-  {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
-  {&__pyx_n_s_acc_set, __pyx_k_acc_set, sizeof(__pyx_k_acc_set), 0, 0, 1, 1},
-  {&__pyx_n_s_accuracy_kw, __pyx_k_accuracy_kw, sizeof(__pyx_k_accuracy_kw), 0, 0, 1, 1},
-  {&__pyx_n_s_accuracy_setting, __pyx_k_accuracy_setting, sizeof(__pyx_k_accuracy_setting), 0, 0, 1, 1},
   {&__pyx_n_s_atmnet, __pyx_k_atmnet, sizeof(__pyx_k_atmnet), 0, 0, 1, 1},
-  {&__pyx_n_s_c_atmnetptr, __pyx_k_c_atmnetptr, sizeof(__pyx_k_c_atmnetptr), 0, 0, 1, 1},
+  {&__pyx_n_s_c_atmnet_ptr, __pyx_k_c_atmnet_ptr, sizeof(__pyx_k_c_atmnet_ptr), 0, 0, 1, 1},
+  {&__pyx_n_s_c_org_atmnet_ptr, __pyx_k_c_org_atmnet_ptr, sizeof(__pyx_k_c_org_atmnet_ptr), 0, 0, 1, 1},
+  {&__pyx_n_s_channel_radius, __pyx_k_channel_radius, sizeof(__pyx_k_channel_radius), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
+  {&__pyx_n_s_copy, __pyx_k_copy, sizeof(__pyx_k_copy), 0, 0, 1, 1},
+  {&__pyx_n_s_exclude_pockets, __pyx_k_exclude_pockets, sizeof(__pyx_k_exclude_pockets), 0, 0, 1, 1},
+  {&__pyx_n_s_extended_output, __pyx_k_extended_output, sizeof(__pyx_k_extended_output), 0, 0, 1, 1},
+  {&__pyx_n_s_high_accuracy, __pyx_k_high_accuracy, sizeof(__pyx_k_high_accuracy), 0, 0, 1, 1},
   {&__pyx_n_s_high_accuracy_atmnet, __pyx_k_high_accuracy_atmnet, sizeof(__pyx_k_high_accuracy_atmnet), 0, 0, 1, 1},
+  {&__pyx_n_s_high_dist_range, __pyx_k_high_dist_range, sizeof(__pyx_k_high_dist_range), 0, 0, 1, 1},
+  {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
+  {&__pyx_n_s_low_dist_range, __pyx_k_low_dist_range, sizeof(__pyx_k_low_dist_range), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
+  {&__pyx_n_s_mc_sampling_no, __pyx_k_mc_sampling_no, sizeof(__pyx_k_mc_sampling_no), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
-  {&__pyx_kp_s_src_zeoplusplus_high_accuracy_py, __pyx_k_src_zeoplusplus_high_accuracy_py, sizeof(__pyx_k_src_zeoplusplus_high_accuracy_py), 0, 0, 1, 0},
+  {&__pyx_n_s_probe_radius, __pyx_k_probe_radius, sizeof(__pyx_k_probe_radius), 0, 0, 1, 1},
+  {&__pyx_n_s_pyzeo, __pyx_k_pyzeo, sizeof(__pyx_k_pyzeo), 0, 0, 1, 1},
+  {&__pyx_n_s_pyzeo_area_volume, __pyx_k_pyzeo_area_volume, sizeof(__pyx_k_pyzeo_area_volume), 0, 0, 1, 1},
+  {&__pyx_n_s_pyzeo_high_accuracy, __pyx_k_pyzeo_high_accuracy, sizeof(__pyx_k_pyzeo_high_accuracy), 0, 0, 1, 1},
+  {&__pyx_n_s_ret_high_acc_atmnet, __pyx_k_ret_high_acc_atmnet, sizeof(__pyx_k_ret_high_acc_atmnet), 0, 0, 1, 1},
+  {&__pyx_n_s_sa_str, __pyx_k_sa_str, sizeof(__pyx_k_sa_str), 0, 0, 1, 1},
+  {&__pyx_kp_s_src_pyzeo_area_volume_pyx, __pyx_k_src_pyzeo_area_volume_pyx, sizeof(__pyx_k_src_pyzeo_area_volume_pyx), 0, 0, 1, 0},
+  {&__pyx_n_s_surface_area, __pyx_k_surface_area, sizeof(__pyx_k_surface_area), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
-  {&__pyx_n_s_zeoplusplus_high_accuracy, __pyx_k_zeoplusplus_high_accuracy, sizeof(__pyx_k_zeoplusplus_high_accuracy), 0, 0, 1, 1},
+  {&__pyx_n_s_tmp_atmnet, __pyx_k_tmp_atmnet, sizeof(__pyx_k_tmp_atmnet), 0, 0, 1, 1},
+  {&__pyx_n_s_vol_str, __pyx_k_vol_str, sizeof(__pyx_k_vol_str), 0, 0, 1, 1},
+  {&__pyx_n_s_volume, __pyx_k_volume, sizeof(__pyx_k_volume), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 24, __pyx_L1_error)
   return 0;
-  __pyx_L1_error:;
-  return -1;
 }
 
 static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "zeoplusplus/high_accuracy.pyx":24
- *     """
- *     if not accuracy_setting in _accuracy_kw:
- *         raise ValueError("Accuracy setting not understood")             # <<<<<<<<<<<<<<
- *     cdef ATOM_NETWORK* c_atmnetptr = (<AtomNetwork?>atmnet).thisptr
- *     if isinstance(accuracy_setting, unicode):
+  /* "pyzeo/area_volume.pyx":6
+ * import pyzeo.high_accuracy
+ * 
+ * def volume(atmnet, channel_radius, probe_radius,             # <<<<<<<<<<<<<<
+ *         mc_sampling_no, high_accuracy=False, high_accuracy_atmnet=None,
+ *         exclude_pockets=True, low_dist_range=-1, high_dist_range=-1):
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_Accuracy_setting_not_understood); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(14, __pyx_n_s_atmnet, __pyx_n_s_channel_radius, __pyx_n_s_probe_radius, __pyx_n_s_mc_sampling_no, __pyx_n_s_high_accuracy, __pyx_n_s_high_accuracy_atmnet, __pyx_n_s_exclude_pockets, __pyx_n_s_low_dist_range, __pyx_n_s_high_dist_range, __pyx_n_s_ret_high_acc_atmnet, __pyx_n_s_c_org_atmnet_ptr, __pyx_n_s_c_atmnet_ptr, __pyx_n_s_tmp_atmnet, __pyx_n_s_vol_str); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(9, 0, 14, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_pyzeo_area_volume_pyx, __pyx_n_s_volume, 6, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 6, __pyx_L1_error)
 
-  /* "zeoplusplus/high_accuracy.pyx":7
- *         "S30","S40","S50","S100","S500","S1000","S10000","DEF","HI","MED","LOW"
- *         }
- * def high_accuracy_atmnet(atmnet, accuracy_setting="LOW"):             # <<<<<<<<<<<<<<
- *     """
- *     Increases the accuracy of voronoi decomposition by replacing big
+  /* "pyzeo/area_volume.pyx":70
+ *     #        print fields[1], fields[3]
+ * 
+ * def surface_area(atmnet, channel_radius, probe_radius,             # <<<<<<<<<<<<<<
+ *         mc_sampling_no, high_accuracy=False, high_accuracy_atmnet=None,
+ *         exclude_pockets=True, extended_output=False):
  */
-  __pyx_tuple__2 = PyTuple_Pack(4, __pyx_n_s_atmnet, __pyx_n_s_accuracy_setting, __pyx_n_s_c_atmnetptr, __pyx_n_s_acc_set); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__2);
-  __Pyx_GIVEREF(__pyx_tuple__2);
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_zeoplusplus_high_accuracy_py, __pyx_n_s_high_accuracy_atmnet, 7, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(13, __pyx_n_s_atmnet, __pyx_n_s_channel_radius, __pyx_n_s_probe_radius, __pyx_n_s_mc_sampling_no, __pyx_n_s_high_accuracy, __pyx_n_s_high_accuracy_atmnet, __pyx_n_s_exclude_pockets, __pyx_n_s_extended_output, __pyx_n_s_ret_high_acc_atmnet, __pyx_n_s_c_org_atmnet_ptr, __pyx_n_s_c_atmnet_ptr, __pyx_n_s_tmp_atmnet, __pyx_n_s_sa_str); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__3);
+  __Pyx_GIVEREF(__pyx_tuple__3);
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(8, 0, 13, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_pyzeo_area_volume_pyx, __pyx_n_s_surface_area, 70, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -1982,6 +3065,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 
 static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
   if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_neg_1 = PyInt_FromLong(-1); if (unlikely(!__pyx_int_neg_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -2035,32 +3119,32 @@ static int __Pyx_modinit_type_import_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.geometry"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 24, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.geometry"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_8geometry_Xyz = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.geometry", "Xyz", sizeof(struct __pyx_obj_11zeoplusplus_8geometry_Xyz), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_8geometry_Xyz) __PYX_ERR(2, 24, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_8geometry_Point = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.geometry", "Point", sizeof(struct __pyx_obj_11zeoplusplus_8geometry_Point), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_8geometry_Point) __PYX_ERR(2, 32, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_8geometry_Xyz = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Xyz", sizeof(struct __pyx_obj_5pyzeo_8geometry_Xyz), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Xyz) __PYX_ERR(2, 24, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_8geometry_Point = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Point", sizeof(struct __pyx_obj_5pyzeo_8geometry_Point), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Point) __PYX_ERR(2, 32, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.voronoicell"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 39, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.voronoicell"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_11voronoicell_VorFace = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "VorFace", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_VorFace) __PYX_ERR(3, 39, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_11voronoicell_VorCell = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "VorCell", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_VorCell) __PYX_ERR(3, 42, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "BasicVCell", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell) __PYX_ERR(3, 45, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_VorFace = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "VorFace", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorFace), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_VorFace) __PYX_ERR(3, 39, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_VorCell = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "VorCell", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorCell), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_VorCell) __PYX_ERR(3, 42, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_BasicVCell = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "BasicVCell", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_BasicVCell) __PYX_ERR(3, 45, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.netstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 120, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.netstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_10netstorage_Atom = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "Atom", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_Atom), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_Atom) __PYX_ERR(4, 120, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "AtomNetwork", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork) __PYX_ERR(4, 126, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "VoronoiNode", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode) __PYX_ERR(4, 135, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "VoronoiNetwork", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork) __PYX_ERR(4, 141, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_Atom = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "Atom", sizeof(struct __pyx_obj_5pyzeo_10netstorage_Atom), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_Atom) __PYX_ERR(4, 120, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_AtomNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "AtomNetwork", sizeof(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_AtomNetwork) __PYX_ERR(4, 126, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNode = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "VoronoiNode", sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_VoronoiNode) __PYX_ERR(4, 135, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "VoronoiNetwork", sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork) __PYX_ERR(4, 141, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -2105,11 +3189,11 @@ static int __Pyx_modinit_function_import_code(void) {
 
 
 #if PY_MAJOR_VERSION < 3
-__Pyx_PyMODINIT_FUNC inithigh_accuracy(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC inithigh_accuracy(void)
+__Pyx_PyMODINIT_FUNC initarea_volume(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC initarea_volume(void)
 #else
-__Pyx_PyMODINIT_FUNC PyInit_high_accuracy(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC PyInit_high_accuracy(void)
+__Pyx_PyMODINIT_FUNC PyInit_area_volume(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC PyInit_area_volume(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -2176,7 +3260,7 @@ bad:
 }
 
 
-static CYTHON_SMALL_CODE int __pyx_pymod_exec_high_accuracy(PyObject *__pyx_pyinit_module)
+static CYTHON_SMALL_CODE int __pyx_pymod_exec_area_volume(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
@@ -2188,7 +3272,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_high_accuracy(PyObject *__pyx_pyin
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   if (__pyx_m) {
     if (__pyx_m == __pyx_pyinit_module) return 0;
-    PyErr_SetString(PyExc_RuntimeError, "Module 'high_accuracy' has already been imported. Re-initialisation is not supported.");
+    PyErr_SetString(PyExc_RuntimeError, "Module 'area_volume' has already been imported. Re-initialisation is not supported.");
     return -1;
   }
   #elif PY_MAJOR_VERSION >= 3
@@ -2203,7 +3287,7 @@ if (!__Pyx_RefNanny) {
       Py_FatalError("failed to import 'refnanny' module");
 }
 #endif
-  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_high_accuracy(void)", 0);
+  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_area_volume(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #ifdef __Pxy_PyFrame_Initialize_Offsets
   __Pxy_PyFrame_Initialize_Offsets();
@@ -2240,7 +3324,7 @@ if (!__Pyx_RefNanny) {
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("high_accuracy", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("area_volume", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -2258,14 +3342,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_zeoplusplus__high_accuracy) {
+  if (__pyx_module_is_main_pyzeo__area_volume) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "zeoplusplus.high_accuracy")) {
-      if (unlikely(PyDict_SetItemString(modules, "zeoplusplus.high_accuracy", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "pyzeo.area_volume")) {
+      if (unlikely(PyDict_SetItemString(modules, "pyzeo.area_volume", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -2286,69 +3370,58 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "zeoplusplus/high_accuracy.pyx":4
+  /* "pyzeo/area_volume.pyx":4
  * 
- * _accuracy_kw = {
- *         "OCC","FCC","ACC","AQC","DDH","TIH","ICH","ICC","RIH","S4","S10","S20",             # <<<<<<<<<<<<<<
- *         "S30","S40","S50","S100","S500","S1000","S10000","DEF","HI","MED","LOW"
- *         }
+ * from pyzeo.netstorage cimport AtomNetwork, ATOM_NETWORK
+ * import pyzeo.high_accuracy             # <<<<<<<<<<<<<<
+ * 
+ * def volume(atmnet, channel_radius, probe_radius,
  */
-  __pyx_t_1 = PySet_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_pyzeo_high_accuracy, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_OCC) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_FCC) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_ACC) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_AQC) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_DDH) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_TIH) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_ICH) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_ICC) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_RIH) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_S4) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_S10) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_S20) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_S30) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_S40) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_S50) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_S100) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_S500) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_S1000) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_S10000) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_DEF) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_HI) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_MED) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PySet_Add(__pyx_t_1, __pyx_n_s_LOW) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_accuracy_kw, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyzeo, __pyx_t_1) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/high_accuracy.pyx":7
- *         "S30","S40","S50","S100","S500","S1000","S10000","DEF","HI","MED","LOW"
- *         }
- * def high_accuracy_atmnet(atmnet, accuracy_setting="LOW"):             # <<<<<<<<<<<<<<
- *     """
- *     Increases the accuracy of voronoi decomposition by replacing big
+  /* "pyzeo/area_volume.pyx":6
+ * import pyzeo.high_accuracy
+ * 
+ * def volume(atmnet, channel_radius, probe_radius,             # <<<<<<<<<<<<<<
+ *         mc_sampling_no, high_accuracy=False, high_accuracy_atmnet=None,
+ *         exclude_pockets=True, low_dist_range=-1, high_dist_range=-1):
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_11zeoplusplus_13high_accuracy_1high_accuracy_atmnet, NULL, __pyx_n_s_zeoplusplus_high_accuracy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5pyzeo_11area_volume_1volume, NULL, __pyx_n_s_pyzeo_area_volume); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_high_accuracy_atmnet, __pyx_t_1) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_volume, __pyx_t_1) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "zeoplusplus/high_accuracy.pyx":1
- * from zeoplusplus.netstorage cimport AtomNetwork, ATOM_NETWORK             # <<<<<<<<<<<<<<
+  /* "pyzeo/area_volume.pyx":70
+ *     #        print fields[1], fields[3]
  * 
- * _accuracy_kw = {
+ * def surface_area(atmnet, channel_radius, probe_radius,             # <<<<<<<<<<<<<<
+ *         mc_sampling_no, high_accuracy=False, high_accuracy_atmnet=None,
+ *         exclude_pockets=True, extended_output=False):
+ */
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5pyzeo_11area_volume_3surface_area, NULL, __pyx_n_s_pyzeo_area_volume); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_surface_area, __pyx_t_1) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "pyzeo/area_volume.pyx":1
+ * from libcpp.string cimport string             # <<<<<<<<<<<<<<
+ * 
+ * from pyzeo.netstorage cimport AtomNetwork, ATOM_NETWORK
  */
   __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "string.from_py":13
+  /* "string.to_py":55
  * 
- * @cname("__pyx_convert_string_from_py_std__in_string")
- * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:             # <<<<<<<<<<<<<<
- *     cdef Py_ssize_t length = 0
- *     cdef const char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
+ * @cname("__pyx_convert_PyByteArray_string_to_py_std__in_string")
+ * cdef inline object __pyx_convert_PyByteArray_string_to_py_std__in_string(const string& s):             # <<<<<<<<<<<<<<
+ *     return __Pyx_PyByteArray_FromStringAndSize(s.data(), s.size())
+ * 
  */
 
   /*--- Wrapped vars code ---*/
@@ -2358,11 +3431,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init zeoplusplus.high_accuracy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init pyzeo.area_volume", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init zeoplusplus.high_accuracy");
+    PyErr_SetString(PyExc_ImportError, "init pyzeo.area_volume");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -2393,32 +3466,30 @@ end:
 }
 #endif
 
-/* PyObjectGetAttrStr */
-#if CYTHON_USE_TYPE_SLOTS
-static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject* attr_name) {
-    PyTypeObject* tp = Py_TYPE(obj);
-    if (likely(tp->tp_getattro))
-        return tp->tp_getattro(obj, attr_name);
-#if PY_MAJOR_VERSION < 3
-    if (likely(tp->tp_getattr))
-        return tp->tp_getattr(obj, PyString_AS_STRING(attr_name));
-#endif
-    return PyObject_GetAttr(obj, attr_name);
-}
-#endif
-
-/* GetBuiltinName */
-static PyObject *__Pyx_GetBuiltinName(PyObject *name) {
-    PyObject* result = __Pyx_PyObject_GetAttrStr(__pyx_b, name);
-    if (unlikely(!result)) {
-        PyErr_Format(PyExc_NameError,
-#if PY_MAJOR_VERSION >= 3
-            "name '%U' is not defined", name);
-#else
-            "name '%.200s' is not defined", PyString_AS_STRING(name));
-#endif
+/* RaiseArgTupleInvalid */
+static void __Pyx_RaiseArgtupleInvalid(
+    const char* func_name,
+    int exact,
+    Py_ssize_t num_min,
+    Py_ssize_t num_max,
+    Py_ssize_t num_found)
+{
+    Py_ssize_t num_expected;
+    const char *more_or_less;
+    if (num_found < num_min) {
+        num_expected = num_min;
+        more_or_less = "at least";
+    } else {
+        num_expected = num_max;
+        more_or_less = "at most";
     }
-    return result;
+    if (exact) {
+        more_or_less = "exactly";
+    }
+    PyErr_Format(PyExc_TypeError,
+                 "%.200s() takes %.8s %" CYTHON_FORMAT_SSIZE_T "d positional argument%.1s (%" CYTHON_FORMAT_SSIZE_T "d given)",
+                 func_name, more_or_less, num_expected,
+                 (num_expected == 1) ? "" : "s", num_found);
 }
 
 /* RaiseDoubleKeywords */
@@ -2537,30 +3608,276 @@ bad:
     return -1;
 }
 
-/* RaiseArgTupleInvalid */
-static void __Pyx_RaiseArgtupleInvalid(
-    const char* func_name,
-    int exact,
-    Py_ssize_t num_min,
-    Py_ssize_t num_max,
-    Py_ssize_t num_found)
-{
-    Py_ssize_t num_expected;
-    const char *more_or_less;
-    if (num_found < num_min) {
-        num_expected = num_min;
-        more_or_less = "at least";
+/* PyObjectGetAttrStr */
+#if CYTHON_USE_TYPE_SLOTS
+static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject* attr_name) {
+    PyTypeObject* tp = Py_TYPE(obj);
+    if (likely(tp->tp_getattro))
+        return tp->tp_getattro(obj, attr_name);
+#if PY_MAJOR_VERSION < 3
+    if (likely(tp->tp_getattr))
+        return tp->tp_getattr(obj, PyString_AS_STRING(attr_name));
+#endif
+    return PyObject_GetAttr(obj, attr_name);
+}
+#endif
+
+/* PyFunctionFastCall */
+#if CYTHON_FAST_PYCALL
+static PyObject* __Pyx_PyFunction_FastCallNoKw(PyCodeObject *co, PyObject **args, Py_ssize_t na,
+                                               PyObject *globals) {
+    PyFrameObject *f;
+    PyThreadState *tstate = __Pyx_PyThreadState_Current;
+    PyObject **fastlocals;
+    Py_ssize_t i;
+    PyObject *result;
+    assert(globals != NULL);
+    /* XXX Perhaps we should create a specialized
+       PyFrame_New() that doesn't take locals, but does
+       take builtins without sanity checking them.
+       */
+    assert(tstate != NULL);
+    f = PyFrame_New(tstate, co, globals, NULL);
+    if (f == NULL) {
+        return NULL;
+    }
+    fastlocals = __Pyx_PyFrame_GetLocalsplus(f);
+    for (i = 0; i < na; i++) {
+        Py_INCREF(*args);
+        fastlocals[i] = *args++;
+    }
+    result = PyEval_EvalFrameEx(f,0);
+    ++tstate->recursion_depth;
+    Py_DECREF(f);
+    --tstate->recursion_depth;
+    return result;
+}
+#if 1 || PY_VERSION_HEX < 0x030600B1
+static PyObject *__Pyx_PyFunction_FastCallDict(PyObject *func, PyObject **args, Py_ssize_t nargs, PyObject *kwargs) {
+    PyCodeObject *co = (PyCodeObject *)PyFunction_GET_CODE(func);
+    PyObject *globals = PyFunction_GET_GLOBALS(func);
+    PyObject *argdefs = PyFunction_GET_DEFAULTS(func);
+    PyObject *closure;
+#if PY_MAJOR_VERSION >= 3
+    PyObject *kwdefs;
+#endif
+    PyObject *kwtuple, **k;
+    PyObject **d;
+    Py_ssize_t nd;
+    Py_ssize_t nk;
+    PyObject *result;
+    assert(kwargs == NULL || PyDict_Check(kwargs));
+    nk = kwargs ? PyDict_Size(kwargs) : 0;
+    if (Py_EnterRecursiveCall((char*)" while calling a Python object")) {
+        return NULL;
+    }
+    if (
+#if PY_MAJOR_VERSION >= 3
+            co->co_kwonlyargcount == 0 &&
+#endif
+            likely(kwargs == NULL || nk == 0) &&
+            co->co_flags == (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)) {
+        if (argdefs == NULL && co->co_argcount == nargs) {
+            result = __Pyx_PyFunction_FastCallNoKw(co, args, nargs, globals);
+            goto done;
+        }
+        else if (nargs == 0 && argdefs != NULL
+                 && co->co_argcount == Py_SIZE(argdefs)) {
+            /* function called with no arguments, but all parameters have
+               a default value: use default values as arguments .*/
+            args = &PyTuple_GET_ITEM(argdefs, 0);
+            result =__Pyx_PyFunction_FastCallNoKw(co, args, Py_SIZE(argdefs), globals);
+            goto done;
+        }
+    }
+    if (kwargs != NULL) {
+        Py_ssize_t pos, i;
+        kwtuple = PyTuple_New(2 * nk);
+        if (kwtuple == NULL) {
+            result = NULL;
+            goto done;
+        }
+        k = &PyTuple_GET_ITEM(kwtuple, 0);
+        pos = i = 0;
+        while (PyDict_Next(kwargs, &pos, &k[i], &k[i+1])) {
+            Py_INCREF(k[i]);
+            Py_INCREF(k[i+1]);
+            i += 2;
+        }
+        nk = i / 2;
+    }
+    else {
+        kwtuple = NULL;
+        k = NULL;
+    }
+    closure = PyFunction_GET_CLOSURE(func);
+#if PY_MAJOR_VERSION >= 3
+    kwdefs = PyFunction_GET_KW_DEFAULTS(func);
+#endif
+    if (argdefs != NULL) {
+        d = &PyTuple_GET_ITEM(argdefs, 0);
+        nd = Py_SIZE(argdefs);
+    }
+    else {
+        d = NULL;
+        nd = 0;
+    }
+#if PY_MAJOR_VERSION >= 3
+    result = PyEval_EvalCodeEx((PyObject*)co, globals, (PyObject *)NULL,
+                               args, (int)nargs,
+                               k, (int)nk,
+                               d, (int)nd, kwdefs, closure);
+#else
+    result = PyEval_EvalCodeEx(co, globals, (PyObject *)NULL,
+                               args, (int)nargs,
+                               k, (int)nk,
+                               d, (int)nd, closure);
+#endif
+    Py_XDECREF(kwtuple);
+done:
+    Py_LeaveRecursiveCall();
+    return result;
+}
+#endif
+#endif
+
+/* PyObjectCall */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw) {
+    PyObject *result;
+    ternaryfunc call = Py_TYPE(func)->tp_call;
+    if (unlikely(!call))
+        return PyObject_Call(func, arg, kw);
+    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
+        return NULL;
+    result = (*call)(func, arg, kw);
+    Py_LeaveRecursiveCall();
+    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
+        PyErr_SetString(
+            PyExc_SystemError,
+            "NULL result without error in PyObject_Call");
+    }
+    return result;
+}
+#endif
+
+/* PyObjectCallMethO */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject *arg) {
+    PyObject *self, *result;
+    PyCFunction cfunc;
+    cfunc = PyCFunction_GET_FUNCTION(func);
+    self = PyCFunction_GET_SELF(func);
+    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
+        return NULL;
+    result = cfunc(self, arg);
+    Py_LeaveRecursiveCall();
+    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
+        PyErr_SetString(
+            PyExc_SystemError,
+            "NULL result without error in PyObject_Call");
+    }
+    return result;
+}
+#endif
+
+/* PyObjectCallNoArg */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func) {
+#if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(func)) {
+        return __Pyx_PyFunction_FastCall(func, NULL, 0);
+    }
+#endif
+#if defined(__Pyx_CyFunction_USED) && defined(NDEBUG)
+    if (likely(PyCFunction_Check(func) || __Pyx_CyFunction_Check(func)))
+#else
+    if (likely(PyCFunction_Check(func)))
+#endif
+    {
+        if (likely(PyCFunction_GET_FLAGS(func) & METH_NOARGS)) {
+            return __Pyx_PyObject_CallMethO(func, NULL);
+        }
+    }
+    return __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL);
+}
+#endif
+
+/* PyCFunctionFastCall */
+#if CYTHON_FAST_PYCCALL
+static CYTHON_INLINE PyObject * __Pyx_PyCFunction_FastCall(PyObject *func_obj, PyObject **args, Py_ssize_t nargs) {
+    PyCFunctionObject *func = (PyCFunctionObject*)func_obj;
+    PyCFunction meth = PyCFunction_GET_FUNCTION(func);
+    PyObject *self = PyCFunction_GET_SELF(func);
+    int flags = PyCFunction_GET_FLAGS(func);
+    assert(PyCFunction_Check(func));
+    assert(METH_FASTCALL == (flags & ~(METH_CLASS | METH_STATIC | METH_COEXIST | METH_KEYWORDS | METH_STACKLESS)));
+    assert(nargs >= 0);
+    assert(nargs == 0 || args != NULL);
+    /* _PyCFunction_FastCallDict() must not be called with an exception set,
+       because it may clear it (directly or indirectly) and so the
+       caller loses its exception */
+    assert(!PyErr_Occurred());
+    if ((PY_VERSION_HEX < 0x030700A0) || unlikely(flags & METH_KEYWORDS)) {
+        return (*((__Pyx_PyCFunctionFastWithKeywords)(void*)meth)) (self, args, nargs, NULL);
     } else {
-        num_expected = num_max;
-        more_or_less = "at most";
+        return (*((__Pyx_PyCFunctionFast)(void*)meth)) (self, args, nargs);
     }
-    if (exact) {
-        more_or_less = "exactly";
+}
+#endif
+
+/* PyObjectCallOneArg */
+#if CYTHON_COMPILING_IN_CPYTHON
+static PyObject* __Pyx__PyObject_CallOneArg(PyObject *func, PyObject *arg) {
+    PyObject *result;
+    PyObject *args = PyTuple_New(1);
+    if (unlikely(!args)) return NULL;
+    Py_INCREF(arg);
+    PyTuple_SET_ITEM(args, 0, arg);
+    result = __Pyx_PyObject_Call(func, args, NULL);
+    Py_DECREF(args);
+    return result;
+}
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObject *arg) {
+#if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(func)) {
+        return __Pyx_PyFunction_FastCall(func, &arg, 1);
     }
-    PyErr_Format(PyExc_TypeError,
-                 "%.200s() takes %.8s %" CYTHON_FORMAT_SSIZE_T "d positional argument%.1s (%" CYTHON_FORMAT_SSIZE_T "d given)",
-                 func_name, more_or_less, num_expected,
-                 (num_expected == 1) ? "" : "s", num_found);
+#endif
+    if (likely(PyCFunction_Check(func))) {
+        if (likely(PyCFunction_GET_FLAGS(func) & METH_O)) {
+            return __Pyx_PyObject_CallMethO(func, arg);
+#if CYTHON_FAST_PYCCALL
+        } else if (__Pyx_PyFastCFunction_Check(func)) {
+            return __Pyx_PyCFunction_FastCall(func, &arg, 1);
+#endif
+        }
+    }
+    return __Pyx__PyObject_CallOneArg(func, arg);
+}
+#else
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObject *arg) {
+    PyObject *result;
+    PyObject *args = PyTuple_Pack(1, arg);
+    if (unlikely(!args)) return NULL;
+    result = __Pyx_PyObject_Call(func, args, NULL);
+    Py_DECREF(args);
+    return result;
+}
+#endif
+
+/* GetBuiltinName */
+static PyObject *__Pyx_GetBuiltinName(PyObject *name) {
+    PyObject* result = __Pyx_PyObject_GetAttrStr(__pyx_b, name);
+    if (unlikely(!result)) {
+        PyErr_Format(PyExc_NameError,
+#if PY_MAJOR_VERSION >= 3
+            "name '%U' is not defined", name);
+#else
+            "name '%.200s' is not defined", PyString_AS_STRING(name));
+#endif
+    }
+    return result;
 }
 
 /* PyDictVersioning */
@@ -2624,208 +3941,34 @@ static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name)
     return __Pyx_GetBuiltinName(name);
 }
 
-/* PyObjectCall */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw) {
-    PyObject *result;
-    ternaryfunc call = Py_TYPE(func)->tp_call;
-    if (unlikely(!call))
-        return PyObject_Call(func, arg, kw);
-    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
-        return NULL;
-    result = (*call)(func, arg, kw);
-    Py_LeaveRecursiveCall();
-    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
-        PyErr_SetString(
-            PyExc_SystemError,
-            "NULL result without error in PyObject_Call");
+/* PyObjectCall2Args */
+static CYTHON_UNUSED PyObject* __Pyx_PyObject_Call2Args(PyObject* function, PyObject* arg1, PyObject* arg2) {
+    PyObject *args, *result = NULL;
+    #if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(function)) {
+        PyObject *args[2] = {arg1, arg2};
+        return __Pyx_PyFunction_FastCall(function, args, 2);
     }
+    #endif
+    #if CYTHON_FAST_PYCCALL
+    if (__Pyx_PyFastCFunction_Check(function)) {
+        PyObject *args[2] = {arg1, arg2};
+        return __Pyx_PyCFunction_FastCall(function, args, 2);
+    }
+    #endif
+    args = PyTuple_New(2);
+    if (unlikely(!args)) goto done;
+    Py_INCREF(arg1);
+    PyTuple_SET_ITEM(args, 0, arg1);
+    Py_INCREF(arg2);
+    PyTuple_SET_ITEM(args, 1, arg2);
+    Py_INCREF(function);
+    result = __Pyx_PyObject_Call(function, args, NULL);
+    Py_DECREF(args);
+    Py_DECREF(function);
+done:
     return result;
 }
-#endif
-
-/* PyErrFetchRestore */
-#if CYTHON_FAST_THREAD_STATE
-static CYTHON_INLINE void __Pyx_ErrRestoreInState(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb) {
-    PyObject *tmp_type, *tmp_value, *tmp_tb;
-    tmp_type = tstate->curexc_type;
-    tmp_value = tstate->curexc_value;
-    tmp_tb = tstate->curexc_traceback;
-    tstate->curexc_type = type;
-    tstate->curexc_value = value;
-    tstate->curexc_traceback = tb;
-    Py_XDECREF(tmp_type);
-    Py_XDECREF(tmp_value);
-    Py_XDECREF(tmp_tb);
-}
-static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb) {
-    *type = tstate->curexc_type;
-    *value = tstate->curexc_value;
-    *tb = tstate->curexc_traceback;
-    tstate->curexc_type = 0;
-    tstate->curexc_value = 0;
-    tstate->curexc_traceback = 0;
-}
-#endif
-
-/* RaiseException */
-#if PY_MAJOR_VERSION < 3
-static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb,
-                        CYTHON_UNUSED PyObject *cause) {
-    __Pyx_PyThreadState_declare
-    Py_XINCREF(type);
-    if (!value || value == Py_None)
-        value = NULL;
-    else
-        Py_INCREF(value);
-    if (!tb || tb == Py_None)
-        tb = NULL;
-    else {
-        Py_INCREF(tb);
-        if (!PyTraceBack_Check(tb)) {
-            PyErr_SetString(PyExc_TypeError,
-                "raise: arg 3 must be a traceback or None");
-            goto raise_error;
-        }
-    }
-    if (PyType_Check(type)) {
-#if CYTHON_COMPILING_IN_PYPY
-        if (!value) {
-            Py_INCREF(Py_None);
-            value = Py_None;
-        }
-#endif
-        PyErr_NormalizeException(&type, &value, &tb);
-    } else {
-        if (value) {
-            PyErr_SetString(PyExc_TypeError,
-                "instance exception may not have a separate value");
-            goto raise_error;
-        }
-        value = type;
-        type = (PyObject*) Py_TYPE(type);
-        Py_INCREF(type);
-        if (!PyType_IsSubtype((PyTypeObject *)type, (PyTypeObject *)PyExc_BaseException)) {
-            PyErr_SetString(PyExc_TypeError,
-                "raise: exception class must be a subclass of BaseException");
-            goto raise_error;
-        }
-    }
-    __Pyx_PyThreadState_assign
-    __Pyx_ErrRestore(type, value, tb);
-    return;
-raise_error:
-    Py_XDECREF(value);
-    Py_XDECREF(type);
-    Py_XDECREF(tb);
-    return;
-}
-#else
-static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause) {
-    PyObject* owned_instance = NULL;
-    if (tb == Py_None) {
-        tb = 0;
-    } else if (tb && !PyTraceBack_Check(tb)) {
-        PyErr_SetString(PyExc_TypeError,
-            "raise: arg 3 must be a traceback or None");
-        goto bad;
-    }
-    if (value == Py_None)
-        value = 0;
-    if (PyExceptionInstance_Check(type)) {
-        if (value) {
-            PyErr_SetString(PyExc_TypeError,
-                "instance exception may not have a separate value");
-            goto bad;
-        }
-        value = type;
-        type = (PyObject*) Py_TYPE(value);
-    } else if (PyExceptionClass_Check(type)) {
-        PyObject *instance_class = NULL;
-        if (value && PyExceptionInstance_Check(value)) {
-            instance_class = (PyObject*) Py_TYPE(value);
-            if (instance_class != type) {
-                int is_subclass = PyObject_IsSubclass(instance_class, type);
-                if (!is_subclass) {
-                    instance_class = NULL;
-                } else if (unlikely(is_subclass == -1)) {
-                    goto bad;
-                } else {
-                    type = instance_class;
-                }
-            }
-        }
-        if (!instance_class) {
-            PyObject *args;
-            if (!value)
-                args = PyTuple_New(0);
-            else if (PyTuple_Check(value)) {
-                Py_INCREF(value);
-                args = value;
-            } else
-                args = PyTuple_Pack(1, value);
-            if (!args)
-                goto bad;
-            owned_instance = PyObject_Call(type, args, NULL);
-            Py_DECREF(args);
-            if (!owned_instance)
-                goto bad;
-            value = owned_instance;
-            if (!PyExceptionInstance_Check(value)) {
-                PyErr_Format(PyExc_TypeError,
-                             "calling %R should have returned an instance of "
-                             "BaseException, not %R",
-                             type, Py_TYPE(value));
-                goto bad;
-            }
-        }
-    } else {
-        PyErr_SetString(PyExc_TypeError,
-            "raise: exception class must be a subclass of BaseException");
-        goto bad;
-    }
-    if (cause) {
-        PyObject *fixed_cause;
-        if (cause == Py_None) {
-            fixed_cause = NULL;
-        } else if (PyExceptionClass_Check(cause)) {
-            fixed_cause = PyObject_CallObject(cause, NULL);
-            if (fixed_cause == NULL)
-                goto bad;
-        } else if (PyExceptionInstance_Check(cause)) {
-            fixed_cause = cause;
-            Py_INCREF(fixed_cause);
-        } else {
-            PyErr_SetString(PyExc_TypeError,
-                            "exception causes must derive from "
-                            "BaseException");
-            goto bad;
-        }
-        PyException_SetCause(value, fixed_cause);
-    }
-    PyErr_SetObject(type, value);
-    if (tb) {
-#if CYTHON_COMPILING_IN_PYPY
-        PyObject *tmp_type, *tmp_value, *tmp_tb;
-        PyErr_Fetch(&tmp_type, &tmp_value, &tmp_tb);
-        Py_INCREF(tb);
-        PyErr_Restore(tmp_type, tmp_value, tb);
-        Py_XDECREF(tmp_tb);
-#else
-        PyThreadState *tstate = __Pyx_PyThreadState_Current;
-        PyObject* tmp_tb = tstate->curexc_traceback;
-        if (tb != tmp_tb) {
-            Py_INCREF(tb);
-            tstate->curexc_traceback = tb;
-            Py_XDECREF(tmp_tb);
-        }
-#endif
-    }
-bad:
-    Py_XDECREF(owned_instance);
-    return;
-}
-#endif
 
 /* ExtTypeTest */
 static CYTHON_INLINE int __Pyx_TypeTest(PyObject *obj, PyTypeObject *type) {
@@ -2898,6 +4041,95 @@ static PyTypeObject *__Pyx_ImportType(PyObject *module, const char *module_name,
 bad:
     Py_XDECREF(result);
     return NULL;
+}
+#endif
+
+/* Import */
+static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level) {
+    PyObject *empty_list = 0;
+    PyObject *module = 0;
+    PyObject *global_dict = 0;
+    PyObject *empty_dict = 0;
+    PyObject *list;
+    #if PY_MAJOR_VERSION < 3
+    PyObject *py_import;
+    py_import = __Pyx_PyObject_GetAttrStr(__pyx_b, __pyx_n_s_import);
+    if (!py_import)
+        goto bad;
+    #endif
+    if (from_list)
+        list = from_list;
+    else {
+        empty_list = PyList_New(0);
+        if (!empty_list)
+            goto bad;
+        list = empty_list;
+    }
+    global_dict = PyModule_GetDict(__pyx_m);
+    if (!global_dict)
+        goto bad;
+    empty_dict = PyDict_New();
+    if (!empty_dict)
+        goto bad;
+    {
+        #if PY_MAJOR_VERSION >= 3
+        if (level == -1) {
+            if ((1) && (strchr(__Pyx_MODULE_NAME, '.'))) {
+                module = PyImport_ImportModuleLevelObject(
+                    name, global_dict, empty_dict, list, 1);
+                if (!module) {
+                    if (!PyErr_ExceptionMatches(PyExc_ImportError))
+                        goto bad;
+                    PyErr_Clear();
+                }
+            }
+            level = 0;
+        }
+        #endif
+        if (!module) {
+            #if PY_MAJOR_VERSION < 3
+            PyObject *py_level = PyInt_FromLong(level);
+            if (!py_level)
+                goto bad;
+            module = PyObject_CallFunctionObjArgs(py_import,
+                name, global_dict, empty_dict, list, py_level, (PyObject *)NULL);
+            Py_DECREF(py_level);
+            #else
+            module = PyImport_ImportModuleLevelObject(
+                name, global_dict, empty_dict, list, level);
+            #endif
+        }
+    }
+bad:
+    #if PY_MAJOR_VERSION < 3
+    Py_XDECREF(py_import);
+    #endif
+    Py_XDECREF(empty_list);
+    Py_XDECREF(empty_dict);
+    return module;
+}
+
+/* PyErrFetchRestore */
+#if CYTHON_FAST_THREAD_STATE
+static CYTHON_INLINE void __Pyx_ErrRestoreInState(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb) {
+    PyObject *tmp_type, *tmp_value, *tmp_tb;
+    tmp_type = tstate->curexc_type;
+    tmp_value = tstate->curexc_value;
+    tmp_tb = tstate->curexc_traceback;
+    tstate->curexc_type = type;
+    tstate->curexc_value = value;
+    tstate->curexc_traceback = tb;
+    Py_XDECREF(tmp_type);
+    Py_XDECREF(tmp_value);
+    Py_XDECREF(tmp_tb);
+}
+static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb) {
+    *type = tstate->curexc_type;
+    *value = tstate->curexc_value;
+    *tb = tstate->curexc_traceback;
+    tstate->curexc_type = 0;
+    tstate->curexc_value = 0;
+    tstate->curexc_traceback = 0;
 }
 #endif
 
@@ -3130,44 +4362,6 @@ bad:
     Py_XDECREF(py_frame);
 }
 
-/* CIntToPy */
-static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value) {
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wconversion"
-#endif
-    const long neg_one = (long) -1, const_zero = (long) 0;
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic pop
-#endif
-    const int is_unsigned = neg_one > const_zero;
-    if (is_unsigned) {
-        if (sizeof(long) < sizeof(long)) {
-            return PyInt_FromLong((long) value);
-        } else if (sizeof(long) <= sizeof(unsigned long)) {
-            return PyLong_FromUnsignedLong((unsigned long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
-            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
-#endif
-        }
-    } else {
-        if (sizeof(long) <= sizeof(long)) {
-            return PyInt_FromLong((long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
-            return PyLong_FromLongLong((PY_LONG_LONG) value);
-#endif
-        }
-    }
-    {
-        int one = 1; int little = (int)*(unsigned char *)&one;
-        unsigned char *bytes = (unsigned char *)&value;
-        return _PyLong_FromByteArray(bytes, sizeof(long),
-                                     little, !is_unsigned);
-    }
-}
-
 /* CIntFromPyVerify */
 #define __PYX_VERIFY_RETURN_INT(target_type, func_type, func_value)\
     __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 0)
@@ -3189,202 +4383,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value) {
         }\
         return (target_type) value;\
     }
-
-/* CIntFromPy */
-static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *x) {
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wconversion"
-#endif
-    const long neg_one = (long) -1, const_zero = (long) 0;
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic pop
-#endif
-    const int is_unsigned = neg_one > const_zero;
-#if PY_MAJOR_VERSION < 3
-    if (likely(PyInt_Check(x))) {
-        if (sizeof(long) < sizeof(long)) {
-            __PYX_VERIFY_RETURN_INT(long, long, PyInt_AS_LONG(x))
-        } else {
-            long val = PyInt_AS_LONG(x);
-            if (is_unsigned && unlikely(val < 0)) {
-                goto raise_neg_overflow;
-            }
-            return (long) val;
-        }
-    } else
-#endif
-    if (likely(PyLong_Check(x))) {
-        if (is_unsigned) {
-#if CYTHON_USE_PYLONG_INTERNALS
-            const digit* digits = ((PyLongObject*)x)->ob_digit;
-            switch (Py_SIZE(x)) {
-                case  0: return (long) 0;
-                case  1: __PYX_VERIFY_RETURN_INT(long, digit, digits[0])
-                case 2:
-                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) >= 2 * PyLong_SHIFT) {
-                            return (long) (((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
-                        }
-                    }
-                    break;
-                case 3:
-                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) >= 3 * PyLong_SHIFT) {
-                            return (long) (((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
-                        }
-                    }
-                    break;
-                case 4:
-                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) >= 4 * PyLong_SHIFT) {
-                            return (long) (((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
-                        }
-                    }
-                    break;
-            }
-#endif
-#if CYTHON_COMPILING_IN_CPYTHON
-            if (unlikely(Py_SIZE(x) < 0)) {
-                goto raise_neg_overflow;
-            }
-#else
-            {
-                int result = PyObject_RichCompareBool(x, Py_False, Py_LT);
-                if (unlikely(result < 0))
-                    return (long) -1;
-                if (unlikely(result == 1))
-                    goto raise_neg_overflow;
-            }
-#endif
-            if (sizeof(long) <= sizeof(unsigned long)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned long, PyLong_AsUnsignedLong(x))
-#ifdef HAVE_LONG_LONG
-            } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned PY_LONG_LONG, PyLong_AsUnsignedLongLong(x))
-#endif
-            }
-        } else {
-#if CYTHON_USE_PYLONG_INTERNALS
-            const digit* digits = ((PyLongObject*)x)->ob_digit;
-            switch (Py_SIZE(x)) {
-                case  0: return (long) 0;
-                case -1: __PYX_VERIFY_RETURN_INT(long, sdigit, (sdigit) (-(sdigit)digits[0]))
-                case  1: __PYX_VERIFY_RETURN_INT(long,  digit, +digits[0])
-                case -2:
-                    if (8 * sizeof(long) - 1 > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                            return (long) (((long)-1)*(((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case 2:
-                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                            return (long) ((((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case -3:
-                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                            return (long) (((long)-1)*(((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case 3:
-                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                            return (long) ((((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case -4:
-                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                            return (long) (((long)-1)*(((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case 4:
-                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                            return (long) ((((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-            }
-#endif
-            if (sizeof(long) <= sizeof(long)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, long, PyLong_AsLong(x))
-#ifdef HAVE_LONG_LONG
-            } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, PY_LONG_LONG, PyLong_AsLongLong(x))
-#endif
-            }
-        }
-        {
-#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
-            PyErr_SetString(PyExc_RuntimeError,
-                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
-#else
-            long val;
-            PyObject *v = __Pyx_PyNumber_IntOrLong(x);
- #if PY_MAJOR_VERSION < 3
-            if (likely(v) && !PyLong_Check(v)) {
-                PyObject *tmp = v;
-                v = PyNumber_Long(tmp);
-                Py_DECREF(tmp);
-            }
- #endif
-            if (likely(v)) {
-                int one = 1; int is_little = (int)*(unsigned char *)&one;
-                unsigned char *bytes = (unsigned char *)&val;
-                int ret = _PyLong_AsByteArray((PyLongObject *)v,
-                                              bytes, sizeof(val),
-                                              is_little, !is_unsigned);
-                Py_DECREF(v);
-                if (likely(!ret))
-                    return val;
-            }
-#endif
-            return (long) -1;
-        }
-    } else {
-        long val;
-        PyObject *tmp = __Pyx_PyNumber_IntOrLong(x);
-        if (!tmp) return (long) -1;
-        val = __Pyx_PyInt_As_long(tmp);
-        Py_DECREF(tmp);
-        return val;
-    }
-raise_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "value too large to convert to long");
-    return (long) -1;
-raise_neg_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "can't convert negative value to long");
-    return (long) -1;
-}
 
 /* CIntFromPy */
 static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *x) {
@@ -3580,6 +4578,240 @@ raise_neg_overflow:
     PyErr_SetString(PyExc_OverflowError,
         "can't convert negative value to int");
     return (int) -1;
+}
+
+/* CIntToPy */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value) {
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
+#endif
+    const long neg_one = (long) -1, const_zero = (long) 0;
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic pop
+#endif
+    const int is_unsigned = neg_one > const_zero;
+    if (is_unsigned) {
+        if (sizeof(long) < sizeof(long)) {
+            return PyInt_FromLong((long) value);
+        } else if (sizeof(long) <= sizeof(unsigned long)) {
+            return PyLong_FromUnsignedLong((unsigned long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
+            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
+#endif
+        }
+    } else {
+        if (sizeof(long) <= sizeof(long)) {
+            return PyInt_FromLong((long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
+            return PyLong_FromLongLong((PY_LONG_LONG) value);
+#endif
+        }
+    }
+    {
+        int one = 1; int little = (int)*(unsigned char *)&one;
+        unsigned char *bytes = (unsigned char *)&value;
+        return _PyLong_FromByteArray(bytes, sizeof(long),
+                                     little, !is_unsigned);
+    }
+}
+
+/* CIntFromPy */
+static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *x) {
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
+#endif
+    const long neg_one = (long) -1, const_zero = (long) 0;
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic pop
+#endif
+    const int is_unsigned = neg_one > const_zero;
+#if PY_MAJOR_VERSION < 3
+    if (likely(PyInt_Check(x))) {
+        if (sizeof(long) < sizeof(long)) {
+            __PYX_VERIFY_RETURN_INT(long, long, PyInt_AS_LONG(x))
+        } else {
+            long val = PyInt_AS_LONG(x);
+            if (is_unsigned && unlikely(val < 0)) {
+                goto raise_neg_overflow;
+            }
+            return (long) val;
+        }
+    } else
+#endif
+    if (likely(PyLong_Check(x))) {
+        if (is_unsigned) {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (long) 0;
+                case  1: __PYX_VERIFY_RETURN_INT(long, digit, digits[0])
+                case 2:
+                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) >= 2 * PyLong_SHIFT) {
+                            return (long) (((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) >= 3 * PyLong_SHIFT) {
+                            return (long) (((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) >= 4 * PyLong_SHIFT) {
+                            return (long) (((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
+                        }
+                    }
+                    break;
+            }
+#endif
+#if CYTHON_COMPILING_IN_CPYTHON
+            if (unlikely(Py_SIZE(x) < 0)) {
+                goto raise_neg_overflow;
+            }
+#else
+            {
+                int result = PyObject_RichCompareBool(x, Py_False, Py_LT);
+                if (unlikely(result < 0))
+                    return (long) -1;
+                if (unlikely(result == 1))
+                    goto raise_neg_overflow;
+            }
+#endif
+            if (sizeof(long) <= sizeof(unsigned long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned long, PyLong_AsUnsignedLong(x))
+#ifdef HAVE_LONG_LONG
+            } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned PY_LONG_LONG, PyLong_AsUnsignedLongLong(x))
+#endif
+            }
+        } else {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (long) 0;
+                case -1: __PYX_VERIFY_RETURN_INT(long, sdigit, (sdigit) (-(sdigit)digits[0]))
+                case  1: __PYX_VERIFY_RETURN_INT(long,  digit, +digits[0])
+                case -2:
+                    if (8 * sizeof(long) - 1 > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
+                            return (long) (((long)-1)*(((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case 2:
+                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
+                            return (long) ((((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case -3:
+                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
+                            return (long) (((long)-1)*(((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
+                            return (long) ((((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case -4:
+                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
+                            return (long) (((long)-1)*(((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
+                            return (long) ((((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+            }
+#endif
+            if (sizeof(long) <= sizeof(long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, long, PyLong_AsLong(x))
+#ifdef HAVE_LONG_LONG
+            } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, PY_LONG_LONG, PyLong_AsLongLong(x))
+#endif
+            }
+        }
+        {
+#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
+            PyErr_SetString(PyExc_RuntimeError,
+                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
+#else
+            long val;
+            PyObject *v = __Pyx_PyNumber_IntOrLong(x);
+ #if PY_MAJOR_VERSION < 3
+            if (likely(v) && !PyLong_Check(v)) {
+                PyObject *tmp = v;
+                v = PyNumber_Long(tmp);
+                Py_DECREF(tmp);
+            }
+ #endif
+            if (likely(v)) {
+                int one = 1; int is_little = (int)*(unsigned char *)&one;
+                unsigned char *bytes = (unsigned char *)&val;
+                int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                              bytes, sizeof(val),
+                                              is_little, !is_unsigned);
+                Py_DECREF(v);
+                if (likely(!ret))
+                    return val;
+            }
+#endif
+            return (long) -1;
+        }
+    } else {
+        long val;
+        PyObject *tmp = __Pyx_PyNumber_IntOrLong(x);
+        if (!tmp) return (long) -1;
+        val = __Pyx_PyInt_As_long(tmp);
+        Py_DECREF(tmp);
+        return val;
+    }
+raise_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "value too large to convert to long");
+    return (long) -1;
+raise_neg_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "can't convert negative value to long");
+    return (long) -1;
 }
 
 /* FastTypeChecks */

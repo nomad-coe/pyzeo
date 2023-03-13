@@ -4,42 +4,22 @@
 {
     "distutils": {
         "depends": [
-            "src/area_and_volume.h",
-            "src/geometry.h",
-            "src/graphstorage.h",
-            "src/network.h",
-            "src/networkio.h",
-            "src/networkstorage.h",
-            "src/voronoicell.h"
+            "src/graphstorage.h"
         ],
         "extra_compile_args": [
-            "-fPIC",
             "-Wall",
             "-ansi",
             "-pedantic",
             "-O3"
         ],
         "include_dirs": [
-            "src/zeoplusplus",
-            "src/voro++/src"
+            "src/pyzeo"
         ],
         "language": "c++",
-        "name": "zeoplusplus.graphstorage",
+        "name": "pyzeo.graphstorage",
         "sources": [
-            "src/zeoplusplus/graphstorage.pyx",
-            "src/voro++/src/cell.cc",
-            "src/voro++/src/c_loops.cc",
-            "src/voro++/src/cmd_line.cc",
-            "src/voro++/src/common.cc",
-            "src/voro++/src/container.cc",
-            "src/voro++/src/container_prd.cc",
-            "src/voro++/src/pre_container.cc",
-            "src/voro++/src/unitcell.cc",
-            "src/voro++/src/v_base.cc",
-            "src/voro++/src/v_base_wl.cc",
-            "src/voro++/src/v_compute.cc",
+            "src/pyzeo/graphstorage.pyx",
             "src/voro++/src/voro++.cc",
-            "src/voro++/src/wall.cc",
             "src/networkanalysis.cc",
             "src/networkstorage.cc",
             "src/networkinfo.cc",
@@ -62,7 +42,7 @@
             "src/string_additions.cc"
         ]
     },
-    "module_name": "zeoplusplus.graphstorage"
+    "module_name": "pyzeo.graphstorage"
 }
 END: Cython Metadata */
 
@@ -818,8 +798,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__zeoplusplus__graphstorage
-#define __PYX_HAVE_API__zeoplusplus__graphstorage
+#define __PYX_HAVE__pyzeo__graphstorage
+#define __PYX_HAVE_API__pyzeo__graphstorage
 /* Early includes */
 #include "ios"
 #include "new"
@@ -1058,83 +1038,83 @@ static const char *__pyx_filename;
 
 static const char *__pyx_f[] = {
   "stringsource",
-  "src/zeoplusplus/graphstorage.pyx",
-  "src/zeoplusplus/geometry.pxd",
-  "src/zeoplusplus/voronoicell.pxd",
-  "src/zeoplusplus/netstorage.pxd",
+  "src/pyzeo/graphstorage.pyx",
+  "src/pyzeo/geometry.pxd",
+  "src/pyzeo/voronoicell.pxd",
+  "src/pyzeo/netstorage.pxd",
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_11zeoplusplus_8geometry_Xyz;
-struct __pyx_obj_11zeoplusplus_8geometry_Point;
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace;
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell;
-struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell;
-struct __pyx_obj_11zeoplusplus_10netstorage_Atom;
-struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork;
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode;
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork;
-struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork;
+struct __pyx_obj_5pyzeo_8geometry_Xyz;
+struct __pyx_obj_5pyzeo_8geometry_Point;
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace;
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell;
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell;
+struct __pyx_obj_5pyzeo_10netstorage_Atom;
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork;
+struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork;
 
-/* "zeoplusplus/geometry.pxd":24
+/* "pyzeo/geometry.pxd":24
  * 
  * 
  * cdef class Xyz:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper declaration for Zeo++ XYZ class defined in geometry.h
  */
-struct __pyx_obj_11zeoplusplus_8geometry_Xyz {
+struct __pyx_obj_5pyzeo_8geometry_Xyz {
   PyObject_HEAD
   XYZ *thisptr;
 };
 
 
-/* "zeoplusplus/geometry.pxd":32
+/* "pyzeo/geometry.pxd":32
  * 
  * 
  * cdef class Point:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper declaration for Zeo++ Point class defined in geometry.h
  */
-struct __pyx_obj_11zeoplusplus_8geometry_Point {
+struct __pyx_obj_5pyzeo_8geometry_Point {
   PyObject_HEAD
   Point *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":39
+/* "pyzeo/voronoicell.pxd":39
  * 
  * 
  * cdef class VorFace:             # <<<<<<<<<<<<<<
  *     cdef  VOR_FACE* thisptr
  * 
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace {
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace {
   PyObject_HEAD
   VOR_FACE *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":42
+/* "pyzeo/voronoicell.pxd":42
  *     cdef  VOR_FACE* thisptr
  * 
  * cdef class VorCell:             # <<<<<<<<<<<<<<
  *     cdef VOR_CELL* thisptr
  * 
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell {
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell {
   PyObject_HEAD
   VOR_CELL *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":45
+/* "pyzeo/voronoicell.pxd":45
  *     cdef VOR_CELL* thisptr
  * 
  * cdef class BasicVCell:             # <<<<<<<<<<<<<<
  *     cdef BASIC_VCELL* thisptr
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell {
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell {
   PyObject_HEAD
   BASIC_VCELL *thisptr;
 };
@@ -1147,7 +1127,7 @@ struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell {
  *     """
  *     Cython wrapper class for Zeo++ ATOM class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_Atom {
+struct __pyx_obj_5pyzeo_10netstorage_Atom {
   PyObject_HEAD
   ATOM *thisptr;
 };
@@ -1160,7 +1140,7 @@ struct __pyx_obj_11zeoplusplus_10netstorage_Atom {
  *     """
  *     Cython wrapper class for Zeo++ ATOM_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork {
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork {
   PyObject_HEAD
   ATOM_NETWORK *thisptr;
   int rad_flag;
@@ -1174,7 +1154,7 @@ struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork {
  *     """
  *     Cython wrapper class for Zeo++ VOR_NODE class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode {
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode {
   PyObject_HEAD
   VOR_NODE *thisptr;
 };
@@ -1187,20 +1167,20 @@ struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode {
  *     """
  *     Cython wrapper class for Zeo++ VORONOI_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork {
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork {
   PyObject_HEAD
   VORONOI_NETWORK *thisptr;
 };
 
 
-/* "zeoplusplus/graphstorage.pxd":34
+/* "pyzeo/graphstorage.pxd":34
  * 
  * 
  * cdef class DijkstraNetwork:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ DIJKSTRA_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork {
+struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork {
   PyObject_HEAD
   DIJKSTRA_NETWORK *thisptr;
 };
@@ -1577,9 +1557,9 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* Module declarations from 'libcpp.vector' */
 
-/* Module declarations from 'zeoplusplus.geometry' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Xyz = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Point = 0;
+/* Module declarations from 'pyzeo.geometry' */
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Xyz = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Point = 0;
 
 /* Module declarations from 'libcpp.utility' */
 
@@ -1587,24 +1567,24 @@ static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Point = 0;
 
 /* Module declarations from 'libcpp.set' */
 
-/* Module declarations from 'zeoplusplus.voronoicell' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_VorFace = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_VorCell = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell = 0;
+/* Module declarations from 'pyzeo.voronoicell' */
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorFace = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorCell = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_BasicVCell = 0;
 
-/* Module declarations from 'zeoplusplus.netstorage' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_Atom = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork = 0;
+/* Module declarations from 'pyzeo.netstorage' */
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_Atom = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_AtomNetwork = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNode = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = 0;
 
-/* Module declarations from 'zeoplusplus.graphstorage' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_12graphstorage_DijkstraNetwork = 0;
-#define __Pyx_MODULE_NAME "zeoplusplus.graphstorage"
-extern int __pyx_module_is_main_zeoplusplus__graphstorage;
-int __pyx_module_is_main_zeoplusplus__graphstorage = 0;
+/* Module declarations from 'pyzeo.graphstorage' */
+static PyTypeObject *__pyx_ptype_5pyzeo_12graphstorage_DijkstraNetwork = 0;
+#define __Pyx_MODULE_NAME "pyzeo.graphstorage"
+extern int __pyx_module_is_main_pyzeo__graphstorage;
+int __pyx_module_is_main_pyzeo__graphstorage = 0;
 
-/* Implementation of 'zeoplusplus.graphstorage' */
+/* Implementation of 'pyzeo.graphstorage' */
 static PyObject *__pyx_builtin_TypeError;
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
@@ -1634,17 +1614,17 @@ static PyObject *__pyx_n_s_reduce_ex;
 static PyObject *__pyx_n_s_setstate;
 static PyObject *__pyx_n_s_setstate_cython;
 static PyObject *__pyx_n_s_test;
-static int __pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork___cinit__(struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_2from_VoronoiNetwork(PyTypeObject *__pyx_v_vornet); /* proto */
-static void __pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_4__dealloc__(struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_tp_new_11zeoplusplus_12graphstorage_DijkstraNetwork(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static int __pyx_pf_5pyzeo_12graphstorage_15DijkstraNetwork___cinit__(struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_12graphstorage_15DijkstraNetwork_2from_VoronoiNetwork(PyTypeObject *__pyx_v_vornet); /* proto */
+static void __pyx_pf_5pyzeo_12graphstorage_15DijkstraNetwork_4__dealloc__(struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_12graphstorage_15DijkstraNetwork_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_12graphstorage_15DijkstraNetwork_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_tp_new_5pyzeo_12graphstorage_DijkstraNetwork(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_tuple__2;
 /* Late includes */
 
-/* "zeoplusplus/graphstorage.pyx":10
+/* "pyzeo/graphstorage.pyx":10
  *     """
  *     #cdef DIJKSTRA_NETWORK* thisptr
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -1653,22 +1633,22 @@ static PyObject *__pyx_tuple__2;
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_12graphstorage_15DijkstraNetwork_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_11zeoplusplus_12graphstorage_15DijkstraNetwork_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_5pyzeo_12graphstorage_15DijkstraNetwork_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_5pyzeo_12graphstorage_15DijkstraNetwork_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
   if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
     __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
   if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__cinit__", 0))) return -1;
-  __pyx_r = __pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork___cinit__(((struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_12graphstorage_15DijkstraNetwork___cinit__(((struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork___cinit__(struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork *__pyx_v_self) {
+static int __pyx_pf_5pyzeo_12graphstorage_15DijkstraNetwork___cinit__(struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   DIJKSTRA_NETWORK *__pyx_t_1;
@@ -1677,7 +1657,7 @@ static int __pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork___cinit__(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "zeoplusplus/graphstorage.pyx":11
+  /* "pyzeo/graphstorage.pyx":11
  *     #cdef DIJKSTRA_NETWORK* thisptr
  *     def __cinit__(self):
  *         self.thisptr = new DIJKSTRA_NETWORK()             # <<<<<<<<<<<<<<
@@ -1692,7 +1672,7 @@ static int __pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork___cinit__(str
   }
   __pyx_v_self->thisptr = __pyx_t_1;
 
-  /* "zeoplusplus/graphstorage.pyx":10
+  /* "pyzeo/graphstorage.pyx":10
  *     """
  *     #cdef DIJKSTRA_NETWORK* thisptr
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -1704,14 +1684,14 @@ static int __pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork___cinit__(str
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("zeoplusplus.graphstorage.DijkstraNetwork.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.graphstorage.DijkstraNetwork.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "zeoplusplus/graphstorage.pyx":13
+/* "pyzeo/graphstorage.pyx":13
  *         self.thisptr = new DIJKSTRA_NETWORK()
  *     @classmethod
  *     def from_VoronoiNetwork(vornet):             # <<<<<<<<<<<<<<
@@ -1720,21 +1700,21 @@ static int __pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork___cinit__(str
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_12graphstorage_15DijkstraNetwork_3from_VoronoiNetwork(PyObject *__pyx_v_vornet, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_11zeoplusplus_12graphstorage_15DijkstraNetwork_2from_VoronoiNetwork[] = "\n        Build Dijkstra Net from input Voronoi Net\n        ";
-static PyObject *__pyx_pw_11zeoplusplus_12graphstorage_15DijkstraNetwork_3from_VoronoiNetwork(PyObject *__pyx_v_vornet, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_5pyzeo_12graphstorage_15DijkstraNetwork_3from_VoronoiNetwork(PyObject *__pyx_v_vornet, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_5pyzeo_12graphstorage_15DijkstraNetwork_2from_VoronoiNetwork[] = "\n        Build Dijkstra Net from input Voronoi Net\n        ";
+static PyObject *__pyx_pw_5pyzeo_12graphstorage_15DijkstraNetwork_3from_VoronoiNetwork(PyObject *__pyx_v_vornet, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("from_VoronoiNetwork (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_2from_VoronoiNetwork(((PyTypeObject*)__pyx_v_vornet));
+  __pyx_r = __pyx_pf_5pyzeo_12graphstorage_15DijkstraNetwork_2from_VoronoiNetwork(((PyTypeObject*)__pyx_v_vornet));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_2from_VoronoiNetwork(PyTypeObject *__pyx_v_vornet) {
-  struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork *__pyx_v_dijkstranet = NULL;
+static PyObject *__pyx_pf_5pyzeo_12graphstorage_15DijkstraNetwork_2from_VoronoiNetwork(PyTypeObject *__pyx_v_vornet) {
+  struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork *__pyx_v_dijkstranet = NULL;
   VORONOI_NETWORK *__pyx_v_c_vornet;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -1745,30 +1725,30 @@ static PyObject *__pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_2from_V
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("from_VoronoiNetwork", 0);
 
-  /* "zeoplusplus/graphstorage.pyx":17
+  /* "pyzeo/graphstorage.pyx":17
  *         Build Dijkstra Net from input Voronoi Net
  *         """
  *         dijkstranet = DijkstraNetwork()             # <<<<<<<<<<<<<<
  *         c_vornet = (<VoronoiNetwork?>vornet).thisptr
  *         buildDijkstraNetwork(c_vornet, dijkstranet.thisptr)
  */
-  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_11zeoplusplus_12graphstorage_DijkstraNetwork)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 17, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5pyzeo_12graphstorage_DijkstraNetwork)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_dijkstranet = ((struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork *)__pyx_t_1);
+  __pyx_v_dijkstranet = ((struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "zeoplusplus/graphstorage.pyx":18
+  /* "pyzeo/graphstorage.pyx":18
  *         """
  *         dijkstranet = DijkstraNetwork()
  *         c_vornet = (<VoronoiNetwork?>vornet).thisptr             # <<<<<<<<<<<<<<
  *         buildDijkstraNetwork(c_vornet, dijkstranet.thisptr)
  *         return dijkstranet
  */
-  if (!(likely(__Pyx_TypeTest(((PyObject *)__pyx_v_vornet), __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork)))) __PYX_ERR(1, 18, __pyx_L1_error)
-  __pyx_t_2 = ((struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork *)__pyx_v_vornet)->thisptr;
+  if (!(likely(__Pyx_TypeTest(((PyObject *)__pyx_v_vornet), __pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork)))) __PYX_ERR(1, 18, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork *)__pyx_v_vornet)->thisptr;
   __pyx_v_c_vornet = __pyx_t_2;
 
-  /* "zeoplusplus/graphstorage.pyx":19
+  /* "pyzeo/graphstorage.pyx":19
  *         dijkstranet = DijkstraNetwork()
  *         c_vornet = (<VoronoiNetwork?>vornet).thisptr
  *         buildDijkstraNetwork(c_vornet, dijkstranet.thisptr)             # <<<<<<<<<<<<<<
@@ -1777,7 +1757,7 @@ static PyObject *__pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_2from_V
  */
   DIJKSTRA_NETWORK::buildDijkstraNetwork(__pyx_v_c_vornet, __pyx_v_dijkstranet->thisptr);
 
-  /* "zeoplusplus/graphstorage.pyx":20
+  /* "pyzeo/graphstorage.pyx":20
  *         c_vornet = (<VoronoiNetwork?>vornet).thisptr
  *         buildDijkstraNetwork(c_vornet, dijkstranet.thisptr)
  *         return dijkstranet             # <<<<<<<<<<<<<<
@@ -1789,7 +1769,7 @@ static PyObject *__pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_2from_V
   __pyx_r = ((PyObject *)__pyx_v_dijkstranet);
   goto __pyx_L0;
 
-  /* "zeoplusplus/graphstorage.pyx":13
+  /* "pyzeo/graphstorage.pyx":13
  *         self.thisptr = new DIJKSTRA_NETWORK()
  *     @classmethod
  *     def from_VoronoiNetwork(vornet):             # <<<<<<<<<<<<<<
@@ -1800,7 +1780,7 @@ static PyObject *__pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_2from_V
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.graphstorage.DijkstraNetwork.from_VoronoiNetwork", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.graphstorage.DijkstraNetwork.from_VoronoiNetwork", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_dijkstranet);
@@ -1809,7 +1789,7 @@ static PyObject *__pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_2from_V
   return __pyx_r;
 }
 
-/* "zeoplusplus/graphstorage.pyx":21
+/* "pyzeo/graphstorage.pyx":21
  *         buildDijkstraNetwork(c_vornet, dijkstranet.thisptr)
  *         return dijkstranet
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1818,21 +1798,21 @@ static PyObject *__pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_2from_V
  */
 
 /* Python wrapper */
-static void __pyx_pw_11zeoplusplus_12graphstorage_15DijkstraNetwork_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_11zeoplusplus_12graphstorage_15DijkstraNetwork_5__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_5pyzeo_12graphstorage_15DijkstraNetwork_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_5pyzeo_12graphstorage_15DijkstraNetwork_5__dealloc__(PyObject *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
-  __pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_4__dealloc__(((struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork *)__pyx_v_self));
+  __pyx_pf_5pyzeo_12graphstorage_15DijkstraNetwork_4__dealloc__(((struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_4__dealloc__(struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork *__pyx_v_self) {
+static void __pyx_pf_5pyzeo_12graphstorage_15DijkstraNetwork_4__dealloc__(struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "zeoplusplus/graphstorage.pyx":22
+  /* "pyzeo/graphstorage.pyx":22
  *         return dijkstranet
  *     def __dealloc__(self):
  *         del self.thisptr             # <<<<<<<<<<<<<<
@@ -1840,7 +1820,7 @@ static void __pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_4__dealloc__
  */
   delete __pyx_v_self->thisptr;
 
-  /* "zeoplusplus/graphstorage.pyx":21
+  /* "pyzeo/graphstorage.pyx":21
  *         buildDijkstraNetwork(c_vornet, dijkstranet.thisptr)
  *         return dijkstranet
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1859,19 +1839,19 @@ static void __pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_4__dealloc__
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_12graphstorage_15DijkstraNetwork_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_12graphstorage_15DijkstraNetwork_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_5pyzeo_12graphstorage_15DijkstraNetwork_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_12graphstorage_15DijkstraNetwork_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_6__reduce_cython__(((struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_12graphstorage_15DijkstraNetwork_6__reduce_cython__(((struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork *__pyx_v_self) {
+static PyObject *__pyx_pf_5pyzeo_12graphstorage_15DijkstraNetwork_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1901,7 +1881,7 @@ static PyObject *__pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_6__redu
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.graphstorage.DijkstraNetwork.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.graphstorage.DijkstraNetwork.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -1916,19 +1896,19 @@ static PyObject *__pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_6__redu
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_12graphstorage_15DijkstraNetwork_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_12graphstorage_15DijkstraNetwork_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_5pyzeo_12graphstorage_15DijkstraNetwork_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_12graphstorage_15DijkstraNetwork_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_8__setstate_cython__(((struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_5pyzeo_12graphstorage_15DijkstraNetwork_8__setstate_cython__(((struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_5pyzeo_12graphstorage_15DijkstraNetwork_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1958,14 +1938,14 @@ static PyObject *__pyx_pf_11zeoplusplus_12graphstorage_15DijkstraNetwork_8__sets
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.graphstorage.DijkstraNetwork.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.graphstorage.DijkstraNetwork.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_tp_new_11zeoplusplus_12graphstorage_DijkstraNetwork(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5pyzeo_12graphstorage_DijkstraNetwork(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -1973,14 +1953,14 @@ static PyObject *__pyx_tp_new_11zeoplusplus_12graphstorage_DijkstraNetwork(PyTyp
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  if (unlikely(__pyx_pw_11zeoplusplus_12graphstorage_15DijkstraNetwork_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
+  if (unlikely(__pyx_pw_5pyzeo_12graphstorage_15DijkstraNetwork_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
   return o;
   bad:
   Py_DECREF(o); o = 0;
   return NULL;
 }
 
-static void __pyx_tp_dealloc_11zeoplusplus_12graphstorage_DijkstraNetwork(PyObject *o) {
+static void __pyx_tp_dealloc_5pyzeo_12graphstorage_DijkstraNetwork(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -1990,26 +1970,26 @@ static void __pyx_tp_dealloc_11zeoplusplus_12graphstorage_DijkstraNetwork(PyObje
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) + 1);
-    __pyx_pw_11zeoplusplus_12graphstorage_15DijkstraNetwork_5__dealloc__(o);
+    __pyx_pw_5pyzeo_12graphstorage_15DijkstraNetwork_5__dealloc__(o);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) - 1);
     PyErr_Restore(etype, eval, etb);
   }
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static PyMethodDef __pyx_methods_11zeoplusplus_12graphstorage_DijkstraNetwork[] = {
-  {"from_VoronoiNetwork", (PyCFunction)__pyx_pw_11zeoplusplus_12graphstorage_15DijkstraNetwork_3from_VoronoiNetwork, METH_NOARGS, __pyx_doc_11zeoplusplus_12graphstorage_15DijkstraNetwork_2from_VoronoiNetwork},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_12graphstorage_15DijkstraNetwork_7__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_12graphstorage_15DijkstraNetwork_9__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_5pyzeo_12graphstorage_DijkstraNetwork[] = {
+  {"from_VoronoiNetwork", (PyCFunction)__pyx_pw_5pyzeo_12graphstorage_15DijkstraNetwork_3from_VoronoiNetwork, METH_NOARGS, __pyx_doc_5pyzeo_12graphstorage_15DijkstraNetwork_2from_VoronoiNetwork},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_5pyzeo_12graphstorage_15DijkstraNetwork_7__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_5pyzeo_12graphstorage_15DijkstraNetwork_9__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_11zeoplusplus_12graphstorage_DijkstraNetwork = {
+static PyTypeObject __pyx_type_5pyzeo_12graphstorage_DijkstraNetwork = {
   PyVarObject_HEAD_INIT(0, 0)
-  "zeoplusplus.graphstorage.DijkstraNetwork", /*tp_name*/
-  sizeof(struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork), /*tp_basicsize*/
+  "pyzeo.graphstorage.DijkstraNetwork", /*tp_name*/
+  sizeof(struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_11zeoplusplus_12graphstorage_DijkstraNetwork, /*tp_dealloc*/
+  __pyx_tp_dealloc_5pyzeo_12graphstorage_DijkstraNetwork, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -2042,7 +2022,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_12graphstorage_DijkstraNetwork = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_11zeoplusplus_12graphstorage_DijkstraNetwork, /*tp_methods*/
+  __pyx_methods_5pyzeo_12graphstorage_DijkstraNetwork, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -2052,7 +2032,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_12graphstorage_DijkstraNetwork = {
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_11zeoplusplus_12graphstorage_DijkstraNetwork, /*tp_new*/
+  __pyx_tp_new_5pyzeo_12graphstorage_DijkstraNetwork, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -2220,16 +2200,16 @@ static int __Pyx_modinit_type_init_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_11zeoplusplus_12graphstorage_DijkstraNetwork) < 0) __PYX_ERR(1, 5, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5pyzeo_12graphstorage_DijkstraNetwork) < 0) __PYX_ERR(1, 5, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_11zeoplusplus_12graphstorage_DijkstraNetwork.tp_print = 0;
+  __pyx_type_5pyzeo_12graphstorage_DijkstraNetwork.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_11zeoplusplus_12graphstorage_DijkstraNetwork.tp_dictoffset && __pyx_type_11zeoplusplus_12graphstorage_DijkstraNetwork.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_11zeoplusplus_12graphstorage_DijkstraNetwork.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5pyzeo_12graphstorage_DijkstraNetwork.tp_dictoffset && __pyx_type_5pyzeo_12graphstorage_DijkstraNetwork.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5pyzeo_12graphstorage_DijkstraNetwork.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_DijkstraNetwork, (PyObject *)&__pyx_type_11zeoplusplus_12graphstorage_DijkstraNetwork) < 0) __PYX_ERR(1, 5, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_11zeoplusplus_12graphstorage_DijkstraNetwork) < 0) __PYX_ERR(1, 5, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_12graphstorage_DijkstraNetwork = &__pyx_type_11zeoplusplus_12graphstorage_DijkstraNetwork;
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_DijkstraNetwork, (PyObject *)&__pyx_type_5pyzeo_12graphstorage_DijkstraNetwork) < 0) __PYX_ERR(1, 5, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5pyzeo_12graphstorage_DijkstraNetwork) < 0) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_12graphstorage_DijkstraNetwork = &__pyx_type_5pyzeo_12graphstorage_DijkstraNetwork;
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2245,32 +2225,32 @@ static int __Pyx_modinit_type_import_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.geometry"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 24, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.geometry"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_8geometry_Xyz = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.geometry", "Xyz", sizeof(struct __pyx_obj_11zeoplusplus_8geometry_Xyz), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_8geometry_Xyz) __PYX_ERR(2, 24, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_8geometry_Point = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.geometry", "Point", sizeof(struct __pyx_obj_11zeoplusplus_8geometry_Point), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_8geometry_Point) __PYX_ERR(2, 32, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_8geometry_Xyz = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Xyz", sizeof(struct __pyx_obj_5pyzeo_8geometry_Xyz), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Xyz) __PYX_ERR(2, 24, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_8geometry_Point = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Point", sizeof(struct __pyx_obj_5pyzeo_8geometry_Point), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Point) __PYX_ERR(2, 32, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.voronoicell"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 39, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.voronoicell"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_11voronoicell_VorFace = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "VorFace", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_VorFace) __PYX_ERR(3, 39, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_11voronoicell_VorCell = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "VorCell", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_VorCell) __PYX_ERR(3, 42, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "BasicVCell", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell) __PYX_ERR(3, 45, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_VorFace = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "VorFace", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorFace), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_VorFace) __PYX_ERR(3, 39, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_VorCell = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "VorCell", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorCell), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_VorCell) __PYX_ERR(3, 42, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_BasicVCell = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "BasicVCell", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_BasicVCell) __PYX_ERR(3, 45, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.netstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 120, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.netstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_10netstorage_Atom = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "Atom", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_Atom), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_Atom) __PYX_ERR(4, 120, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "AtomNetwork", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork) __PYX_ERR(4, 126, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "VoronoiNode", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode) __PYX_ERR(4, 135, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "VoronoiNetwork", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork) __PYX_ERR(4, 141, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_Atom = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "Atom", sizeof(struct __pyx_obj_5pyzeo_10netstorage_Atom), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_Atom) __PYX_ERR(4, 120, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_AtomNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "AtomNetwork", sizeof(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_AtomNetwork) __PYX_ERR(4, 126, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNode = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "VoronoiNode", sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_VoronoiNode) __PYX_ERR(4, 135, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "VoronoiNetwork", sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork) __PYX_ERR(4, 141, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -2469,14 +2449,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_zeoplusplus__graphstorage) {
+  if (__pyx_module_is_main_pyzeo__graphstorage) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(1, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "zeoplusplus.graphstorage")) {
-      if (unlikely(PyDict_SetItemString(modules, "zeoplusplus.graphstorage", __pyx_m) < 0)) __PYX_ERR(1, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "pyzeo.graphstorage")) {
+      if (unlikely(PyDict_SetItemString(modules, "pyzeo.graphstorage", __pyx_m) < 0)) __PYX_ERR(1, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -2497,17 +2477,17 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   #endif
 
-  /* "zeoplusplus/graphstorage.pyx":13
+  /* "pyzeo/graphstorage.pyx":13
  *         self.thisptr = new DIJKSTRA_NETWORK()
  *     @classmethod
  *     def from_VoronoiNetwork(vornet):             # <<<<<<<<<<<<<<
  *         """
  *         Build Dijkstra Net from input Voronoi Net
  */
-  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_11zeoplusplus_12graphstorage_DijkstraNetwork, __pyx_n_s_from_VoronoiNetwork); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 13, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_5pyzeo_12graphstorage_DijkstraNetwork, __pyx_n_s_from_VoronoiNetwork); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "zeoplusplus/graphstorage.pyx":12
+  /* "pyzeo/graphstorage.pyx":12
  *     def __cinit__(self):
  *         self.thisptr = new DIJKSTRA_NETWORK()
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -2517,11 +2497,11 @@ if (!__Pyx_RefNanny) {
   __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_11zeoplusplus_12graphstorage_DijkstraNetwork->tp_dict, __pyx_n_s_from_VoronoiNetwork, __pyx_t_2) < 0) __PYX_ERR(1, 13, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5pyzeo_12graphstorage_DijkstraNetwork->tp_dict, __pyx_n_s_from_VoronoiNetwork, __pyx_t_2) < 0) __PYX_ERR(1, 13, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_11zeoplusplus_12graphstorage_DijkstraNetwork);
+  PyType_Modified(__pyx_ptype_5pyzeo_12graphstorage_DijkstraNetwork);
 
-  /* "zeoplusplus/graphstorage.pyx":1
+  /* "pyzeo/graphstorage.pyx":1
  * # distutils: language = c++             # <<<<<<<<<<<<<<
  * # distutils: sources = src/graphstorage.cc
  * 
@@ -2539,11 +2519,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init zeoplusplus.graphstorage", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init pyzeo.graphstorage", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init zeoplusplus.graphstorage");
+    PyErr_SetString(PyExc_ImportError, "init pyzeo.graphstorage");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

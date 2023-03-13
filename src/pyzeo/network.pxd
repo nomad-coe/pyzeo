@@ -3,8 +3,8 @@
 
 from libcpp.vector cimport vector 
 from libcpp.string cimport string
-from zeoplusplus.netstorage cimport ATOM_NETWORK, VORONOI_NETWORK
-from zeoplusplus.voronoicell cimport VOR_CELL, BASIC_VCELL
+from pyzeo.netstorage cimport ATOM_NETWORK, VORONOI_NETWORK
+from pyzeo.voronoicell cimport VOR_CELL, BASIC_VCELL
 
 
 # At present  the return value of performVoronoiDecomp is void*

@@ -1,4 +1,4 @@
-from zeoplusplus.netstorage import AtomNetwork
+from pyzeo.netstorage import AtomNetwork
 
 atmnet = AtomNetwork.read_from_CSSR("MgO.cssr", rad_file="MgO.rad")
 a = atmnet.perform_voronoi_decomposition()

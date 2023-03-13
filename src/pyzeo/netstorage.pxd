@@ -10,8 +10,8 @@ __date__ = "2013-12-09"
 
 from libcpp.vector cimport vector
 
-from zeoplusplus.geometry cimport CPoint
-from zeoplusplus.voronoicell cimport VOR_CELL, BASIC_VCELL
+from pyzeo.geometry cimport CPoint
+from pyzeo.voronoicell cimport VOR_CELL, BASIC_VCELL
 
 
 cdef extern from "../networkstorage.h":

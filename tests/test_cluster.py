@@ -1,6 +1,5 @@
-from zeoplusplus.netstorage import AtomNetwork
-from zeoplusplus.high_accuracy import high_accuracy_atmnet
-from zeoplusplus.cluster import pruned_highaccuracy_voronoi_network, \
+from pyzeo.netstorage import AtomNetwork
+from pyzeo.cluster import pruned_highaccuracy_voronoi_network, \
         get_nearest_largest_diameter_highaccuracy_vornode
 
 atmnet = AtomNetwork.read_from_CSSR("MgO.cssr", rad_file="MgO.rad")

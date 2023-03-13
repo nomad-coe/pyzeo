@@ -14,7 +14,7 @@ def compute_centroid_4cycles(vornet):
     Computes the centroid of the 4 corners of quadrilateral voronoi face
     Args:
         vornet:
-            zeoplusplus.storage.VoronoiNetwork
+            pyzeo.storage.VoronoiNetwork
     Returns:
         List of centroids in [(x1,y1,z1),(x2,y2,z2),...] format
     """

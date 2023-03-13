@@ -4,34 +4,25 @@
 {
     "distutils": {
         "depends": [
-            "src/area_and_volume.h",
-            "src/channel.h",
-            "src/geometry.h",
-            "src/graphstorage.h",
-            "src/network.h",
-            "src/networkio.h",
-            "src/networkstorage.h",
-            "src/voronoicell.h"
+            "src/channel.h"
         ],
         "extra_compile_args": [
-            "-fPIC",
             "-Wall",
             "-ansi",
             "-pedantic",
             "-O3"
         ],
         "include_dirs": [
-            "src/zeoplusplus",
-            "src/voro++/src"
+            "src/pyzeo"
         ],
         "language": "c++",
-        "name": "zeoplusplus.channel",
+        "name": "pyzeo.channel",
         "sources": [
-            "src/zeoplusplus/channel.pyx",
+            "src/pyzeo/channel.pyx",
             "src/channel.cc"
         ]
     },
-    "module_name": "zeoplusplus.channel"
+    "module_name": "pyzeo.channel"
 }
 END: Cython Metadata */
 
@@ -787,8 +778,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__zeoplusplus__channel
-#define __PYX_HAVE_API__zeoplusplus__channel
+#define __PYX_HAVE__pyzeo__channel
+#define __PYX_HAVE_API__pyzeo__channel
 /* Early includes */
 #include "ios"
 #include "new"
@@ -1028,85 +1019,85 @@ static const char *__pyx_filename;
 
 static const char *__pyx_f[] = {
   "stringsource",
-  "src/zeoplusplus/channel.pyx",
-  "src/zeoplusplus/geometry.pxd",
-  "src/zeoplusplus/voronoicell.pxd",
-  "src/zeoplusplus/netstorage.pxd",
-  "src/zeoplusplus/graphstorage.pxd",
+  "src/pyzeo/channel.pyx",
+  "src/pyzeo/geometry.pxd",
+  "src/pyzeo/voronoicell.pxd",
+  "src/pyzeo/netstorage.pxd",
+  "src/pyzeo/graphstorage.pxd",
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_11zeoplusplus_8geometry_Xyz;
-struct __pyx_obj_11zeoplusplus_8geometry_Point;
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace;
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell;
-struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell;
-struct __pyx_obj_11zeoplusplus_10netstorage_Atom;
-struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork;
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode;
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork;
-struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork;
-struct __pyx_obj_11zeoplusplus_7channel_Channel;
+struct __pyx_obj_5pyzeo_8geometry_Xyz;
+struct __pyx_obj_5pyzeo_8geometry_Point;
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace;
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell;
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell;
+struct __pyx_obj_5pyzeo_10netstorage_Atom;
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork;
+struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork;
+struct __pyx_obj_5pyzeo_7channel_Channel;
 
-/* "zeoplusplus/geometry.pxd":24
+/* "pyzeo/geometry.pxd":24
  * 
  * 
  * cdef class Xyz:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper declaration for Zeo++ XYZ class defined in geometry.h
  */
-struct __pyx_obj_11zeoplusplus_8geometry_Xyz {
+struct __pyx_obj_5pyzeo_8geometry_Xyz {
   PyObject_HEAD
   XYZ *thisptr;
 };
 
 
-/* "zeoplusplus/geometry.pxd":32
+/* "pyzeo/geometry.pxd":32
  * 
  * 
  * cdef class Point:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper declaration for Zeo++ Point class defined in geometry.h
  */
-struct __pyx_obj_11zeoplusplus_8geometry_Point {
+struct __pyx_obj_5pyzeo_8geometry_Point {
   PyObject_HEAD
   Point *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":39
+/* "pyzeo/voronoicell.pxd":39
  * 
  * 
  * cdef class VorFace:             # <<<<<<<<<<<<<<
  *     cdef  VOR_FACE* thisptr
  * 
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace {
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace {
   PyObject_HEAD
   VOR_FACE *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":42
+/* "pyzeo/voronoicell.pxd":42
  *     cdef  VOR_FACE* thisptr
  * 
  * cdef class VorCell:             # <<<<<<<<<<<<<<
  *     cdef VOR_CELL* thisptr
  * 
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell {
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell {
   PyObject_HEAD
   VOR_CELL *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":45
+/* "pyzeo/voronoicell.pxd":45
  *     cdef VOR_CELL* thisptr
  * 
  * cdef class BasicVCell:             # <<<<<<<<<<<<<<
  *     cdef BASIC_VCELL* thisptr
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell {
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell {
   PyObject_HEAD
   BASIC_VCELL *thisptr;
 };
@@ -1119,7 +1110,7 @@ struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell {
  *     """
  *     Cython wrapper class for Zeo++ ATOM class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_Atom {
+struct __pyx_obj_5pyzeo_10netstorage_Atom {
   PyObject_HEAD
   ATOM *thisptr;
 };
@@ -1132,7 +1123,7 @@ struct __pyx_obj_11zeoplusplus_10netstorage_Atom {
  *     """
  *     Cython wrapper class for Zeo++ ATOM_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork {
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork {
   PyObject_HEAD
   ATOM_NETWORK *thisptr;
   int rad_flag;
@@ -1146,7 +1137,7 @@ struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork {
  *     """
  *     Cython wrapper class for Zeo++ VOR_NODE class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode {
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode {
   PyObject_HEAD
   VOR_NODE *thisptr;
 };
@@ -1159,7 +1150,7 @@ struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode {
  *     """
  *     Cython wrapper class for Zeo++ VORONOI_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork {
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork {
   PyObject_HEAD
   VORONOI_NETWORK *thisptr;
 };
@@ -1172,19 +1163,19 @@ struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork {
  *     """
  *     Cython wrapper class for Zeo++ DIJKSTRA_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork {
+struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork {
   PyObject_HEAD
   DIJKSTRA_NETWORK *thisptr;
 };
 
 
-/* "zeoplusplus/channel.pxd":16
+/* "pyzeo/channel.pxd":16
  *             vector[bint] *, vector[CHANNEL] *)
  * 
  * cdef class Channel:             # <<<<<<<<<<<<<<
  *     cdef CHANNEL* thisptr
  */
-struct __pyx_obj_11zeoplusplus_7channel_Channel {
+struct __pyx_obj_5pyzeo_7channel_Channel {
   PyObject_HEAD
   CHANNEL *thisptr;
 };
@@ -1486,9 +1477,9 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* Module declarations from 'libcpp.vector' */
 
-/* Module declarations from 'zeoplusplus.geometry' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Xyz = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Point = 0;
+/* Module declarations from 'pyzeo.geometry' */
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Xyz = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Point = 0;
 
 /* Module declarations from 'libcpp.utility' */
 
@@ -1496,27 +1487,27 @@ static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Point = 0;
 
 /* Module declarations from 'libcpp.set' */
 
-/* Module declarations from 'zeoplusplus.voronoicell' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_VorFace = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_VorCell = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell = 0;
+/* Module declarations from 'pyzeo.voronoicell' */
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorFace = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorCell = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_BasicVCell = 0;
 
-/* Module declarations from 'zeoplusplus.netstorage' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_Atom = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork = 0;
+/* Module declarations from 'pyzeo.netstorage' */
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_Atom = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_AtomNetwork = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNode = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = 0;
 
-/* Module declarations from 'zeoplusplus.graphstorage' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_12graphstorage_DijkstraNetwork = 0;
+/* Module declarations from 'pyzeo.graphstorage' */
+static PyTypeObject *__pyx_ptype_5pyzeo_12graphstorage_DijkstraNetwork = 0;
 
-/* Module declarations from 'zeoplusplus.channel' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_7channel_Channel = 0;
-#define __Pyx_MODULE_NAME "zeoplusplus.channel"
-extern int __pyx_module_is_main_zeoplusplus__channel;
-int __pyx_module_is_main_zeoplusplus__channel = 0;
+/* Module declarations from 'pyzeo.channel' */
+static PyTypeObject *__pyx_ptype_5pyzeo_7channel_Channel = 0;
+#define __Pyx_MODULE_NAME "pyzeo.channel"
+extern int __pyx_module_is_main_pyzeo__channel;
+int __pyx_module_is_main_pyzeo__channel = 0;
 
-/* Implementation of 'zeoplusplus.channel' */
+/* Implementation of 'pyzeo.channel' */
 static PyObject *__pyx_builtin_TypeError;
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
@@ -1544,16 +1535,16 @@ static PyObject *__pyx_n_s_reduce_ex;
 static PyObject *__pyx_n_s_setstate;
 static PyObject *__pyx_n_s_setstate_cython;
 static PyObject *__pyx_n_s_test;
-static int __pyx_pf_11zeoplusplus_7channel_7Channel___cinit__(struct __pyx_obj_11zeoplusplus_7channel_Channel *__pyx_v_self); /* proto */
-static void __pyx_pf_11zeoplusplus_7channel_7Channel_2__dealloc__(struct __pyx_obj_11zeoplusplus_7channel_Channel *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7channel_7Channel_4__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_7channel_Channel *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_7channel_7Channel_6__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_7channel_Channel *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_tp_new_11zeoplusplus_7channel_Channel(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static int __pyx_pf_5pyzeo_7channel_7Channel___cinit__(struct __pyx_obj_5pyzeo_7channel_Channel *__pyx_v_self); /* proto */
+static void __pyx_pf_5pyzeo_7channel_7Channel_2__dealloc__(struct __pyx_obj_5pyzeo_7channel_Channel *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_7channel_7Channel_4__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_7channel_Channel *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_7channel_7Channel_6__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_7channel_Channel *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_tp_new_5pyzeo_7channel_Channel(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_tuple__2;
 /* Late includes */
 
-/* "zeoplusplus/channel.pyx":5
+/* "pyzeo/channel.pyx":5
  *     Python wrapper to Zeo++ Channel.
  *     """
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -1562,22 +1553,22 @@ static PyObject *__pyx_tuple__2;
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_7channel_7Channel_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_11zeoplusplus_7channel_7Channel_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_5pyzeo_7channel_7Channel_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_5pyzeo_7channel_7Channel_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
   if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
     __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
   if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__cinit__", 0))) return -1;
-  __pyx_r = __pyx_pf_11zeoplusplus_7channel_7Channel___cinit__(((struct __pyx_obj_11zeoplusplus_7channel_Channel *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_7channel_7Channel___cinit__(((struct __pyx_obj_5pyzeo_7channel_Channel *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_7channel_7Channel___cinit__(struct __pyx_obj_11zeoplusplus_7channel_Channel *__pyx_v_self) {
+static int __pyx_pf_5pyzeo_7channel_7Channel___cinit__(struct __pyx_obj_5pyzeo_7channel_Channel *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   CHANNEL *__pyx_t_1;
@@ -1586,7 +1577,7 @@ static int __pyx_pf_11zeoplusplus_7channel_7Channel___cinit__(struct __pyx_obj_1
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "zeoplusplus/channel.pyx":6
+  /* "pyzeo/channel.pyx":6
  *     """
  *     def __cinit__(self):
  *         self.thisptr = new CHANNEL()             # <<<<<<<<<<<<<<
@@ -1601,7 +1592,7 @@ static int __pyx_pf_11zeoplusplus_7channel_7Channel___cinit__(struct __pyx_obj_1
   }
   __pyx_v_self->thisptr = __pyx_t_1;
 
-  /* "zeoplusplus/channel.pyx":5
+  /* "pyzeo/channel.pyx":5
  *     Python wrapper to Zeo++ Channel.
  *     """
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -1613,14 +1604,14 @@ static int __pyx_pf_11zeoplusplus_7channel_7Channel___cinit__(struct __pyx_obj_1
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("zeoplusplus.channel.Channel.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.channel.Channel.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "zeoplusplus/channel.pyx":7
+/* "pyzeo/channel.pyx":7
  *     def __cinit__(self):
  *         self.thisptr = new CHANNEL()
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1629,21 +1620,21 @@ static int __pyx_pf_11zeoplusplus_7channel_7Channel___cinit__(struct __pyx_obj_1
  */
 
 /* Python wrapper */
-static void __pyx_pw_11zeoplusplus_7channel_7Channel_3__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_11zeoplusplus_7channel_7Channel_3__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_5pyzeo_7channel_7Channel_3__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_5pyzeo_7channel_7Channel_3__dealloc__(PyObject *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
-  __pyx_pf_11zeoplusplus_7channel_7Channel_2__dealloc__(((struct __pyx_obj_11zeoplusplus_7channel_Channel *)__pyx_v_self));
+  __pyx_pf_5pyzeo_7channel_7Channel_2__dealloc__(((struct __pyx_obj_5pyzeo_7channel_Channel *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_11zeoplusplus_7channel_7Channel_2__dealloc__(struct __pyx_obj_11zeoplusplus_7channel_Channel *__pyx_v_self) {
+static void __pyx_pf_5pyzeo_7channel_7Channel_2__dealloc__(struct __pyx_obj_5pyzeo_7channel_Channel *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "zeoplusplus/channel.pyx":8
+  /* "pyzeo/channel.pyx":8
  *         self.thisptr = new CHANNEL()
  *     def __dealloc__(self):
  *         del self.thisptr             # <<<<<<<<<<<<<<
@@ -1652,7 +1643,7 @@ static void __pyx_pf_11zeoplusplus_7channel_7Channel_2__dealloc__(struct __pyx_o
  */
   delete __pyx_v_self->thisptr;
 
-  /* "zeoplusplus/channel.pyx":7
+  /* "pyzeo/channel.pyx":7
  *     def __cinit__(self):
  *         self.thisptr = new CHANNEL()
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1671,19 +1662,19 @@ static void __pyx_pf_11zeoplusplus_7channel_7Channel_2__dealloc__(struct __pyx_o
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7channel_7Channel_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_7channel_7Channel_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_5pyzeo_7channel_7Channel_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_7channel_7Channel_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7channel_7Channel_4__reduce_cython__(((struct __pyx_obj_11zeoplusplus_7channel_Channel *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_7channel_7Channel_4__reduce_cython__(((struct __pyx_obj_5pyzeo_7channel_Channel *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_7channel_7Channel_4__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_7channel_Channel *__pyx_v_self) {
+static PyObject *__pyx_pf_5pyzeo_7channel_7Channel_4__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_7channel_Channel *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1713,7 +1704,7 @@ static PyObject *__pyx_pf_11zeoplusplus_7channel_7Channel_4__reduce_cython__(CYT
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.channel.Channel.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.channel.Channel.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -1728,19 +1719,19 @@ static PyObject *__pyx_pf_11zeoplusplus_7channel_7Channel_4__reduce_cython__(CYT
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_7channel_7Channel_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_7channel_7Channel_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_5pyzeo_7channel_7Channel_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_7channel_7Channel_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_7channel_7Channel_6__setstate_cython__(((struct __pyx_obj_11zeoplusplus_7channel_Channel *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_5pyzeo_7channel_7Channel_6__setstate_cython__(((struct __pyx_obj_5pyzeo_7channel_Channel *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_7channel_7Channel_6__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_7channel_Channel *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_5pyzeo_7channel_7Channel_6__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_7channel_Channel *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1770,14 +1761,14 @@ static PyObject *__pyx_pf_11zeoplusplus_7channel_7Channel_6__setstate_cython__(C
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.channel.Channel.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.channel.Channel.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_tp_new_11zeoplusplus_7channel_Channel(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5pyzeo_7channel_Channel(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -1785,14 +1776,14 @@ static PyObject *__pyx_tp_new_11zeoplusplus_7channel_Channel(PyTypeObject *t, CY
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  if (unlikely(__pyx_pw_11zeoplusplus_7channel_7Channel_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
+  if (unlikely(__pyx_pw_5pyzeo_7channel_7Channel_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
   return o;
   bad:
   Py_DECREF(o); o = 0;
   return NULL;
 }
 
-static void __pyx_tp_dealloc_11zeoplusplus_7channel_Channel(PyObject *o) {
+static void __pyx_tp_dealloc_5pyzeo_7channel_Channel(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -1802,25 +1793,25 @@ static void __pyx_tp_dealloc_11zeoplusplus_7channel_Channel(PyObject *o) {
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) + 1);
-    __pyx_pw_11zeoplusplus_7channel_7Channel_3__dealloc__(o);
+    __pyx_pw_5pyzeo_7channel_7Channel_3__dealloc__(o);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) - 1);
     PyErr_Restore(etype, eval, etb);
   }
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static PyMethodDef __pyx_methods_11zeoplusplus_7channel_Channel[] = {
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_7channel_7Channel_5__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_7channel_7Channel_7__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_5pyzeo_7channel_Channel[] = {
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_5pyzeo_7channel_7Channel_5__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_5pyzeo_7channel_7Channel_7__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_11zeoplusplus_7channel_Channel = {
+static PyTypeObject __pyx_type_5pyzeo_7channel_Channel = {
   PyVarObject_HEAD_INIT(0, 0)
-  "zeoplusplus.channel.Channel", /*tp_name*/
-  sizeof(struct __pyx_obj_11zeoplusplus_7channel_Channel), /*tp_basicsize*/
+  "pyzeo.channel.Channel", /*tp_name*/
+  sizeof(struct __pyx_obj_5pyzeo_7channel_Channel), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_11zeoplusplus_7channel_Channel, /*tp_dealloc*/
+  __pyx_tp_dealloc_5pyzeo_7channel_Channel, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -1853,7 +1844,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_7channel_Channel = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_11zeoplusplus_7channel_Channel, /*tp_methods*/
+  __pyx_methods_5pyzeo_7channel_Channel, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -1863,7 +1854,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_7channel_Channel = {
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_11zeoplusplus_7channel_Channel, /*tp_new*/
+  __pyx_tp_new_5pyzeo_7channel_Channel, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -2030,16 +2021,16 @@ static int __Pyx_modinit_type_init_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_11zeoplusplus_7channel_Channel) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5pyzeo_7channel_Channel) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_11zeoplusplus_7channel_Channel.tp_print = 0;
+  __pyx_type_5pyzeo_7channel_Channel.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_11zeoplusplus_7channel_Channel.tp_dictoffset && __pyx_type_11zeoplusplus_7channel_Channel.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_11zeoplusplus_7channel_Channel.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5pyzeo_7channel_Channel.tp_dictoffset && __pyx_type_5pyzeo_7channel_Channel.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5pyzeo_7channel_Channel.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Channel, (PyObject *)&__pyx_type_11zeoplusplus_7channel_Channel) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_11zeoplusplus_7channel_Channel) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_7channel_Channel = &__pyx_type_11zeoplusplus_7channel_Channel;
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Channel, (PyObject *)&__pyx_type_5pyzeo_7channel_Channel) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5pyzeo_7channel_Channel) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_7channel_Channel = &__pyx_type_5pyzeo_7channel_Channel;
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2055,37 +2046,37 @@ static int __Pyx_modinit_type_import_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.geometry"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 24, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.geometry"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_8geometry_Xyz = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.geometry", "Xyz", sizeof(struct __pyx_obj_11zeoplusplus_8geometry_Xyz), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_8geometry_Xyz) __PYX_ERR(2, 24, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_8geometry_Point = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.geometry", "Point", sizeof(struct __pyx_obj_11zeoplusplus_8geometry_Point), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_8geometry_Point) __PYX_ERR(2, 32, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_8geometry_Xyz = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Xyz", sizeof(struct __pyx_obj_5pyzeo_8geometry_Xyz), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Xyz) __PYX_ERR(2, 24, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_8geometry_Point = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Point", sizeof(struct __pyx_obj_5pyzeo_8geometry_Point), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Point) __PYX_ERR(2, 32, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.voronoicell"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 39, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.voronoicell"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_11voronoicell_VorFace = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "VorFace", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_VorFace) __PYX_ERR(3, 39, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_11voronoicell_VorCell = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "VorCell", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_VorCell) __PYX_ERR(3, 42, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.voronoicell", "BasicVCell", sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell) __PYX_ERR(3, 45, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_VorFace = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "VorFace", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorFace), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_VorFace) __PYX_ERR(3, 39, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_VorCell = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "VorCell", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorCell), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_VorCell) __PYX_ERR(3, 42, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_BasicVCell = __Pyx_ImportType(__pyx_t_1, "pyzeo.voronoicell", "BasicVCell", sizeof(struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_11voronoicell_BasicVCell) __PYX_ERR(3, 45, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.netstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 120, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.netstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_10netstorage_Atom = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "Atom", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_Atom), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_Atom) __PYX_ERR(4, 120, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "AtomNetwork", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork) __PYX_ERR(4, 126, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "VoronoiNode", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode) __PYX_ERR(4, 135, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "VoronoiNetwork", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork) __PYX_ERR(4, 141, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_Atom = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "Atom", sizeof(struct __pyx_obj_5pyzeo_10netstorage_Atom), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_Atom) __PYX_ERR(4, 120, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_AtomNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "AtomNetwork", sizeof(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_AtomNetwork) __PYX_ERR(4, 126, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNode = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "VoronoiNode", sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_VoronoiNode) __PYX_ERR(4, 135, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "VoronoiNetwork", sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork) __PYX_ERR(4, 141, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.graphstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 34, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.graphstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_12graphstorage_DijkstraNetwork = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.graphstorage", "DijkstraNetwork", sizeof(struct __pyx_obj_11zeoplusplus_12graphstorage_DijkstraNetwork), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_12graphstorage_DijkstraNetwork) __PYX_ERR(5, 34, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_12graphstorage_DijkstraNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.graphstorage", "DijkstraNetwork", sizeof(struct __pyx_obj_5pyzeo_12graphstorage_DijkstraNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_12graphstorage_DijkstraNetwork) __PYX_ERR(5, 34, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -2283,14 +2274,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_zeoplusplus__channel) {
+  if (__pyx_module_is_main_pyzeo__channel) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(1, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "zeoplusplus.channel")) {
-      if (unlikely(PyDict_SetItemString(modules, "zeoplusplus.channel", __pyx_m) < 0)) __PYX_ERR(1, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "pyzeo.channel")) {
+      if (unlikely(PyDict_SetItemString(modules, "pyzeo.channel", __pyx_m) < 0)) __PYX_ERR(1, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -2311,7 +2302,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   #endif
 
-  /* "zeoplusplus/channel.pyx":1
+  /* "pyzeo/channel.pyx":1
  * cdef class Channel:             # <<<<<<<<<<<<<<
  *     """
  *     Python wrapper to Zeo++ Channel.
@@ -2328,11 +2319,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init zeoplusplus.channel", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init pyzeo.channel", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init zeoplusplus.channel");
+    PyErr_SetString(PyExc_ImportError, "init pyzeo.channel");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

@@ -1,8 +1,8 @@
 from libcpp.vector cimport vector
 
-#from zeoplusplus.geometry cimport CPoint
-#from zeoplusplus.netstorage cimport AtomNetwork, VoronoiNetwork
-#from zeoplusplus.netstorage cimport ATOM_NETWORK, VORONOI_NETWORK
+#from pyzeo.geometry cimport CPoint
+#from pyzeo.netstorage cimport AtomNetwork, VoronoiNetwork
+#from pyzeo.netstorage cimport ATOM_NETWORK, VORONOI_NETWORK
 
 #cdef class VorFace:
 #    #cdef VOR_FACE *thiptr

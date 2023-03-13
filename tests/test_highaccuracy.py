@@ -1,5 +1,5 @@
-from zeoplusplus.high_accuracy import high_accuracy_atmnet
-from zeoplusplus.netstorage import AtomNetwork
+from pyzeo.high_accuracy import high_accuracy_atmnet
+from pyzeo.netstorage import AtomNetwork
 
 atmnet = AtomNetwork.read_from_CSSR("MgO.cssr", rad_file="MgO.rad")
 atmnet.write_to_XYZ("orig_mgo.xyz", False, True)

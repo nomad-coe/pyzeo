@@ -4,41 +4,22 @@
 {
     "distutils": {
         "depends": [
-            "src/area_and_volume.h",
-            "src/geometry.h",
-            "src/network.h",
-            "src/networkio.h",
-            "src/networkstorage.h",
             "src/voronoicell.h"
         ],
         "extra_compile_args": [
-            "-fPIC",
             "-Wall",
             "-ansi",
             "-pedantic",
             "-O3"
         ],
         "include_dirs": [
-            "src/zeoplusplus",
-            "src/voro++/src"
+            "src/pyzeo"
         ],
         "language": "c++",
-        "name": "zeoplusplus.voronoicell",
+        "name": "pyzeo.voronoicell",
         "sources": [
-            "src/zeoplusplus/voronoicell.pyx",
-            "src/voro++/src/cell.cc",
-            "src/voro++/src/c_loops.cc",
-            "src/voro++/src/cmd_line.cc",
-            "src/voro++/src/common.cc",
-            "src/voro++/src/container.cc",
-            "src/voro++/src/container_prd.cc",
-            "src/voro++/src/pre_container.cc",
-            "src/voro++/src/unitcell.cc",
-            "src/voro++/src/v_base.cc",
-            "src/voro++/src/v_base_wl.cc",
-            "src/voro++/src/v_compute.cc",
+            "src/pyzeo/voronoicell.pyx",
             "src/voro++/src/voro++.cc",
-            "src/voro++/src/wall.cc",
             "src/networkanalysis.cc",
             "src/networkstorage.cc",
             "src/networkinfo.cc",
@@ -61,7 +42,7 @@
             "src/string_additions.cc"
         ]
     },
-    "module_name": "zeoplusplus.voronoicell"
+    "module_name": "pyzeo.voronoicell"
 }
 END: Cython Metadata */
 
@@ -817,8 +798,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__zeoplusplus__voronoicell
-#define __PYX_HAVE_API__zeoplusplus__voronoicell
+#define __PYX_HAVE__pyzeo__voronoicell
+#define __PYX_HAVE_API__pyzeo__voronoicell
 /* Early includes */
 #include "ios"
 #include "new"
@@ -1056,135 +1037,135 @@ static const char *__pyx_filename;
 
 static const char *__pyx_f[] = {
   "stringsource",
-  "src/zeoplusplus/voronoicell.pyx",
-  "src/zeoplusplus/voronoicell.pxd",
-  "src/zeoplusplus/geometry.pxd",
-  "src/zeoplusplus/netstorage.pxd",
+  "src/pyzeo/voronoicell.pyx",
+  "src/pyzeo/voronoicell.pxd",
+  "src/pyzeo/geometry.pxd",
+  "src/pyzeo/netstorage.pxd",
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_11zeoplusplus_8geometry_Xyz;
-struct __pyx_obj_11zeoplusplus_8geometry_Point;
-struct __pyx_obj_11zeoplusplus_10netstorage_Atom;
-struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork;
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode;
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork;
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace;
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell;
-struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell;
+struct __pyx_obj_5pyzeo_8geometry_Xyz;
+struct __pyx_obj_5pyzeo_8geometry_Point;
+struct __pyx_obj_5pyzeo_10netstorage_Atom;
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode;
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork;
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace;
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell;
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell;
 
-/* "zeoplusplus/geometry.pxd":24
+/* "pyzeo/geometry.pxd":24
  * 
  * 
  * cdef class Xyz:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper declaration for Zeo++ XYZ class defined in geometry.h
  */
-struct __pyx_obj_11zeoplusplus_8geometry_Xyz {
+struct __pyx_obj_5pyzeo_8geometry_Xyz {
   PyObject_HEAD
   XYZ *thisptr;
 };
 
 
-/* "zeoplusplus/geometry.pxd":32
+/* "pyzeo/geometry.pxd":32
  * 
  * 
  * cdef class Point:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper declaration for Zeo++ Point class defined in geometry.h
  */
-struct __pyx_obj_11zeoplusplus_8geometry_Point {
+struct __pyx_obj_5pyzeo_8geometry_Point {
   PyObject_HEAD
   Point *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":120
+/* "pyzeo/netstorage.pxd":120
  *             VORONOI_NETWORK* vornet, ATOM_NETWORK* atmnet)
  * 
  * cdef class Atom:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ ATOM class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_Atom {
+struct __pyx_obj_5pyzeo_10netstorage_Atom {
   PyObject_HEAD
   ATOM *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":126
+/* "pyzeo/netstorage.pxd":126
  *     cdef ATOM* thisptr
  * 
  * cdef class AtomNetwork:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ ATOM_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork {
+struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork {
   PyObject_HEAD
   ATOM_NETWORK *thisptr;
   int rad_flag;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":135
+/* "pyzeo/netstorage.pxd":135
  *     cdef bint rad_flag
  * 
  * cdef class VoronoiNode:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ VOR_NODE class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode {
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode {
   PyObject_HEAD
   VOR_NODE *thisptr;
 };
 
 
-/* "zeoplusplus/netstorage.pxd":141
+/* "pyzeo/netstorage.pxd":141
  *     cdef VOR_NODE* thisptr
  * 
  * cdef class VoronoiNetwork:             # <<<<<<<<<<<<<<
  *     """
  *     Cython wrapper class for Zeo++ VORONOI_NETWORK class.
  */
-struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork {
+struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork {
   PyObject_HEAD
   VORONOI_NETWORK *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":39
+/* "pyzeo/voronoicell.pxd":39
  * 
  * 
  * cdef class VorFace:             # <<<<<<<<<<<<<<
  *     cdef  VOR_FACE* thisptr
  * 
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace {
+struct __pyx_obj_5pyzeo_11voronoicell_VorFace {
   PyObject_HEAD
   VOR_FACE *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":42
+/* "pyzeo/voronoicell.pxd":42
  *     cdef  VOR_FACE* thisptr
  * 
  * cdef class VorCell:             # <<<<<<<<<<<<<<
  *     cdef VOR_CELL* thisptr
  * 
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell {
+struct __pyx_obj_5pyzeo_11voronoicell_VorCell {
   PyObject_HEAD
   VOR_CELL *thisptr;
 };
 
 
-/* "zeoplusplus/voronoicell.pxd":45
+/* "pyzeo/voronoicell.pxd":45
  *     cdef VOR_CELL* thisptr
  * 
  * cdef class BasicVCell:             # <<<<<<<<<<<<<<
  *     cdef BASIC_VCELL* thisptr
  */
-struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell {
+struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell {
   PyObject_HEAD
   BASIC_VCELL *thisptr;
 };
@@ -1492,25 +1473,25 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* Module declarations from 'libcpp.vector' */
 
-/* Module declarations from 'zeoplusplus.geometry' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Xyz = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_8geometry_Point = 0;
+/* Module declarations from 'pyzeo.geometry' */
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Xyz = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_8geometry_Point = 0;
 
-/* Module declarations from 'zeoplusplus.netstorage' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_Atom = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork = 0;
+/* Module declarations from 'pyzeo.netstorage' */
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_Atom = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_AtomNetwork = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNode = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = 0;
 
-/* Module declarations from 'zeoplusplus.voronoicell' */
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_VorFace = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_VorCell = 0;
-static PyTypeObject *__pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell = 0;
-#define __Pyx_MODULE_NAME "zeoplusplus.voronoicell"
-extern int __pyx_module_is_main_zeoplusplus__voronoicell;
-int __pyx_module_is_main_zeoplusplus__voronoicell = 0;
+/* Module declarations from 'pyzeo.voronoicell' */
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorFace = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_VorCell = 0;
+static PyTypeObject *__pyx_ptype_5pyzeo_11voronoicell_BasicVCell = 0;
+#define __Pyx_MODULE_NAME "pyzeo.voronoicell"
+extern int __pyx_module_is_main_pyzeo__voronoicell;
+int __pyx_module_is_main_pyzeo__voronoicell = 0;
 
-/* Implementation of 'zeoplusplus.voronoicell' */
+/* Implementation of 'pyzeo.voronoicell' */
 static PyObject *__pyx_builtin_TypeError;
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
@@ -1542,26 +1523,26 @@ static PyObject *__pyx_n_s_reduce_ex;
 static PyObject *__pyx_n_s_setstate;
 static PyObject *__pyx_n_s_setstate_cython;
 static PyObject *__pyx_n_s_test;
-static int __pyx_pf_11zeoplusplus_11voronoicell_7VorCell___cinit__(struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell *__pyx_v_self); /* proto */
-static int __pyx_pf_11zeoplusplus_11voronoicell_7VorCell_2__init__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell *__pyx_v_self); /* proto */
-static void __pyx_pf_11zeoplusplus_11voronoicell_7VorCell_4__dealloc__(struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_11voronoicell_7VorCell_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_11voronoicell_7VorCell_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell___cinit__(struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell *__pyx_v_self); /* proto */
-static int __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_2__init__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell *__pyx_v_self); /* proto */
-static void __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_4__dealloc__(struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_tp_new_11zeoplusplus_11voronoicell_VorFace(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_11zeoplusplus_11voronoicell_VorCell(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_11zeoplusplus_11voronoicell_BasicVCell(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static int __pyx_pf_5pyzeo_11voronoicell_7VorCell___cinit__(struct __pyx_obj_5pyzeo_11voronoicell_VorCell *__pyx_v_self); /* proto */
+static int __pyx_pf_5pyzeo_11voronoicell_7VorCell_2__init__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_11voronoicell_VorCell *__pyx_v_self); /* proto */
+static void __pyx_pf_5pyzeo_11voronoicell_7VorCell_4__dealloc__(struct __pyx_obj_5pyzeo_11voronoicell_VorCell *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_11voronoicell_7VorCell_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_11voronoicell_VorCell *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_11voronoicell_7VorCell_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_11voronoicell_VorCell *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_5pyzeo_11voronoicell_10BasicVCell___cinit__(struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell *__pyx_v_self); /* proto */
+static int __pyx_pf_5pyzeo_11voronoicell_10BasicVCell_2__init__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell *__pyx_v_self); /* proto */
+static void __pyx_pf_5pyzeo_11voronoicell_10BasicVCell_4__dealloc__(struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_11voronoicell_10BasicVCell_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pyzeo_11voronoicell_10BasicVCell_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_tp_new_5pyzeo_11voronoicell_VorFace(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_5pyzeo_11voronoicell_VorCell(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_5pyzeo_11voronoicell_BasicVCell(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_tuple__2;
 static PyObject *__pyx_tuple__3;
 static PyObject *__pyx_tuple__4;
 /* Late includes */
 
-/* "zeoplusplus/voronoicell.pyx":20
+/* "pyzeo/voronoicell.pyx":20
  * cdef class VorCell:
  *     #cdef VOR_CELL *thiptr
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -1570,22 +1551,22 @@ static PyObject *__pyx_tuple__4;
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_11voronoicell_7VorCell_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_11zeoplusplus_11voronoicell_7VorCell_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_5pyzeo_11voronoicell_7VorCell_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_5pyzeo_11voronoicell_7VorCell_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
   if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
     __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
   if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__cinit__", 0))) return -1;
-  __pyx_r = __pyx_pf_11zeoplusplus_11voronoicell_7VorCell___cinit__(((struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_11voronoicell_7VorCell___cinit__(((struct __pyx_obj_5pyzeo_11voronoicell_VorCell *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_11voronoicell_7VorCell___cinit__(struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell *__pyx_v_self) {
+static int __pyx_pf_5pyzeo_11voronoicell_7VorCell___cinit__(struct __pyx_obj_5pyzeo_11voronoicell_VorCell *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   VOR_CELL *__pyx_t_1;
@@ -1594,7 +1575,7 @@ static int __pyx_pf_11zeoplusplus_11voronoicell_7VorCell___cinit__(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "zeoplusplus/voronoicell.pyx":21
+  /* "pyzeo/voronoicell.pyx":21
  *     #cdef VOR_CELL *thiptr
  *     def __cinit__(self):
  *         self.thisptr = new VOR_CELL()             # <<<<<<<<<<<<<<
@@ -1609,7 +1590,7 @@ static int __pyx_pf_11zeoplusplus_11voronoicell_7VorCell___cinit__(struct __pyx_
   }
   __pyx_v_self->thisptr = __pyx_t_1;
 
-  /* "zeoplusplus/voronoicell.pyx":20
+  /* "pyzeo/voronoicell.pyx":20
  * cdef class VorCell:
  *     #cdef VOR_CELL *thiptr
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -1621,14 +1602,14 @@ static int __pyx_pf_11zeoplusplus_11voronoicell_7VorCell___cinit__(struct __pyx_
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("zeoplusplus.voronoicell.VorCell.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.voronoicell.VorCell.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "zeoplusplus/voronoicell.pyx":23
+/* "pyzeo/voronoicell.pyx":23
  *         self.thisptr = new VOR_CELL()
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -1637,22 +1618,22 @@ static int __pyx_pf_11zeoplusplus_11voronoicell_7VorCell___cinit__(struct __pyx_
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_11voronoicell_7VorCell_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_11zeoplusplus_11voronoicell_7VorCell_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_5pyzeo_11voronoicell_7VorCell_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_5pyzeo_11voronoicell_7VorCell_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
   if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
     __Pyx_RaiseArgtupleInvalid("__init__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
   if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__init__", 0))) return -1;
-  __pyx_r = __pyx_pf_11zeoplusplus_11voronoicell_7VorCell_2__init__(((struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_11voronoicell_7VorCell_2__init__(((struct __pyx_obj_5pyzeo_11voronoicell_VorCell *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_11voronoicell_7VorCell_2__init__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell *__pyx_v_self) {
+static int __pyx_pf_5pyzeo_11voronoicell_7VorCell_2__init__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_11voronoicell_VorCell *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__", 0);
@@ -1663,7 +1644,7 @@ static int __pyx_pf_11zeoplusplus_11voronoicell_7VorCell_2__init__(CYTHON_UNUSED
   return __pyx_r;
 }
 
-/* "zeoplusplus/voronoicell.pyx":26
+/* "pyzeo/voronoicell.pyx":26
  *         pass
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1672,21 +1653,21 @@ static int __pyx_pf_11zeoplusplus_11voronoicell_7VorCell_2__init__(CYTHON_UNUSED
  */
 
 /* Python wrapper */
-static void __pyx_pw_11zeoplusplus_11voronoicell_7VorCell_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_11zeoplusplus_11voronoicell_7VorCell_5__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_5pyzeo_11voronoicell_7VorCell_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_5pyzeo_11voronoicell_7VorCell_5__dealloc__(PyObject *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
-  __pyx_pf_11zeoplusplus_11voronoicell_7VorCell_4__dealloc__(((struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell *)__pyx_v_self));
+  __pyx_pf_5pyzeo_11voronoicell_7VorCell_4__dealloc__(((struct __pyx_obj_5pyzeo_11voronoicell_VorCell *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_11zeoplusplus_11voronoicell_7VorCell_4__dealloc__(struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell *__pyx_v_self) {
+static void __pyx_pf_5pyzeo_11voronoicell_7VorCell_4__dealloc__(struct __pyx_obj_5pyzeo_11voronoicell_VorCell *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "zeoplusplus/voronoicell.pyx":27
+  /* "pyzeo/voronoicell.pyx":27
  * 
  *     def __dealloc__(self):
  *         del self.thisptr             # <<<<<<<<<<<<<<
@@ -1695,7 +1676,7 @@ static void __pyx_pf_11zeoplusplus_11voronoicell_7VorCell_4__dealloc__(struct __
  */
   delete __pyx_v_self->thisptr;
 
-  /* "zeoplusplus/voronoicell.pyx":26
+  /* "pyzeo/voronoicell.pyx":26
  *         pass
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1714,19 +1695,19 @@ static void __pyx_pf_11zeoplusplus_11voronoicell_7VorCell_4__dealloc__(struct __
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_11voronoicell_7VorCell_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_11voronoicell_7VorCell_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_5pyzeo_11voronoicell_7VorCell_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_11voronoicell_7VorCell_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_11voronoicell_7VorCell_6__reduce_cython__(((struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_11voronoicell_7VorCell_6__reduce_cython__(((struct __pyx_obj_5pyzeo_11voronoicell_VorCell *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_11voronoicell_7VorCell_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell *__pyx_v_self) {
+static PyObject *__pyx_pf_5pyzeo_11voronoicell_7VorCell_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_11voronoicell_VorCell *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1756,7 +1737,7 @@ static PyObject *__pyx_pf_11zeoplusplus_11voronoicell_7VorCell_6__reduce_cython_
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.voronoicell.VorCell.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.voronoicell.VorCell.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -1771,19 +1752,19 @@ static PyObject *__pyx_pf_11zeoplusplus_11voronoicell_7VorCell_6__reduce_cython_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_11voronoicell_7VorCell_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_11voronoicell_7VorCell_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_5pyzeo_11voronoicell_7VorCell_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_11voronoicell_7VorCell_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_11voronoicell_7VorCell_8__setstate_cython__(((struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_5pyzeo_11voronoicell_7VorCell_8__setstate_cython__(((struct __pyx_obj_5pyzeo_11voronoicell_VorCell *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_11voronoicell_7VorCell_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_5pyzeo_11voronoicell_7VorCell_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_11voronoicell_VorCell *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1813,14 +1794,14 @@ static PyObject *__pyx_pf_11zeoplusplus_11voronoicell_7VorCell_8__setstate_cytho
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.voronoicell.VorCell.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.voronoicell.VorCell.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "zeoplusplus/voronoicell.pyx":31
+/* "pyzeo/voronoicell.pyx":31
  * cdef class BasicVCell:
  *     #cdef BASIC_VCELL *thisptr
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -1829,22 +1810,22 @@ static PyObject *__pyx_pf_11zeoplusplus_11voronoicell_7VorCell_8__setstate_cytho
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_11voronoicell_10BasicVCell_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_11zeoplusplus_11voronoicell_10BasicVCell_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_5pyzeo_11voronoicell_10BasicVCell_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_5pyzeo_11voronoicell_10BasicVCell_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
   if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
     __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
   if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__cinit__", 0))) return -1;
-  __pyx_r = __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell___cinit__(((struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_11voronoicell_10BasicVCell___cinit__(((struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell___cinit__(struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell *__pyx_v_self) {
+static int __pyx_pf_5pyzeo_11voronoicell_10BasicVCell___cinit__(struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   BASIC_VCELL *__pyx_t_1;
@@ -1853,7 +1834,7 @@ static int __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell___cinit__(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "zeoplusplus/voronoicell.pyx":32
+  /* "pyzeo/voronoicell.pyx":32
  *     #cdef BASIC_VCELL *thisptr
  *     def __cinit__(self):
  *         self.thisptr = new BASIC_VCELL()             # <<<<<<<<<<<<<<
@@ -1868,7 +1849,7 @@ static int __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell___cinit__(struct __
   }
   __pyx_v_self->thisptr = __pyx_t_1;
 
-  /* "zeoplusplus/voronoicell.pyx":31
+  /* "pyzeo/voronoicell.pyx":31
  * cdef class BasicVCell:
  *     #cdef BASIC_VCELL *thisptr
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -1880,14 +1861,14 @@ static int __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell___cinit__(struct __
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("zeoplusplus.voronoicell.BasicVCell.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.voronoicell.BasicVCell.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "zeoplusplus/voronoicell.pyx":34
+/* "pyzeo/voronoicell.pyx":34
  *         self.thisptr = new BASIC_VCELL()
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -1896,22 +1877,22 @@ static int __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell___cinit__(struct __
  */
 
 /* Python wrapper */
-static int __pyx_pw_11zeoplusplus_11voronoicell_10BasicVCell_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_11zeoplusplus_11voronoicell_10BasicVCell_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_5pyzeo_11voronoicell_10BasicVCell_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_5pyzeo_11voronoicell_10BasicVCell_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
   if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
     __Pyx_RaiseArgtupleInvalid("__init__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
   if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__init__", 0))) return -1;
-  __pyx_r = __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_2__init__(((struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_11voronoicell_10BasicVCell_2__init__(((struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_2__init__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell *__pyx_v_self) {
+static int __pyx_pf_5pyzeo_11voronoicell_10BasicVCell_2__init__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__", 0);
@@ -1922,7 +1903,7 @@ static int __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_2__init__(CYTHON_UN
   return __pyx_r;
 }
 
-/* "zeoplusplus/voronoicell.pyx":37
+/* "pyzeo/voronoicell.pyx":37
  *         pass
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1930,28 +1911,28 @@ static int __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_2__init__(CYTHON_UN
  */
 
 /* Python wrapper */
-static void __pyx_pw_11zeoplusplus_11voronoicell_10BasicVCell_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_11zeoplusplus_11voronoicell_10BasicVCell_5__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_5pyzeo_11voronoicell_10BasicVCell_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_5pyzeo_11voronoicell_10BasicVCell_5__dealloc__(PyObject *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
-  __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_4__dealloc__(((struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell *)__pyx_v_self));
+  __pyx_pf_5pyzeo_11voronoicell_10BasicVCell_4__dealloc__(((struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_4__dealloc__(struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell *__pyx_v_self) {
+static void __pyx_pf_5pyzeo_11voronoicell_10BasicVCell_4__dealloc__(struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "zeoplusplus/voronoicell.pyx":38
+  /* "pyzeo/voronoicell.pyx":38
  * 
  *     def __dealloc__(self):
  *         del self.thisptr             # <<<<<<<<<<<<<<
  */
   delete __pyx_v_self->thisptr;
 
-  /* "zeoplusplus/voronoicell.pyx":37
+  /* "pyzeo/voronoicell.pyx":37
  *         pass
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1969,19 +1950,19 @@ static void __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_4__dealloc__(struc
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_11voronoicell_10BasicVCell_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_11voronoicell_10BasicVCell_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_5pyzeo_11voronoicell_10BasicVCell_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_11voronoicell_10BasicVCell_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_6__reduce_cython__(((struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pyzeo_11voronoicell_10BasicVCell_6__reduce_cython__(((struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell *__pyx_v_self) {
+static PyObject *__pyx_pf_5pyzeo_11voronoicell_10BasicVCell_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2011,7 +1992,7 @@ static PyObject *__pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_6__reduce_cyt
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.voronoicell.BasicVCell.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.voronoicell.BasicVCell.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -2026,19 +2007,19 @@ static PyObject *__pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_6__reduce_cyt
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11zeoplusplus_11voronoicell_10BasicVCell_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_11zeoplusplus_11voronoicell_10BasicVCell_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_5pyzeo_11voronoicell_10BasicVCell_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_5pyzeo_11voronoicell_10BasicVCell_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_8__setstate_cython__(((struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_5pyzeo_11voronoicell_10BasicVCell_8__setstate_cython__(((struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_5pyzeo_11voronoicell_10BasicVCell_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2068,14 +2049,14 @@ static PyObject *__pyx_pf_11zeoplusplus_11voronoicell_10BasicVCell_8__setstate_c
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("zeoplusplus.voronoicell.BasicVCell.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyzeo.voronoicell.BasicVCell.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_tp_new_11zeoplusplus_11voronoicell_VorFace(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5pyzeo_11voronoicell_VorFace(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -2086,7 +2067,7 @@ static PyObject *__pyx_tp_new_11zeoplusplus_11voronoicell_VorFace(PyTypeObject *
   return o;
 }
 
-static void __pyx_tp_dealloc_11zeoplusplus_11voronoicell_VorFace(PyObject *o) {
+static void __pyx_tp_dealloc_5pyzeo_11voronoicell_VorFace(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -2095,12 +2076,12 @@ static void __pyx_tp_dealloc_11zeoplusplus_11voronoicell_VorFace(PyObject *o) {
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static PyTypeObject __pyx_type_11zeoplusplus_11voronoicell_VorFace = {
+static PyTypeObject __pyx_type_5pyzeo_11voronoicell_VorFace = {
   PyVarObject_HEAD_INIT(0, 0)
-  "zeoplusplus.voronoicell.VorFace", /*tp_name*/
-  sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_VorFace), /*tp_basicsize*/
+  "pyzeo.voronoicell.VorFace", /*tp_name*/
+  sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorFace), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_11zeoplusplus_11voronoicell_VorFace, /*tp_dealloc*/
+  __pyx_tp_dealloc_5pyzeo_11voronoicell_VorFace, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -2143,7 +2124,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_11voronoicell_VorFace = {
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_11zeoplusplus_11voronoicell_VorFace, /*tp_new*/
+  __pyx_tp_new_5pyzeo_11voronoicell_VorFace, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -2167,7 +2148,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_11voronoicell_VorFace = {
   #endif
 };
 
-static PyObject *__pyx_tp_new_11zeoplusplus_11voronoicell_VorCell(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5pyzeo_11voronoicell_VorCell(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -2175,14 +2156,14 @@ static PyObject *__pyx_tp_new_11zeoplusplus_11voronoicell_VorCell(PyTypeObject *
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  if (unlikely(__pyx_pw_11zeoplusplus_11voronoicell_7VorCell_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
+  if (unlikely(__pyx_pw_5pyzeo_11voronoicell_7VorCell_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
   return o;
   bad:
   Py_DECREF(o); o = 0;
   return NULL;
 }
 
-static void __pyx_tp_dealloc_11zeoplusplus_11voronoicell_VorCell(PyObject *o) {
+static void __pyx_tp_dealloc_5pyzeo_11voronoicell_VorCell(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -2192,25 +2173,25 @@ static void __pyx_tp_dealloc_11zeoplusplus_11voronoicell_VorCell(PyObject *o) {
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) + 1);
-    __pyx_pw_11zeoplusplus_11voronoicell_7VorCell_5__dealloc__(o);
+    __pyx_pw_5pyzeo_11voronoicell_7VorCell_5__dealloc__(o);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) - 1);
     PyErr_Restore(etype, eval, etb);
   }
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static PyMethodDef __pyx_methods_11zeoplusplus_11voronoicell_VorCell[] = {
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_11voronoicell_7VorCell_7__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_11voronoicell_7VorCell_9__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_5pyzeo_11voronoicell_VorCell[] = {
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_5pyzeo_11voronoicell_7VorCell_7__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_5pyzeo_11voronoicell_7VorCell_9__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_11zeoplusplus_11voronoicell_VorCell = {
+static PyTypeObject __pyx_type_5pyzeo_11voronoicell_VorCell = {
   PyVarObject_HEAD_INIT(0, 0)
-  "zeoplusplus.voronoicell.VorCell", /*tp_name*/
-  sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_VorCell), /*tp_basicsize*/
+  "pyzeo.voronoicell.VorCell", /*tp_name*/
+  sizeof(struct __pyx_obj_5pyzeo_11voronoicell_VorCell), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_11zeoplusplus_11voronoicell_VorCell, /*tp_dealloc*/
+  __pyx_tp_dealloc_5pyzeo_11voronoicell_VorCell, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -2243,7 +2224,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_11voronoicell_VorCell = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_11zeoplusplus_11voronoicell_VorCell, /*tp_methods*/
+  __pyx_methods_5pyzeo_11voronoicell_VorCell, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -2251,9 +2232,9 @@ static PyTypeObject __pyx_type_11zeoplusplus_11voronoicell_VorCell = {
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_11zeoplusplus_11voronoicell_7VorCell_3__init__, /*tp_init*/
+  __pyx_pw_5pyzeo_11voronoicell_7VorCell_3__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_11zeoplusplus_11voronoicell_VorCell, /*tp_new*/
+  __pyx_tp_new_5pyzeo_11voronoicell_VorCell, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -2277,7 +2258,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_11voronoicell_VorCell = {
   #endif
 };
 
-static PyObject *__pyx_tp_new_11zeoplusplus_11voronoicell_BasicVCell(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5pyzeo_11voronoicell_BasicVCell(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -2285,14 +2266,14 @@ static PyObject *__pyx_tp_new_11zeoplusplus_11voronoicell_BasicVCell(PyTypeObjec
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  if (unlikely(__pyx_pw_11zeoplusplus_11voronoicell_10BasicVCell_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
+  if (unlikely(__pyx_pw_5pyzeo_11voronoicell_10BasicVCell_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
   return o;
   bad:
   Py_DECREF(o); o = 0;
   return NULL;
 }
 
-static void __pyx_tp_dealloc_11zeoplusplus_11voronoicell_BasicVCell(PyObject *o) {
+static void __pyx_tp_dealloc_5pyzeo_11voronoicell_BasicVCell(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -2302,25 +2283,25 @@ static void __pyx_tp_dealloc_11zeoplusplus_11voronoicell_BasicVCell(PyObject *o)
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) + 1);
-    __pyx_pw_11zeoplusplus_11voronoicell_10BasicVCell_5__dealloc__(o);
+    __pyx_pw_5pyzeo_11voronoicell_10BasicVCell_5__dealloc__(o);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) - 1);
     PyErr_Restore(etype, eval, etb);
   }
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static PyMethodDef __pyx_methods_11zeoplusplus_11voronoicell_BasicVCell[] = {
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_11voronoicell_10BasicVCell_7__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_11zeoplusplus_11voronoicell_10BasicVCell_9__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_5pyzeo_11voronoicell_BasicVCell[] = {
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_5pyzeo_11voronoicell_10BasicVCell_7__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_5pyzeo_11voronoicell_10BasicVCell_9__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_11zeoplusplus_11voronoicell_BasicVCell = {
+static PyTypeObject __pyx_type_5pyzeo_11voronoicell_BasicVCell = {
   PyVarObject_HEAD_INIT(0, 0)
-  "zeoplusplus.voronoicell.BasicVCell", /*tp_name*/
-  sizeof(struct __pyx_obj_11zeoplusplus_11voronoicell_BasicVCell), /*tp_basicsize*/
+  "pyzeo.voronoicell.BasicVCell", /*tp_name*/
+  sizeof(struct __pyx_obj_5pyzeo_11voronoicell_BasicVCell), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_11zeoplusplus_11voronoicell_BasicVCell, /*tp_dealloc*/
+  __pyx_tp_dealloc_5pyzeo_11voronoicell_BasicVCell, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -2353,7 +2334,7 @@ static PyTypeObject __pyx_type_11zeoplusplus_11voronoicell_BasicVCell = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_11zeoplusplus_11voronoicell_BasicVCell, /*tp_methods*/
+  __pyx_methods_5pyzeo_11voronoicell_BasicVCell, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -2361,9 +2342,9 @@ static PyTypeObject __pyx_type_11zeoplusplus_11voronoicell_BasicVCell = {
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_11zeoplusplus_11voronoicell_10BasicVCell_3__init__, /*tp_init*/
+  __pyx_pw_5pyzeo_11voronoicell_10BasicVCell_3__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_11zeoplusplus_11voronoicell_BasicVCell, /*tp_new*/
+  __pyx_tp_new_5pyzeo_11voronoicell_BasicVCell, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -2551,35 +2532,35 @@ static int __Pyx_modinit_type_init_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_11zeoplusplus_11voronoicell_VorFace) < 0) __PYX_ERR(2, 39, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5pyzeo_11voronoicell_VorFace) < 0) __PYX_ERR(2, 39, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_11zeoplusplus_11voronoicell_VorFace.tp_print = 0;
+  __pyx_type_5pyzeo_11voronoicell_VorFace.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_11zeoplusplus_11voronoicell_VorFace.tp_dictoffset && __pyx_type_11zeoplusplus_11voronoicell_VorFace.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_11zeoplusplus_11voronoicell_VorFace.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5pyzeo_11voronoicell_VorFace.tp_dictoffset && __pyx_type_5pyzeo_11voronoicell_VorFace.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5pyzeo_11voronoicell_VorFace.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_VorFace, (PyObject *)&__pyx_type_11zeoplusplus_11voronoicell_VorFace) < 0) __PYX_ERR(2, 39, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_11voronoicell_VorFace = &__pyx_type_11zeoplusplus_11voronoicell_VorFace;
-  if (PyType_Ready(&__pyx_type_11zeoplusplus_11voronoicell_VorCell) < 0) __PYX_ERR(1, 18, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_VorFace, (PyObject *)&__pyx_type_5pyzeo_11voronoicell_VorFace) < 0) __PYX_ERR(2, 39, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_VorFace = &__pyx_type_5pyzeo_11voronoicell_VorFace;
+  if (PyType_Ready(&__pyx_type_5pyzeo_11voronoicell_VorCell) < 0) __PYX_ERR(1, 18, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_11zeoplusplus_11voronoicell_VorCell.tp_print = 0;
+  __pyx_type_5pyzeo_11voronoicell_VorCell.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_11zeoplusplus_11voronoicell_VorCell.tp_dictoffset && __pyx_type_11zeoplusplus_11voronoicell_VorCell.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_11zeoplusplus_11voronoicell_VorCell.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5pyzeo_11voronoicell_VorCell.tp_dictoffset && __pyx_type_5pyzeo_11voronoicell_VorCell.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5pyzeo_11voronoicell_VorCell.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_VorCell, (PyObject *)&__pyx_type_11zeoplusplus_11voronoicell_VorCell) < 0) __PYX_ERR(1, 18, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_11zeoplusplus_11voronoicell_VorCell) < 0) __PYX_ERR(1, 18, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_11voronoicell_VorCell = &__pyx_type_11zeoplusplus_11voronoicell_VorCell;
-  if (PyType_Ready(&__pyx_type_11zeoplusplus_11voronoicell_BasicVCell) < 0) __PYX_ERR(1, 29, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_VorCell, (PyObject *)&__pyx_type_5pyzeo_11voronoicell_VorCell) < 0) __PYX_ERR(1, 18, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5pyzeo_11voronoicell_VorCell) < 0) __PYX_ERR(1, 18, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_VorCell = &__pyx_type_5pyzeo_11voronoicell_VorCell;
+  if (PyType_Ready(&__pyx_type_5pyzeo_11voronoicell_BasicVCell) < 0) __PYX_ERR(1, 29, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_11zeoplusplus_11voronoicell_BasicVCell.tp_print = 0;
+  __pyx_type_5pyzeo_11voronoicell_BasicVCell.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_11zeoplusplus_11voronoicell_BasicVCell.tp_dictoffset && __pyx_type_11zeoplusplus_11voronoicell_BasicVCell.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_11zeoplusplus_11voronoicell_BasicVCell.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5pyzeo_11voronoicell_BasicVCell.tp_dictoffset && __pyx_type_5pyzeo_11voronoicell_BasicVCell.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5pyzeo_11voronoicell_BasicVCell.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_BasicVCell, (PyObject *)&__pyx_type_11zeoplusplus_11voronoicell_BasicVCell) < 0) __PYX_ERR(1, 29, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_11zeoplusplus_11voronoicell_BasicVCell) < 0) __PYX_ERR(1, 29, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_11voronoicell_BasicVCell = &__pyx_type_11zeoplusplus_11voronoicell_BasicVCell;
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_BasicVCell, (PyObject *)&__pyx_type_5pyzeo_11voronoicell_BasicVCell) < 0) __PYX_ERR(1, 29, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5pyzeo_11voronoicell_BasicVCell) < 0) __PYX_ERR(1, 29, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_11voronoicell_BasicVCell = &__pyx_type_5pyzeo_11voronoicell_BasicVCell;
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2595,23 +2576,23 @@ static int __Pyx_modinit_type_import_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.geometry"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 24, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.geometry"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_8geometry_Xyz = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.geometry", "Xyz", sizeof(struct __pyx_obj_11zeoplusplus_8geometry_Xyz), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_8geometry_Xyz) __PYX_ERR(3, 24, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_8geometry_Point = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.geometry", "Point", sizeof(struct __pyx_obj_11zeoplusplus_8geometry_Point), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_8geometry_Point) __PYX_ERR(3, 32, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_8geometry_Xyz = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Xyz", sizeof(struct __pyx_obj_5pyzeo_8geometry_Xyz), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Xyz) __PYX_ERR(3, 24, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_8geometry_Point = __Pyx_ImportType(__pyx_t_1, "pyzeo.geometry", "Point", sizeof(struct __pyx_obj_5pyzeo_8geometry_Point), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_8geometry_Point) __PYX_ERR(3, 32, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("zeoplusplus.netstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 120, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyzeo.netstorage"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_11zeoplusplus_10netstorage_Atom = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "Atom", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_Atom), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_Atom) __PYX_ERR(4, 120, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "AtomNetwork", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_AtomNetwork), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_AtomNetwork) __PYX_ERR(4, 126, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "VoronoiNode", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNode), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNode) __PYX_ERR(4, 135, __pyx_L1_error)
-  __pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork = __Pyx_ImportType(__pyx_t_1, "zeoplusplus.netstorage", "VoronoiNetwork", sizeof(struct __pyx_obj_11zeoplusplus_10netstorage_VoronoiNetwork), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_11zeoplusplus_10netstorage_VoronoiNetwork) __PYX_ERR(4, 141, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_Atom = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "Atom", sizeof(struct __pyx_obj_5pyzeo_10netstorage_Atom), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_Atom) __PYX_ERR(4, 120, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_AtomNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "AtomNetwork", sizeof(struct __pyx_obj_5pyzeo_10netstorage_AtomNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_AtomNetwork) __PYX_ERR(4, 126, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNode = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "VoronoiNode", sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNode), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_VoronoiNode) __PYX_ERR(4, 135, __pyx_L1_error)
+  __pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork = __Pyx_ImportType(__pyx_t_1, "pyzeo.netstorage", "VoronoiNetwork", sizeof(struct __pyx_obj_5pyzeo_10netstorage_VoronoiNetwork), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5pyzeo_10netstorage_VoronoiNetwork) __PYX_ERR(4, 141, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -2809,14 +2790,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_zeoplusplus__voronoicell) {
+  if (__pyx_module_is_main_pyzeo__voronoicell) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(1, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "zeoplusplus.voronoicell")) {
-      if (unlikely(PyDict_SetItemString(modules, "zeoplusplus.voronoicell", __pyx_m) < 0)) __PYX_ERR(1, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "pyzeo.voronoicell")) {
+      if (unlikely(PyDict_SetItemString(modules, "pyzeo.voronoicell", __pyx_m) < 0)) __PYX_ERR(1, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -2837,10 +2818,10 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   #endif
 
-  /* "zeoplusplus/voronoicell.pyx":1
+  /* "pyzeo/voronoicell.pyx":1
  * from libcpp.vector cimport vector             # <<<<<<<<<<<<<<
  * 
- * #from zeoplusplus.geometry cimport CPoint
+ * #from pyzeo.geometry cimport CPoint
  */
   __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -2854,11 +2835,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init zeoplusplus.voronoicell", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init pyzeo.voronoicell", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init zeoplusplus.voronoicell");
+    PyErr_SetString(PyExc_ImportError, "init pyzeo.voronoicell");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
