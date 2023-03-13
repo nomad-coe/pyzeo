@@ -4,7 +4,9 @@ Python wrapper for the [Zeo++ library](http://zeoplusplus.org). Based on the lat
 ## Installation
 
 ### pip
+```sh
 pip install pyzeo
+```
 
 ### From source
 
