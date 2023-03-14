@@ -19,7 +19,28 @@
         "name": "pyzeo.psd",
         "sources": [
             "src/pyzeo/psd.pyx",
-            "src/psd.cc"
+            "src/psd.cc",
+            "src/voro++/src/voro++.cc",
+            "src/networkanalysis.cc",
+            "src/networkstorage.cc",
+            "src/networkinfo.cc",
+            "src/network.cc",
+            "src/net.cc",
+            "src/mindist.cc",
+            "src/geometry.cc",
+            "src/OMS.cc",
+            "src/voronoicell.cc",
+            "src/v_network.cc",
+            "src/graphstorage.cc",
+            "src/channel.cc",
+            "src/symmetry.cc",
+            "src/ray.cc",
+            "src/rmsd.cc",
+            "src/material.cc",
+            "src/psd.cc",
+            "src/area_and_volume.cc",
+            "src/networkaccessibility.cc",
+            "src/string_additions.cc"
         ]
     },
     "module_name": "pyzeo.psd"

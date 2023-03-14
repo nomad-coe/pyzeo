@@ -5683,7 +5683,7 @@ static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_30perform_voronoi_de
   PyObject *__pyx_v_face_node_ids = NULL;
   std::vector<VOR_FACE> ::size_type __pyx_v_j;
   PyObject *__pyx_v_node_id_list = NULL;
-  std::vector<Point> ::size_type __pyx_v_k;
+  std::vector<int> ::size_type __pyx_v_k;
   PyObject *__pyx_v_node_id_set = NULL;
   struct __pyx_obj_5pyzeo_8geometry_Point *__pyx_v_centroid = NULL;
   PyObject *__pyx_v_fcs = NULL;
@@ -5714,7 +5714,7 @@ static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_30perform_voronoi_de
   std::vector<int>  __pyx_t_20;
   std::vector<int> ::size_type __pyx_t_21;
   std::vector<int> ::size_type __pyx_t_22;
-  std::vector<Point> ::size_type __pyx_t_23;
+  std::vector<int> ::size_type __pyx_t_23;
   Point *__pyx_t_24;
   std::vector<Point>  __pyx_t_25;
   std::vector<Point> ::size_type __pyx_t_26;
@@ -6146,10 +6146,10 @@ static PyObject *__pyx_pf_5pyzeo_10netstorage_11AtomNetwork_30perform_voronoi_de
  *                         centroid.x = centroid.x + vertices[k].vals[0]
  *                         centroid.y = centroid.y + vertices[k].vals[1]
  */
-        __pyx_t_23 = __pyx_v_vertices.size();
-        __pyx_t_26 = __pyx_t_23;
-        for (__pyx_t_27 = 0; __pyx_t_27 < __pyx_t_26; __pyx_t_27+=1) {
-          __pyx_v_k = __pyx_t_27;
+        __pyx_t_26 = __pyx_v_vertices.size();
+        __pyx_t_27 = __pyx_t_26;
+        for (__pyx_t_21 = 0; __pyx_t_21 < __pyx_t_27; __pyx_t_21+=1) {
+          __pyx_v_k = __pyx_t_21;
 
           /* "pyzeo/netstorage.pyx":422
  *                     vertices = vfaces[j].vertices

@@ -117,6 +117,9 @@ netio_srcfiles = [
     'src/net.cc',
     'src/rmsd.cc',
 ]
+psd_srcfiles = [
+    'src/pyzeo/psd'+ext,
+] + common_srcfiles
 channel_srcfiles = [
     'src/pyzeo/channel'+ext,
     'src/channel.cc',
@@ -128,10 +131,6 @@ geometry_srcfiles = [
 netinfo_srcfiles = [
     'src/pyzeo/netinfo'+ext,
     'src/networkinfo.cc',
-]
-psd_srcfiles = [
-    'src/pyzeo/psd'+ext,
-    'src/psd.cc',
 ]
 extensions = [
     Extension(
@@ -199,6 +198,14 @@ extensions = [
         language=language
     ),
     Extension(
+        "pyzeo.psd",
+        sources=psd_srcfiles,
+        include_dirs=includedirs,
+        extra_compile_args=cpp_extra_compile_args,
+        extra_link_args=cpp_extra_link_args,
+        language=language
+    ),
+    Extension(
         "pyzeo.channel", 
         sources=channel_srcfiles,
         include_dirs=includedirs,
@@ -216,14 +223,6 @@ extensions = [
     Extension(
         "pyzeo.netinfo", 
         sources=netinfo_srcfiles,
-        extra_compile_args=cpp_extra_compile_args,
-        extra_link_args=cpp_extra_link_args,
-        language=language
-    ),
-    Extension(
-        "pyzeo.psd",
-        sources=psd_srcfiles,
-        include_dirs=includedirs,
         extra_compile_args=cpp_extra_compile_args,
         extra_link_args=cpp_extra_link_args,
         language=language
