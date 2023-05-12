@@ -1,4 +1,4 @@
-from pyzeo.high_accuracy import high_accuracy_atmnet
+from pyzeo.high_accuracy import high_accuracy_atomnet
 from pyzeo.netstorage import AtomNetwork
 
 atmnet = AtomNetwork.read_from_CSSR("MgO.cssr", rad_file="MgO.rad")
@@ -6,7 +6,7 @@ atmnet.write_to_XYZ("orig_mgo.xyz", False, True)
 vornet,ecs,fcs = atmnet.perform_voronoi_decomposition()
 vornet.write_to_XYZ("orig_mgo_voro.xyz", 0)
 vornet.analyze_writeto_XYZ('orig_mgo', 0.4, atmnet)
-high_accuracy_atmnet(atmnet, "DEF")
+high_accuracy_atomnet(atmnet, "DEF")
 vornet,ecs,fcs = atmnet.perform_voronoi_decomposition()
 vornet.write_to_XYZ("test_high.xyz", 0)
 vornet.analyze_writeto_XYZ('mgo_high', 0.4, atmnet)
