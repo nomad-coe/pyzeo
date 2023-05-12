@@ -15,7 +15,7 @@ if sys.version_info[:2] < (3, 8):
 # (https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#distributing-cython-modules)
 # is to distribute Cython compiled source files with the package. This is why
 # the Cython compilation step is disabled by default here.
-USE_CYTHON = True
+USE_CYTHON = False
 ext = '.pyx' if USE_CYTHON else '.cpp'
 language = "c++"
 includedirs = []
@@ -91,7 +91,7 @@ if USE_CYTHON:
 
 setup(
     name='pyzeo',
-    version='0.1.1',
+    version='0.1.2',
     description="Python interface to Zeo++",
     long_description="Python interface to Zeo++",
     url="https://github.com/nomad-coe/pyzeo",
