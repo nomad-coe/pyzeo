@@ -91,7 +91,7 @@ if USE_CYTHON:
 
 setup(
     name='pyzeo',
-    version='0.1.2',
+    version='0.1.3',
     description="Python interface to Zeo++",
     long_description="Python interface to Zeo++",
     url="https://github.com/nomad-coe/pyzeo",
