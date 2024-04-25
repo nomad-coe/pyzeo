@@ -15,7 +15,7 @@ if sys.version_info[:2] < (3, 9):
 # (https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#distributing-cython-modules)
 # is to distribute Cython compiled source files with the package. This is why
 # the Cython compilation step is disabled by default here.
-USE_CYTHON = True
+USE_CYTHON = False
 ext = '.pyx' if USE_CYTHON else '.cpp'
 language = "c++"
 includedirs = []
