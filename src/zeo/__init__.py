@@ -1,4 +1,4 @@
-from pyzeo.extension import (
+from zeo.extension import (
     AtomNetwork,
     volume,
     surface_area,

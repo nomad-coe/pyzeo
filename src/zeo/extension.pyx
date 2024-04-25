@@ -7,7 +7,7 @@ import sys
 from libcpp.string cimport string
 from libcpp.vector cimport vector
 from cython.operator cimport dereference as deref, preincrement as inc
-cimport pyzeo.extension
+cimport zeo.extension
 
 #=============================================================================
 # geometry
@@ -414,10 +414,10 @@ cdef class AtomNetwork:
         cdef char* c_rad_file = rad_file
         if rad_flag:
             if not rad_file:
-                pyzeo.extension.zeo_initializeRadTable()
+                zeo.extension.zeo_initializeRadTable()
             else:       # rad_file is defined
                 c_rad_file = rad_file
-                pyzeo.extension.zeo_readRadTable(c_rad_file)
+                zeo.extension.zeo_readRadTable(c_rad_file)
 
         atmnet = AtomNetwork()
         cdef char* c_filename = filename
@@ -453,10 +453,10 @@ cdef class AtomNetwork:
         cdef char* c_rad_file = rad_file
         if rad_flag:
             if not rad_file:
-                pyzeo.extension.zeo_initializeRadTable()
+                zeo.extension.zeo_initializeRadTable()
             else:       # rad_file is defined
                 c_rad_file = rad_file
-                pyzeo.extension.zeo_readRadTable(c_rad_file)
+                zeo.extension.zeo_readRadTable(c_rad_file)
 
         atmnet = AtomNetwork()
         cdef char* c_filename = filename
@@ -493,10 +493,10 @@ cdef class AtomNetwork:
         print(rad_flag, rad_file)
         if rad_flag:
             #if not rad_file:
-            pyzeo.extension.zeo_initializeRadTable()
+            zeo.extension.zeo_initializeRadTable()
             if rad_file:       # rad_file is defined
                 c_rad_file = rad_file
-                pyzeo.extension.zeo_readRadTable(c_rad_file)
+                zeo.extension.zeo_readRadTable(c_rad_file)
 
         atmnet = AtomNetwork()
         cdef char* c_filename = filename
@@ -532,9 +532,9 @@ cdef class AtomNetwork:
         cdef char* c_rad_file = rad_file
         if rad_flag:
             if not rad_file:
-                pyzeo.extension.zeo_initializeRadTable()
+                zeo.extension.zeo_initializeRadTable()
             else:       # rad_file is defined
-                pyzeo.extension.zeo_readRadTable(c_rad_file)
+                zeo.extension.zeo_readRadTable(c_rad_file)
 
         atmnet = AtomNetwork()
         cdef char* c_filename = filename
@@ -822,7 +822,7 @@ cdef class VoronoiNetwork:
             probeRad:
                 Radius of the probe.
             atmnet:
-                pyzeo.extension.AtomNetwork
+                zeo.extension.AtomNetwork
             shift_x (default=0):
                 Shift the accessible Voronoi network along x-axis
             shift_y (default=0):
@@ -903,7 +903,7 @@ def substitute_atoms(atmnet, substituteSeed, radialFlag):
     is not successful. 
     Args:
         atmnet:
-            pyzeo.netstorage.AtomNetwork
+            zeo.netstorage.AtomNetwork
         substiuteSeed:
             Boolean flag to specify whether the seeded Si atom is 
             substituted or not. Since only 2 configurations are possible 
@@ -987,7 +987,7 @@ def compute_centroid_4cycles(vornet):
     Computes the centroid of the 4 corners of quadrilateral voronoi face
     Args:
         vornet:
-            pyzeo.storage.VoronoiNetwork
+            zeo.storage.VoronoiNetwork
     Returns:
         List of centroids in [(x1,y1,z1),(x2,y2,z2),...] format
     """
@@ -1213,7 +1213,7 @@ def volume(atmnet, channel_radius, probe_radius,
         high_accuracy (Default=False):
             Optional flag to use high accuracy.
         high_accuracy_atmnet (Default=None):
-            pyzeo.netstorage.AtomNetwork
+            zeo.netstorage.AtomNetwork
             Optional high accuracy AtomNetwork. If not given and high_accuracy
             flag is set to True, then it is computed and returned.
         exclude_pockets (Default=True):
@@ -1278,7 +1278,7 @@ def surface_area(atmnet, channel_radius, probe_radius,
         high_accuracy (Default=False):
             Optional flag to use high accuracy.
         high_accuracy_atmnet (Default=None):
-            pyzeo.netstorage.AtomNetwork
+            zeo.netstorage.AtomNetwork
             Optional high accuracy AtomNetwork. If not given and high_accuracy
             flag is set to True, then it is computed and returned.
         exclude_pockets (Default=True):
@@ -1331,7 +1331,7 @@ def high_accuracy_atomnet(atmnet, accuracy_setting="LOW"):
     *** Modifies atmnet argument in place ***
     Args:
         atmnet:
-            pyzeo.netstorage.AtomNetwork
+            zeo.netstorage.AtomNetwork
             Is modified in place.
         accuracy_setting: 
             String specifying the accuracy settings.

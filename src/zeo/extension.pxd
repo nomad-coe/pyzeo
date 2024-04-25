@@ -5,7 +5,7 @@
 # distutils: sources = src/graphstorage.cc
 # distutils: sources = src/network.cc
 """
-Cython extension declaration for pyzeo.
+Cython extension declaration for zeo.
 """
 from libcpp.map cimport map
 from libcpp.string cimport string
