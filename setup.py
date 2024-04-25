@@ -8,14 +8,14 @@ from subprocess import getoutput
 
 
 # Check python version
-if sys.version_info[:2] < (3, 8):
-    raise RuntimeError("Python version >= 3.8 required.")
+if sys.version_info[:2] < (3, 9):
+    raise RuntimeError("Python version >= 3.9 required.")
 
 # The recommendation
 # (https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#distributing-cython-modules)
 # is to distribute Cython compiled source files with the package. This is why
 # the Cython compilation step is disabled by default here.
-USE_CYTHON = False
+USE_CYTHON = True
 ext = '.pyx' if USE_CYTHON else '.cpp'
 language = "c++"
 includedirs = []
@@ -47,9 +47,9 @@ if platform.system() == "Darwin" and using_clang():
 
 extensions = [
     Extension(
-        "pyzeo.extension", 
+        "zeo.extension", 
         sources=[
-            'src/pyzeo/extension'+ext,
+            'src/zeo/extension'+ext,
             'src/area_and_volume.cc',
             'src/channel.cc',
             'src/cluster.cc',
@@ -90,11 +90,11 @@ if USE_CYTHON:
     extensions = cythonize(extensions)
 
 setup(
-    name='pyzeo',
-    version='0.1.4',
+    name='zeo',
+    version='0.2.0',
     description="Python interface to Zeo++",
     long_description="Python interface to Zeo++",
-    url="https://github.com/nomad-coe/pyzeo",
+    url="https://github.com/AntObi/pyzeo",
     author="Lauri Himanen",
     license="",
     classifiers=[
@@ -103,9 +103,10 @@ setup(
         "Programming Language :: Cython",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: 3 :: Only",
         "Intended Audience :: Science/Research",
         "Topic :: Scientific/Engineering"
@@ -117,5 +118,5 @@ setup(
     zip_safe=False,
     ext_modules=extensions,
     keywords="zeo++ porous materials science",
-    python_requires=">=3.8",
+    python_requires=">=3.9",
 )
