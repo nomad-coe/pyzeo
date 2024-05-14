@@ -1,14 +1,18 @@
 # pyzeo
+
 Python wrapper for the [Zeo++ library](http://zeoplusplus.org). Based on the latest released version 0.3.
 
 ## Installation
 
-### pip
+We provide pre-built wheels for most platforms (including Apple Silicon). So in most cases you will want to install the package with `pip`:
+
 ```sh
 pip install pyzeo
 ```
 
-### From source
+### Installing from source
+
+If you wish to install the package directly from the source code, you can do so with:
 
 ```sh
 git clone https://github.com/nomad-coe/pyzeo
@@ -16,19 +20,8 @@ cd pyzeo
 pip install .
 ```
 
-### Cython
-By default the package comes with pre-built Cython binding code. The cython
-wrapper definitions live inside src/pyzeo. These bindings can be recreated
-by first setting `USE_CYTHON=True` in setup.py, and then recreating the bindings
-with:
-
-```sh
-python setup.py build_ext --inplace --force
-```
-
-Remember to disable cython afterwards by setting `USE_CYTHON=False` in setup.py.
-
-### Common issues
+Note that this type of installation will require a separate, platfrom-dependent
+compilation step. These are some common problems you may encounter in the compilation step:
 
 - **fatal error: Python.h: No such file or directory**: The package depends on
    C/C++ extensions that are compiled during the setup. For the compilation to
@@ -49,13 +42,28 @@ Remember to disable cython afterwards by setting `USE_CYTHON=False` in setup.py.
 
        xcode-select --install
 
+### Cython
+
+By default the package comes with pre-built Cython binding code. The cython
+wrapper definitions live inside src/pyzeo. These bindings can be recreated
+by first setting `USE_CYTHON=True` in setup.py, and then recreating the bindings
+with:
+
+```sh
+python setup.py build_ext --inplace --force
+```
+
+Remember to disable cython afterwards by setting `USE_CYTHON=False` in setup.py.
+
 ### License
+
 The python wrapper code is licensed under Apache 2.0. [Zeo++
 library](http://zeoplusplus.org) and [Voro++
 library](https://math.lbl.gov/voro++/) which are included in the source code
 have the following license:
 
 #### Zeo++
+
 > Zeo++ Copyright (c) 2011, The Regents of the University
 > of California, through Lawrence Berkeley National Laboratory (subject
 > to receipt of any required approvals from the U.S. Dept. of Energy).
@@ -102,6 +110,7 @@ have the following license:
 > form.
 
 #### Voro++
+
 > Voro++ Copyright (c) 2008, The Regents of the University of California, through
 > Lawrence Berkeley National Laboratory (subject to receipt of any required
 > approvals from the U.S. Dept. of Energy). All rights reserved.
