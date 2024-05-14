@@ -91,7 +91,7 @@ if USE_CYTHON:
 
 setup(
     name='pyzeo',
-    version='0.1.4',
+    version='0.1.5',
     description="Python interface to Zeo++",
     long_description="Python interface to Zeo++",
     url="https://github.com/nomad-coe/pyzeo",
@@ -106,6 +106,8 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: 3 :: Only",
         "Intended Audience :: Science/Research",
         "Topic :: Scientific/Engineering"
