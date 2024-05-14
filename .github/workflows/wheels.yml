@@ -17,8 +17,8 @@ jobs:
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.18.0
         env:
-          # Build fails for Python 3.12 on ARM MacOS
-          CIBW_SKIP: cp36-*, cp312-macosx_arm64
+          # Build fails for Python 3.12
+          CIBW_SKIP: cp36-*, cp312-*
 
       - uses: actions/upload-artifact@v4
         with:
