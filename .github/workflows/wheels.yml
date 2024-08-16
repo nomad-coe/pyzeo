@@ -15,10 +15,10 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build wheels
-        uses: pypa/cibuildwheel@v2.18.0
+        uses: pypa/cibuildwheel@v2.20.0
         env:
-          # Build fails for CPython 3.12 and for PyPy 3.10
-          CIBW_SKIP: cp312-* pp310-*
+          # Build fails for PyPy
+          CIBW_SKIP: pp* cp313-*
 
       - uses: actions/upload-artifact@v4
         with:
