@@ -17,8 +17,8 @@ jobs:
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.20.0
         env:
-          # Build fails for PyPy 3.10 PyPy3.8
-          CIBW_SKIP: pp38* pp310-*
+          # Build fails for PyPy
+          CIBW_SKIP: pp*
 
       - uses: actions/upload-artifact@v4
         with:
