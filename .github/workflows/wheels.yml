@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build wheels
-        uses: pypa/cibuildwheel@v2.18.0
+        uses: pypa/cibuildwheel@v2.20.0
         env:
           # Build fails for PyPy 3.10 PyPy3.8
           CIBW_SKIP: pp38* pp310-*
