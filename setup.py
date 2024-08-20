@@ -2,7 +2,7 @@ import sys
 import platform
 from distutils.ccompiler import new_compiler
 from distutils.sysconfig import customize_compiler
-from setuptools import setup, find_packages
+from setuptools import setup
 from setuptools.extension import Extension
 from subprocess import getoutput
 
@@ -89,35 +89,5 @@ if USE_CYTHON:
     from Cython.Build import cythonize
     extensions = cythonize(extensions)
 
-setup(
-    name='pyzeo',
-    version='0.1.5',
-    description="Python interface to Zeo++",
-    long_description="Python interface to Zeo++",
-    url="https://github.com/nomad-coe/pyzeo",
-    author="Lauri Himanen",
-    license="",
-    classifiers=[
-        "Development Status :: 3 - Alpha",
-        "Programming Language :: C++",
-        "Programming Language :: Cython",
-        "Programming Language :: Python",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
-        "Programming Language :: Python :: 3.12",
-        "Programming Language :: Python :: 3 :: Only",
-        "Intended Audience :: Science/Research",
-        "Topic :: Scientific/Engineering"
-    ],
-    # In the Cython build guide it is said that zip_safe should be disabled
-    # when building with setuptools
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
-    zip_safe=False,
-    ext_modules=extensions,
-    keywords="zeo++ porous materials science",
-    python_requires=">=3.8",
-)
+if __name__ == "__main__":
+    setup(ext_modules=extensions)

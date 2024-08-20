@@ -4,7 +4,7 @@ Python wrapper for the [Zeo++ library](http://zeoplusplus.org). Based on the lat
 
 ## Installation
 
-We provide pre-built wheels for most platforms (including Apple Silicon). So in most cases you will want to install the package with `pip`:
+We provide pre-built wheels for several platforms (including Apple Silicon). So in most cases you will want to install the package with `pip`:
 
 ```sh
 pip install pyzeo

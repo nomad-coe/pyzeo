@@ -25,13 +25,7 @@
             "-Wall",
             "-ansi",
             "-pedantic",
-            "-O3",
-            "-stdlib=libc++",
-            "-mmacosx-version-min=10.9"
-        ],
-        "extra_link_args": [
-            "-stdlib=libc++",
-            "-mmacosx-version-min=10.7"
+            "-O3"
         ],
         "include_dirs": [
             "src/pyzeo"
@@ -17314,7 +17308,7 @@ static PyObject *__pyx_pf_5pyzeo_9extension_11AtomNetwork_30perform_voronoi_deco
   PyObject *__pyx_v_edge_centers = NULL;
   std::vector<VOR_EDGE>  __pyx_v_vedges;
   std::vector<VOR_NODE>  __pyx_v_vnodes;
-  std::vector<VOR_CELL> ::size_type __pyx_v_i;
+  std::vector<VOR_EDGE> ::size_type __pyx_v_i;
   int __pyx_v_edge_orig;
   int __pyx_v_edge_end;
   VOR_NODE __pyx_v_o_vnode;
@@ -17344,7 +17338,7 @@ static PyObject *__pyx_pf_5pyzeo_9extension_11AtomNetwork_30perform_voronoi_deco
   std::vector<VOR_NODE>  __pyx_t_5;
   std::vector<VOR_EDGE> ::size_type __pyx_t_6;
   std::vector<VOR_EDGE> ::size_type __pyx_t_7;
-  std::vector<VOR_CELL> ::size_type __pyx_t_8;
+  std::vector<VOR_EDGE> ::size_type __pyx_t_8;
   int __pyx_t_9;
   PyObject *__pyx_t_10 = NULL;
   PyObject *__pyx_t_11 = NULL;
@@ -17629,10 +17623,10 @@ static PyObject *__pyx_pf_5pyzeo_9extension_11AtomNetwork_30perform_voronoi_deco
  *             vfaces = vcells[i].faces
  *             for j in range(vfaces.size()):
  */
-  __pyx_t_8 = __pyx_v_vcells.size();
-  __pyx_t_14 = __pyx_t_8;
-  for (__pyx_t_15 = 0; __pyx_t_15 < __pyx_t_14; __pyx_t_15+=1) {
-    __pyx_v_i = __pyx_t_15;
+  __pyx_t_14 = __pyx_v_vcells.size();
+  __pyx_t_15 = __pyx_t_14;
+  for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_15; __pyx_t_6+=1) {
+    __pyx_v_i = __pyx_t_6;
 
     /* "pyzeo/extension.pyx":705
  *         face_node_ids = set()
